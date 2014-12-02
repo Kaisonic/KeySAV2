@@ -41,6 +41,11 @@
             this.RTB_VID = new System.Windows.Forms.RichTextBox();
             this.Tab_SAV = new System.Windows.Forms.TabPage();
             this.GB_Filter = new System.Windows.Forms.GroupBox();
+            this.RAD_GenderAny = new System.Windows.Forms.RadioButton();
+            this.RAD_Female = new System.Windows.Forms.RadioButton();
+            this.RAD_Male = new System.Windows.Forms.RadioButton();
+            this.CHK_IVsAny = new System.Windows.Forms.CheckBox();
+            this.L_IVsMiss = new System.Windows.Forms.Label();
             this.CHK_Egg = new System.Windows.Forms.CheckBox();
             this.CHK_IV_Spe = new System.Windows.Forms.CheckBox();
             this.CHK_IV_SpDef = new System.Windows.Forms.CheckBox();
@@ -99,11 +104,7 @@
             this.RTB_OPTIONS = new System.Windows.Forms.RichTextBox();
             this.CB_MainLanguage = new System.Windows.Forms.ComboBox();
             this.CB_Game = new System.Windows.Forms.ComboBox();
-            this.L_IVsMiss = new System.Windows.Forms.Label();
-            this.CHK_IVsAny = new System.Windows.Forms.CheckBox();
-            this.RAD_Male = new System.Windows.Forms.RadioButton();
-            this.RAD_Female = new System.Windows.Forms.RadioButton();
-            this.RAD_GenderAny = new System.Windows.Forms.RadioButton();
+            this.CCB_Natures = new CheckComboBox.CheckedComboBox();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -255,6 +256,7 @@
             // 
             // GB_Filter
             // 
+            this.GB_Filter.Controls.Add(this.CCB_Natures);
             this.GB_Filter.Controls.Add(this.RAD_GenderAny);
             this.GB_Filter.Controls.Add(this.RAD_Female);
             this.GB_Filter.Controls.Add(this.RAD_Male);
@@ -285,6 +287,62 @@
             this.GB_Filter.TabIndex = 31;
             this.GB_Filter.TabStop = false;
             this.GB_Filter.Text = "Filtering";
+            // 
+            // RAD_GenderAny
+            // 
+            this.RAD_GenderAny.AutoSize = true;
+            this.RAD_GenderAny.Location = new System.Drawing.Point(82, 167);
+            this.RAD_GenderAny.Name = "RAD_GenderAny";
+            this.RAD_GenderAny.Size = new System.Drawing.Size(43, 17);
+            this.RAD_GenderAny.TabIndex = 26;
+            this.RAD_GenderAny.TabStop = true;
+            this.RAD_GenderAny.Text = "Any";
+            this.RAD_GenderAny.UseVisualStyleBackColor = true;
+            // 
+            // RAD_Female
+            // 
+            this.RAD_Female.AutoSize = true;
+            this.RAD_Female.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RAD_Female.Location = new System.Drawing.Point(45, 167);
+            this.RAD_Female.Name = "RAD_Female";
+            this.RAD_Female.Size = new System.Drawing.Size(31, 17);
+            this.RAD_Female.TabIndex = 25;
+            this.RAD_Female.TabStop = true;
+            this.RAD_Female.Text = "♀";
+            this.RAD_Female.UseVisualStyleBackColor = true;
+            // 
+            // RAD_Male
+            // 
+            this.RAD_Male.AutoSize = true;
+            this.RAD_Male.Location = new System.Drawing.Point(6, 167);
+            this.RAD_Male.Name = "RAD_Male";
+            this.RAD_Male.Size = new System.Drawing.Size(33, 17);
+            this.RAD_Male.TabIndex = 24;
+            this.RAD_Male.TabStop = true;
+            this.RAD_Male.Text = "♂";
+            this.RAD_Male.UseVisualStyleBackColor = true;
+            // 
+            // CHK_IVsAny
+            // 
+            this.CHK_IVsAny.AutoSize = true;
+            this.CHK_IVsAny.Checked = true;
+            this.CHK_IVsAny.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_IVsAny.Location = new System.Drawing.Point(6, 98);
+            this.CHK_IVsAny.Name = "CHK_IVsAny";
+            this.CHK_IVsAny.Size = new System.Drawing.Size(44, 17);
+            this.CHK_IVsAny.TabIndex = 23;
+            this.CHK_IVsAny.Text = "Any";
+            this.CHK_IVsAny.UseVisualStyleBackColor = true;
+            this.CHK_IVsAny.CheckStateChanged += new System.EventHandler(this.toggleIVsAny);
+            // 
+            // L_IVsMiss
+            // 
+            this.L_IVsMiss.AutoSize = true;
+            this.L_IVsMiss.Location = new System.Drawing.Point(3, 71);
+            this.L_IVsMiss.Name = "L_IVsMiss";
+            this.L_IVsMiss.Size = new System.Drawing.Size(103, 13);
+            this.L_IVsMiss.TabIndex = 22;
+            this.L_IVsMiss.Text = "These IVs may miss:";
             // 
             // CHK_Egg
             // 
@@ -473,24 +531,6 @@
             this.CB_HP_Type.BackColor = System.Drawing.SystemColors.Window;
             this.CB_HP_Type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_HP_Type.FormattingEnabled = true;
-            this.CB_HP_Type.Items.AddRange(new object[] {
-            "Any",
-            "Fighting",
-            "Flying",
-            "Poison",
-            "Ground",
-            "Rock",
-            "Bug",
-            "Ghost",
-            "Steel",
-            "Fire",
-            "Water",
-            "Grass",
-            "Electric",
-            "Psychic",
-            "Ice",
-            "Dragon",
-            "Dark"});
             this.CB_HP_Type.Location = new System.Drawing.Point(195, 14);
             this.CB_HP_Type.Name = "CB_HP_Type";
             this.CB_HP_Type.Size = new System.Drawing.Size(115, 21);
@@ -1015,61 +1055,19 @@
             this.CB_Game.TabIndex = 2;
             this.CB_Game.SelectedIndexChanged += new System.EventHandler(this.changedetectgame);
             // 
-            // L_IVsMiss
+            // CCB_Natures
             // 
-            this.L_IVsMiss.AutoSize = true;
-            this.L_IVsMiss.Location = new System.Drawing.Point(3, 71);
-            this.L_IVsMiss.Name = "L_IVsMiss";
-            this.L_IVsMiss.Size = new System.Drawing.Size(103, 13);
-            this.L_IVsMiss.TabIndex = 22;
-            this.L_IVsMiss.Text = "These IVs may miss:";
-            // 
-            // CHK_IVsAny
-            // 
-            this.CHK_IVsAny.AutoSize = true;
-            this.CHK_IVsAny.Checked = true;
-            this.CHK_IVsAny.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_IVsAny.Location = new System.Drawing.Point(6, 98);
-            this.CHK_IVsAny.Name = "CHK_IVsAny";
-            this.CHK_IVsAny.Size = new System.Drawing.Size(44, 17);
-            this.CHK_IVsAny.TabIndex = 23;
-            this.CHK_IVsAny.Text = "Any";
-            this.CHK_IVsAny.UseVisualStyleBackColor = true;
-            this.CHK_IVsAny.CheckStateChanged += new System.EventHandler(this.toggleIVsAny);
-            // 
-            // RAD_Male
-            // 
-            this.RAD_Male.AutoSize = true;
-            this.RAD_Male.Location = new System.Drawing.Point(6, 167);
-            this.RAD_Male.Name = "RAD_Male";
-            this.RAD_Male.Size = new System.Drawing.Size(33, 17);
-            this.RAD_Male.TabIndex = 24;
-            this.RAD_Male.TabStop = true;
-            this.RAD_Male.Text = "♂";
-            this.RAD_Male.UseVisualStyleBackColor = true;
-            // 
-            // RAD_Female
-            // 
-            this.RAD_Female.AutoSize = true;
-            this.RAD_Female.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.RAD_Female.Location = new System.Drawing.Point(45, 167);
-            this.RAD_Female.Name = "RAD_Female";
-            this.RAD_Female.Size = new System.Drawing.Size(31, 17);
-            this.RAD_Female.TabIndex = 25;
-            this.RAD_Female.TabStop = true;
-            this.RAD_Female.Text = "♀";
-            this.RAD_Female.UseVisualStyleBackColor = true;
-            // 
-            // RAD_GenderAny
-            // 
-            this.RAD_GenderAny.AutoSize = true;
-            this.RAD_GenderAny.Location = new System.Drawing.Point(82, 167);
-            this.RAD_GenderAny.Name = "RAD_GenderAny";
-            this.RAD_GenderAny.Size = new System.Drawing.Size(43, 17);
-            this.RAD_GenderAny.TabIndex = 26;
-            this.RAD_GenderAny.TabStop = true;
-            this.RAD_GenderAny.Text = "Any";
-            this.RAD_GenderAny.UseVisualStyleBackColor = true;
+            this.CCB_Natures.CheckOnClick = true;
+            this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.CCB_Natures.DropDownHeight = 1;
+            this.CCB_Natures.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CCB_Natures.FormattingEnabled = true;
+            this.CCB_Natures.IntegralHeight = false;
+            this.CCB_Natures.Location = new System.Drawing.Point(135, 167);
+            this.CCB_Natures.Name = "CCB_Natures";
+            this.CCB_Natures.Size = new System.Drawing.Size(175, 21);
+            this.CCB_Natures.TabIndex = 27;
+            this.CCB_Natures.ValueSeparator = ", ";
             // 
             // Form1
             // 
@@ -1178,6 +1176,7 @@
         private System.Windows.Forms.RadioButton RAD_Male;
         private System.Windows.Forms.RadioButton RAD_Female;
         private System.Windows.Forms.RadioButton RAD_GenderAny;
+        private CheckComboBox.CheckedComboBox CCB_Natures;
 
     }
 }

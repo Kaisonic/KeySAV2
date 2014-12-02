@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Timers;
+using CheckComboBox;
 
 namespace KeySAV2
 {
@@ -42,6 +43,7 @@ namespace KeySAV2
             CB_HP_Type.SelectedIndex = 0;
             CB_No_IVs.SelectedIndex = 0;
             toggleFilter(null, null);
+            CCB_Natures.DisplayMember = "Name";
             loadINI();
             this.FormClosing += onFormClose;
             InitializeStrings();
@@ -2035,6 +2037,18 @@ namespace KeySAV2
             vivlist[0] = formlist[666];
             for (int i = 1; i < 20; i++)
                 vivlist[i] = formlist[835+i];
+
+            // Populate natures in filters
+            CCB_Natures.Items.Clear();
+            CCB_Natures.Items.Add(new CCBoxItem("All", 0));
+            for (byte i = 0; i < natures.Length;)
+                CCB_Natures.Items.Add(new CCBoxItem(natures[i], ++i));
+
+            // Populate HP types in filters
+            CB_HP_Type.Items.Clear();
+            CB_HP_Type.Items.Add("Any");
+            foreach (string type in types)
+                CB_HP_Type.Items.Add(type);
         }
 
         // Structs
