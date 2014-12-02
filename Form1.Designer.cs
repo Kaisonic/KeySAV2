@@ -52,8 +52,6 @@
             this.CHK_Hatches_Shiny_For = new System.Windows.Forms.CheckBox();
             this.CHK_Hatches_Shiny_For_Me = new System.Windows.Forms.CheckBox();
             this.CHK_Is_Shiny = new System.Windows.Forms.CheckBox();
-            this.RAD_IVs = new System.Windows.Forms.RadioButton();
-            this.RAD_IVs_Miss = new System.Windows.Forms.RadioButton();
             this.CHK_Special_Attacker = new System.Windows.Forms.CheckBox();
             this.CHK_Trickroom = new System.Windows.Forms.CheckBox();
             this.CB_No_IVs = new System.Windows.Forms.ComboBox();
@@ -82,6 +80,8 @@
             this.CHK_Split = new System.Windows.Forms.CheckBox();
             this.CHK_BoldIVs = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TB_File3 = new System.Windows.Forms.TextBox();
+            this.B_File3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.B_BreakFolder = new System.Windows.Forms.Button();
             this.TB_Folder = new System.Windows.Forms.TextBox();
@@ -99,8 +99,8 @@
             this.RTB_OPTIONS = new System.Windows.Forms.RichTextBox();
             this.CB_MainLanguage = new System.Windows.Forms.ComboBox();
             this.CB_Game = new System.Windows.Forms.ComboBox();
-            this.B_File3 = new System.Windows.Forms.Button();
-            this.TB_File3 = new System.Windows.Forms.TextBox();
+            this.L_IVsMiss = new System.Windows.Forms.Label();
+            this.CHK_IVsAny = new System.Windows.Forms.CheckBox();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -252,6 +252,8 @@
             // 
             // GB_Filter
             // 
+            this.GB_Filter.Controls.Add(this.CHK_IVsAny);
+            this.GB_Filter.Controls.Add(this.L_IVsMiss);
             this.GB_Filter.Controls.Add(this.CHK_Egg);
             this.GB_Filter.Controls.Add(this.CHK_IV_Spe);
             this.GB_Filter.Controls.Add(this.CHK_IV_SpDef);
@@ -263,8 +265,6 @@
             this.GB_Filter.Controls.Add(this.CHK_Hatches_Shiny_For);
             this.GB_Filter.Controls.Add(this.CHK_Hatches_Shiny_For_Me);
             this.GB_Filter.Controls.Add(this.CHK_Is_Shiny);
-            this.GB_Filter.Controls.Add(this.RAD_IVs);
-            this.GB_Filter.Controls.Add(this.RAD_IVs_Miss);
             this.GB_Filter.Controls.Add(this.CHK_Special_Attacker);
             this.GB_Filter.Controls.Add(this.CHK_Trickroom);
             this.GB_Filter.Controls.Add(this.CB_No_IVs);
@@ -293,62 +293,80 @@
             // CHK_IV_Spe
             // 
             this.CHK_IV_Spe.AutoSize = true;
+            this.CHK_IV_Spe.Checked = true;
+            this.CHK_IV_Spe.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_IV_Spe.Location = new System.Drawing.Point(209, 98);
             this.CHK_IV_Spe.Name = "CHK_IV_Spe";
             this.CHK_IV_Spe.Size = new System.Drawing.Size(45, 17);
             this.CHK_IV_Spe.TabIndex = 20;
             this.CHK_IV_Spe.Text = "Spe";
             this.CHK_IV_Spe.UseVisualStyleBackColor = true;
+            this.CHK_IV_Spe.CheckedChanged += new System.EventHandler(this.toggleIVAll);
             // 
             // CHK_IV_SpDef
             // 
             this.CHK_IV_SpDef.AutoSize = true;
+            this.CHK_IV_SpDef.Checked = true;
+            this.CHK_IV_SpDef.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_IV_SpDef.Location = new System.Drawing.Point(209, 84);
             this.CHK_IV_SpDef.Name = "CHK_IV_SpDef";
             this.CHK_IV_SpDef.Size = new System.Drawing.Size(62, 17);
             this.CHK_IV_SpDef.TabIndex = 19;
             this.CHK_IV_SpDef.Text = "Sp. Def";
             this.CHK_IV_SpDef.UseVisualStyleBackColor = true;
+            this.CHK_IV_SpDef.CheckedChanged += new System.EventHandler(this.toggleIVAll);
             // 
             // CHK_IV_SpAtk
             // 
             this.CHK_IV_SpAtk.AutoSize = true;
+            this.CHK_IV_SpAtk.Checked = true;
+            this.CHK_IV_SpAtk.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_IV_SpAtk.Location = new System.Drawing.Point(209, 70);
             this.CHK_IV_SpAtk.Name = "CHK_IV_SpAtk";
             this.CHK_IV_SpAtk.Size = new System.Drawing.Size(61, 17);
             this.CHK_IV_SpAtk.TabIndex = 18;
             this.CHK_IV_SpAtk.Text = "Sp. Atk";
             this.CHK_IV_SpAtk.UseVisualStyleBackColor = true;
+            this.CHK_IV_SpAtk.CheckedChanged += new System.EventHandler(this.toggleIVAll);
             // 
             // CHK_IV_Def
             // 
             this.CHK_IV_Def.AutoSize = true;
+            this.CHK_IV_Def.Checked = true;
+            this.CHK_IV_Def.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_IV_Def.Location = new System.Drawing.Point(135, 98);
             this.CHK_IV_Def.Name = "CHK_IV_Def";
             this.CHK_IV_Def.Size = new System.Drawing.Size(43, 17);
             this.CHK_IV_Def.TabIndex = 17;
             this.CHK_IV_Def.Text = "Def";
             this.CHK_IV_Def.UseVisualStyleBackColor = true;
+            this.CHK_IV_Def.CheckedChanged += new System.EventHandler(this.toggleIVAll);
             // 
             // CHK_IV_Atk
             // 
             this.CHK_IV_Atk.AutoSize = true;
+            this.CHK_IV_Atk.Checked = true;
+            this.CHK_IV_Atk.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_IV_Atk.Location = new System.Drawing.Point(135, 84);
             this.CHK_IV_Atk.Name = "CHK_IV_Atk";
             this.CHK_IV_Atk.Size = new System.Drawing.Size(42, 17);
             this.CHK_IV_Atk.TabIndex = 16;
             this.CHK_IV_Atk.Text = "Atk";
             this.CHK_IV_Atk.UseVisualStyleBackColor = true;
+            this.CHK_IV_Atk.CheckedChanged += new System.EventHandler(this.toggleIVAll);
             // 
             // CHK_IV_HP
             // 
             this.CHK_IV_HP.AutoSize = true;
+            this.CHK_IV_HP.Checked = true;
+            this.CHK_IV_HP.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_IV_HP.Location = new System.Drawing.Point(135, 70);
             this.CHK_IV_HP.Name = "CHK_IV_HP";
             this.CHK_IV_HP.Size = new System.Drawing.Size(41, 17);
             this.CHK_IV_HP.TabIndex = 15;
             this.CHK_IV_HP.Text = "HP";
             this.CHK_IV_HP.UseVisualStyleBackColor = true;
+            this.CHK_IV_HP.CheckedChanged += new System.EventHandler(this.toggleIVAll);
             // 
             // TB_SVs
             // 
@@ -386,28 +404,6 @@
             this.CHK_Is_Shiny.TabIndex = 11;
             this.CHK_Is_Shiny.Text = "Shinies only";
             this.CHK_Is_Shiny.UseVisualStyleBackColor = true;
-            // 
-            // RAD_IVs
-            // 
-            this.RAD_IVs.AutoSize = true;
-            this.RAD_IVs.Location = new System.Drawing.Point(6, 93);
-            this.RAD_IVs.Name = "RAD_IVs";
-            this.RAD_IVs.Size = new System.Drawing.Size(96, 17);
-            this.RAD_IVs.TabIndex = 10;
-            this.RAD_IVs.Text = "IVs musn\'t miss";
-            this.RAD_IVs.UseVisualStyleBackColor = true;
-            // 
-            // RAD_IVs_Miss
-            // 
-            this.RAD_IVs_Miss.AutoSize = true;
-            this.RAD_IVs_Miss.Checked = true;
-            this.RAD_IVs_Miss.Location = new System.Drawing.Point(6, 70);
-            this.RAD_IVs_Miss.Name = "RAD_IVs_Miss";
-            this.RAD_IVs_Miss.Size = new System.Drawing.Size(85, 17);
-            this.RAD_IVs_Miss.TabIndex = 9;
-            this.RAD_IVs_Miss.TabStop = true;
-            this.RAD_IVs_Miss.Text = "IVs may miss";
-            this.RAD_IVs_Miss.UseVisualStyleBackColor = true;
             // 
             // CHK_Special_Attacker
             // 
@@ -449,7 +445,7 @@
             // L_No_IVs
             // 
             this.L_No_IVs.AutoSize = true;
-            this.L_No_IVs.Location = new System.Drawing.Point(1, 42);
+            this.L_No_IVs.Location = new System.Drawing.Point(3, 42);
             this.L_No_IVs.Name = "L_No_IVs";
             this.L_No_IVs.Size = new System.Drawing.Size(90, 13);
             this.L_No_IVs.TabIndex = 3;
@@ -793,6 +789,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Breaker";
             // 
+            // TB_File3
+            // 
+            this.TB_File3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_File3.Location = new System.Drawing.Point(85, 101);
+            this.TB_File3.Name = "TB_File3";
+            this.TB_File3.ReadOnly = true;
+            this.TB_File3.Size = new System.Drawing.Size(229, 20);
+            this.TB_File3.TabIndex = 34;
+            // 
+            // B_File3
+            // 
+            this.B_File3.Location = new System.Drawing.Point(5, 100);
+            this.B_File3.Name = "B_File3";
+            this.B_File3.Size = new System.Drawing.Size(75, 23);
+            this.B_File3.TabIndex = 33;
+            this.B_File3.Text = "File 3";
+            this.B_File3.UseVisualStyleBackColor = true;
+            this.B_File3.Click += new System.EventHandler(this.loadBreak3);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -991,25 +1007,27 @@
             this.CB_Game.TabIndex = 2;
             this.CB_Game.SelectedIndexChanged += new System.EventHandler(this.changedetectgame);
             // 
-            // B_File3
+            // L_IVsMiss
             // 
-            this.B_File3.Location = new System.Drawing.Point(5, 100);
-            this.B_File3.Name = "B_File3";
-            this.B_File3.Size = new System.Drawing.Size(75, 23);
-            this.B_File3.TabIndex = 33;
-            this.B_File3.Text = "File 3";
-            this.B_File3.UseVisualStyleBackColor = true;
-            this.B_File3.Click += new System.EventHandler(this.loadBreak3);
+            this.L_IVsMiss.AutoSize = true;
+            this.L_IVsMiss.Location = new System.Drawing.Point(3, 71);
+            this.L_IVsMiss.Name = "L_IVsMiss";
+            this.L_IVsMiss.Size = new System.Drawing.Size(103, 13);
+            this.L_IVsMiss.TabIndex = 22;
+            this.L_IVsMiss.Text = "These IVs may miss:";
             // 
-            // TB_File3
+            // CHK_IVsAny
             // 
-            this.TB_File3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_File3.Location = new System.Drawing.Point(85, 101);
-            this.TB_File3.Name = "TB_File3";
-            this.TB_File3.ReadOnly = true;
-            this.TB_File3.Size = new System.Drawing.Size(229, 20);
-            this.TB_File3.TabIndex = 34;
+            this.CHK_IVsAny.AutoSize = true;
+            this.CHK_IVsAny.Checked = true;
+            this.CHK_IVsAny.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_IVsAny.Location = new System.Drawing.Point(6, 98);
+            this.CHK_IVsAny.Name = "CHK_IVsAny";
+            this.CHK_IVsAny.Size = new System.Drawing.Size(44, 17);
+            this.CHK_IVsAny.TabIndex = 23;
+            this.CHK_IVsAny.Text = "Any";
+            this.CHK_IVsAny.UseVisualStyleBackColor = true;
+            this.CHK_IVsAny.CheckStateChanged += new System.EventHandler(this.toggleIVsAny);
             // 
             // Form1
             // 
@@ -1100,8 +1118,6 @@
         private System.Windows.Forms.ComboBox CB_No_IVs;
         private System.Windows.Forms.Label L_No_IVs;
         private System.Windows.Forms.CheckBox CHK_Special_Attacker;
-        private System.Windows.Forms.RadioButton RAD_IVs;
-        private System.Windows.Forms.RadioButton RAD_IVs_Miss;
         private System.Windows.Forms.TextBox TB_SVs;
         private System.Windows.Forms.CheckBox CHK_Hatches_Shiny_For;
         private System.Windows.Forms.CheckBox CHK_Hatches_Shiny_For_Me;
@@ -1115,6 +1131,8 @@
         private System.Windows.Forms.CheckBox CHK_Egg;
         private System.Windows.Forms.TextBox TB_File3;
         private System.Windows.Forms.Button B_File3;
+        private System.Windows.Forms.Label L_IVsMiss;
+        private System.Windows.Forms.CheckBox CHK_IVsAny;
 
     }
 }

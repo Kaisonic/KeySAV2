@@ -130,6 +130,9 @@ namespace KeySAV2
         public byte[] video1 = new Byte[28256];
         public byte[] video2 = new Byte[28256];
 
+        // UI Usage
+        private bool updateIVCheckboxes = true;
+
         #endregion
 
         // Utility
@@ -775,7 +778,7 @@ namespace KeySAV2
 
             bool statisfiesFilters = true;
 
-            while (CHK_Enable_Filtering.Checked)
+            /*while (CHK_Enable_Filtering.Checked)
             {
                 if (CHK_Egg.Checked && !data.isegg) { statisfiesFilters = false; break; }
                 bool checkHp = false;
@@ -811,7 +814,7 @@ namespace KeySAV2
                 }
 
                 break;
-            }
+            }*/
 
             if (statisfiesFilters)
             {
@@ -1150,7 +1153,7 @@ namespace KeySAV2
         private void toggleFilter(object sender, EventArgs e)
         {
             CB_HP_Type.Enabled = CB_No_IVs.Enabled = CHK_Trickroom.Enabled =
-            CHK_Special_Attacker.Enabled = RAD_IVs_Miss.Enabled = RAD_IVs.Enabled =
+                CHK_Special_Attacker.Enabled = CHK_IVsAny.Enabled =
             CHK_IV_HP.Enabled = CHK_IV_Atk.Enabled = CHK_IV_Def.Enabled =
             CHK_IV_SpAtk.Enabled = CHK_IV_SpDef.Enabled = CHK_IV_Spe.Enabled =
             CHK_Is_Shiny.Enabled = CHK_Hatches_Shiny_For_Me.Enabled =
@@ -2250,6 +2253,32 @@ namespace KeySAV2
                 openSAV_(path, ref savefile, ref savkeypath, false);
             }
             MessageBox.Show("Processed all files in folder...");
+        }
+
+        private void toggleIVAll(object sender, EventArgs e)
+        {
+            if(updateIVCheckboxes)
+                switch ((new [] {CHK_IV_HP, CHK_IV_Atk, CHK_IV_Def, CHK_IV_SpAtk, CHK_IV_SpDef, CHK_IV_Spe}).Count(c => c.Checked))
+                {
+                    case 0:
+                        CHK_IVsAny.CheckState = CheckState.Unchecked;
+                        break;
+                    case 6:
+                        CHK_IVsAny.CheckState = CheckState.Checked;
+                        break;
+                    default:
+                        CHK_IVsAny.CheckState = CheckState.Indeterminate;
+                        break;
+                }
+        }
+
+        private void toggleIVsAny(object sender, EventArgs e)
+        {
+            updateIVCheckboxes = false;
+            if (CHK_IVsAny.CheckState != CheckState.Indeterminate)
+                foreach (var box in new [] {CHK_IV_HP, CHK_IV_Atk, CHK_IV_Def, CHK_IV_SpAtk, CHK_IV_SpDef, CHK_IV_Spe})
+                    box.Checked = CHK_IVsAny.Checked;
+            updateIVCheckboxes = true;
         }
     }
 }
