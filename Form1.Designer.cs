@@ -101,6 +101,9 @@
             this.CB_Game = new System.Windows.Forms.ComboBox();
             this.L_IVsMiss = new System.Windows.Forms.Label();
             this.CHK_IVsAny = new System.Windows.Forms.CheckBox();
+            this.RAD_Male = new System.Windows.Forms.RadioButton();
+            this.RAD_Female = new System.Windows.Forms.RadioButton();
+            this.RAD_GenderAny = new System.Windows.Forms.RadioButton();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -252,6 +255,9 @@
             // 
             // GB_Filter
             // 
+            this.GB_Filter.Controls.Add(this.RAD_GenderAny);
+            this.GB_Filter.Controls.Add(this.RAD_Female);
+            this.GB_Filter.Controls.Add(this.RAD_Male);
             this.GB_Filter.Controls.Add(this.CHK_IVsAny);
             this.GB_Filter.Controls.Add(this.L_IVsMiss);
             this.GB_Filter.Controls.Add(this.CHK_Egg);
@@ -275,7 +281,7 @@
             this.GB_Filter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.GB_Filter.Location = new System.Drawing.Point(3, 77);
             this.GB_Filter.Name = "GB_Filter";
-            this.GB_Filter.Size = new System.Drawing.Size(316, 166);
+            this.GB_Filter.Size = new System.Drawing.Size(316, 196);
             this.GB_Filter.TabIndex = 31;
             this.GB_Filter.TabStop = false;
             this.GB_Filter.Text = "Filtering";
@@ -414,6 +420,7 @@
             this.CHK_Special_Attacker.TabIndex = 6;
             this.CHK_Special_Attacker.Text = "Special Attacker";
             this.CHK_Special_Attacker.UseVisualStyleBackColor = true;
+            this.CHK_Special_Attacker.CheckedChanged += new System.EventHandler(this.toggleSpecialAttacker);
             // 
             // CHK_Trickroom
             // 
@@ -424,6 +431,7 @@
             this.CHK_Trickroom.TabIndex = 5;
             this.CHK_Trickroom.Text = "Trickroom";
             this.CHK_Trickroom.UseVisualStyleBackColor = true;
+            this.CHK_Trickroom.CheckedChanged += new System.EventHandler(this.toggleTrickroom);
             // 
             // CB_No_IVs
             // 
@@ -610,10 +618,10 @@
             this.RTB_SAV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RTB_SAV.Location = new System.Drawing.Point(0, 249);
+            this.RTB_SAV.Location = new System.Drawing.Point(0, 279);
             this.RTB_SAV.Name = "RTB_SAV";
             this.RTB_SAV.ReadOnly = true;
-            this.RTB_SAV.Size = new System.Drawing.Size(320, 170);
+            this.RTB_SAV.Size = new System.Drawing.Size(320, 140);
             this.RTB_SAV.TabIndex = 30;
             this.RTB_SAV.Text = "";
             this.RTB_SAV.WordWrap = false;
@@ -1029,6 +1037,40 @@
             this.CHK_IVsAny.UseVisualStyleBackColor = true;
             this.CHK_IVsAny.CheckStateChanged += new System.EventHandler(this.toggleIVsAny);
             // 
+            // RAD_Male
+            // 
+            this.RAD_Male.AutoSize = true;
+            this.RAD_Male.Location = new System.Drawing.Point(6, 167);
+            this.RAD_Male.Name = "RAD_Male";
+            this.RAD_Male.Size = new System.Drawing.Size(33, 17);
+            this.RAD_Male.TabIndex = 24;
+            this.RAD_Male.TabStop = true;
+            this.RAD_Male.Text = "♂";
+            this.RAD_Male.UseVisualStyleBackColor = true;
+            // 
+            // RAD_Female
+            // 
+            this.RAD_Female.AutoSize = true;
+            this.RAD_Female.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RAD_Female.Location = new System.Drawing.Point(45, 167);
+            this.RAD_Female.Name = "RAD_Female";
+            this.RAD_Female.Size = new System.Drawing.Size(31, 17);
+            this.RAD_Female.TabIndex = 25;
+            this.RAD_Female.TabStop = true;
+            this.RAD_Female.Text = "♀";
+            this.RAD_Female.UseVisualStyleBackColor = true;
+            // 
+            // RAD_GenderAny
+            // 
+            this.RAD_GenderAny.AutoSize = true;
+            this.RAD_GenderAny.Location = new System.Drawing.Point(82, 167);
+            this.RAD_GenderAny.Name = "RAD_GenderAny";
+            this.RAD_GenderAny.Size = new System.Drawing.Size(43, 17);
+            this.RAD_GenderAny.TabIndex = 26;
+            this.RAD_GenderAny.TabStop = true;
+            this.RAD_GenderAny.Text = "Any";
+            this.RAD_GenderAny.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -1133,6 +1175,9 @@
         private System.Windows.Forms.Button B_File3;
         private System.Windows.Forms.Label L_IVsMiss;
         private System.Windows.Forms.CheckBox CHK_IVsAny;
+        private System.Windows.Forms.RadioButton RAD_Male;
+        private System.Windows.Forms.RadioButton RAD_Female;
+        private System.Windows.Forms.RadioButton RAD_GenderAny;
 
     }
 }

@@ -1153,12 +1153,13 @@ namespace KeySAV2
         private void toggleFilter(object sender, EventArgs e)
         {
             CB_HP_Type.Enabled = CB_No_IVs.Enabled = CHK_Trickroom.Enabled =
-                CHK_Special_Attacker.Enabled = CHK_IVsAny.Enabled =
+            CHK_Special_Attacker.Enabled = CHK_IVsAny.Enabled =
             CHK_IV_HP.Enabled = CHK_IV_Atk.Enabled = CHK_IV_Def.Enabled =
             CHK_IV_SpAtk.Enabled = CHK_IV_SpDef.Enabled = CHK_IV_Spe.Enabled =
             CHK_Is_Shiny.Enabled = CHK_Hatches_Shiny_For_Me.Enabled =
             CHK_Hatches_Shiny_For.Enabled = TB_SVs.Enabled =
-            CHK_Egg.Enabled = CHK_Enable_Filtering.Checked;
+            CHK_Egg.Enabled = RAD_Male.Enabled = RAD_Female.Enabled =
+            RAD_GenderAny.Enabled = CHK_Enable_Filtering.Checked;
         }
 
         // File Keystream Breaking
@@ -2279,6 +2280,16 @@ namespace KeySAV2
                 foreach (var box in new [] {CHK_IV_HP, CHK_IV_Atk, CHK_IV_Def, CHK_IV_SpAtk, CHK_IV_SpDef, CHK_IV_Spe})
                     box.Checked = CHK_IVsAny.Checked;
             updateIVCheckboxes = true;
+        }
+
+        private void toggleTrickroom(object sender, EventArgs e)
+        {
+            CHK_IV_Spe.Text = (CHK_Trickroom.Checked ? "Spe (= 0)" : "Spe");
+        }
+
+        private void toggleSpecialAttacker(object sender, EventArgs e)
+        {
+            CHK_IV_Atk.Text = (CHK_Special_Attacker.Checked ? "Atk (= 0)" : "Atk");
         }
     }
 }
