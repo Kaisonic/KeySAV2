@@ -17,6 +17,10 @@ http://projectpokemon.org/forums/showthread.php?41752
 
 Changelog
 =========
+KeySAV2 1.3.2
+- Added "Egg Received" and "Met/Hatched" columns
+- Fixed legacy break help box
+
 KeySAV2 1.3.1
 - Added option to use legacy save-twice file-breaking behavior (click "What's this?" in the app for more info)
 
