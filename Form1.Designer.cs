@@ -148,6 +148,7 @@
             // 
             // B_BKP_BV
             // 
+            this.B_BKP_BV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_BKP_BV.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.B_BKP_BV.Location = new System.Drawing.Point(233, 51);
             this.B_BKP_BV.Name = "B_BKP_BV";
@@ -179,6 +180,7 @@
             // 
             this.CB_Team.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Team.Enabled = false;
+            this.CB_Team.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CB_Team.FormattingEnabled = true;
             this.CB_Team.Items.AddRange(new object[] {
             "My Team",
@@ -191,6 +193,7 @@
             // B_GoBV
             // 
             this.B_GoBV.Enabled = false;
+            this.B_GoBV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_GoBV.Location = new System.Drawing.Point(7, 48);
             this.B_GoBV.Name = "B_GoBV";
             this.B_GoBV.Size = new System.Drawing.Size(33, 23);
@@ -201,6 +204,7 @@
             // 
             // B_OpenVideo
             // 
+            this.B_OpenVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_OpenVideo.Location = new System.Drawing.Point(7, 8);
             this.B_OpenVideo.Name = "B_OpenVideo";
             this.B_OpenVideo.Size = new System.Drawing.Size(75, 23);
@@ -283,7 +287,7 @@
             this.GB_Filter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.GB_Filter.Location = new System.Drawing.Point(3, 77);
             this.GB_Filter.Name = "GB_Filter";
-            this.GB_Filter.Size = new System.Drawing.Size(316, 196);
+            this.GB_Filter.Size = new System.Drawing.Size(316, 228);
             this.GB_Filter.TabIndex = 31;
             this.GB_Filter.TabStop = false;
             this.GB_Filter.Text = "Filtering";
@@ -291,7 +295,8 @@
             // RAD_GenderAny
             // 
             this.RAD_GenderAny.AutoSize = true;
-            this.RAD_GenderAny.Location = new System.Drawing.Point(82, 167);
+            this.RAD_GenderAny.Checked = true;
+            this.RAD_GenderAny.Location = new System.Drawing.Point(82, 199);
             this.RAD_GenderAny.Name = "RAD_GenderAny";
             this.RAD_GenderAny.Size = new System.Drawing.Size(43, 17);
             this.RAD_GenderAny.TabIndex = 26;
@@ -303,31 +308,27 @@
             // 
             this.RAD_Female.AutoSize = true;
             this.RAD_Female.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.RAD_Female.Location = new System.Drawing.Point(45, 167);
+            this.RAD_Female.Location = new System.Drawing.Point(45, 199);
             this.RAD_Female.Name = "RAD_Female";
             this.RAD_Female.Size = new System.Drawing.Size(31, 17);
             this.RAD_Female.TabIndex = 25;
-            this.RAD_Female.TabStop = true;
             this.RAD_Female.Text = "♀";
             this.RAD_Female.UseVisualStyleBackColor = true;
             // 
             // RAD_Male
             // 
             this.RAD_Male.AutoSize = true;
-            this.RAD_Male.Location = new System.Drawing.Point(6, 167);
+            this.RAD_Male.Location = new System.Drawing.Point(5, 199);
             this.RAD_Male.Name = "RAD_Male";
             this.RAD_Male.Size = new System.Drawing.Size(33, 17);
             this.RAD_Male.TabIndex = 24;
-            this.RAD_Male.TabStop = true;
             this.RAD_Male.Text = "♂";
             this.RAD_Male.UseVisualStyleBackColor = true;
             // 
             // CHK_IVsAny
             // 
             this.CHK_IVsAny.AutoSize = true;
-            this.CHK_IVsAny.Checked = true;
-            this.CHK_IVsAny.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_IVsAny.Location = new System.Drawing.Point(6, 98);
+            this.CHK_IVsAny.Location = new System.Drawing.Point(6, 124);
             this.CHK_IVsAny.Name = "CHK_IVsAny";
             this.CHK_IVsAny.Size = new System.Drawing.Size(44, 17);
             this.CHK_IVsAny.TabIndex = 23;
@@ -338,16 +339,16 @@
             // L_IVsMiss
             // 
             this.L_IVsMiss.AutoSize = true;
-            this.L_IVsMiss.Location = new System.Drawing.Point(3, 71);
+            this.L_IVsMiss.Location = new System.Drawing.Point(3, 97);
             this.L_IVsMiss.Name = "L_IVsMiss";
-            this.L_IVsMiss.Size = new System.Drawing.Size(103, 13);
+            this.L_IVsMiss.Size = new System.Drawing.Size(94, 13);
             this.L_IVsMiss.TabIndex = 22;
-            this.L_IVsMiss.Text = "These IVs may miss:";
+            this.L_IVsMiss.Text = "These perfect IVs:";
             // 
             // CHK_Egg
             // 
             this.CHK_Egg.AutoSize = true;
-            this.CHK_Egg.Location = new System.Drawing.Point(60, 16);
+            this.CHK_Egg.Location = new System.Drawing.Point(5, 42);
             this.CHK_Egg.Name = "CHK_Egg";
             this.CHK_Egg.Size = new System.Drawing.Size(72, 17);
             this.CHK_Egg.TabIndex = 21;
@@ -357,9 +358,7 @@
             // CHK_IV_Spe
             // 
             this.CHK_IV_Spe.AutoSize = true;
-            this.CHK_IV_Spe.Checked = true;
-            this.CHK_IV_Spe.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_IV_Spe.Location = new System.Drawing.Point(209, 98);
+            this.CHK_IV_Spe.Location = new System.Drawing.Point(209, 124);
             this.CHK_IV_Spe.Name = "CHK_IV_Spe";
             this.CHK_IV_Spe.Size = new System.Drawing.Size(45, 17);
             this.CHK_IV_Spe.TabIndex = 20;
@@ -370,9 +369,7 @@
             // CHK_IV_SpDef
             // 
             this.CHK_IV_SpDef.AutoSize = true;
-            this.CHK_IV_SpDef.Checked = true;
-            this.CHK_IV_SpDef.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_IV_SpDef.Location = new System.Drawing.Point(209, 84);
+            this.CHK_IV_SpDef.Location = new System.Drawing.Point(209, 110);
             this.CHK_IV_SpDef.Name = "CHK_IV_SpDef";
             this.CHK_IV_SpDef.Size = new System.Drawing.Size(62, 17);
             this.CHK_IV_SpDef.TabIndex = 19;
@@ -383,9 +380,7 @@
             // CHK_IV_SpAtk
             // 
             this.CHK_IV_SpAtk.AutoSize = true;
-            this.CHK_IV_SpAtk.Checked = true;
-            this.CHK_IV_SpAtk.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_IV_SpAtk.Location = new System.Drawing.Point(209, 70);
+            this.CHK_IV_SpAtk.Location = new System.Drawing.Point(209, 96);
             this.CHK_IV_SpAtk.Name = "CHK_IV_SpAtk";
             this.CHK_IV_SpAtk.Size = new System.Drawing.Size(61, 17);
             this.CHK_IV_SpAtk.TabIndex = 18;
@@ -396,9 +391,7 @@
             // CHK_IV_Def
             // 
             this.CHK_IV_Def.AutoSize = true;
-            this.CHK_IV_Def.Checked = true;
-            this.CHK_IV_Def.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_IV_Def.Location = new System.Drawing.Point(135, 98);
+            this.CHK_IV_Def.Location = new System.Drawing.Point(135, 124);
             this.CHK_IV_Def.Name = "CHK_IV_Def";
             this.CHK_IV_Def.Size = new System.Drawing.Size(43, 17);
             this.CHK_IV_Def.TabIndex = 17;
@@ -409,9 +402,7 @@
             // CHK_IV_Atk
             // 
             this.CHK_IV_Atk.AutoSize = true;
-            this.CHK_IV_Atk.Checked = true;
-            this.CHK_IV_Atk.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_IV_Atk.Location = new System.Drawing.Point(135, 84);
+            this.CHK_IV_Atk.Location = new System.Drawing.Point(135, 110);
             this.CHK_IV_Atk.Name = "CHK_IV_Atk";
             this.CHK_IV_Atk.Size = new System.Drawing.Size(42, 17);
             this.CHK_IV_Atk.TabIndex = 16;
@@ -422,9 +413,7 @@
             // CHK_IV_HP
             // 
             this.CHK_IV_HP.AutoSize = true;
-            this.CHK_IV_HP.Checked = true;
-            this.CHK_IV_HP.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_IV_HP.Location = new System.Drawing.Point(135, 70);
+            this.CHK_IV_HP.Location = new System.Drawing.Point(135, 96);
             this.CHK_IV_HP.Name = "CHK_IV_HP";
             this.CHK_IV_HP.Size = new System.Drawing.Size(41, 17);
             this.CHK_IV_HP.TabIndex = 15;
@@ -434,7 +423,7 @@
             // 
             // TB_SVs
             // 
-            this.TB_SVs.Location = new System.Drawing.Point(135, 142);
+            this.TB_SVs.Location = new System.Drawing.Point(135, 168);
             this.TB_SVs.Name = "TB_SVs";
             this.TB_SVs.Size = new System.Drawing.Size(175, 20);
             this.TB_SVs.TabIndex = 14;
@@ -442,27 +431,27 @@
             // CHK_Hatches_Shiny_For
             // 
             this.CHK_Hatches_Shiny_For.AutoSize = true;
-            this.CHK_Hatches_Shiny_For.Location = new System.Drawing.Point(6, 144);
+            this.CHK_Hatches_Shiny_For.Location = new System.Drawing.Point(6, 170);
             this.CHK_Hatches_Shiny_For.Name = "CHK_Hatches_Shiny_For";
-            this.CHK_Hatches_Shiny_For.Size = new System.Drawing.Size(108, 17);
+            this.CHK_Hatches_Shiny_For.Size = new System.Drawing.Size(128, 17);
             this.CHK_Hatches_Shiny_For.TabIndex = 13;
-            this.CHK_Hatches_Shiny_For.Text = "Hatches shiny for";
+            this.CHK_Hatches_Shiny_For.Text = "Has any of these SVs";
             this.CHK_Hatches_Shiny_For.UseVisualStyleBackColor = true;
             // 
             // CHK_Hatches_Shiny_For_Me
             // 
             this.CHK_Hatches_Shiny_For_Me.AutoSize = true;
-            this.CHK_Hatches_Shiny_For_Me.Location = new System.Drawing.Point(135, 121);
+            this.CHK_Hatches_Shiny_For_Me.Location = new System.Drawing.Point(135, 147);
             this.CHK_Hatches_Shiny_For_Me.Name = "CHK_Hatches_Shiny_For_Me";
-            this.CHK_Hatches_Shiny_For_Me.Size = new System.Drawing.Size(125, 17);
+            this.CHK_Hatches_Shiny_For_Me.Size = new System.Drawing.Size(78, 17);
             this.CHK_Hatches_Shiny_For_Me.TabIndex = 12;
-            this.CHK_Hatches_Shiny_For_Me.Text = "Hatches shiny for me";
+            this.CHK_Hatches_Shiny_For_Me.Text = "Has my SV";
             this.CHK_Hatches_Shiny_For_Me.UseVisualStyleBackColor = true;
             // 
             // CHK_Is_Shiny
             // 
             this.CHK_Is_Shiny.AutoSize = true;
-            this.CHK_Is_Shiny.Location = new System.Drawing.Point(6, 121);
+            this.CHK_Is_Shiny.Location = new System.Drawing.Point(6, 147);
             this.CHK_Is_Shiny.Name = "CHK_Is_Shiny";
             this.CHK_Is_Shiny.Size = new System.Drawing.Size(82, 17);
             this.CHK_Is_Shiny.TabIndex = 11;
@@ -472,7 +461,7 @@
             // CHK_Special_Attacker
             // 
             this.CHK_Special_Attacker.AutoSize = true;
-            this.CHK_Special_Attacker.Location = new System.Drawing.Point(209, 41);
+            this.CHK_Special_Attacker.Location = new System.Drawing.Point(209, 67);
             this.CHK_Special_Attacker.Name = "CHK_Special_Attacker";
             this.CHK_Special_Attacker.Size = new System.Drawing.Size(104, 17);
             this.CHK_Special_Attacker.TabIndex = 6;
@@ -483,7 +472,7 @@
             // CHK_Trickroom
             // 
             this.CHK_Trickroom.AutoSize = true;
-            this.CHK_Trickroom.Location = new System.Drawing.Point(135, 41);
+            this.CHK_Trickroom.Location = new System.Drawing.Point(135, 67);
             this.CHK_Trickroom.Name = "CHK_Trickroom";
             this.CHK_Trickroom.Size = new System.Drawing.Size(73, 17);
             this.CHK_Trickroom.TabIndex = 5;
@@ -494,6 +483,7 @@
             // CB_No_IVs
             // 
             this.CB_No_IVs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_No_IVs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CB_No_IVs.FormattingEnabled = true;
             this.CB_No_IVs.Items.AddRange(new object[] {
             "0",
@@ -503,7 +493,7 @@
             "4",
             "5",
             "6"});
-            this.CB_No_IVs.Location = new System.Drawing.Point(93, 39);
+            this.CB_No_IVs.Location = new System.Drawing.Point(93, 65);
             this.CB_No_IVs.Name = "CB_No_IVs";
             this.CB_No_IVs.Size = new System.Drawing.Size(32, 21);
             this.CB_No_IVs.TabIndex = 4;
@@ -511,7 +501,7 @@
             // L_No_IVs
             // 
             this.L_No_IVs.AutoSize = true;
-            this.L_No_IVs.Location = new System.Drawing.Point(3, 42);
+            this.L_No_IVs.Location = new System.Drawing.Point(3, 68);
             this.L_No_IVs.Name = "L_No_IVs";
             this.L_No_IVs.Size = new System.Drawing.Size(90, 13);
             this.L_No_IVs.TabIndex = 3;
@@ -520,7 +510,7 @@
             // L_HP_Type
             // 
             this.L_HP_Type.AutoSize = true;
-            this.L_HP_Type.Location = new System.Drawing.Point(132, 17);
+            this.L_HP_Type.Location = new System.Drawing.Point(132, 43);
             this.L_HP_Type.Name = "L_HP_Type";
             this.L_HP_Type.Size = new System.Drawing.Size(49, 13);
             this.L_HP_Type.TabIndex = 2;
@@ -529,7 +519,7 @@
             // CHK_Enable_Filtering
             // 
             this.CHK_Enable_Filtering.AutoSize = true;
-            this.CHK_Enable_Filtering.Location = new System.Drawing.Point(5, 16);
+            this.CHK_Enable_Filtering.Location = new System.Drawing.Point(5, 15);
             this.CHK_Enable_Filtering.Name = "CHK_Enable_Filtering";
             this.CHK_Enable_Filtering.Size = new System.Drawing.Size(59, 17);
             this.CHK_Enable_Filtering.TabIndex = 0;
@@ -539,6 +529,7 @@
             // 
             // B_BKP_SAV
             // 
+            this.B_BKP_SAV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_BKP_SAV.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.B_BKP_SAV.Location = new System.Drawing.Point(233, 51);
             this.B_BKP_SAV.Name = "B_BKP_SAV";
@@ -572,6 +563,7 @@
             // 
             this.CB_BoxEnd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_BoxEnd.Enabled = false;
+            this.CB_BoxEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CB_BoxEnd.FormattingEnabled = true;
             this.CB_BoxEnd.Items.AddRange(new object[] {
             "Parsed Text",
@@ -603,6 +595,7 @@
             // 
             this.CB_BoxStart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_BoxStart.Enabled = false;
+            this.CB_BoxStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CB_BoxStart.FormattingEnabled = true;
             this.CB_BoxStart.Items.AddRange(new object[] {
             "All",
@@ -648,10 +641,10 @@
             this.RTB_SAV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RTB_SAV.Location = new System.Drawing.Point(0, 279);
+            this.RTB_SAV.Location = new System.Drawing.Point(0, 311);
             this.RTB_SAV.Name = "RTB_SAV";
             this.RTB_SAV.ReadOnly = true;
-            this.RTB_SAV.Size = new System.Drawing.Size(320, 140);
+            this.RTB_SAV.Size = new System.Drawing.Size(320, 108);
             this.RTB_SAV.TabIndex = 30;
             this.RTB_SAV.Text = "";
             this.RTB_SAV.WordWrap = false;
@@ -659,6 +652,7 @@
             // B_GoSAV
             // 
             this.B_GoSAV.Enabled = false;
+            this.B_GoSAV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_GoSAV.Location = new System.Drawing.Point(7, 48);
             this.B_GoSAV.Name = "B_GoSAV";
             this.B_GoSAV.Size = new System.Drawing.Size(33, 23);
@@ -669,6 +663,7 @@
             // 
             // B_OpenSAV
             // 
+            this.B_OpenSAV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_OpenSAV.Location = new System.Drawing.Point(7, 8);
             this.B_OpenSAV.Name = "B_OpenSAV";
             this.B_OpenSAV.Size = new System.Drawing.Size(75, 23);
@@ -756,6 +751,7 @@
             // CB_BoxColor
             // 
             this.CB_BoxColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_BoxColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CB_BoxColor.FormattingEnabled = true;
             this.CB_BoxColor.Items.AddRange(new object[] {
             "Cycle",
@@ -839,6 +835,7 @@
             // 
             // B_File3
             // 
+            this.B_File3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_File3.Location = new System.Drawing.Point(5, 100);
             this.B_File3.Name = "B_File3";
             this.B_File3.Size = new System.Drawing.Size(75, 23);
@@ -860,6 +857,7 @@
             // 
             this.B_BreakFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.B_BreakFolder.Enabled = false;
+            this.B_BreakFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_BreakFolder.Location = new System.Drawing.Point(239, 128);
             this.B_BreakFolder.Name = "B_BreakFolder";
             this.B_BreakFolder.Size = new System.Drawing.Size(75, 23);
@@ -880,6 +878,7 @@
             // 
             // B_Folder
             // 
+            this.B_Folder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_Folder.Location = new System.Drawing.Point(5, 157);
             this.B_Folder.Name = "B_Folder";
             this.B_Folder.Size = new System.Drawing.Size(75, 23);
@@ -910,6 +909,7 @@
             // 
             this.B_Break.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.B_Break.Enabled = false;
+            this.B_Break.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_Break.Location = new System.Drawing.Point(239, 17);
             this.B_Break.Name = "B_Break";
             this.B_Break.Size = new System.Drawing.Size(75, 23);
@@ -920,6 +920,7 @@
             // 
             // B_File2
             // 
+            this.B_File2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_File2.Location = new System.Drawing.Point(5, 71);
             this.B_File2.Name = "B_File2";
             this.B_File2.Size = new System.Drawing.Size(75, 23);
@@ -930,6 +931,7 @@
             // 
             // B_File1
             // 
+            this.B_File1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_File1.Location = new System.Drawing.Point(5, 42);
             this.B_File1.Name = "B_File1";
             this.B_File1.Size = new System.Drawing.Size(75, 23);
@@ -960,6 +962,7 @@
             // 
             // B_ShowOptions
             // 
+            this.B_ShowOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_ShowOptions.Location = new System.Drawing.Point(214, 3);
             this.B_ShowOptions.Name = "B_ShowOptions";
             this.B_ShowOptions.Size = new System.Drawing.Size(75, 35);
@@ -980,6 +983,7 @@
             // CB_ExportStyle
             // 
             this.CB_ExportStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_ExportStyle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CB_ExportStyle.FormattingEnabled = true;
             this.CB_ExportStyle.Items.AddRange(new object[] {
             "Default",
@@ -1054,7 +1058,7 @@
             this.CCB_HPType.ForeColor = System.Drawing.SystemColors.WindowText;
             this.CCB_HPType.FormattingEnabled = true;
             this.CCB_HPType.IntegralHeight = false;
-            this.CCB_HPType.Location = new System.Drawing.Point(187, 14);
+            this.CCB_HPType.Location = new System.Drawing.Point(187, 40);
             this.CCB_HPType.Name = "CCB_HPType";
             this.CCB_HPType.Size = new System.Drawing.Size(121, 21);
             this.CCB_HPType.TabIndex = 28;
@@ -1066,11 +1070,12 @@
             this.CCB_Natures.CheckOnClick = true;
             this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.CCB_Natures.DropDownHeight = 1;
+            this.CCB_Natures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CCB_Natures.FormattingEnabled = true;
             this.CCB_Natures.IntegralHeight = false;
-            this.CCB_Natures.Location = new System.Drawing.Point(135, 169);
+            this.CCB_Natures.Location = new System.Drawing.Point(135, 198);
             this.CCB_Natures.Name = "CCB_Natures";
-            this.CCB_Natures.Size = new System.Drawing.Size(175, 21);
+            this.CCB_Natures.Size = new System.Drawing.Size(176, 21);
             this.CCB_Natures.TabIndex = 27;
             this.CCB_Natures.ValueSeparator = ", ";
             // 

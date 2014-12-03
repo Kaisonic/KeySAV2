@@ -322,19 +322,6 @@ namespace CheckComboBox {
             this.CheckOnClick = true;
         }
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            if (DroppedDown)
-                ButtonRenderer.DrawButton(CreateGraphics(), new System.Drawing.Rectangle(ClientRectangle.X - 1, ClientRectangle.Y - 1, ClientRectangle.Width + 2, ClientRectangle.Height + 2), PushButtonState.Pressed);
-            else
-                ButtonRenderer.DrawButton(CreateGraphics(), new System.Drawing.Rectangle(ClientRectangle.X - 1, ClientRectangle.Y - 1, ClientRectangle.Width + 2, ClientRectangle.Height + 2), PushButtonState.Normal);
-            if (SelectedIndex != -1)
-            {
-                e.Graphics.DrawString(Text, this.Font, new SolidBrush(Color.Black), 3, 3);
-            }
-            //base.OnPaint(e);
-        }
-
         // ******************************** Operations ********************************
 
         /// <summary>
