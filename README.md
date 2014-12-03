@@ -17,7 +17,7 @@ http://projectpokemon.org/forums/showthread.php?41752
 
 Changelog
 =========
-KeySAV2 1.31
+KeySAV2 1.3.1
 - Added option to use legacy save-twice file-breaking behavior (click "What's this?" in the app for more info)
 
 KeySAV2 1.3
