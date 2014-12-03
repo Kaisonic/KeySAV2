@@ -100,9 +100,7 @@ namespace KeySAV2
 
         // Inputs
         public byte[] savefile = new Byte[0x10009C];
-		public byte[] savkey = new Byte[0xB4AD4];
-		// Legacy key - savkey is set before use, so this is just reference
-		// public byte[] savkeylegacy = new Byte[0x80000];
+        public byte[] savkey = new Byte[0xB4AD4];
         public byte[] batvideo = new Byte[0x100000]; // whatever
         
         private byte[] zerobox = new Byte[232 * 30];
@@ -175,7 +173,6 @@ namespace KeySAV2
                         CHK_Split.Checked = Convert.ToBoolean(Convert.ToInt16(tr.ReadLine()));
                         CHK_BoldIVs.Checked = Convert.ToBoolean(Convert.ToInt16(tr.ReadLine()));
 						CHK_ShowESV.Checked = Convert.ToBoolean(Convert.ToInt16(tr.ReadLine()));
-						CHK_LegacyKey.Checked = Convert.ToBoolean(Convert.ToInt16(tr.ReadLine()));
 						CHK_NameQuotes.Checked = Convert.ToBoolean(Convert.ToInt16(tr.ReadLine()));
                         CB_BoxColor.SelectedIndex = Convert.ToInt16(tr.ReadLine());
                         CHK_ColorBox.Checked = Convert.ToBoolean(Convert.ToInt16(tr.ReadLine()));
@@ -223,7 +220,6 @@ namespace KeySAV2
                         tr.WriteLine(Convert.ToInt16(CHK_Split.Checked).ToString());
                         tr.WriteLine(Convert.ToInt16(CHK_BoldIVs.Checked).ToString());
 						tr.WriteLine(Convert.ToInt16(CHK_ShowESV.Checked).ToString());
-						tr.WriteLine(Convert.ToInt16(CHK_LegacyKey.Checked).ToString());
 						tr.WriteLine(Convert.ToInt16(CHK_NameQuotes.Checked).ToString());
                         tr.WriteLine(CB_BoxColor.SelectedIndex.ToString());
                         tr.WriteLine(Convert.ToInt16(CHK_ColorBox.Checked).ToString());
@@ -403,7 +399,7 @@ namespace KeySAV2
             Array.Copy(input, input.Length % 0x100000, savefile, 0, 0x100000);
             // Fetch Stamp
             ulong stamp = BitConverter.ToUInt64(savefile, 0x10);
-            string keyfile = (CHK_LegacyKey.Checked) ? fetchKey(stamp, 0x80000) : fetchKey(stamp, 0xB4AD4);
+            string keyfile = fetchKey(stamp, 0xB4AD4);
             if (keyfile == "")
             {
                 if (showUI)
@@ -444,31 +440,28 @@ namespace KeySAV2
             empty = encryptArray(empty);
             Array.Resize(ref empty, 0xE8);
             // Save file is already loaded.
-			// Scan save (slot 2)
-			scanSAV(savefile, key, empty, showUI);
-			if (!CHK_LegacyKey.Checked)
-			{
-				// If we need to use slot 1 later, the original state does not need to be preserved
-				byte[] savefile2;
-				if (BitConverter.ToUInt32(key, 0x80000) == BitConverter.ToUInt32(savefile, 0x168))
-				{
-					savefile2 = savefile;
-				}
-				// If we use slot 2 later, we need to preserve the original state
-				else
-				{
-					savefile2 = new byte[savefile.Length];
-					Array.Copy(savefile, savefile2, savefile.Length);
-				}
-				// If slot one was used for the last save copy the boxes to slot 2 and apply key
-				int boxoffset = BitConverter.ToInt32(key, 0x1C);
-				for(int i = 0, j = boxoffset; i<232*30*31; ++i, ++j)
-				{
-					savefile2[j] = (byte)(savefile2[j - 0x7F000] ^ key[0x80004 + i]);
-				}
-				// Scan slot 1
-				scanSAV(savefile2, key, empty, showUI);
-			}
+            // Scan save (slot 2)
+            scanSAV(savefile, key, empty, showUI);
+            byte[] savefile2;
+            // If we need to use slot 1 later, the original state does not need to be preserved
+            if (BitConverter.ToUInt32(key, 0x80000) == BitConverter.ToUInt32(savefile, 0x168))
+            {
+                savefile2 = savefile;
+            }
+            // If we use slot 2 later, we need to preserve the original state
+            else
+            {
+                savefile2 = new byte[savefile.Length];
+                Array.Copy(savefile, savefile2, savefile.Length);
+            }
+            // If slot one was used for the last save copy the boxes to slot 2 and apply key
+            int boxoffset = BitConverter.ToInt32(key, 0x1C);
+            for(int i = 0, j = boxoffset; i<232*30*31; ++i, ++j)
+            {
+                savefile2[j] = (byte)(savefile2[j - 0x7F000] ^ key[0x80004 + i]);
+            }
+            // Scan slot 1
+            scanSAV(savefile2, key, empty, showUI);
             File.WriteAllBytes(keyfile, key); // Key has been scanned for new slots, re-save key.
         }
         private void openVID(string path)
@@ -1264,7 +1257,7 @@ namespace KeySAV2
         {
             B_Break.Enabled = false;
             if (TB_File1.Text != "" && TB_File2.Text != "")
-                if ((file1 == "SAV" && file2 == "SAV" && file3 == "SAV" && TB_File3.Text != "" && !CHK_LegacyKey.Checked) || (file1 == "SAV" && file2 == "SAV" && CHK_LegacyKey.Checked) || (file1 == "BV" && file2 == "BV"))
+                if ((file1 == "SAV" && file2 == "SAV" && file3 == "SAV" && TB_File3.Text != "") || (file1 == "BV" && file2 == "BV"))
                    B_Break.Enabled = true;
         }
 
@@ -1543,7 +1536,7 @@ namespace KeySAV2
                     Array.Resize(ref emptyekx, 232); // ensure it's 232 bytes.
 
                     // Empty EKX obtained. Time to set up our key file.
-                    savkey = (CHK_LegacyKey.Checked) ? new Byte[0x80000] : new Byte[0xB4AD4];
+                    savkey = new Byte[0xB4AD4];
                     // Copy over 0x10-0x1F (Save Encryption Unused Data so we can track data).
                     Array.Copy(break1, 0x10, savkey, 0, 0x10);
                     // Include empty data
@@ -1621,7 +1614,7 @@ namespace KeySAV2
                     #endregion
                 }
             }
-            if (success == 1 && !CHK_LegacyKey.Checked)
+            if (success == 1)
             {
                 byte[] diff1 = new byte[31*30*232];
                 byte[] diff2 = new byte[31*30*232];
@@ -1661,14 +1654,11 @@ namespace KeySAV2
                     Array.Copy(zerobox, 0, savkey, 0x40000 + i * (232 * 30), 232 * 30);
                 }
 
-				if (!CHK_LegacyKey.Checked)
-				{
-					// Copy the key for the slot selector
-					Array.Copy(save1Save, 0x168, savkey, 0x80000, 4);
+                // Copy the key for the slot selector
+                Array.Copy(save1Save, 0x168, savkey, 0x80000, 4);
 
-					// Copy the key for the other save slot
-					Array.Copy(slotsKey, 0, savkey, 0x80004, 232*30*31);
-				}
+                // Copy the key for the other save slot
+                Array.Copy(slotsKey, 0, savkey, 0x80004, 232*30*31);
 
                 // Since we don't know if the user put them in in the wrong order, let's just markup our keystream with data.
                 byte[] data1 = new Byte[232];
@@ -1709,8 +1699,7 @@ namespace KeySAV2
                 string ID = sfd.InitialDirectory;
                 sfd.InitialDirectory = path_exe + "\\data";
                 sfd.RestoreDirectory = true;
-				string preFileName = (CHK_LegacyKey.Checked) ? "SAV Key Legacy" : "SAV Key";
-                sfd.FileName = CleanFileName(String.Format(preFileName + " - {0} - ({1}.{2}) - TSV {3}.bin", ot, tid.ToString("00000"), sid.ToString("00000"), tsv.ToString("0000")));
+                sfd.FileName = CleanFileName(String.Format("SAV Key - {0} - ({1}.{2}) - TSV {3}.bin", ot, tid.ToString("00000"), sid.ToString("00000"), tsv.ToString("0000")));
                 sfd.Filter = "Save Key|*.bin";
                 if (sfd.ShowDialog() == DialogResult.OK)
                     File.WriteAllBytes(sfd.FileName, savkey);
@@ -1941,8 +1930,15 @@ namespace KeySAV2
                 CHK_R_Table.Visible = false;
 				CHK_NameQuotes.Visible = true;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
+<<<<<<< HEAD
                 "CSV custom will output ALL columns:\r\n{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{54},{47},{48},{49},{50},{51},{52},{53},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{55},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35},{36},{37},{38},{39},{40},{41},{42},{43},{44},{45},{46},{56},{57}";
+=======
+                "CSV extended will output ALL columns:\r\n{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{54},{47},{48},{49},{50},{51},{52},{53},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{55},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35},{36},{37},{38},{39},{40},{41},{42},{43},{44},{45},{46}";
+>>>>>>> parent of b1bf3d1... Added legacy save-breaking behavior option
             }
+			// Kaisonic custom csv here
+			// Make sure the CSV quote option appears correctly
+			// And is hidden for other options
             else if (CB_ExportStyle.SelectedIndex == 8) // PK6
             {
                 CHK_R_Table.Visible = false;
@@ -3399,10 +3395,13 @@ namespace KeySAV2
             table.Rows.Add(100, 600000, 800000, 1000000, 1059860, 1250000, 1640000);
             return table;
         }
+<<<<<<< HEAD
 
         private void label4_Click(object sender, EventArgs e)
         {
             MessageBox.Show("\"Use legacy breaking behavior\" will use the old save-twice method for breaking save files. With this checked, you need only 26.sav and 16.sav for File 1 and 2, respectively, in order to break your save. Once you've done that, you must leave this option checked and you can open any save file as long as you saved twice (save, reset, save).\r\n\r\nIf you decide to uncheck this option, you MUST break your save again with the new 26.sav, 16.sav, 165.sav method. Then you must leave this option UNchecked and you can open any save file as long as you only saved once.\r\n\r\nOnce you've broken your save with both this option checked and unchecked, you do not need to break your save again - you just need to make sure this is checked if you open a save that was saved twice (or unchecked if you open a save that was saved once).\r\n\r\nThis is useful if not all of your slots are being properly decrypted using the new save-once method.", "Information");
         }
+=======
+>>>>>>> parent of b1bf3d1... Added legacy save-breaking behavior option
     }
 }
