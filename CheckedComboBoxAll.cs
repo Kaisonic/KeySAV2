@@ -32,6 +32,7 @@ namespace CheckComboBox
         {
             this.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.updateAllBox);
             this.dropdown = new DropdownA(this);
+            this.CheckOnClick = true;
         }
 
         private void updateAllBox(object sender, ItemCheckEventArgs e)
@@ -46,7 +47,7 @@ namespace CheckComboBox
                 }
                 else if (this.CheckedItems.Count == 2 && e.NewValue == CheckState.Unchecked)
                     this.dropdown.List.SetItemCheckState(0, CheckState.Unchecked);
-                else if (this.CheckedItems.Count == this.Items.Count && e.NewValue == CheckState.Checked)
+                else if (this.CheckedItems.Count == this.Items.Count - 1 && e.NewValue == CheckState.Checked)
                     this.dropdown.List.SetItemCheckState(0, CheckState.Checked);
                 else
                     this.dropdown.List.SetItemCheckState(0, CheckState.Indeterminate);

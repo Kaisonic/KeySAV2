@@ -40,10 +40,8 @@ namespace KeySAV2
             CB_Team.SelectedIndex = 0;
             CB_ExportStyle.SelectedIndex = 0;
             CB_BoxColor.SelectedIndex = 0;
-            CB_HP_Type.SelectedIndex = 0;
             CB_No_IVs.SelectedIndex = 0;
             toggleFilter(null, null);
-            CCB_Natures.DisplayMember = "Name";
             loadINI();
             this.FormClosing += onFormClose;
             InitializeStrings();
@@ -1154,14 +1152,14 @@ namespace KeySAV2
 
         private void toggleFilter(object sender, EventArgs e)
         {
-            CB_HP_Type.Enabled = CB_No_IVs.Enabled = CHK_Trickroom.Enabled =
+            CCB_HPType.Enabled = CB_No_IVs.Enabled = CHK_Trickroom.Enabled =
             CHK_Special_Attacker.Enabled = CHK_IVsAny.Enabled =
             CHK_IV_HP.Enabled = CHK_IV_Atk.Enabled = CHK_IV_Def.Enabled =
             CHK_IV_SpAtk.Enabled = CHK_IV_SpDef.Enabled = CHK_IV_Spe.Enabled =
             CHK_Is_Shiny.Enabled = CHK_Hatches_Shiny_For_Me.Enabled =
             CHK_Hatches_Shiny_For.Enabled = TB_SVs.Enabled =
             CHK_Egg.Enabled = RAD_Male.Enabled = RAD_Female.Enabled =
-            RAD_GenderAny.Enabled = CHK_Enable_Filtering.Checked;
+            RAD_GenderAny.Enabled  = CCB_Natures.Enabled = CHK_Enable_Filtering.Checked;
         }
 
         // File Keystream Breaking
@@ -2044,6 +2042,8 @@ namespace KeySAV2
                 CCB_Natures.Items.Add(new CCBoxItem("All", 0));
                 for (byte i = 0; i < natures.Length;)
                     CCB_Natures.Items.Add(new CCBoxItem(natures[i], ++i));
+                CCB_Natures.DisplayMember = "Name";
+                CCB_Natures.SetItemChecked(0, true);
             }
             else
             {
@@ -2052,9 +2052,19 @@ namespace KeySAV2
             }
 
             // Populate HP types in filters
-            CB_HP_Type.Items.Add("Any");
-            foreach (string type in types)
-                CB_HP_Type.Items.Add(type);
+            if (CCB_HPType.Items.Count == 0)
+            {
+                CCB_HPType.Items.Add(new CCBoxItem("Any", 0));
+                for (byte i = 0; i < types.Length-1;)
+                    CCB_HPType.Items.Add(new CCBoxItem(types[i], ++i));
+                CCB_HPType.DisplayMember = "Name";
+                CCB_HPType.SetItemChecked(0, true);
+            }
+            else
+            {
+                for (byte i = 0; i < types.Length-1; ++i)
+                    (CCB_HPType.Items[i+1] as CCBoxItem).Name = types[i];
+            }
         }
 
         // Structs

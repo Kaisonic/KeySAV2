@@ -62,7 +62,6 @@
             this.CB_No_IVs = new System.Windows.Forms.ComboBox();
             this.L_No_IVs = new System.Windows.Forms.Label();
             this.L_HP_Type = new System.Windows.Forms.Label();
-            this.CB_HP_Type = new System.Windows.Forms.ComboBox();
             this.CHK_Enable_Filtering = new System.Windows.Forms.CheckBox();
             this.B_BKP_SAV = new System.Windows.Forms.Button();
             this.L_SAVStats = new System.Windows.Forms.Label();
@@ -104,6 +103,7 @@
             this.RTB_OPTIONS = new System.Windows.Forms.RichTextBox();
             this.CB_MainLanguage = new System.Windows.Forms.ComboBox();
             this.CB_Game = new System.Windows.Forms.ComboBox();
+            this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
             this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
@@ -256,6 +256,7 @@
             // 
             // GB_Filter
             // 
+            this.GB_Filter.Controls.Add(this.CCB_HPType);
             this.GB_Filter.Controls.Add(this.CCB_Natures);
             this.GB_Filter.Controls.Add(this.RAD_GenderAny);
             this.GB_Filter.Controls.Add(this.RAD_Female);
@@ -278,7 +279,6 @@
             this.GB_Filter.Controls.Add(this.CB_No_IVs);
             this.GB_Filter.Controls.Add(this.L_No_IVs);
             this.GB_Filter.Controls.Add(this.L_HP_Type);
-            this.GB_Filter.Controls.Add(this.CB_HP_Type);
             this.GB_Filter.Controls.Add(this.CHK_Enable_Filtering);
             this.GB_Filter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.GB_Filter.Location = new System.Drawing.Point(3, 77);
@@ -525,16 +525,6 @@
             this.L_HP_Type.Size = new System.Drawing.Size(49, 13);
             this.L_HP_Type.TabIndex = 2;
             this.L_HP_Type.Text = "HP Type";
-            // 
-            // CB_HP_Type
-            // 
-            this.CB_HP_Type.BackColor = System.Drawing.SystemColors.Window;
-            this.CB_HP_Type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_HP_Type.FormattingEnabled = true;
-            this.CB_HP_Type.Location = new System.Drawing.Point(195, 14);
-            this.CB_HP_Type.Name = "CB_HP_Type";
-            this.CB_HP_Type.Size = new System.Drawing.Size(115, 21);
-            this.CB_HP_Type.TabIndex = 1;
             // 
             // CHK_Enable_Filtering
             // 
@@ -1055,8 +1045,24 @@
             this.CB_Game.TabIndex = 2;
             this.CB_Game.SelectedIndexChanged += new System.EventHandler(this.changedetectgame);
             // 
+            // CCB_HPType
+            // 
+            this.CCB_HPType.CheckOnClick = false;
+            this.CCB_HPType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.CCB_HPType.DropDownHeight = 1;
+            this.CCB_HPType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CCB_HPType.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.CCB_HPType.FormattingEnabled = true;
+            this.CCB_HPType.IntegralHeight = false;
+            this.CCB_HPType.Location = new System.Drawing.Point(187, 14);
+            this.CCB_HPType.Name = "CCB_HPType";
+            this.CCB_HPType.Size = new System.Drawing.Size(121, 21);
+            this.CCB_HPType.TabIndex = 28;
+            this.CCB_HPType.ValueSeparator = ", ";
+            // 
             // CCB_Natures
             // 
+            this.CCB_Natures.BackColor = System.Drawing.Color.White;
             this.CCB_Natures.CheckOnClick = true;
             this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.CCB_Natures.DropDownHeight = 1;
@@ -1151,7 +1157,6 @@
         private System.Windows.Forms.Button B_BreakFolder;
         private System.Windows.Forms.GroupBox GB_Filter;
         private System.Windows.Forms.Label L_HP_Type;
-        private System.Windows.Forms.ComboBox CB_HP_Type;
         private System.Windows.Forms.CheckBox CHK_Enable_Filtering;
         private System.Windows.Forms.CheckBox CHK_Trickroom;
         private System.Windows.Forms.ComboBox CB_No_IVs;
@@ -1176,6 +1181,7 @@
         private System.Windows.Forms.RadioButton RAD_Female;
         private System.Windows.Forms.RadioButton RAD_GenderAny;
         private CheckComboBox.CheckedComboBoxAll CCB_Natures;
+        private CheckComboBox.CheckedComboBoxAll CCB_HPType;
 
     }
 }

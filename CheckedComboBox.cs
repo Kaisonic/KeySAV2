@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms.VisualStyles;
 using System.Diagnostics;
 
 namespace CheckComboBox {
@@ -80,7 +81,21 @@ namespace CheckComboBox {
                         SetSelected(index, true);
                     }
                 }
+                protected override void OnDrawItem(DrawItemEventArgs e)
+                {
+                    base.OnDrawItem(e);
 
+                    if (this.Items.Count > 0)  //Avoid error in the designer when using this control
+                    {
+                        if (this.GetItemCheckState(e.Index) == CheckState.Indeterminate)
+                        {
+                            if (this.Enabled)
+                            {
+                                CheckBoxRenderer.DrawCheckBox(e.Graphics, new Point(1, 1), CheckBoxState.MixedNormal);
+                            }
+                        }
+                    }
+                }
             } // end internal class CustomCheckedListBox
 
             // --------------------------------------------------------------------------------------------------------
@@ -247,6 +262,7 @@ namespace CheckComboBox {
         private System.ComponentModel.IContainer components = null;
         // A form-derived object representing the drop-down list of the checked combo box.
         internal Dropdown dropdown;
+        private Rectangle buttonArea;
 
         // The valueSeparator character(s) between the ticked elements as they appear in the 
         // text portion of the CheckedComboBox.
@@ -306,6 +322,19 @@ namespace CheckComboBox {
             this.CheckOnClick = true;
         }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            if (DroppedDown)
+                ButtonRenderer.DrawButton(CreateGraphics(), new System.Drawing.Rectangle(ClientRectangle.X - 1, ClientRectangle.Y - 1, ClientRectangle.Width + 2, ClientRectangle.Height + 2), PushButtonState.Pressed);
+            else
+                ButtonRenderer.DrawButton(CreateGraphics(), new System.Drawing.Rectangle(ClientRectangle.X - 1, ClientRectangle.Y - 1, ClientRectangle.Width + 2, ClientRectangle.Height + 2), PushButtonState.Normal);
+            if (SelectedIndex != -1)
+            {
+                e.Graphics.DrawString(Text, this.Font, new SolidBrush(Color.Black), 3, 3);
+            }
+            //base.OnPaint(e);
+        }
+
         // ******************************** Operations ********************************
 
         /// <summary>
@@ -362,6 +391,7 @@ namespace CheckComboBox {
 
             base.OnKeyDown(e);
         }
+
 
         protected override void OnKeyPress(KeyPressEventArgs e) {
             e.Handled = true;
