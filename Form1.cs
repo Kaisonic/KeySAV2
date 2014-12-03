@@ -423,6 +423,18 @@ namespace KeySAV2
                 B_GoSAV.Enabled = CB_BoxEnd.Enabled = CB_BoxStart.Enabled = B_BKP_SAV.Visible = !(keyfile == "");
             byte[] key = File.ReadAllBytes(keyfile);
             byte[] empty = new Byte[232];
+			
+            // Save file is already loaded.
+            // If slot one was used for the last save copy the boxes to slot 2 and apply key
+            if(BitConverter.ToUInt32(key, 0x80000) == BitConverter.ToUInt32(savefile, 0x168))
+            {
+                
+                int boxoffset = BitConverter.ToInt32(key, 0x1C);
+                for(int i = 0, j = boxoffset; i<232*30*31; ++i, ++j)
+                {
+                    savefile[j] = (byte)(savefile[j - 0x7F000] ^ key[0x80004 + i]);
+                }
+            }
 
             // Get our empty file set up.
             Array.Copy(key, 0x10, empty, 0xE0, 0x4);
@@ -439,29 +451,7 @@ namespace KeySAV2
             Array.Copy(BitConverter.GetBytes(chk), 0, empty, 06, 2);
             empty = encryptArray(empty);
             Array.Resize(ref empty, 0xE8);
-            // Save file is already loaded.
-            // Scan save (slot 2)
             scanSAV(savefile, key, empty, showUI);
-            byte[] savefile2;
-            // If we need to use slot 1 later, the original state does not need to be preserved
-            if (BitConverter.ToUInt32(key, 0x80000) == BitConverter.ToUInt32(savefile, 0x168))
-            {
-                savefile2 = savefile;
-            }
-            // If we use slot 2 later, we need to preserve the original state
-            else
-            {
-                savefile2 = new byte[savefile.Length];
-                Array.Copy(savefile, savefile2, savefile.Length);
-            }
-            // If slot one was used for the last save copy the boxes to slot 2 and apply key
-            int boxoffset = BitConverter.ToInt32(key, 0x1C);
-            for(int i = 0, j = boxoffset; i<232*30*31; ++i, ++j)
-            {
-                savefile2[j] = (byte)(savefile2[j - 0x7F000] ^ key[0x80004 + i]);
-            }
-            // Scan slot 1
-            scanSAV(savefile2, key, empty, showUI);
             File.WriteAllBytes(keyfile, key); // Key has been scanned for new slots, re-save key.
         }
         private void openVID(string path)
