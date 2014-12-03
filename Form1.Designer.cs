@@ -139,7 +139,7 @@ namespace KeySAV2
             this.Tab_BV.Location = new System.Drawing.Point(4, 22);
             this.Tab_BV.Name = "Tab_BV";
             this.Tab_BV.Padding = new System.Windows.Forms.Padding(3);
-            this.Tab_BV.Size = new System.Drawing.Size(322, 422);
+            this.Tab_BV.Size = new System.Drawing.Size(322, 402);
             this.Tab_BV.TabIndex = 0;
             this.Tab_BV.Text = "BV";
             this.Tab_BV.UseVisualStyleBackColor = true;
@@ -247,7 +247,7 @@ namespace KeySAV2
             this.Tab_SAV.Location = new System.Drawing.Point(4, 22);
             this.Tab_SAV.Name = "Tab_SAV";
             this.Tab_SAV.Padding = new System.Windows.Forms.Padding(3);
-            this.Tab_SAV.Size = new System.Drawing.Size(322, 422);
+            this.Tab_SAV.Size = new System.Drawing.Size(322, 402);
             this.Tab_SAV.TabIndex = 1;
             this.Tab_SAV.Text = "SAV";
             this.Tab_SAV.UseVisualStyleBackColor = true;
@@ -1047,7 +1047,7 @@ namespace KeySAV2
             this.Controls.Add(this.tab_Main);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(700, 750);
-            this.MinimumSize = new System.Drawing.Size(370, 370);
+            this.MinimumSize = new System.Drawing.Size(370, 485);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KeySAV";
