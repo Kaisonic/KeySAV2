@@ -84,6 +84,7 @@ namespace KeySAV2
             this.CHK_Split = new System.Windows.Forms.CheckBox();
             this.CHK_BoldIVs = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CHK_LegacyKey = new System.Windows.Forms.CheckBox();
             this.TB_File3 = new System.Windows.Forms.TextBox();
             this.B_File3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -103,6 +104,7 @@ namespace KeySAV2
             this.RTB_OPTIONS = new System.Windows.Forms.RichTextBox();
             this.CB_MainLanguage = new System.Windows.Forms.ComboBox();
             this.CB_Game = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -797,6 +799,8 @@ namespace KeySAV2
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.CHK_LegacyKey);
             this.groupBox1.Controls.Add(this.TB_File3);
             this.groupBox1.Controls.Add(this.B_File3);
             this.groupBox1.Controls.Add(this.label2);
@@ -810,18 +814,28 @@ namespace KeySAV2
             this.groupBox1.Controls.Add(this.B_File1);
             this.groupBox1.Controls.Add(this.TB_File2);
             this.groupBox1.Controls.Add(this.TB_File1);
-            this.groupBox1.Location = new System.Drawing.Point(1, 218);
+            this.groupBox1.Location = new System.Drawing.Point(1, 188);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(320, 183);
+            this.groupBox1.Size = new System.Drawing.Size(320, 213);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Breaker";
+            // 
+            // CHK_LegacyKey
+            // 
+            this.CHK_LegacyKey.AutoSize = true;
+            this.CHK_LegacyKey.Location = new System.Drawing.Point(6, 45);
+            this.CHK_LegacyKey.Name = "CHK_LegacyKey";
+            this.CHK_LegacyKey.Size = new System.Drawing.Size(167, 17);
+            this.CHK_LegacyKey.TabIndex = 38;
+            this.CHK_LegacyKey.Text = "Use legacy breaking behavior";
+            this.CHK_LegacyKey.UseVisualStyleBackColor = true;
             // 
             // TB_File3
             // 
             this.TB_File3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_File3.Location = new System.Drawing.Point(85, 101);
+            this.TB_File3.Location = new System.Drawing.Point(85, 125);
             this.TB_File3.Name = "TB_File3";
             this.TB_File3.ReadOnly = true;
             this.TB_File3.Size = new System.Drawing.Size(229, 20);
@@ -829,7 +843,7 @@ namespace KeySAV2
             // 
             // B_File3
             // 
-            this.B_File3.Location = new System.Drawing.Point(5, 100);
+            this.B_File3.Location = new System.Drawing.Point(5, 124);
             this.B_File3.Name = "B_File3";
             this.B_File3.Size = new System.Drawing.Size(75, 23);
             this.B_File3.TabIndex = 33;
@@ -840,7 +854,7 @@ namespace KeySAV2
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 133);
+            this.label2.Location = new System.Drawing.Point(10, 157);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(217, 13);
             this.label2.TabIndex = 32;
@@ -850,7 +864,7 @@ namespace KeySAV2
             // 
             this.B_BreakFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.B_BreakFolder.Enabled = false;
-            this.B_BreakFolder.Location = new System.Drawing.Point(239, 128);
+            this.B_BreakFolder.Location = new System.Drawing.Point(239, 152);
             this.B_BreakFolder.Name = "B_BreakFolder";
             this.B_BreakFolder.Size = new System.Drawing.Size(75, 23);
             this.B_BreakFolder.TabIndex = 31;
@@ -862,7 +876,7 @@ namespace KeySAV2
             // 
             this.TB_Folder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_Folder.Location = new System.Drawing.Point(85, 158);
+            this.TB_Folder.Location = new System.Drawing.Point(85, 182);
             this.TB_Folder.Name = "TB_Folder";
             this.TB_Folder.ReadOnly = true;
             this.TB_Folder.Size = new System.Drawing.Size(229, 20);
@@ -870,7 +884,7 @@ namespace KeySAV2
             // 
             // B_Folder
             // 
-            this.B_Folder.Location = new System.Drawing.Point(5, 157);
+            this.B_Folder.Location = new System.Drawing.Point(5, 181);
             this.B_Folder.Name = "B_Folder";
             this.B_Folder.Size = new System.Drawing.Size(75, 23);
             this.B_Folder.TabIndex = 29;
@@ -910,7 +924,7 @@ namespace KeySAV2
             // 
             // B_File2
             // 
-            this.B_File2.Location = new System.Drawing.Point(5, 71);
+            this.B_File2.Location = new System.Drawing.Point(5, 95);
             this.B_File2.Name = "B_File2";
             this.B_File2.Size = new System.Drawing.Size(75, 23);
             this.B_File2.TabIndex = 26;
@@ -920,7 +934,7 @@ namespace KeySAV2
             // 
             // B_File1
             // 
-            this.B_File1.Location = new System.Drawing.Point(5, 42);
+            this.B_File1.Location = new System.Drawing.Point(5, 66);
             this.B_File1.Name = "B_File1";
             this.B_File1.Size = new System.Drawing.Size(75, 23);
             this.B_File1.TabIndex = 24;
@@ -932,7 +946,7 @@ namespace KeySAV2
             // 
             this.TB_File2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_File2.Location = new System.Drawing.Point(85, 72);
+            this.TB_File2.Location = new System.Drawing.Point(85, 96);
             this.TB_File2.Name = "TB_File2";
             this.TB_File2.ReadOnly = true;
             this.TB_File2.Size = new System.Drawing.Size(229, 20);
@@ -942,7 +956,7 @@ namespace KeySAV2
             // 
             this.TB_File1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_File1.Location = new System.Drawing.Point(85, 44);
+            this.TB_File1.Location = new System.Drawing.Point(85, 68);
             this.TB_File1.Name = "TB_File1";
             this.TB_File1.ReadOnly = true;
             this.TB_File1.Size = new System.Drawing.Size(229, 20);
@@ -995,7 +1009,7 @@ namespace KeySAV2
             this.RTB_OPTIONS.Location = new System.Drawing.Point(0, 123);
             this.RTB_OPTIONS.Name = "RTB_OPTIONS";
             this.RTB_OPTIONS.ReadOnly = true;
-            this.RTB_OPTIONS.Size = new System.Drawing.Size(320, 94);
+            this.RTB_OPTIONS.Size = new System.Drawing.Size(320, 59);
             this.RTB_OPTIONS.TabIndex = 29;
             this.RTB_OPTIONS.Text = "";
             this.RTB_OPTIONS.ReadOnlyChanged += new System.EventHandler(this.changeReadOnly);
@@ -1035,6 +1049,18 @@ namespace KeySAV2
             this.CB_Game.Size = new System.Drawing.Size(41, 21);
             this.CB_Game.TabIndex = 2;
             this.CB_Game.SelectedIndexChanged += new System.EventHandler(this.changedetectgame);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label4.Location = new System.Drawing.Point(170, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 13);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "What is this?";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // Form1
             // 
@@ -1142,6 +1168,8 @@ namespace KeySAV2
         private System.Windows.Forms.Button B_File3;
         private System.Windows.Forms.CheckBox CHK_ShowESV;
         private System.Windows.Forms.CheckBox CHK_NameQuotes;
+        private System.Windows.Forms.CheckBox CHK_LegacyKey;
+        private System.Windows.Forms.Label label4;
 
     }
 }
