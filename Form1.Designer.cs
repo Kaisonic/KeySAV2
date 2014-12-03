@@ -1,4 +1,4 @@
-﻿namespace KeySAV2
+namespace KeySAV2
 {
     partial class Form1
     {
@@ -73,6 +73,8 @@
             this.B_OpenSAV = new System.Windows.Forms.Button();
             this.TB_SAV = new System.Windows.Forms.TextBox();
             this.Tab_Options = new System.Windows.Forms.TabPage();
+            this.CHK_NameQuotes = new System.Windows.Forms.CheckBox();
+            this.CHK_ShowESV = new System.Windows.Forms.CheckBox();
             this.CHK_HideFirst = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.CHK_R_Table = new System.Windows.Forms.CheckBox();
@@ -82,6 +84,8 @@
             this.CHK_Split = new System.Windows.Forms.CheckBox();
             this.CHK_BoldIVs = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TB_File3 = new System.Windows.Forms.TextBox();
+            this.B_File3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.B_BreakFolder = new System.Windows.Forms.Button();
             this.TB_Folder = new System.Windows.Forms.TextBox();
@@ -99,8 +103,6 @@
             this.RTB_OPTIONS = new System.Windows.Forms.RichTextBox();
             this.CB_MainLanguage = new System.Windows.Forms.ComboBox();
             this.CB_Game = new System.Windows.Forms.ComboBox();
-            this.B_File3 = new System.Windows.Forms.Button();
-            this.TB_File3 = new System.Windows.Forms.TextBox();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -121,7 +123,7 @@
             this.tab_Main.Location = new System.Drawing.Point(12, 12);
             this.tab_Main.Name = "tab_Main";
             this.tab_Main.SelectedIndex = 0;
-            this.tab_Main.Size = new System.Drawing.Size(330, 448);
+            this.tab_Main.Size = new System.Drawing.Size(330, 428);
             this.tab_Main.TabIndex = 3;
             // 
             // Tab_BV
@@ -655,6 +657,8 @@
             // 
             // Tab_Options
             // 
+            this.Tab_Options.Controls.Add(this.CHK_NameQuotes);
+            this.Tab_Options.Controls.Add(this.CHK_ShowESV);
             this.Tab_Options.Controls.Add(this.CHK_HideFirst);
             this.Tab_Options.Controls.Add(this.label1);
             this.Tab_Options.Controls.Add(this.CHK_R_Table);
@@ -670,10 +674,30 @@
             this.Tab_Options.Controls.Add(this.RTB_OPTIONS);
             this.Tab_Options.Location = new System.Drawing.Point(4, 22);
             this.Tab_Options.Name = "Tab_Options";
-            this.Tab_Options.Size = new System.Drawing.Size(322, 422);
+            this.Tab_Options.Size = new System.Drawing.Size(322, 402);
             this.Tab_Options.TabIndex = 2;
             this.Tab_Options.Text = "Options";
             this.Tab_Options.UseVisualStyleBackColor = true;
+            // 
+            // CHK_NameQuotes
+            // 
+            this.CHK_NameQuotes.AutoSize = true;
+            this.CHK_NameQuotes.Location = new System.Drawing.Point(17, 77);
+            this.CHK_NameQuotes.Name = "CHK_NameQuotes";
+            this.CHK_NameQuotes.Size = new System.Drawing.Size(179, 17);
+            this.CHK_NameQuotes.TabIndex = 37;
+            this.CHK_NameQuotes.Text = "Enclose nickname/OT in quotes";
+            this.CHK_NameQuotes.UseVisualStyleBackColor = true;
+            // 
+            // CHK_ShowESV
+            // 
+            this.CHK_ShowESV.AutoSize = true;
+            this.CHK_ShowESV.Location = new System.Drawing.Point(17, 54);
+            this.CHK_ShowESV.Name = "CHK_ShowESV";
+            this.CHK_ShowESV.Size = new System.Drawing.Size(182, 17);
+            this.CHK_ShowESV.TabIndex = 36;
+            this.CHK_ShowESV.Text = "Show ESV for hatched Pokemon";
+            this.CHK_ShowESV.UseVisualStyleBackColor = true;
             // 
             // CHK_HideFirst
             // 
@@ -712,7 +736,7 @@
             this.CHK_ColorBox.AutoSize = true;
             this.CHK_ColorBox.Checked = true;
             this.CHK_ColorBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_ColorBox.Location = new System.Drawing.Point(17, 77);
+            this.CHK_ColorBox.Location = new System.Drawing.Point(17, 100);
             this.CHK_ColorBox.Name = "CHK_ColorBox";
             this.CHK_ColorBox.Size = new System.Drawing.Size(99, 17);
             this.CHK_ColorBox.TabIndex = 19;
@@ -730,7 +754,7 @@
             "Green",
             "Yellow",
             "Red"});
-            this.CB_BoxColor.Location = new System.Drawing.Point(122, 74);
+            this.CB_BoxColor.Location = new System.Drawing.Point(122, 97);
             this.CB_BoxColor.Name = "CB_BoxColor";
             this.CB_BoxColor.Size = new System.Drawing.Size(80, 21);
             this.CB_BoxColor.TabIndex = 20;
@@ -762,7 +786,7 @@
             this.CHK_BoldIVs.AutoSize = true;
             this.CHK_BoldIVs.Checked = true;
             this.CHK_BoldIVs.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_BoldIVs.Location = new System.Drawing.Point(17, 54);
+            this.CHK_BoldIVs.Location = new System.Drawing.Point(17, 77);
             this.CHK_BoldIVs.Name = "CHK_BoldIVs";
             this.CHK_BoldIVs.Size = new System.Drawing.Size(119, 17);
             this.CHK_BoldIVs.TabIndex = 18;
@@ -786,12 +810,32 @@
             this.groupBox1.Controls.Add(this.B_File1);
             this.groupBox1.Controls.Add(this.TB_File2);
             this.groupBox1.Controls.Add(this.TB_File1);
-            this.groupBox1.Location = new System.Drawing.Point(1, 238);
+            this.groupBox1.Location = new System.Drawing.Point(1, 218);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(320, 183);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Breaker";
+            // 
+            // TB_File3
+            // 
+            this.TB_File3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_File3.Location = new System.Drawing.Point(85, 101);
+            this.TB_File3.Name = "TB_File3";
+            this.TB_File3.ReadOnly = true;
+            this.TB_File3.Size = new System.Drawing.Size(229, 20);
+            this.TB_File3.TabIndex = 34;
+            // 
+            // B_File3
+            // 
+            this.B_File3.Location = new System.Drawing.Point(5, 100);
+            this.B_File3.Name = "B_File3";
+            this.B_File3.Size = new System.Drawing.Size(75, 23);
+            this.B_File3.TabIndex = 33;
+            this.B_File3.Text = "File 3";
+            this.B_File3.UseVisualStyleBackColor = true;
+            this.B_File3.Click += new System.EventHandler(this.loadBreak3);
             // 
             // label2
             // 
@@ -934,7 +978,8 @@
             "Custom 1",
             "Custom 2",
             "Custom 3",
-            "CSV",
+            "CSV default",
+            "CSV custom",
             "To .PK6 File"});
             this.CB_ExportStyle.Location = new System.Drawing.Point(86, 4);
             this.CB_ExportStyle.Name = "CB_ExportStyle";
@@ -947,10 +992,10 @@
             this.RTB_OPTIONS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RTB_OPTIONS.Location = new System.Drawing.Point(0, 100);
+            this.RTB_OPTIONS.Location = new System.Drawing.Point(0, 123);
             this.RTB_OPTIONS.Name = "RTB_OPTIONS";
             this.RTB_OPTIONS.ReadOnly = true;
-            this.RTB_OPTIONS.Size = new System.Drawing.Size(320, 137);
+            this.RTB_OPTIONS.Size = new System.Drawing.Size(320, 94);
             this.RTB_OPTIONS.TabIndex = 29;
             this.RTB_OPTIONS.Text = "";
             this.RTB_OPTIONS.ReadOnlyChanged += new System.EventHandler(this.changeReadOnly);
@@ -991,32 +1036,12 @@
             this.CB_Game.TabIndex = 2;
             this.CB_Game.SelectedIndexChanged += new System.EventHandler(this.changedetectgame);
             // 
-            // B_File3
-            // 
-            this.B_File3.Location = new System.Drawing.Point(5, 100);
-            this.B_File3.Name = "B_File3";
-            this.B_File3.Size = new System.Drawing.Size(75, 23);
-            this.B_File3.TabIndex = 33;
-            this.B_File3.Text = "File 3";
-            this.B_File3.UseVisualStyleBackColor = true;
-            this.B_File3.Click += new System.EventHandler(this.loadBreak3);
-            // 
-            // TB_File3
-            // 
-            this.TB_File3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_File3.Location = new System.Drawing.Point(85, 101);
-            this.TB_File3.Name = "TB_File3";
-            this.TB_File3.ReadOnly = true;
-            this.TB_File3.Size = new System.Drawing.Size(229, 20);
-            this.TB_File3.TabIndex = 34;
-            // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 467);
+            this.ClientSize = new System.Drawing.Size(354, 447);
             this.Controls.Add(this.CB_Game);
             this.Controls.Add(this.CB_MainLanguage);
             this.Controls.Add(this.tab_Main);
@@ -1115,6 +1140,8 @@
         private System.Windows.Forms.CheckBox CHK_Egg;
         private System.Windows.Forms.TextBox TB_File3;
         private System.Windows.Forms.Button B_File3;
+        private System.Windows.Forms.CheckBox CHK_ShowESV;
+        private System.Windows.Forms.CheckBox CHK_NameQuotes;
 
     }
 }
