@@ -84,6 +84,7 @@ namespace KeySAV2
             this.CHK_Split = new System.Windows.Forms.CheckBox();
             this.CHK_BoldIVs = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.CHK_LegacyKey = new System.Windows.Forms.CheckBox();
             this.TB_File3 = new System.Windows.Forms.TextBox();
             this.B_File3 = new System.Windows.Forms.Button();
@@ -104,7 +105,6 @@ namespace KeySAV2
             this.RTB_OPTIONS = new System.Windows.Forms.RichTextBox();
             this.CB_MainLanguage = new System.Windows.Forms.ComboBox();
             this.CB_Game = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -227,7 +227,7 @@ namespace KeySAV2
             this.RTB_VID.Location = new System.Drawing.Point(0, 77);
             this.RTB_VID.Name = "RTB_VID";
             this.RTB_VID.ReadOnly = true;
-            this.RTB_VID.Size = new System.Drawing.Size(320, 341);
+            this.RTB_VID.Size = new System.Drawing.Size(320, 324);
             this.RTB_VID.TabIndex = 31;
             this.RTB_VID.Text = "";
             this.RTB_VID.WordWrap = false;
@@ -621,7 +621,7 @@ namespace KeySAV2
             this.RTB_SAV.Location = new System.Drawing.Point(0, 249);
             this.RTB_SAV.Name = "RTB_SAV";
             this.RTB_SAV.ReadOnly = true;
-            this.RTB_SAV.Size = new System.Drawing.Size(320, 170);
+            this.RTB_SAV.Size = new System.Drawing.Size(320, 152);
             this.RTB_SAV.TabIndex = 30;
             this.RTB_SAV.Text = "";
             this.RTB_SAV.WordWrap = false;
@@ -820,6 +820,18 @@ namespace KeySAV2
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Breaker";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label4.Location = new System.Drawing.Point(170, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 13);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "What is this?";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // CHK_LegacyKey
             // 
@@ -1049,18 +1061,6 @@ namespace KeySAV2
             this.CB_Game.Size = new System.Drawing.Size(41, 21);
             this.CB_Game.TabIndex = 2;
             this.CB_Game.SelectedIndexChanged += new System.EventHandler(this.changedetectgame);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label4.Location = new System.Drawing.Point(170, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 13);
-            this.label4.TabIndex = 39;
-            this.label4.Text = "What is this?";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // Form1
             // 
