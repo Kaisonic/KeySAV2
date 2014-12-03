@@ -1930,15 +1930,8 @@ namespace KeySAV2
                 CHK_R_Table.Visible = false;
 				CHK_NameQuotes.Visible = true;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
-<<<<<<< HEAD
                 "CSV custom will output ALL columns:\r\n{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{54},{47},{48},{49},{50},{51},{52},{53},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{55},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35},{36},{37},{38},{39},{40},{41},{42},{43},{44},{45},{46},{56},{57}";
-=======
-                "CSV extended will output ALL columns:\r\n{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{54},{47},{48},{49},{50},{51},{52},{53},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{55},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35},{36},{37},{38},{39},{40},{41},{42},{43},{44},{45},{46}";
->>>>>>> parent of b1bf3d1... Added legacy save-breaking behavior option
             }
-			// Kaisonic custom csv here
-			// Make sure the CSV quote option appears correctly
-			// And is hidden for other options
             else if (CB_ExportStyle.SelectedIndex == 8) // PK6
             {
                 CHK_R_Table.Visible = false;
@@ -3395,13 +3388,5 @@ namespace KeySAV2
             table.Rows.Add(100, 600000, 800000, 1000000, 1059860, 1250000, 1640000);
             return table;
         }
-<<<<<<< HEAD
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("\"Use legacy breaking behavior\" will use the old save-twice method for breaking save files. With this checked, you need only 26.sav and 16.sav for File 1 and 2, respectively, in order to break your save. Once you've done that, you must leave this option checked and you can open any save file as long as you saved twice (save, reset, save).\r\n\r\nIf you decide to uncheck this option, you MUST break your save again with the new 26.sav, 16.sav, 165.sav method. Then you must leave this option UNchecked and you can open any save file as long as you only saved once.\r\n\r\nOnce you've broken your save with both this option checked and unchecked, you do not need to break your save again - you just need to make sure this is checked if you open a save that was saved twice (or unchecked if you open a save that was saved once).\r\n\r\nThis is useful if not all of your slots are being properly decrypted using the new save-once method.", "Information");
-        }
-=======
->>>>>>> parent of b1bf3d1... Added legacy save-breaking behavior option
     }
 }

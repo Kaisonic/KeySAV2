@@ -84,11 +84,6 @@ namespace KeySAV2
             this.CHK_Split = new System.Windows.Forms.CheckBox();
             this.CHK_BoldIVs = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-<<<<<<< HEAD
-            this.label4 = new System.Windows.Forms.Label();
-            this.CHK_LegacyKey = new System.Windows.Forms.CheckBox();
-=======
->>>>>>> parent of b1bf3d1... Added legacy save-breaking behavior option
             this.TB_File3 = new System.Windows.Forms.TextBox();
             this.B_File3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -822,31 +817,6 @@ namespace KeySAV2
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Breaker";
             // 
-<<<<<<< HEAD
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label4.Location = new System.Drawing.Point(170, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 13);
-            this.label4.TabIndex = 39;
-            this.label4.Text = "What is this?";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // CHK_LegacyKey
-            // 
-            this.CHK_LegacyKey.AutoSize = true;
-            this.CHK_LegacyKey.Location = new System.Drawing.Point(6, 45);
-            this.CHK_LegacyKey.Name = "CHK_LegacyKey";
-            this.CHK_LegacyKey.Size = new System.Drawing.Size(167, 17);
-            this.CHK_LegacyKey.TabIndex = 38;
-            this.CHK_LegacyKey.Text = "Use legacy breaking behavior";
-            this.CHK_LegacyKey.UseVisualStyleBackColor = true;
-            // 
-=======
->>>>>>> parent of b1bf3d1... Added legacy save-breaking behavior option
             // TB_File3
             // 
             this.TB_File3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
