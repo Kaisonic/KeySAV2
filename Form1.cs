@@ -778,43 +778,49 @@ namespace KeySAV2
 
             bool statisfiesFilters = true;
 
-            /*while (CHK_Enable_Filtering.Checked)
+            while (CHK_Enable_Filtering.Checked)
             {
                 if (CHK_Egg.Checked && !data.isegg) { statisfiesFilters = false; break; }
-                bool checkHp = false;
-                if (CB_HP_Type.SelectedIndex > 0)
+
+                bool checkHP = CCB_HPType.GetItemCheckState(0) != CheckState.Checked;
+                byte checkHPDiff = (byte)Convert.ToInt16(checkHP);
+                uint perfects = (uint)CB_No_IVs.SelectedIndex;
+                foreach(var iv in new [] {
+                    new Tuple<uint, bool>(data.HP_IV, CHK_IV_HP.Checked), 
+                    new Tuple<uint, bool>(data.DEF_IV, CHK_IV_Def.Checked), 
+                    new Tuple<uint, bool>(data.SPA_IV, CHK_IV_SpAtk.Checked), 
+                    new Tuple<uint, bool>(data.SPD_IV, CHK_IV_SpDef.Checked) })
                 {
-                    if (CB_HP_Type.SelectedIndex != data.hptype) { statisfiesFilters = false; break; }
-                    checkHp = true;
+                    if (31 - iv.Item1 <= checkHPDiff) --perfects;
+                    else if (iv.Item2) { statisfiesFilters = false; break; }
+                }
+                foreach(var iv in new [] {
+                    new Tuple<uint, bool, bool>(data.ATK_IV, CHK_IV_Atk.Checked, CHK_Special_Attacker.Checked), 
+                    new Tuple<uint, bool, bool>(data.SPE_IV, CHK_IV_Spe.Checked, CHK_Trickroom.Checked) })
+                {
+                    if (Math.Abs((iv.Item3 ? 0: 31) - iv.Item1) <= checkHPDiff) --perfects;
+                    else if (iv.Item2) { statisfiesFilters = false; break; }
                 }
 
-                int perfects = Convert.ToInt16(CB_No_IVs.SelectedItem);
-                bool ivsSelected = CHK_IV_HP.Checked || CHK_IV_Atk.Checked || CHK_IV_Def.Checked || CHK_IV_SpAtk.Checked || CHK_IV_SpDef.Checked || CHK_IV_Spe.Checked;
-                if (hp == "31" ||checkHp && hp == "30") --perfects;
-                else if (ivsSelected && CHK_IV_HP.Checked != RAD_IVs_Miss.Checked) { statisfiesFilters = false; break; }
-                if ((atk == "31" || checkHp && atk == "30") && !CHK_Special_Attacker.Checked || (atk == "0" || checkHp && atk == "1") && CHK_Special_Attacker.Checked) --perfects;
-                else if (ivsSelected && CHK_IV_Atk.Checked != RAD_IVs_Miss.Checked) { statisfiesFilters = false; break; }
-                if (def == "31" || checkHp && def == "30") --perfects;
-                else if (ivsSelected && CHK_IV_Def.Checked != RAD_IVs_Miss.Checked) { statisfiesFilters = false; break; }
-                if (spa == "31" || checkHp && spa == "30") --perfects;
-                else if (ivsSelected && CHK_IV_SpAtk.Checked != RAD_IVs_Miss.Checked) { statisfiesFilters = false; break; }
-                if (spd == "31" || checkHp && spd == "30") --perfects;
-                else if (ivsSelected && CHK_IV_SpDef.Checked != RAD_IVs_Miss.Checked) { statisfiesFilters = false; break; }
-                if ((spe == "31" || checkHp && spe == "30") && !CHK_Trickroom.Checked || (spe == "0" || checkHp && spe == "1") && CHK_Trickroom.Checked) --perfects;
-                else if (ivsSelected && CHK_IV_Spe.Checked != RAD_IVs_Miss.Checked) { statisfiesFilters = false; break; }
-                if (perfects > 0) { statisfiesFilters = false; break; }
+                if(perfects > 0) { statisfiesFilters = false; break; }
+
+                if(checkHP && !CCB_HPType.GetItemChecked((int)data.hptype)) { statisfiesFilters = false; break; }
+
+                if(!CCB_Natures.GetItemChecked((int)data.nature+1)) { statisfiesFilters = false; break; }
 
                 if (CHK_Is_Shiny.Checked || CHK_Hatches_Shiny_For_Me.Checked || CHK_Hatches_Shiny_For.Checked)
                 {
-                    // TODO: Should probably cache this somewhere...
                     if (!(CHK_Is_Shiny.Checked && data.isshiny ||
                         data.isegg && CHK_Hatches_Shiny_For_Me.Checked && ESV == TSV ||
                         data.isegg && CHK_Hatches_Shiny_For.Checked && Array.IndexOf(selectedTSVs, data.ESV) > -1))
                     { statisfiesFilters = false; break; }
                 }
 
+                if(RAD_Male.Checked && data.genderflag != 0 || RAD_Female.Checked && data.genderflag != 1)
+                { statisfiesFilters = false; break; }
+
                 break;
-            }*/
+            }
 
             if (statisfiesFilters)
             {
@@ -2055,15 +2061,15 @@ namespace KeySAV2
             if (CCB_HPType.Items.Count == 0)
             {
                 CCB_HPType.Items.Add(new CCBoxItem("Any", 0));
-                for (byte i = 0; i < types.Length-1;)
+                for (byte i = 1; i < types.Length-1;)
                     CCB_HPType.Items.Add(new CCBoxItem(types[i], ++i));
                 CCB_HPType.DisplayMember = "Name";
                 CCB_HPType.SetItemChecked(0, true);
             }
             else
             {
-                for (byte i = 0; i < types.Length-1; ++i)
-                    (CCB_HPType.Items[i+1] as CCBoxItem).Name = types[i];
+                for (byte i = 1; i < types.Length-1; ++i)
+                    (CCB_HPType.Items[i] as CCBoxItem).Name = types[i];
             }
         }
 
