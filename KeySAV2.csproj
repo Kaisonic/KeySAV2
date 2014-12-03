@@ -50,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CCBoxItem.cs" />
+    <Compile Include="CheckedComboBoxAll.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CheckedComboBox.cs">
       <SubType>Component</SubType>
     </Compile>

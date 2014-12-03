@@ -87,7 +87,7 @@ namespace CheckComboBox {
 
             // ********************************************* Data *********************************************
 
-            private CheckedComboBox ccbParent;
+            protected CheckedComboBox ccbParent;
 
             // Keeps track of whether checked item(s) changed, hence the value of the CheckedComboBox as a whole changed.
             // This is simply done via maintaining the old string-representation of the value(s) and the new one and comparing them!
@@ -109,7 +109,7 @@ namespace CheckComboBox {
             // Whether the dropdown is closed.
             private bool dropdownClosed = true;
 
-            private CustomCheckedListBox cclb;
+            protected CustomCheckedListBox cclb;
             public CustomCheckedListBox List {
                 get { return cclb; }
                 set { cclb = value; }
@@ -158,7 +158,7 @@ namespace CheckComboBox {
                 this.ResumeLayout(false);
             }
 
-            public string GetCheckedItemsStringValue() {
+            public virtual string GetCheckedItemsStringValue() {
                 StringBuilder sb = new StringBuilder("");
                 for (int i = 0; i < cclb.CheckedItems.Count; i++) {                    
                     sb.Append(cclb.GetItemText(cclb.CheckedItems[i])).Append(ccbParent.ValueSeparator);
@@ -246,7 +246,7 @@ namespace CheckComboBox {
         /// </summary>
         private System.ComponentModel.IContainer components = null;
         // A form-derived object representing the drop-down list of the checked combo box.
-        private Dropdown dropdown;
+        internal Dropdown dropdown;
 
         // The valueSeparator character(s) between the ticked elements as they appear in the 
         // text portion of the CheckedComboBox.

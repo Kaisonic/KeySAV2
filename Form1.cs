@@ -2039,13 +2039,19 @@ namespace KeySAV2
                 vivlist[i] = formlist[835+i];
 
             // Populate natures in filters
-            CCB_Natures.Items.Clear();
-            CCB_Natures.Items.Add(new CCBoxItem("All", 0));
-            for (byte i = 0; i < natures.Length;)
-                CCB_Natures.Items.Add(new CCBoxItem(natures[i], ++i));
+            if (CCB_Natures.Items.Count == 0)
+            {
+                CCB_Natures.Items.Add(new CCBoxItem("All", 0));
+                for (byte i = 0; i < natures.Length;)
+                    CCB_Natures.Items.Add(new CCBoxItem(natures[i], ++i));
+            }
+            else
+            {
+                for (byte i = 0; i < natures.Length; ++i)
+                    (CCB_Natures.Items[i+1] as CCBoxItem).Name = natures[i];
+            }
 
             // Populate HP types in filters
-            CB_HP_Type.Items.Clear();
             CB_HP_Type.Items.Add("Any");
             foreach (string type in types)
                 CB_HP_Type.Items.Add(type);

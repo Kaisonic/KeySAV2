@@ -104,7 +104,7 @@
             this.RTB_OPTIONS = new System.Windows.Forms.RichTextBox();
             this.CB_MainLanguage = new System.Windows.Forms.ComboBox();
             this.CB_Game = new System.Windows.Forms.ComboBox();
-            this.CCB_Natures = new CheckComboBox.CheckedComboBox();
+            this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -1060,10 +1060,9 @@
             this.CCB_Natures.CheckOnClick = true;
             this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.CCB_Natures.DropDownHeight = 1;
-            this.CCB_Natures.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CCB_Natures.FormattingEnabled = true;
             this.CCB_Natures.IntegralHeight = false;
-            this.CCB_Natures.Location = new System.Drawing.Point(135, 167);
+            this.CCB_Natures.Location = new System.Drawing.Point(135, 169);
             this.CCB_Natures.Name = "CCB_Natures";
             this.CCB_Natures.Size = new System.Drawing.Size(175, 21);
             this.CCB_Natures.TabIndex = 27;
@@ -1176,7 +1175,7 @@
         private System.Windows.Forms.RadioButton RAD_Male;
         private System.Windows.Forms.RadioButton RAD_Female;
         private System.Windows.Forms.RadioButton RAD_GenderAny;
-        private CheckComboBox.CheckedComboBox CCB_Natures;
+        private CheckComboBox.CheckedComboBoxAll CCB_Natures;
 
     }
 }
