@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -217,6 +217,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="Resources\text\de\text_Countries_de.txt" />
+    <Content Include="Resources\text\de\text_Games_de.txt" />
+    <Content Include="Resources\text\de\text_Regions_de.txt" />
+    <Content Include="Resources\text\en\text_Countries_en.txt" />
+    <Content Include="Resources\text\en\text_Games_en.txt" />
+    <Content Include="Resources\text\en\text_Regions_en.txt" />
+    <Content Include="Resources\text\es\text_Countries_es.txt" />
+    <Content Include="Resources\text\es\text_Games_es.txt" />
+    <Content Include="Resources\text\es\text_Regions_es.txt" />
+    <Content Include="Resources\text\fr\text_Countries_fr.txt" />
+    <Content Include="Resources\text\fr\text_Games_fr.txt" />
+    <Content Include="Resources\text\fr\text_Regions_fr.txt" />
+    <Content Include="Resources\text\it\text_Countries_it.txt" />
+    <Content Include="Resources\text\it\text_Games_it.txt" />
+    <Content Include="Resources\text\it\text_Regions_it.txt" />
+    <Content Include="Resources\text\ja\text_Countries_ja.txt" />
+    <Content Include="Resources\text\ja\text_Games_ja.txt" />
+    <Content Include="Resources\text\ja\text_Regions_ja.txt" />
+    <Content Include="Resources\text\ko\text_Countries_ko.txt" />
+    <Content Include="Resources\text\ko\text_Games_ko.txt" />
+    <Content Include="Resources\text\ko\text_Regions_ko.txt" />
     <None Include="Resources\text\ko\text_Forms_ko.txt" />
     <None Include="Resources\text\ja\text_Forms_ja.txt" />
     <None Include="Resources\text\it\text_Forms_it.txt" />

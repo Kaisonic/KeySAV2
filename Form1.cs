@@ -93,10 +93,14 @@ namespace KeySAV2
         public string[] specieslist;
         public string[] balls;
         public string[] formlist;
+		public string[] countryList;
+		public string[] regionList;
+		public string[] gameList;
         public string[] vivlist;
         public string[] unownlist;
         // Blank File Egg Names
         public string[] eggnames = { "タマゴ", "Egg", "Œuf", "Uovo", "Ei", "", "Huevo", "알" };
+		public string[] languageList = { "???", "JPN", "ENG", "FRE", "ITA", "GER", "???", "ESP", "KOR" };
 
         // Inputs
         public byte[] savefile = new Byte[0x10009C];
@@ -809,11 +813,11 @@ namespace KeySAV2
             int exp = Convert.ToInt32(data.exp);
 			string experience = data.exp.ToString();
             string level = getLevel(Convert.ToInt32(data.species), exp).ToString();
-            string region = getregion(data.gamevers, 0);
-            string game = getregion(data.gamevers, 1);
-            string country = getcountry(data.countryID);
+            string region = regionList[data.gamevers];
+            string game = gameList[data.gamevers];
+            string country = countryList[data.countryID];
             string helditem = itemlist[data.helditem];
-            string language = getlanguage(data.otlang);
+            string language = languageList[data.otlang];
 			// Mark is for Gen 6 Pokemon, so X Y OR AS
             string mark = (data.gamevers >= 24 && data.gamevers <= 27) ? "⬟" : "";
             if (data.helditem == 0) helditem = "";
@@ -1997,6 +2001,9 @@ namespace KeySAV2
             itemlist = getStringList("Items", l);
             specieslist = getStringList("Species", l);
             formlist = getStringList("Forms", l);
+			countryList = getStringList("Countries", l);
+			regionList = getStringList("Regions", l);
+			gameList = getStringList("Games", l);
 
             abilitylist[0] = itemlist[0] = movelist[0] = "(" + itemlist[0] + ")";
 
@@ -2122,205 +2129,7 @@ namespace KeySAV2
             }
             return 0;
         }
-
-        public string getcountry(int country)
-        {
-            Dictionary<string, int> country_list = new Dictionary<string, int>();
-			country_list.Add("---", 0);
-			country_list.Add("Albania", 64);
-			country_list.Add("Andorra", 122);
-			country_list.Add("Anguilla", 8);
-			country_list.Add("Antigua and Barbuda", 9);
-			country_list.Add("Argentina",  10);
-			country_list.Add("Aruba",  11);
-			country_list.Add("Australia",  65);
-			country_list.Add("Austria",  66);
-			country_list.Add("Azerbaijan", 113);
-			country_list.Add("Bahamas", 12);
-			country_list.Add("Barbados", 13);
-			country_list.Add("Belgium", 67);
-			country_list.Add("Belize", 14);
-			country_list.Add("Bermuda", 186);
-			country_list.Add("Bolivia", 15);
-			country_list.Add("Bosnia and Herzegovina", 68);
-			country_list.Add("Botswana", 69);
-			country_list.Add("Brazil", 16);
-			country_list.Add("British Virgin Islands", 17);
-			country_list.Add("Bulgaria", 70);
-			country_list.Add("Canada", 18);
-			country_list.Add("Cayman Islands", 19);
-			country_list.Add("Chad", 117);
-			country_list.Add("Chile", 20);
-			country_list.Add("China", 160);
-			country_list.Add("Colombia", 21);
-			country_list.Add("Costa Rica", 22);
-			country_list.Add("Croatia", 71);
-			country_list.Add("Cyprus", 72);
-			country_list.Add("Czech Republic", 73);
-			country_list.Add("Denmark (Kingdom of)", 74);
-			country_list.Add("Djibouti", 120);
-			country_list.Add("Dominica", 23);
-			country_list.Add("Dominican Republic", 24);
-			country_list.Add("Ecuador", 25);
-			country_list.Add("El Salvador", 26);
-			country_list.Add("Eritrea", 119);
-			country_list.Add("Estonia", 75);
-			country_list.Add("Finland", 76);
-			country_list.Add("France", 77);
-			country_list.Add("French Guiana", 27);
-			country_list.Add("Germany", 78);
-			country_list.Add("Gibraltar", 123);
-			country_list.Add("Greece", 79);
-			country_list.Add("Grenada", 28);
-			country_list.Add("Guadeloupe", 29);
-			country_list.Add("Guatemala", 30);
-			country_list.Add("Guernsey", 124);
-			country_list.Add("Guyana", 31);
-			country_list.Add("Haiti", 32);
-			country_list.Add("Honduras", 33);
-			country_list.Add("Hong Kong", 144);
-			country_list.Add("Hungary", 80);
-			country_list.Add("Iceland", 81);
-			country_list.Add("India", 169);
-			country_list.Add("Ireland", 82);
-			country_list.Add("Isle of Man", 125);
-			country_list.Add("Italy", 83);
-			country_list.Add("Jamaica", 34);
-			country_list.Add("Japan", 1);
-			country_list.Add("Jersey", 126);
-			country_list.Add("Latvia", 84);
-			country_list.Add("Lesotho", 85);
-			country_list.Add("Liechtenstein", 86);
-			country_list.Add("Lithuania", 87);
-			country_list.Add("Luxembourg", 88);
-			country_list.Add("Macedonia (Republic of)", 89);
-			country_list.Add("Malaysia", 156);
-			country_list.Add("Mali", 115);
-			country_list.Add("Malta", 90);
-			country_list.Add("Martinique", 35);
-			country_list.Add("Mauritania", 114);
-			country_list.Add("Mexico", 36);
-			country_list.Add("Monaco", 127);
-			country_list.Add("Montenegro", 91);
-			country_list.Add("Montserrat", 37);
-			country_list.Add("Mozambique", 92);
-			country_list.Add("Namibia", 93);
-			country_list.Add("Netherlands", 94);
-			country_list.Add("Netherlands Antilles", 38);
-			country_list.Add("New Zealand", 95);
-			country_list.Add("Nicaragua", 39);
-			country_list.Add("Niger", 116);
-			country_list.Add("Norway", 96);
-			country_list.Add("Panama", 40);
-			country_list.Add("Paraguay", 41);
-			country_list.Add("Peru", 42);
-			country_list.Add("Poland", 97);
-			country_list.Add("Portugal", 98);
-			country_list.Add("Romania", 99);
-			country_list.Add("Russia", 100);
-			country_list.Add("San Marino", 184);
-			country_list.Add("Saudi Arabia", 174);
-			country_list.Add("Serbia and Kosovo", 101);
-			country_list.Add("Singapore", 153);
-			country_list.Add("Slovakia", 102);
-			country_list.Add("Slovenia", 103);
-			country_list.Add("Somalia", 121);
-			country_list.Add("South Africa", 104);
-			country_list.Add("South Korea", 136);
-			country_list.Add("Spain", 105);
-			country_list.Add("St. Kitts and Nevis", 43);
-			country_list.Add("St. Lucia", 44);
-			country_list.Add("St. Vincent and the Grenadines", 45);
-			country_list.Add("Sudan", 118);
-			country_list.Add("Suriname", 46);
-			country_list.Add("Swaziland", 106);
-			country_list.Add("Sweden", 107);
-			country_list.Add("Switzerland", 108);
-			country_list.Add("Taiwan", 128);
-			country_list.Add("Trinidad and Tobago", 47);
-			country_list.Add("Turkey", 109);
-			country_list.Add("Turks and Caicos Islands", 48);
-			country_list.Add("U.A.E.", 168);
-			country_list.Add("United Kingdom", 110);
-			country_list.Add("United States", 49);
-			country_list.Add("Uruguay", 50);
-			country_list.Add("US Virgin Islands", 51);
-			country_list.Add("Vatican City", 185);
-			country_list.Add("Venezuela", 52);
-			country_list.Add("Zambia", 111);
-			country_list.Add("Zimbabwe", 112);
-			var reversed = country_list.ToDictionary(kp => kp.Value, kp => kp.Key);
-			string result = reversed[country];
-			return result;
-		}
-
-		public string getregion(int region, int type)
-		{
-			Dictionary<int, string> region_list = new Dictionary<int, string>();
-            region_list.Add(27, "Hoenn"); //Omega Ruby
-            region_list.Add(26, "Hoenn"); //Alpha Sapphire
-			region_list.Add(24, "Kalos"); //X
-			region_list.Add(25, "Kalos"); //Y
-			region_list.Add(20, "Unova"); //White
-			region_list.Add(21, "Unova"); //Black
-			region_list.Add(22, "Unova"); //White 2
-			region_list.Add(23, "Unova"); //Black 2
-			region_list.Add(10, "Sinnoh"); //Diamond
-			region_list.Add(11, "Sinnoh"); //Pearl
-			region_list.Add(12, "Sinnoh"); //Platinum
-			region_list.Add(7, "Johto"); //Heart Gold
-			region_list.Add(8, "Johto"); //Soul Silver
-			region_list.Add(2, "Hoenn"); //Ruby
-			region_list.Add(1, "Hoenn"); //Sapphire
-			region_list.Add(3, "Hoenn"); //Emerald
-			region_list.Add(4, "Kanto"); //Fire Red
-			region_list.Add(5, "Kanto"); //Leaf Green
-			region_list.Add(15, "Orre"); //Colosseum/XD
-
-			Dictionary<int, string> game_list = new Dictionary<int, string>();
-            game_list.Add(27, "Omega Ruby"); //Hoenn
-            game_list.Add(26, "Alpha Sapphire"); //Hoenn
-			game_list.Add(24, "X"); //Kalos
-			game_list.Add(25, "Y"); //Kalos
-			game_list.Add(20, "White"); //Unova
-			game_list.Add(21, "Black"); //Unova
-			game_list.Add(22, "White 2"); //Unova
-			game_list.Add(23, "Black 2"); //Unova
-			game_list.Add(10, "Diamond"); //Sinnoh
-			game_list.Add(11, "Pearl"); //Sinnoh
-			game_list.Add(12, "Platinum"); //Sinnoh
-			game_list.Add(7, "Heart Gold"); //Johto
-			game_list.Add(8, "Soul Silver"); //Johto
-			game_list.Add(2, "Ruby"); //Hoenn
-			game_list.Add(1, "Sapphire"); //Hoenn
-			game_list.Add(3, "Emerald"); //Hoenn
-			game_list.Add(4, "Fire Red"); //Kanto
-			game_list.Add(5, "Leaf Green"); //Kanto
-			game_list.Add(15, "Colosseum/XD"); //Orre
-
-			string result;
-			if (type == 0) result = region_list[region];
-			else result = game_list[region];
-
-			return result;
-		}
-
-		public string getlanguage(int language)
-		{
-			Dictionary<int, string> language_list = new Dictionary<int, string>();
-			language_list.Add(0, "ERROR"); //Corrupt?
-			language_list.Add(2, "ENG"); //English
-			language_list.Add(1, "JPN"); //日本語
-			language_list.Add(3, "FRE"); //Français
-			language_list.Add(4, "ITA"); //Italiano
-			language_list.Add(5, "GER"); //Deutsch
-			language_list.Add(7, "ESP"); //Español
-			language_list.Add(8, "KOR"); //한국어
-
-			string result = language_list[language];
-			return result;
-		}
-
+		
         // Structs
         public class Structures
         {
