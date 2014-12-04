@@ -17,6 +17,17 @@ http://projectpokemon.org/forums/showthread.php?41752
 
 Changelog
 =========
+KeySAV2 1.3.3
+- Removed legacy save breaking behavior option (confusing and unnecessary)
+- Fixed output text box extending beyond window
+- Remove unstable key-breaking code
+- Changed CSV custom to allow custom formats
+- Show headers once if "Split Boxes" is not checked
+- Use "Box" instead of just "B" for headers
+- Fixed brackets for ESV appearing in CSV data
+- Added columns: experience
+- Added translations for "Game" and "Region" columns ("Country" is still English for all)
+
 KeySAV2 1.3.2
 - Added "Egg Received" and "Met/Hatched" columns
 - Fixed legacy break help box
