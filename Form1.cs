@@ -910,7 +910,9 @@ namespace KeySAV2
 					if (isSAV) savedname = box + " " + savedname;
                     File.WriteAllBytes(dbpath + "\\" + CleanFileName(savedname) + ".pk6", pkx);
                 }
-                if (!(CB_ExportStyle.SelectedIndex == 1 || CB_ExportStyle.SelectedIndex == 2 || (CB_ExportStyle.SelectedIndex != 0 && CB_ExportStyle.SelectedIndex < 6 && CHK_R_Table.Checked)))
+				
+				// Add brackets to ESV for defaults (0 and 8) and custom (3-5) if Table is NOT checked
+                if (CB_ExportStyle.SelectedIndex == 0 || CB_ExportStyle.SelectedIndex == 8 || (!CHK_R_Table.Checked && CB_ExportStyle.SelectedIndex >= 3 && CB_ExportStyle.SelectedIndex <= 5))
                 {
                     if (ESV != "")
                         ESV = "[" + ESV + "]";
