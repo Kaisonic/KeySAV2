@@ -139,6 +139,27 @@
   <data name="text_Abilities_ko" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\text\ko\text_Abilities_ko.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="text_Countries_de" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\de\text_countries_de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="text_Countries_en" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\en\text_countries_en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="text_Countries_es" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\es\text_countries_es.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="text_Countries_fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\fr\text_countries_fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="text_Countries_it" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\it\text_countries_it.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="text_Countries_ja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\ja\text_countries_ja.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="text_Countries_ko" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\ko\text_countries_ko.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="text_Forms_de" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\text\de\text_Forms_de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
@@ -159,6 +180,27 @@
   </data>
   <data name="text_Forms_ko" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\text\ko\text_Forms_ko.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="text_Games_de" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\de\text_games_de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="text_Games_en" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\en\text_games_en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="text_Games_es" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\es\text_games_es.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="text_Games_fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\fr\text_games_fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="text_Games_it" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\it\text_games_it.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="text_Games_ja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\ja\text_games_ja.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="text_Games_ko" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\ko\text_games_ko.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="text_Items_de" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\text\de\text_Items_de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
@@ -222,6 +264,27 @@
   </data>
   <data name="text_Natures_ko" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\text\ko\text_Natures_ko.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="text_Regions_de" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\de\text_regions_de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="text_Regions_en" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\en\text_regions_en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="text_Regions_es" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\es\text_regions_es.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="text_Regions_fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\fr\text_regions_fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="text_Regions_it" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\it\text_regions_it.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="text_Regions_ja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\ja\text_regions_ja.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="text_Regions_ko" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\text\ko\text_regions_ko.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="text_Species_de" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\text\de\text_Species_de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
