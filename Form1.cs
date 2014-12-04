@@ -110,11 +110,10 @@ namespace KeySAV2
         public string savpath = "";
         public string savkeypath = "";
         public string vidkeypath = "";
-        public string custom1 = ""; public string custom2 = ""; public string custom3 = "";
+        public string custom1 = ""; public string custom2 = ""; public string custom3 = ""; public string customcsv = "";
         public bool custom1b = false; public bool custom2b = false; public bool custom3b = false;
         public string[] boxcolors = new string[] { "", "###", "####", "#####", "######" };
         private string csvdata = "";
-        private string csvheader = "";
         public int dumpedcounter = 0;
         private int slots = 0;
         public bool ghost = false;
@@ -163,6 +162,7 @@ namespace KeySAV2
                         custom1 = tr.ReadLine();
                         custom2 = tr.ReadLine();
                         custom3 = tr.ReadLine();
+						customcsv = tr.ReadLine();
                         custom1b = Convert.ToBoolean(Convert.ToInt16(tr.ReadLine()));
                         custom2b = Convert.ToBoolean(Convert.ToInt16(tr.ReadLine()));
                         custom3b = Convert.ToBoolean(Convert.ToInt16(tr.ReadLine()));
@@ -210,6 +210,7 @@ namespace KeySAV2
                         tr.WriteLine(custom1.ToString());
                         tr.WriteLine(custom2.ToString());
                         tr.WriteLine(custom3.ToString());
+						tr.WriteLine(customcsv.ToString());
                         tr.WriteLine(Convert.ToInt16(custom1b).ToString());
                         tr.WriteLine(Convert.ToInt16(custom2b).ToString());
                         tr.WriteLine(Convert.ToInt16(custom3b).ToString());
@@ -747,7 +748,7 @@ namespace KeySAV2
 			}
 			else
 			{
-				box = "~";
+				box = "-";
 				slot = dumpnum.ToString();
 			}
             string species = specieslist[data.species];
@@ -885,34 +886,14 @@ namespace KeySAV2
                     if (spe == "31") spe = "**31**";
                 }
 
+				// Get the output format from the input text box
                 string format = RTB_OPTIONS.Text;
-                if (CB_ExportStyle.SelectedIndex >= 6)
+				
+				// For PK6 output, display default format
+                if (CB_ExportStyle.SelectedIndex == 8)
                     format = "{0} - {1} - {2} ({3}) - {4} - {5} - {6}.{7}.{8}.{9}.{10}.{11} - {12} - {13}";
-
-                if (CB_ExportStyle.SelectedIndex == 6)
-                {
-					string csvFormat = "{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35}\r\n";
-					if (isSAV) csvFormat = "{0}," + csvFormat;
-                    csvdata += String.Format(csvFormat,
-                        box, slot, species, gender, nature, ability, hp, atk, def, spa, spd, spe, hptype, ESV, TSV, nickname, otname, ball, TID, SID, ev_hp, ev_at, ev_de, ev_sa, ev_sd, ev_se, move1, move2, move3, move4, relearn1, relearn2, relearn3, relearn4, isshiny, isegg);
-                }
-                if (CB_ExportStyle.SelectedIndex == 7)
-				{
-					string csvnickname = nickname;
-					string csvotname = otname;
-					// Escape any quotes so we can add quotes in the CSV export to avoid errors with commas in nicknames and trainer names
-					if (CHK_NameQuotes.Checked)
-					{
-						csvnickname.Replace("\"", "\\\"");
-						csvotname.Replace("\"", "\\\"");
-						csvnickname = "\"" + csvnickname + "\"";
-						csvotname = "\"" + csvotname + "\"";
-					}
-					string csvFormat = "{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{54},{47},{48},{49},{50},{51},{52},{53},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{55},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35},{36},{37},{38},{39},{40},{41},{42},{43},{44},{45},{46},{56},{57}\r\n";
-					if (isSAV) csvFormat = "{0}," + csvFormat;
-					csvdata += String.Format(csvFormat,
-						box, slot, species, gender, nature, ability, hp, atk, def, spa, spd, spe, hptype, ESV, TSV, csvnickname, csvotname, ball, TID, SID, ev_hp, ev_at, ev_de, ev_sa, ev_sd, ev_se, move1, move2, move3, move4, relearn1, relearn2, relearn3, relearn4, isshiny, isegg, level, region, country, helditem, language, game, number, PID, mark, dex, form, hpm, atkm, defm, spam, spdm, spem, IVs, IVsum, EVsum, eggDate, metDate);
-				}
+				
+				// Output PK6 files
                 if (CB_ExportStyle.SelectedIndex == 8)
                 {
                     isshiny = "";
@@ -933,7 +914,22 @@ namespace KeySAV2
                     if (ESV != "")
                         ESV = "[" + ESV + "]";
                 }
+				
+				// Escape any quotes so we can add quotes in the CSV export to avoid errors with commas in nicknames and trainer names
+				if (CHK_NameQuotes.Checked && (CB_ExportStyle.SelectedIndex == 6 || CB_ExportStyle.SelectedIndex == 7))
+				{
+					nickname.Replace("\"", "\\\"");
+					otname.Replace("\"", "\\\"");
+					nickname = "\"" + nickname + "\"";
+					otname = "\"" + otname + "\"";
+				}
+				
+				// Generate result for this Pokemon
 				string result = String.Format(format, box, slot, species, gender, nature, ability, hp, atk, def, spa, spd, spe, hptype, ESV, TSV, nickname, otname, ball, TID, SID, ev_hp, ev_at, ev_de, ev_sa, ev_sd, ev_se, move1, move2, move3, move4, relearn1, relearn2, relearn3, relearn4, isshiny, isegg, level, region, country, helditem, language, game, number, PID, mark, dex, form, hpm, atkm, defm, spam, spdm, spem, IVs, IVsum, EVsum, eggDate, metDate);
+				
+				// Add the result to the CSV data if needed
+				if (CB_ExportStyle.SelectedIndex == 6 || CB_ExportStyle.SelectedIndex == 7)
+					csvdata += result + "\r\n";
 
                 if (isSAV && ghost && CHK_MarkFirst.Checked) result = "~" + result;
                 dumpedcounter++;
@@ -942,10 +938,16 @@ namespace KeySAV2
         }
         private void DumpSAV(object sender, EventArgs e)
         {
-            csvheader = (CB_ExportStyle.SelectedIndex == 6) ? 
-			"Box,Row,Column,Species,Gender,Nature,Ability,HP IV,ATK IV,DEF IV,SPA IV,SPD IV,SPE IV,HP Type,ESV,TSV,Nickname,OT,Ball,TID,SID,HP EV,ATK EV,DEF EV,SPA EV,SPD EV,SPE EV,Move 1,Move 2,Move 3,Move 4,Relearn 1, Relearn 2, Relearn 3, Relearn 4, Shiny, Egg" : 
-			"Box,Row,Column,Species,Gender,Nature,Ability,HP IV,ATK IV,DEF IV,SPA IV,SPD IV,SPE IV,IV Sum,1,2,3,4,5,6,IVs,HP Type,ESV,TSV,Nickname,OT,Ball,TID,SID,HP EV,ATK EV,DEF EV,SPA EV,SPD EV,SPE EV,EV Sum,Move 1,Move 2,Move 3,Move 4,Relearn 1,Relearn 2,Relearn 3,Relearn 4,Shiny,Egg,Level,Region,Country,Held Item,Language,Game,Number,PID,Mark,Dex Number,Form,Egg Received,Met/Hatched";
-            csvdata = csvheader + "\r\n";
+			// Get the output format from the input text box
+			string format = RTB_OPTIONS.Text;
+			
+			// For PK6 output, display default format
+			if (CB_ExportStyle.SelectedIndex == 8)
+				format = "{0} - {1} - {2} ({3}) - {4} - {5} - {6}.{7}.{8}.{9}.{10}.{11} - {12} - {13}";
+			
+            string header = String.Format(format, "Box", "Row,Column", "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nick", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Number", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched");
+            csvdata = header + "\r\n";
+			
             RTB_SAV.Clear();
             dumpedcounter = 0;
             // Load our Keystream file.
@@ -989,7 +991,6 @@ namespace KeySAV2
             ushort tmp = 0;
             selectedTSVs = (from val in Regex.Split(TB_SVs.Text, @"\s*[\s,;.]\s*") where UInt16.TryParse(val, out tmp) select tmp).ToArray();
 
-            string header = String.Format(RTB_OPTIONS.Text, "Box", "Slot", "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nick", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Number", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched");
             if (CB_ExportStyle.SelectedIndex == 1 || CB_ExportStyle.SelectedIndex == 2 || (CB_ExportStyle.SelectedIndex != 0 && CB_ExportStyle.SelectedIndex < 6 && CHK_R_Table.Checked))
             {
                 int args = Regex.Split(RTB_OPTIONS.Text, "{").Length;
@@ -1007,10 +1008,13 @@ namespace KeySAV2
                         else RTB_SAV.AppendText(boxcolors[CB_BoxColor.SelectedIndex - 1]);
                     }
                     // Append Box Name then Header
-                    RTB_SAV.AppendText("B" + (boxstart).ToString("00") + "+\r\n\r\n");
+                    RTB_SAV.AppendText("Box " + (boxstart).ToString("00") + "+\r\n\r\n");
                     RTB_SAV.AppendText(header + "\r\n");
                 } 
             }
+			// Print out header at least once if "Split Boxes" is not checked
+			else if (!CHK_Split.Checked)
+				RTB_SAV.AppendText(header + "\r\n");
 
             for (int i = 0; i < count; i++)
             {
@@ -1029,7 +1033,7 @@ namespace KeySAV2
                         }
                     }
                     // Append Box Name then Header
-                    RTB_SAV.AppendText("B" + (i / 30 + boxstart).ToString("00") + "\r\n\r\n");
+                    RTB_SAV.AppendText("Box " + (i / 30 + boxstart).ToString("00") + "\r\n\r\n");
                     RTB_SAV.AppendText(header + "\r\n");
                 }
                 byte[] pkx = fetchpkx(savefile, keystream, boxoffset + i * 232, 0x100 + offset + i * 232, 0x40000 + offset + i * 232, empty);
@@ -1054,10 +1058,16 @@ namespace KeySAV2
         }
         private void dumpBV(object sender, EventArgs e)
         {
-            csvheader = (CB_ExportStyle.SelectedIndex == 6) ? 
-			"Position,Species,Gender,Nature,Ability,HP IV,ATK IV,DEF IV,SPA IV,SPD IV,SPE IV,HP Type,ESV,TSV,Nickname,OT,Ball,TID,SID,HP EV,ATK EV,DEF EV,SPA EV,SPD EV,SPE EV,Move 1,Move 2,Move 3,Move 4,Relearn 1, Relearn 2, Relearn 3, Relearn 4, Shiny, Egg" : 
-			"Position,Species,Gender,Nature,Ability,HP IV,ATK IV,DEF IV,SPA IV,SPD IV,SPE IV,1,2,3,4,5,6,IVs,HP Type,ESV,TSV,Nickname,OT,Ball,TID,SID,HP EV,ATK EV,DEF EV,SPA EV,SPD EV,SPE EV,Move 1,Move 2,Move 3,Move 4,Relearn 1,Relearn 2,Relearn 3,Relearn 4,Shiny,Egg,Level,Region,Country,Held Item,Language,Game,Number,PID,Mark,Dex Number,Form,Egg Received,Met/Hatched";
-            csvdata = csvheader + "\r\n";
+			// Get the output format from the input text box
+			string format = RTB_OPTIONS.Text;
+			
+			// For PK6 output, display default format
+			if (CB_ExportStyle.SelectedIndex == 8)
+				format = "{1} - {2} ({3}) - {4} - {5} - {6}.{7}.{8}.{9}.{10}.{11} - {12} - {13}";
+			
+            string header = String.Format(format, "Box", "Slot", "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nick", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Number", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched");
+            csvdata = header + "\r\n";
+			
             RTB_VID.Clear();
             // player @ 0xX100, opponent @ 0x1800;
             byte[] keystream = File.ReadAllBytes(vidkeypath);
@@ -1072,8 +1082,6 @@ namespace KeySAV2
                 offset = 0x5438;
                 keyoff = 0x800;
             }
-
-			string header = String.Format(RTB_OPTIONS.Text, "Box", "Slot", "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nick", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Number", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched");
 
             // Add header if reddit
             if (CB_ExportStyle.SelectedIndex == 1 || CB_ExportStyle.SelectedIndex == 2 || ((CB_ExportStyle.SelectedIndex != 0 && CB_ExportStyle.SelectedIndex < 6) && CHK_R_Table.Checked))
@@ -1096,8 +1104,9 @@ namespace KeySAV2
 
                 RTB_VID.AppendText(header + "\r\n");
             }
-
-
+			// Print out header at least once if "Split Boxes" is not checked
+			else if (!CHK_Split.Checked)
+				RTB_SAV.AppendText(header + "\r\n");
 
             for (int i = 0; i < 6; i++)
             {
@@ -1912,15 +1921,15 @@ namespace KeySAV2
             {
                 CHK_R_Table.Visible = false;
 				CHK_NameQuotes.Visible = true;
-                RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
-                "CSV will output standard fields listed below (useful for other programs that process this file):\r\n{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35}";
+                RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text ="{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35}";
             }
             else if (CB_ExportStyle.SelectedIndex == 7) // CSV custom
             {
                 CHK_R_Table.Visible = false;
 				CHK_NameQuotes.Visible = true;
-                RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
-                "CSV custom will output ALL columns:\r\n{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{54},{47},{48},{49},{50},{51},{52},{53},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{55},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35},{36},{37},{38},{39},{40},{41},{42},{43},{44},{45},{46},{56},{57}";
+                RTB_OPTIONS.ReadOnly = false;
+				// If nothing is saved, fill with all columns by default
+				RTB_OPTIONS.Text = (customcsv == "") ? "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{54},{47},{48},{49},{50},{51},{52},{53},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{55},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35},{36},{37},{38},{39},{40},{41},{42},{43},{44},{45},{46},{56},{57}" : customcsv;
             }
             else if (CB_ExportStyle.SelectedIndex == 8) // PK6
             {
@@ -1938,6 +1947,8 @@ namespace KeySAV2
                 custom2 = RTB_OPTIONS.Text;
             else if (CB_ExportStyle.SelectedIndex == 5) // Custom 3
                 custom3 = RTB_OPTIONS.Text;
+			else if (CB_ExportStyle.SelectedIndex == 7) // CSV custom
+				customcsv = RTB_OPTIONS.Text;
         }
         private void changeTableStatus(object sender, EventArgs e)
         {
