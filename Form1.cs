@@ -891,10 +891,6 @@ namespace KeySAV2
                 string format = RTB_OPTIONS.Text;
 				
 				// For PK6 output, display default format and output PK6 files
-
-
-
-
                 if (CB_ExportStyle.SelectedIndex == 8)
 				{
 
@@ -1025,7 +1021,7 @@ namespace KeySAV2
             {
                 if (i % 30 == 0 && CHK_Split.Checked)
                 {
-                    RTB_SAV.AppendText("\r\n");
+                    if (i != 0) RTB_SAV.AppendText("\r\n");
                     // Add box header if Reddit and Table checked
                     if (CB_ExportStyle.SelectedIndex >= 1 && CB_ExportStyle.SelectedIndex <= 5 && CHK_R_Table.Checked)
                     {
