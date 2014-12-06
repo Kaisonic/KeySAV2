@@ -1009,9 +1009,9 @@ namespace KeySAV2
                         else RTB_SAV.AppendText(boxcolors[CB_BoxColor.SelectedIndex - 1]);
                     }
                     // Append Box Name then Header
-                    RTB_SAV.AppendText("Box " + (boxstart).ToString("00") + "+\r\n\r\n");
+                    RTB_SAV.AppendText("Boxes " + CB_BoxStart.Text + " to " + CB_BoxEnd.Text + "\r\n\r\n");
                     RTB_SAV.AppendText(header + "\r\n");
-                } 
+                }
             }
 			// Print out header at least once if "Split Boxes" is not checked
 			else if (!CHK_Split.Checked)
@@ -1022,16 +1022,13 @@ namespace KeySAV2
                 if (i % 30 == 0 && CHK_Split.Checked)
                 {
                     if (i != 0) RTB_SAV.AppendText("\r\n");
-                    // Add box header if Reddit and Table checked
-                    if (CB_ExportStyle.SelectedIndex >= 1 && CB_ExportStyle.SelectedIndex <= 5 && CHK_R_Table.Checked)
+					
+                    // Add Reddit coloring
+                    if (CHK_ColorBox.Checked && (CB_ExportStyle.SelectedIndex == 1 || CB_ExportStyle.SelectedIndex == 2 || (CB_ExportStyle.SelectedIndex >= 1 && CB_ExportStyle.SelectedIndex <= 5 && CHK_R_Table.Checked)))
                     {
-                        if (CHK_ColorBox.Checked)
-                        {
-                            // Add Reddit Coloring
-                            if (CB_BoxColor.SelectedIndex == 0)
-                                RTB_SAV.AppendText(boxcolors[1 + ((i / 30 + boxstart) % 4)]);
-                            else RTB_SAV.AppendText(boxcolors[CB_BoxColor.SelectedIndex - 1]);
-                        }
+						if (CB_BoxColor.SelectedIndex == 0)
+							RTB_SAV.AppendText(boxcolors[1 + ((i / 30 + boxstart) % 4)]);
+						else RTB_SAV.AppendText(boxcolors[CB_BoxColor.SelectedIndex - 1]);
                     }
                     // Append Box Name then Header
                     RTB_SAV.AppendText("Box " + (i / 30 + boxstart).ToString("00") + "\r\n\r\n");
