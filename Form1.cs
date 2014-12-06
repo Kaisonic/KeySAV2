@@ -45,6 +45,21 @@ namespace KeySAV2
             loadINI();
             this.FormClosing += onFormClose;
             InitializeStrings();
+			
+			// Create some data arrays for our getLevel function
+			// This data doesn't change, ever
+			object txt = Properties.Resources.ResourceManager.GetObject("text_expTable_all");
+			List<string> rawList = ((string)txt).Split(new char[] { '\n' }).ToList();
+			expTable = new int[rawList.Count][];
+			for (int i = 0; i < rawList.Count; i++)
+			{
+				int[] oneLine = new int[6];
+				expTable[i] = oneLine;
+				string[] experiences = Regex.Split(rawList[i].Trim(), ",");
+				for (int j = 0; j < 6; j++)
+					expTable[i][j] = Convert.ToInt32(experiences[j]);
+			}
+			
         }
         
         // Drag & Drop Events // 
@@ -83,6 +98,10 @@ namespace KeySAV2
         public static string bakpath = path_exe + "\\backup";
         public string path_3DS = "";
         public string path_POW = "";
+		
+		// Static data
+		public string[] expGrowth;
+		public int[][] expTable;
 
         // Language
         public string[] natures;
@@ -96,7 +115,6 @@ namespace KeySAV2
 		public string[] countryList;
 		public string[] regionList;
 		public string[] gameList;
-		public string[] expGrowth;
         public string[] vivlist;
         public string[] unownlist;
         // Blank File Egg Names

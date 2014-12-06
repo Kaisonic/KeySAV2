@@ -163,6 +163,9 @@
   <data name="text_expGrowth_all" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\text\text_expGrowth_all.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="text_expTable_all" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text\text_expTable_all.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="text_Forms_de" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\text\de\text_Forms_de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
