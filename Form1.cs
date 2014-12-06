@@ -52,14 +52,7 @@ namespace KeySAV2
 			List<string> rawList = ((string)txt).Split(new char[] { '\n' }).ToList();
 			expTable = new int[rawList.Count][];
 			for (int i = 0; i < rawList.Count; i++)
-			{
-				int[] oneLine = new int[6];
-				expTable[i] = oneLine;
-				string[] experiences = Regex.Split(rawList[i].Trim(), ",");
-				for (int j = 0; j < 6; j++)
-					expTable[i][j] = Convert.ToInt32(experiences[j]);
-			}
-			
+                expTable[i] = Array.ConvertAll(Regex.Split(rawList[i].Trim(), ","), int.Parse);
         }
         
         // Drag & Drop Events // 
