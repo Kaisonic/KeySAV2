@@ -238,6 +238,7 @@
     <Content Include="Resources\text\ko\text_Countries_ko.txt" />
     <Content Include="Resources\text\ko\text_Games_ko.txt" />
     <Content Include="Resources\text\ko\text_Regions_ko.txt" />
+    <None Include="Resources\text\text_expGrowth_all.txt" />
     <None Include="Resources\text\ko\text_Forms_ko.txt" />
     <None Include="Resources\text\ja\text_Forms_ja.txt" />
     <None Include="Resources\text\it\text_Forms_it.txt" />

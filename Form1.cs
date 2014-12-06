@@ -2026,7 +2026,7 @@ namespace KeySAV2
         {
 			if (exp == 0) return 1;
 			DataTable exTable = ExpTable();
-            int growth = (int)expGrowth[species];
+            int growth = Convert.ToInt16(expGrowth[species]);
             int level = 1;
             if ((int)exTable.Rows[level][growth + 1] < exp)
             {

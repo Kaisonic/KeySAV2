@@ -906,6 +906,185 @@ namespace KeySAV2.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 0
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///3
+        ///3
+        ///3
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///1
+        ///1
+        ///2
+        ///2
+        ///1
+        ///1
+        ///2
+        ///2
+        ///3
+        ///3
+        ///3
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///4
+        ///4
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///4
+        ///4
+        ///3
+        ///3
+        ///3
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///4
+        ///4
+        ///3
+        ///3
+        ///3
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///4
+        ///4
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///4
+        ///4
+        ///1
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///4
+        ///4
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///4
+        ///4
+        ///4
+        ///4
+        ///4
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///2
+        ///4
+        ///4
+        ///4
+        ///4
+        ///4
+        ///4
+        ///4
+        ///4
+        ///4
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///3
+        ///2
+        ///2
+        ///2
+        ///2
+        ///1
+        ///1
+        ///1
+        ///1
+        ///2
+        ///4        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string text_expGrowth_all {
+            get {
+                return ResourceManager.GetString("text_expGrowth_all", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 
         ///
         ///
@@ -2484,8 +2663,7 @@ namespace KeySAV2.Properties {
         ///
         ///
         ///
-        ///
-        /// [rest of string was truncated]&quot;;.
+        ///        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Forms_ja {
             get {
@@ -3329,8 +3507,7 @@ namespace KeySAV2.Properties {
         ///クリティカット
         ///プラスパワー
         ///ディフェンダー
-        ///スピーダー
-        /// [rest of string was truncated]&quot;;.
+        ///スピーダー        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Items_ja {
             get {
@@ -3418,8 +3595,7 @@ namespace KeySAV2.Properties {
         ///실버스프레이
         ///골드스프레이
         ///동굴탈출로프
-        ///벌레회피스프레이
-        /// [rest of string was truncated]&quot;;.
+        ///벌레회피스프레이        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Items_ko {
             get {
@@ -3641,8 +3817,7 @@ namespace KeySAV2.Properties {
         ///Dard-Nuée
         ///Groz’Yeux
         ///Morsure
-        ///Rugissement
-        /// [rest of string was truncated]&quot;;.
+        ///Rugissement        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Moves_fr {
             get {
@@ -3775,8 +3950,7 @@ namespace KeySAV2.Properties {
         ///じごくぐるま
         ///けたぐり
         ///カウンター
-        ///ちきゅうなげ
-        /// [rest of string was truncated]&quot;;.
+        ///ちきゅうなげ        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Moves_ja {
             get {
@@ -3872,8 +4046,7 @@ namespace KeySAV2.Properties {
         ///전기쇼크
         ///10만볼트
         ///전기자석파
-        ///번개
-        /// [rest of string was truncated]&quot;;.
+        ///번개        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Moves_ko {
             get {
@@ -4670,8 +4843,7 @@ namespace KeySAV2.Properties {
         ///Diglett
         ///Dugtrio
         ///Meowth
-        ///Persian
-        /// [rest of string was truncated]&quot;;.
+        ///Persian        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Species_it {
             get {
@@ -4870,8 +5042,7 @@ namespace KeySAV2.Properties {
         ///킹크랩
         ///찌리리공
         ///붐볼
-        ///아라리
-        /// [rest of string was truncated]&quot;;.
+        ///아라리        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Species_ko {
             get {
