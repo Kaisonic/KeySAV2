@@ -96,6 +96,7 @@ namespace KeySAV2
 		public string[] countryList;
 		public string[] regionList;
 		public string[] gameList;
+		public string[] expGrowth;
         public string[] vivlist;
         public string[] unownlist;
         // Blank File Egg Names
@@ -1982,9 +1983,8 @@ namespace KeySAV2
         private void InitializeStrings()
         {
             string[] lang_val = { "en", "ja", "fr", "it", "de", "es", "ko" };
-            string curlanguage = lang_val[CB_MainLanguage.SelectedIndex];
-
-            string l = curlanguage;
+            string l = lang_val[CB_MainLanguage.SelectedIndex];
+			
             natures = getStringList("Natures", l);
             types = getStringList("Types", l);
             abilitylist = getStringList("Abilities", l);
@@ -1995,6 +1995,7 @@ namespace KeySAV2
 			countryList = getStringList("Countries", l);
 			regionList = getStringList("Regions", l);
 			gameList = getStringList("Games", l);
+			expGrowth = getStringList("expGrowth", "all");
 
             abilitylist[0] = itemlist[0] = movelist[0] = "(" + itemlist[0] + ")";
 
@@ -2012,6 +2013,7 @@ namespace KeySAV2
             vivlist[0] = formlist[666];
             for (int i = 1; i < 20; i++)
                 vivlist[i] = formlist[835+i];
+			
             // unown list
             unownlist = new string[29];
             unownlist[0] = formlist[201];
@@ -2023,9 +2025,8 @@ namespace KeySAV2
         private int getLevel(int species, int exp)
         {
 			if (exp == 0) return 1;
-            DataTable specTable = SpeciesTable();
 			DataTable exTable = ExpTable();
-            int growth = (int)specTable.Rows[species][1];
+            int growth = (int)expGrowth[species];
             int level = 1;
             if ((int)exTable.Rows[level][growth + 1] < exp)
             {
