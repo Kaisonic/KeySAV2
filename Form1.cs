@@ -808,9 +808,6 @@ namespace KeySAV2
 			string EVsum = (data.HP_EV + data.ATK_EV + data.DEF_EV + data.SPA_EV + data.SPD_EV + data.SPE_EV).ToString();
 			string eggDate = (data.egg_year.ToString() == "0") ? "" : "20" + data.egg_year.ToString("00") + "-" + data.egg_month.ToString("00") + "-" + data.egg_day.ToString("00");
 			string metDate = "20" + data.met_year.ToString("00") + "-" + data.met_month.ToString("00") + "-" + data.met_day.ToString("00");
-
-            //ExtraBonus (implemented with code from PKHeX)
-
 			string experience = data.exp.ToString();
             string level = (data.isegg) ? "" : getLevel(Convert.ToInt32(data.species), Convert.ToInt32(data.exp)).ToString();
             string region = regionList[data.gamevers];
@@ -820,8 +817,6 @@ namespace KeySAV2
             string language = languageList[data.otlang];
 			// Mark is for Gen 6 Pokemon, so X Y OR AS
             string mark = (data.gamevers >= 24 && data.gamevers <= 27) ? "⬟" : "";
-
-
 			string PID = data.PID.ToString();
 			string dex = data.species.ToString();
 			string form = data.altforms.ToString();
@@ -877,7 +872,7 @@ namespace KeySAV2
                 if (data.species >= 664 && data.species <= 666)
                     species += "-" + vivlist[data.altforms];
 
-				// Unown Forms (this doesn't work right now)
+				// Unown Forms (this doesn't do anything right now)
 				// if (data.species == 201)
 				// 	species += "-" + unownlist[data.altforms];
 
@@ -1000,7 +995,8 @@ namespace KeySAV2
             ushort tmp = 0;
             selectedTSVs = (from val in Regex.Split(TB_SVs.Text, @"\s*[\s,;.]\s*") where UInt16.TryParse(val, out tmp) select tmp).ToArray();
 
-            if (CB_ExportStyle.SelectedIndex >= 1 && CB_ExportStyle.SelectedIndex <= 5 && CHK_R_Table.Checked)
+			// Add header if Reddit, or if custom and Reddit table checked
+            if (CB_ExportStyle.SelectedIndex == 1 || CB_ExportStyle.SelectedIndex == 2 || (CB_ExportStyle.SelectedIndex >= 1 && CB_ExportStyle.SelectedIndex <= 5 && CHK_R_Table.Checked))
             {
                 int args = Regex.Split(RTB_OPTIONS.Text, "{").Length;
                 header += "\r\n|";
@@ -1092,8 +1088,8 @@ namespace KeySAV2
                 keyoff = 0x800;
             }
 
-            // Add header if reddit
-            if (CB_ExportStyle.SelectedIndex >= 1 && CB_ExportStyle.SelectedIndex <= 5 && CHK_R_Table.Checked)
+            // Add header if Reddit, or if custom and Reddit table checked
+            if (CB_ExportStyle.SelectedIndex == 1 || CB_ExportStyle.SelectedIndex == 2 || (CB_ExportStyle.SelectedIndex >= 1 && CB_ExportStyle.SelectedIndex <= 5 && CHK_R_Table.Checked))
             {
                 // Add Reddit Coloring
                 if (CHK_ColorBox.Checked)
