@@ -2030,11 +2030,7 @@ namespace KeySAV2
                 unownlist[i] = formlist[201 + i];
         }
 		
-        // I have an idea of what I'm doing
-        // But it's not pretty
-
-		// by ViolentSpatula
-
+		// Based on method in PkHex
         private int getLevel(int species, int exp)
         {
 			if (exp == 0) return 1;
@@ -2057,74 +2053,6 @@ namespace KeySAV2
                 else return (level - 1);
             }
             else return level;
-        }
-
-        private int getEXP(int level, int species)
-        {
-            // Fetch Growth
-            DataTable spectable = SpeciesTable();
-            int growth = (int)spectable.Rows[species][1];
-            int exp;
-            if ((level == 0) || (level == 1))
-            {
-                exp = 0;
-                //TB_EXP.Text = exp.ToString();
-                return exp;
-            }
-            switch (growth)
-            {
-                case 0: // Erratic
-                    if (level <= 50)
-                    {
-                        exp = (level * level * level) * (100 - level) / 50;
-                    }
-                    else if (level < 69)
-                    {
-                        exp = (level * level * level) * (150 - level) / 100;
-                    }
-                    else if (level < 99)
-                    {
-                        exp = (level * level * level) * ((1911 - 10 * level) / 3) / 500;
-                    }
-                    else
-                    {
-                        exp = (level * level * level) * (160 - level) / 100;
-                    }
-                    //TB_EXP.Text = exp.ToString();
-                    return exp;
-                case 1: // Fast
-                    exp = 4 * (level * level * level) / 5;
-                    //TB_EXP.Text = exp.ToString();
-                    return exp;
-                case 2: // Medium Fast
-                    exp = (level * level * level);
-                    //TB_EXP.Text = exp.ToString();
-                    return exp;
-                case 3: // Medium Slow
-                    exp = 6 * (level * level * level) / 5 - 15 * (level * level) + 100 * level - 140;
-                    //TB_EXP.Text = exp.ToString();
-                    return exp;
-                case 4:
-                    exp = 5 * (level * level * level) / 4;
-                    //TB_EXP.Text = exp.ToString();
-                    return exp;
-                case 5:
-                    if (level <= 15)
-                    {
-                        exp = (level * level * level) * ((((level + 1) / 3) + 24) / 50);
-                    }
-                    else if (level <= 36)
-                    {
-                        exp = (level * level * level) * ((level + 14) / 50);
-                    }
-                    else
-                    {
-                        exp = (level * level * level) * (((level / 2) + 32) / 50);
-                    }
-                    //TB_EXP.Text = exp.ToString();
-                    return exp;
-            }
-            return 0;
         }
 		
         // Structs
