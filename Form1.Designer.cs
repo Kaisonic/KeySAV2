@@ -507,10 +507,10 @@ namespace KeySAV2
             // 
             // B_BKP_SAV
             // 
-            this.B_BKP_SAV.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.B_BKP_SAV.Location = new System.Drawing.Point(233, 51);
+            this.B_BKP_SAV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.B_BKP_SAV.Location = new System.Drawing.Point(236, 48);
             this.B_BKP_SAV.Name = "B_BKP_SAV";
-            this.B_BKP_SAV.Size = new System.Drawing.Size(55, 20);
+            this.B_BKP_SAV.Size = new System.Drawing.Size(77, 23);
             this.B_BKP_SAV.TabIndex = 13;
             this.B_BKP_SAV.Text = "Backup SAV";
             this.B_BKP_SAV.UseVisualStyleBackColor = true;
