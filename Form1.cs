@@ -2037,37 +2037,23 @@ namespace KeySAV2
 
         private int getLevel(int species, int exp)
         {
-			if (exp == 0)
-				return 1;
+			if (exp == 0) return 1;
             DataTable specTable = SpeciesTable();
 			DataTable exTable = ExpTable();
             int growth = (int)specTable.Rows[species][1];
-
-
-
             int level = 1;
             if ((int)exTable.Rows[level][growth + 1] < exp)
             {
                 while ((int)exTable.Rows[level][growth + 1] < exp)
                 {
                     // While EXP for guessed level is below our current exp
-
-
                     level++;
-                    if (level == 100)
-                    {
-                        getEXP(100, species);
-
-                        return level;
-                    }
+                    if (level == 100) return level;
                     // when calcexp exceeds our exp, we exit loop
                 }
                 if ((int)exTable.Rows[level][growth + 1] == exp)
-                {
                     // Matches level threshold
-
                     return level;
-                }
                 else return (level - 1);
             }
             else return level;
