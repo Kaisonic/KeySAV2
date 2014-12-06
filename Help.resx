@@ -119,42 +119,42 @@
   </resheader>
   <data name="label1.Text" xml:space="preserve">
     <value>{0} - Box
-{1} - Slot
+{1} - Slot (Row,Column)
 {2} - Species
 {3} - Gender
 {4} - Nature
 {5} - Ability
 {6} - HP IV
-{7} - ATK IV
-{8} - DEF IV
-{9} - SPA IV
-{10} - SPE IV
-{11} - SPD IV
+{7} - Attack IV
+{8} - Defense IV
+{9} - Sp. Attack IV
+{10} - Sp. Defense IV
+{11} - Speed IV
 {12} - Hidden Power Type
-{13} - ESV
-{14} - TSV
+{13} - ESV (Egg Shiny Value)
+{14} - TSV (Trainer Shiny Value)
 {15} - Nickname
-{16} - OT Name
+{16} - OT Name (Original Trainer)
 {17} - Ball
-{18} - TID
-{19} - SID
+{18} - TID (Trainer ID)
+{19} - SID (Secret Trainer ID)
 {20} - HP EV
-{21} - ATK EV
-{22} - DEF EV
-{23} - SPA EV
-{24} - SPD EV
-{25} - SPE EV
+{21} - Attack EV
+{22} - Defense EV
+{23} - Sp Attack EV
+{24} - Sp. Defense EV
+{25} - Speed EV
 {26} - Move 1
 {27} - Move 2
 {28} - Move 3
-{29} - Move 4</value>
+{29} - Move 4
+{30} - Relearn (Egg) Move 1
+{31} - Relearn (Egg) Move 2
+{32} - Relearn (Egg) Move 3
+{33} - Relearn (Egg) Move 4</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>{30} - Relearn 1
-{31} - Relearn 2
-{32} - Relearn 3
-{33} - Relearn 4
-{34} - Is Shiny
+    <value>{34} - Is Shiny
 {35} - Is Egg
 {36} - Level
 {37} - Region
@@ -163,24 +163,25 @@
 {40} - Language
 {41} - Game
 {42} - Number
-{43} - PID
-{44} - Mark
+{43} - PID (Personality ID)
+{44} - Mark (Gen 6)
 {45} - Dex Number
 {46} - Form
 
 Below are marker columns for an IV being perfect (31)
 The last column prints the amount of perfect IVs
 {47} - HP
-{48} - ATK
-{49} - DEF
-{50} - SPA
-{51} - SPE
-{52} - SPD
-{53} - Perfect
+{48} - Attack
+{49} - Defense
+{50} - Sp. Attack
+{51} - Sp. Defense
+{52} - Speed
+{53} - Perfect IV Count
 
 {54} IV Sum
 {55} EV Sum
 {56} Egg Hatched Date (YYYY-MM-DD)
-{57} Met Date (YYYY-MM-DD)</value>
+{57} Met Date (YYYY-MM-DD)
+{58} Experience</value>
   </data>
 </root>
