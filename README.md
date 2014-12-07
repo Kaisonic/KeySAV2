@@ -1,3 +1,4 @@
+=======
 KeySAV2
 =======
 
@@ -5,47 +6,21 @@ KeySAV 2.0
 
 3DS X/Y/OR/AS SaveFile Box / Battle Video PKX cracking program.
 
-KeySAV is a tool that can decrypt portions of the X/Y title/extdata from a Digital Game / PowerSaves/CyberGadget rip. 
-With this tool you can view IVs/Nature/ESV/TSV of Hatched/Unhatched Pokémon that are in your boxes or battle videos, so long as you set everything up properly.
+KeySAV is a tool that can decrypt portions of the X/Y title/extdata from a Digital Game or Datel Action Replay 3DS PowerSaves rip.
+
+With this tool you can view IVs/Nature/ESV/TSV and much more of Hatched/Unhatched Pokémon that are in your boxes or battle videos, as long as you follow the setup guide properly.
 
 SUPPORTS BOTH RETAIL CARTRIDGES AND DIGITAL COPIES
 
-SD Card Reader or PowerSaves/CyberGadget game reader required.
+Datel Action Replay 3DS PowerSaves hardware required for Retail copies.
+SD card reader required for Digital copies or for Battle Videos of Retail copies.
 
 Thread:
 http://projectpokemon.org/forums/showthread.php?41752
 
-Changelog
-=========
-KeySAV2 1.3.3
-- Removed legacy save breaking behavior option (confusing and unnecessary)
-- Fixed output text box extending beyond window
-- Remove unstable key-breaking code
-- Changed CSV custom to allow custom formats
-- Show headers once if "Split Boxes" is not checked
-- Use "Box" instead of just "B" for headers
-- Fixed brackets for ESV appearing in CSV data
-- Added columns: experience
-- Added translations for "Game" and "Region" columns ("Country" is still English for all)
+Originally created by Kaphotics
 
-KeySAV2 1.3.2
-- Added "Egg Received" and "Met/Hatched" columns
-- Fixed legacy break help box
-
-KeySAV2 1.3.1
-- Added option to use legacy save-twice file-breaking behavior (click "What's this?" in the app for more info)
-
-KeySAV2 1.3
-* Added available columns: Level, Region, Country, Held Item, Language, Game, Number, PID, Mark, Dex Number, Form
-* Fixed "mark" - pentagon mark is now present for all Pokemon created in generation 6
-* Fixed "Number" column to be 1-indexed
-* Fixed help box to be resizable and able to be kept open while working in the main window
-* Added ORAS game support for "Game" and "Region" values
-* Fixed superfluous spaces in CSV data
-* Added perfect IV marker columns
-* Added perfect IV counter column
-* Added IV and EV sum columns
-* Changed pk6 file output to be in box order rather than species order (for better PkHex support)
-* Code refactoring (combined dumpPKX_BV and dumpPKX_SAV)
-* Added option to show ESV for hatched Pokemon
-* Added option to enclose trainer and Pokemon nicknames in quotes for CSV exports (to prevent problems with commas in either)
+Modifications by
+ViolentSpatula
+Cu3PO42 (http://www.reddit.com/r/SVExchange/comments/2nun41/new_keysav2_build_with_more_features_that_does/)
+Kaisonic (http://www.reddit.com/r/SVExchange/comments/2o4qiu/a_newer_keysav2_build_with_even_more_features/)

@@ -217,6 +217,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="README.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\text\de\text_Countries_de.txt" />
     <Content Include="Resources\text\de\text_Games_de.txt" />
     <Content Include="Resources\text\de\text_Regions_de.txt" />
