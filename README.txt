@@ -34,7 +34,7 @@ KeySAV2 1.3.4 (2014-12-07)
 - Added more descriptive headers ("All Boxes", "Boxes 1-4", etc)
 - Fixed shiny star appearing for eggs (it is now a checkmark, like it should be)
 - Fixed Unown forms (will now show as "Unown-A", "Unown-D", "Unown-!", etc)
-- Added a column for number in the dump (just goes from 1 to number of Pokemon dumped)
+- Added a column for number in the dump (just goes from 1 to number of Pokémon dumped)
 - Added Pokerus status columns (Infected and Cured)
 - Re-ordered default CSV custom columns to make a little more sense
 	- To reset your CSV custom format, erase the format from the text box, switch to another format, then switch back to CSV custom and the default will be filled in
@@ -63,7 +63,7 @@ KeySAV2 1.3.1
 
 KeySAV2 1.3
 * Added available columns: Level, Region, Country, Held Item, Language, Game, Number, PID, Mark, Dex Number, Form
-* Fixed "mark" - pentagon mark is now present for all Pokemon created in generation 6
+* Fixed "mark" - pentagon mark is now present for all Pokémon created in generation 6
 * Fixed "Number" column to be 1-indexed
 * Fixed help box to be resizable and able to be kept open while working in the main window
 * Added ORAS game support for "Game" and "Region" values
@@ -73,8 +73,8 @@ KeySAV2 1.3
 * Added IV and EV sum columns
 * Changed pk6 file output to be in box order rather than species order (for better PkHex support)
 * Code refactoring (combined dumpPKX_BV and dumpPKX_SAV)
-* Added option to show ESV for hatched Pokemon
-* Added option to enclose trainer and Pokemon nicknames in quotes for CSV exports (to prevent problems with commas in either)
+* Added option to show ESV for hatched Pokémon
+* Added option to enclose trainer and Pokémon nicknames in quotes for CSV exports (to prevent problems with commas in either)
 
 ===================================================
 Cu3PO42's Full Usage Guide (from his reddit thread)
@@ -100,16 +100,17 @@ Breaking the encryption
 If you keep checking from the same boxes, you will only have to do that step once.
 
     -Clear out boxes 1 & 2 by moving the Pokémon to other boxes.
+	-If you plan on being able to fully decrypt ALL Pokémon from ALL boxes, it is advised (but optional) to have all other boxes empty as well (move them to the Bank if you can).
     -Capture or hatch 6 Pokémon. They have to come from your game.
     -Put those 6 Pokémon on the top row of the first box.
     -Save once, soft reset (hit Select + L + R), launch the game and save again.
-    -Export your save. Locate your save on your PC. Rename the first save save1.bin or save1.sav, depending on its original extension. If you are using the downloaded copy of the game, remember to copy the save file to another location before renaming. Do not rename the save file on the SD Card.
+    -Export your save. Locate your save on your PC. Rename the first save save2.bin or save2.sav, depending on its original extension. If you are using the downloaded copy of the game, remember to copy the save file to another location before renaming. Do not rename the save file on the SD Card.
     -Run the game, and move all 6 Pokémon to the top row of box 2.
     -Save once. Only once. Do not save twice.
     -Export your save. Locate your save on your PC and rename the second save save3.bin or save3.sav, depending on its original extension.
     -Run the game. Save once. Only once. Do not save twice.
-    -Export your save. Locate your save on your PC and rename the second save save2.bin or save2.sav, depending on its original extension.
-    -Run KeySAV2. On the Options tab, click on File 1 and load save2. Click on File 2 and load save1. Click on File 3 and load save3. Click on the upper Break button.
+    -Export your save. Locate your save on your PC and rename the third save save1.bin or save1.sav, depending on its original extension.
+    -Run KeySAV2. On the Options tab, click on File 1 and load save1. Click on File 2 and load save2. Click on File 3 and load save3. Click on the upper Break button.
     -Save the file in the suggested folder.
     -This step is optional, but highly suggested: click on Folder, select the folder where you keep your save backups. This folder may contain backups from other games as well, this has no effect. Now click the lower Break.
 
