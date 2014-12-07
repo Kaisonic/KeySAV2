@@ -42,6 +42,7 @@ KeySAV2 1.3.4 (2014-12-07)
 	- This does NOT effect the "CSV default" option, so any program that parses the standard CSV output from this program will still work!
 - README.txt file with changelog and full guide now included
 - More code refactoring
+- Updated guide so the breaking process is easier to follow
 
 KeySAV2 1.3.3
 - Removed legacy save breaking behavior option (confusing and unnecessary)
