@@ -28,6 +28,17 @@ Kaisonic (http://www.reddit.com/r/SVExchange/comments/2o4qiu/a_newer_keysav2_bui
 ==============================
 Changelog for Kaisonic's Build
 ==============================
+KeySAV2 1.3.4
+- Fixed "Backup SAV" button size
+- Fixed empty first line in text output if "Split Boxes" was checked
+- Added more descriptive headers ("All Boxes", "Boxes 1-4", etc)
+- Fixed shiny star appearing for eggs (it is now a checkmark, like it should be)
+- Fixed Unown forms (will now show as "Unown-A", "Unown-D", "Unown-!", etc)
+- Added a column for number in the dump (just goes from 1 to number of Pokemon dumped)
+- Added Pokerus status columns (Infected and Cured)
+- README.txt file with changelog and full guide now included
+- More code refactoring
+
 KeySAV2 1.3.3
 - Removed legacy save breaking behavior option (confusing and unnecessary)
 - Fixed output text box extending beyond window
