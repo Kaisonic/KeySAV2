@@ -183,6 +183,8 @@ The last column prints the amount of perfect IVs
 {56} Egg Hatched Date (YYYY-MM-DD)
 {57} Met Date (YYYY-MM-DD)
 {58} Experience
-{59} Dump Count Number</value>
+{59} Dump Count Number
+{60} Infected with Pokerus
+{61} Cured from Pokerus</value>
   </data>
 </root>
