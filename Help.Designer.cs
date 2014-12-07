@@ -42,7 +42,7 @@ namespace KeySAV2
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 442);
+            this.label1.Size = new System.Drawing.Size(162, 468);
             this.label1.TabIndex = 0;
             this.label1.Text = resources.GetString("label1.Text");
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -55,7 +55,7 @@ namespace KeySAV2
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(196, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(260, 416);
+            this.label2.Size = new System.Drawing.Size(260, 442);
             this.label2.TabIndex = 1;
             this.label2.Text = resources.GetString("label2.Text");
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -66,7 +66,7 @@ namespace KeySAV2
             this.AutoSize = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(468, 477);
+            this.ClientSize = new System.Drawing.Size(468, 496);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;

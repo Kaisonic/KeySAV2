@@ -151,18 +151,18 @@
 {30} - Relearn (Egg) Move 1
 {31} - Relearn (Egg) Move 2
 {32} - Relearn (Egg) Move 3
-{33} - Relearn (Egg) Move 4</value>
+{33} - Relearn (Egg) Move 4
+{34} - Is Shiny
+{35} - Is Egg</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>{34} - Is Shiny
-{35} - Is Egg
-{36} - Level
+    <value>{36} - Level
 {37} - Region
 {38} - Country
 {39} - Held Item
 {40} - Language
 {41} - Game
-{42} - Number in Box
+{42} - Slot in Box
 {43} - PID (Personality ID)
 {44} - Mark (Gen 6)
 {45} - Dex Number
@@ -180,11 +180,15 @@ The last column prints the amount of perfect IVs
 
 {54} IV Sum
 {55} EV Sum
-{56} Egg Hatched Date (YYYY-MM-DD)
-{57} Met Date (YYYY-MM-DD)
+{56} Egg Received Date (YYYY-MM-DD)
+{57} Met/Hatched Date (YYYY-MM-DD)
 {58} Experience
 {59} Dump Count Number
 {60} Infected with Pokerus
-{61} Cured from Pokerus</value>
+{61} Cured from Pokerus
+{62} OT Gender
+{63} Met Level
+{64} OT Friendship
+{65} OT Affection</value>
   </data>
 </root>
