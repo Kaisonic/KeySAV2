@@ -36,6 +36,10 @@ KeySAV2 1.3.4
 - Fixed Unown forms (will now show as "Unown-A", "Unown-D", "Unown-!", etc)
 - Added a column for number in the dump (just goes from 1 to number of Pokemon dumped)
 - Added Pokerus status columns (Infected and Cured)
+- Re-ordered default CSV custom columns to make a little more sense
+	- To reset your CSV custom format, erase the format from the text box, switch to another format, then switch back to CSV custom and the default will be filled in
+	- This default is just a specific order of ALL available columns
+	- This does NOT effect the "CSV default" option, so any program that parses the standard CSV output from this program will still work!
 - README.txt file with changelog and full guide now included
 - More code refactoring
 
