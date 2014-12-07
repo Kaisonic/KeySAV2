@@ -162,7 +162,7 @@
 {39} - Held Item
 {40} - Language
 {41} - Game
-{42} - Number
+{42} - Number in Box
 {43} - PID (Personality ID)
 {44} - Mark (Gen 6)
 {45} - Dex Number
@@ -182,6 +182,7 @@ The last column prints the amount of perfect IVs
 {55} EV Sum
 {56} Egg Hatched Date (YYYY-MM-DD)
 {57} Met Date (YYYY-MM-DD)
-{58} Experience</value>
+{58} Experience
+{59} Dump Count Number</value>
   </data>
 </root>
