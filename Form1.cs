@@ -782,9 +782,12 @@ namespace KeySAV2
             {
                 if (CHK_Egg.Checked && !data.isegg) { statisfiesFilters = false; break; }
 
+                if (CB_Abilities.Text != "" && CB_Abilities.SelectedIndex != 0 && CB_Abilities.Text != ability)
+                { statisfiesFilters = false; break; }
+
                 bool checkHP = CCB_HPType.GetItemCheckState(0) != CheckState.Checked;
                 byte checkHPDiff = (byte)Convert.ToInt16(checkHP);
-                uint perfects = (uint)CB_No_IVs.SelectedIndex;
+                int perfects = CB_No_IVs.SelectedIndex;
                 foreach(var iv in new [] {
                     new Tuple<uint, bool>(data.HP_IV, CHK_IV_HP.Checked), 
                     new Tuple<uint, bool>(data.DEF_IV, CHK_IV_Def.Checked), 
@@ -1165,7 +1168,8 @@ namespace KeySAV2
             CHK_Is_Shiny.Enabled = CHK_Hatches_Shiny_For_Me.Enabled =
             CHK_Hatches_Shiny_For.Enabled = TB_SVs.Enabled =
             CHK_Egg.Enabled = RAD_Male.Enabled = RAD_Female.Enabled =
-            RAD_GenderAny.Enabled  = CCB_Natures.Enabled = CHK_Enable_Filtering.Checked;
+            RAD_GenderAny.Enabled  = CCB_Natures.Enabled =
+            CB_Abilities.Enabled = CHK_Enable_Filtering.Checked;
         }
 
         // File Keystream Breaking
@@ -2013,6 +2017,20 @@ namespace KeySAV2
         }
         private void InitializeStrings()
         {
+            int curAbility;
+            if (CB_Abilities.Text != "")
+            {
+                try
+                {
+                    for (curAbility = 0; abilitylist[curAbility] != CB_Abilities.Text; ++curAbility) ;
+                }
+                catch
+                {
+                    curAbility = -1;
+                }
+            }
+            else
+                curAbility = -1;
             string[] lang_val = { "en", "ja", "fr", "it", "de", "es", "ko" };
             string curlanguage = lang_val[CB_MainLanguage.SelectedIndex];
 
@@ -2071,6 +2089,14 @@ namespace KeySAV2
                 for (byte i = 1; i < types.Length-1; ++i)
                     (CCB_HPType.Items[i] as CCBoxItem).Name = types[i];
             }
+
+            // Populate ability list
+            string[] sortedAbilities = (string[])abilitylist.Clone();
+            Array.Sort(sortedAbilities);
+            CB_Abilities.Items.Clear();
+            CB_Abilities.Items.AddRange(sortedAbilities);
+            if (curAbility != -1) CB_Abilities.Text = abilitylist[curAbility];
+
         }
 
         // Structs

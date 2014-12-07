@@ -41,6 +41,9 @@
             this.RTB_VID = new System.Windows.Forms.RichTextBox();
             this.Tab_SAV = new System.Windows.Forms.TabPage();
             this.GB_Filter = new System.Windows.Forms.GroupBox();
+            this.CB_Abilities = new System.Windows.Forms.ComboBox();
+            this.L_Ability = new System.Windows.Forms.Label();
+            this.L_Nature = new System.Windows.Forms.Label();
             this.RAD_GenderAny = new System.Windows.Forms.RadioButton();
             this.RAD_Female = new System.Windows.Forms.RadioButton();
             this.RAD_Male = new System.Windows.Forms.RadioButton();
@@ -125,7 +128,7 @@
             this.tab_Main.Location = new System.Drawing.Point(12, 12);
             this.tab_Main.Name = "tab_Main";
             this.tab_Main.SelectedIndex = 0;
-            this.tab_Main.Size = new System.Drawing.Size(330, 448);
+            this.tab_Main.Size = new System.Drawing.Size(330, 531);
             this.tab_Main.TabIndex = 3;
             // 
             // Tab_BV
@@ -141,7 +144,7 @@
             this.Tab_BV.Location = new System.Drawing.Point(4, 22);
             this.Tab_BV.Name = "Tab_BV";
             this.Tab_BV.Padding = new System.Windows.Forms.Padding(3);
-            this.Tab_BV.Size = new System.Drawing.Size(322, 422);
+            this.Tab_BV.Size = new System.Drawing.Size(322, 505);
             this.Tab_BV.TabIndex = 0;
             this.Tab_BV.Text = "BV";
             this.Tab_BV.UseVisualStyleBackColor = true;
@@ -231,7 +234,7 @@
             this.RTB_VID.Location = new System.Drawing.Point(0, 77);
             this.RTB_VID.Name = "RTB_VID";
             this.RTB_VID.ReadOnly = true;
-            this.RTB_VID.Size = new System.Drawing.Size(320, 341);
+            this.RTB_VID.Size = new System.Drawing.Size(320, 427);
             this.RTB_VID.TabIndex = 31;
             this.RTB_VID.Text = "";
             this.RTB_VID.WordWrap = false;
@@ -253,13 +256,16 @@
             this.Tab_SAV.Location = new System.Drawing.Point(4, 22);
             this.Tab_SAV.Name = "Tab_SAV";
             this.Tab_SAV.Padding = new System.Windows.Forms.Padding(3);
-            this.Tab_SAV.Size = new System.Drawing.Size(322, 422);
+            this.Tab_SAV.Size = new System.Drawing.Size(322, 505);
             this.Tab_SAV.TabIndex = 1;
             this.Tab_SAV.Text = "SAV";
             this.Tab_SAV.UseVisualStyleBackColor = true;
             // 
             // GB_Filter
             // 
+            this.GB_Filter.Controls.Add(this.CB_Abilities);
+            this.GB_Filter.Controls.Add(this.L_Ability);
+            this.GB_Filter.Controls.Add(this.L_Nature);
             this.GB_Filter.Controls.Add(this.CCB_HPType);
             this.GB_Filter.Controls.Add(this.CCB_Natures);
             this.GB_Filter.Controls.Add(this.RAD_GenderAny);
@@ -287,10 +293,38 @@
             this.GB_Filter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.GB_Filter.Location = new System.Drawing.Point(3, 77);
             this.GB_Filter.Name = "GB_Filter";
-            this.GB_Filter.Size = new System.Drawing.Size(316, 228);
+            this.GB_Filter.Size = new System.Drawing.Size(316, 251);
             this.GB_Filter.TabIndex = 31;
             this.GB_Filter.TabStop = false;
             this.GB_Filter.Text = "Filtering";
+            // 
+            // CB_Abilities
+            // 
+            this.CB_Abilities.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CB_Abilities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CB_Abilities.FormattingEnabled = true;
+            this.CB_Abilities.Location = new System.Drawing.Point(187, 225);
+            this.CB_Abilities.Name = "CB_Abilities";
+            this.CB_Abilities.Size = new System.Drawing.Size(123, 21);
+            this.CB_Abilities.TabIndex = 31;
+            // 
+            // L_Ability
+            // 
+            this.L_Ability.AutoSize = true;
+            this.L_Ability.Location = new System.Drawing.Point(132, 228);
+            this.L_Ability.Name = "L_Ability";
+            this.L_Ability.Size = new System.Drawing.Size(34, 13);
+            this.L_Ability.TabIndex = 30;
+            this.L_Ability.Text = "Ability";
+            // 
+            // L_Nature
+            // 
+            this.L_Nature.AutoSize = true;
+            this.L_Nature.Location = new System.Drawing.Point(132, 201);
+            this.L_Nature.Name = "L_Nature";
+            this.L_Nature.Size = new System.Drawing.Size(39, 13);
+            this.L_Nature.TabIndex = 29;
+            this.L_Nature.Text = "Nature";
             // 
             // RAD_GenderAny
             // 
@@ -330,9 +364,9 @@
             this.CHK_IVsAny.AutoSize = true;
             this.CHK_IVsAny.Location = new System.Drawing.Point(6, 124);
             this.CHK_IVsAny.Name = "CHK_IVsAny";
-            this.CHK_IVsAny.Size = new System.Drawing.Size(44, 17);
+            this.CHK_IVsAny.Size = new System.Drawing.Size(37, 17);
             this.CHK_IVsAny.TabIndex = 23;
-            this.CHK_IVsAny.Text = "Any";
+            this.CHK_IVsAny.Text = "All";
             this.CHK_IVsAny.UseVisualStyleBackColor = true;
             this.CHK_IVsAny.CheckStateChanged += new System.EventHandler(this.toggleIVsAny);
             // 
@@ -641,10 +675,10 @@
             this.RTB_SAV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RTB_SAV.Location = new System.Drawing.Point(0, 311);
+            this.RTB_SAV.Location = new System.Drawing.Point(0, 334);
             this.RTB_SAV.Name = "RTB_SAV";
             this.RTB_SAV.ReadOnly = true;
-            this.RTB_SAV.Size = new System.Drawing.Size(320, 108);
+            this.RTB_SAV.Size = new System.Drawing.Size(320, 168);
             this.RTB_SAV.TabIndex = 30;
             this.RTB_SAV.Text = "";
             this.RTB_SAV.WordWrap = false;
@@ -699,7 +733,7 @@
             this.Tab_Options.Controls.Add(this.RTB_OPTIONS);
             this.Tab_Options.Location = new System.Drawing.Point(4, 22);
             this.Tab_Options.Name = "Tab_Options";
-            this.Tab_Options.Size = new System.Drawing.Size(322, 422);
+            this.Tab_Options.Size = new System.Drawing.Size(322, 505);
             this.Tab_Options.TabIndex = 2;
             this.Tab_Options.Text = "Options";
             this.Tab_Options.UseVisualStyleBackColor = true;
@@ -1060,7 +1094,7 @@
             this.CCB_HPType.IntegralHeight = false;
             this.CCB_HPType.Location = new System.Drawing.Point(187, 40);
             this.CCB_HPType.Name = "CCB_HPType";
-            this.CCB_HPType.Size = new System.Drawing.Size(121, 21);
+            this.CCB_HPType.Size = new System.Drawing.Size(123, 21);
             this.CCB_HPType.TabIndex = 28;
             this.CCB_HPType.ValueSeparator = ", ";
             // 
@@ -1073,9 +1107,9 @@
             this.CCB_Natures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CCB_Natures.FormattingEnabled = true;
             this.CCB_Natures.IntegralHeight = false;
-            this.CCB_Natures.Location = new System.Drawing.Point(135, 198);
+            this.CCB_Natures.Location = new System.Drawing.Point(187, 198);
             this.CCB_Natures.Name = "CCB_Natures";
-            this.CCB_Natures.Size = new System.Drawing.Size(176, 21);
+            this.CCB_Natures.Size = new System.Drawing.Size(123, 21);
             this.CCB_Natures.TabIndex = 27;
             this.CCB_Natures.ValueSeparator = ", ";
             // 
@@ -1084,7 +1118,7 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 467);
+            this.ClientSize = new System.Drawing.Size(354, 550);
             this.Controls.Add(this.CB_Game);
             this.Controls.Add(this.CB_MainLanguage);
             this.Controls.Add(this.tab_Main);
@@ -1187,6 +1221,9 @@
         private System.Windows.Forms.RadioButton RAD_GenderAny;
         private CheckComboBox.CheckedComboBoxAll CCB_Natures;
         private CheckComboBox.CheckedComboBoxAll CCB_HPType;
+        private System.Windows.Forms.Label L_Nature;
+        private System.Windows.Forms.ComboBox CB_Abilities;
+        private System.Windows.Forms.Label L_Ability;
 
     }
 }
