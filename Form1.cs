@@ -109,7 +109,7 @@ namespace KeySAV2
 		public string[] regionList;
 		public string[] gameList;
         public string[] vivlist;
-        public string[] unownlist;
+        public string[] unownlist = { "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","?" };
         // Blank File Egg Names
         public string[] eggnames = { "タマゴ", "Egg", "Œuf", "Uovo", "Ei", "", "Huevo", "알" };
 		public string[] languageList = { "???", "JPN", "ENG", "FRE", "ITA", "GER", "???", "ESP", "KOR" };
@@ -884,9 +884,9 @@ namespace KeySAV2
                 if (data.species >= 664 && data.species <= 666)
                     species += "-" + vivlist[data.altforms];
 
-				// Unown Forms (this doesn't do anything right now)
-				// if (data.species == 201)
-				// 	species += "-" + unownlist[data.altforms];
+				// Unown Forms
+				if (data.species == 201)
+				species += "-" + unownlist[data.altforms];
 
 				// Bold the IVs if Reddit and option is checked
 				if (CB_ExportStyle.SelectedIndex >= 1 && CB_ExportStyle.SelectedIndex <= 5 && CHK_BoldIVs.Checked)
@@ -2024,12 +2024,6 @@ namespace KeySAV2
             vivlist[0] = formlist[666];
             for (int i = 1; i < 20; i++)
                 vivlist[i] = formlist[835+i];
-			
-            // unown list
-            unownlist = new string[29];
-            unownlist[0] = formlist[201];
-            for (int i = 1; i < 29; i++)
-                unownlist[i] = formlist[201 + i];
         }
 		
 		// Based on method in PkHex
