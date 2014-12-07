@@ -795,7 +795,7 @@ namespace KeySAV2
             string ev_sa = data.SPA_EV.ToString();
             string ev_sd = data.SPD_EV.ToString();
             string ev_se = data.SPE_EV.ToString();
-			string number = (isSAV) ? (dumpnum % 30 + 1).ToString("00") : slot;
+			string number = (isSAV) ? (dumpnum % 30 + 1).ToString() : slot;
 			string overallCount = (dumpedcounter+1).ToString();
 
             // Bonus
@@ -1022,7 +1022,8 @@ namespace KeySAV2
                         else RTB_SAV.AppendText(boxcolors[CB_BoxColor.SelectedIndex - 1]);
                     }
                     // Append Box Name then Header
-                    RTB_SAV.AppendText("Boxes " + CB_BoxStart.Text + " to " + CB_BoxEnd.Text + "\r\n\r\n");
+					string toAppend = (CB_BoxStart.Text == "All") ? "All Boxes" : ((CB_BoxStart.Text == CB_BoxEnd.Text) ? "Box " + CB_BoxStart.Text : "Boxes " + CB_BoxStart.Text + " to " + CB_BoxEnd.Text);
+                    RTB_SAV.AppendText(toAppend + "\r\n\r\n");
                     RTB_SAV.AppendText(header + "\r\n");
                 }
             }
@@ -1044,7 +1045,7 @@ namespace KeySAV2
 						else RTB_SAV.AppendText(boxcolors[CB_BoxColor.SelectedIndex - 1]);
                     }
                     // Append Box Name then Header
-                    RTB_SAV.AppendText("Box " + (i / 30 + boxstart).ToString("00") + "\r\n\r\n");
+                    RTB_SAV.AppendText("Box " + (i / 30 + boxstart).ToString() + "\r\n\r\n");
                     RTB_SAV.AppendText(header + "\r\n");
                 }
                 byte[] pkx = fetchpkx(savefile, keystream, boxoffset + i * 232, 0x100 + offset + i * 232, 0x40000 + offset + i * 232, empty);
