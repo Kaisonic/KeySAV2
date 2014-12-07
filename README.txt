@@ -28,7 +28,7 @@ Kaisonic (http://www.reddit.com/r/SVExchange/comments/2o4qiu/a_newer_keysav2_bui
 ==============================
 Changelog for Kaisonic's Build
 ==============================
-KeySAV2 1.3.4
+KeySAV2 1.3.4 (2014-12-07)
 - Fixed "Backup SAV" button size
 - Fixed empty first line in text output if "Split Boxes" was checked
 - Added more descriptive headers ("All Boxes", "Boxes 1-4", etc)
