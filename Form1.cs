@@ -802,8 +802,8 @@ namespace KeySAV2
             string relearn2 = movelist[data.eggmove2].ToString();
             string relearn3 = movelist[data.eggmove3].ToString();
             string relearn4 = movelist[data.eggmove4].ToString();
-            string isshiny = ? (data.isshiny) "★" : "";
-            string isegg = ? (data.isegg) "✓" : "";
+            string isshiny = (data.isshiny) ? "★" : "";
+            string isegg = (data.isegg) ? "✓" : "";
 			
 			// Extra fields for CSV custom output
 			// TODO: add an option to use actual markers below instead of numbers
