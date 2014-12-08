@@ -91,6 +91,7 @@ namespace KeySAV2
         public static string bakpath = path_exe + Path.DirectorySeparatorChar + "backup";
         public string path_3DS = "";
         public string path_POW = "";
+		public string lastOpenedFilename = "";
 		
 		// Static data
 		public string[] expGrowth;
@@ -383,6 +384,7 @@ namespace KeySAV2
             ofd.RestoreDirectory = true;
             ofd.Filter = "SAV|*.sav;*.bin";
             if (ofd.ShowDialog() == DialogResult.OK)
+				lastOpenedFilename = ofd.SafeFileName;
                 openSAV(ofd.FileName);
         }
         private void B_OpenVid_Click(object sender, EventArgs e)
@@ -393,6 +395,7 @@ namespace KeySAV2
             ofd.RestoreDirectory = true;
             ofd.Filter = "Battle Video|*.*";
             if (ofd.ShowDialog() == DialogResult.OK)
+				lastOpenedFilename = ofd.SafeFileName;
                 openVID(ofd.FileName);
         }
         private void openSAV(string path)
@@ -1069,7 +1072,7 @@ namespace KeySAV2
             {
                 SaveFileDialog savecsv = new SaveFileDialog();
                 savecsv.Filter = "Spreadsheet|*.csv";
-                savecsv.FileName = "KeySAV Data Dump.csv";
+                savecsv.FileName = (lastOpenedFilename == "") ? "KeySAV Data Dump.csv" : lastOpenedFilename.Substring(0, lastOpenedFilename.Length - 4) + ".csv";
                 if (savecsv.ShowDialog() == DialogResult.OK)
                     System.IO.File.WriteAllText(savecsv.FileName, csvdata, Encoding.UTF8);
             }
@@ -1148,12 +1151,9 @@ namespace KeySAV2
             {
                 SaveFileDialog savecsv = new SaveFileDialog();
                 savecsv.Filter = "Spreadsheet|*.csv";
-                savecsv.FileName = "KeySAV Data Dump.csv";
+                savecsv.FileName = (lastOpenedFilename == "") ? "KeySAV Data Dump.csv" : lastOpenedFilename.Substring(0, lastOpenedFilename.Length - 4) + ".csv";
                 if (savecsv.ShowDialog() == DialogResult.OK)
-                {
-                    string path = savecsv.FileName;
-                    System.IO.File.WriteAllText(path, csvdata, Encoding.UTF8);
-                }
+                    System.IO.File.WriteAllText(savecsv.FileName, csvdata, Encoding.UTF8);
             }
         }
 
