@@ -827,7 +827,7 @@ namespace KeySAV2
 			string IVsum = (data.HP_IV + data.ATK_IV + data.DEF_IV + data.SPA_IV + data.SPD_IV + data.SPE_IV).ToString();
 			string EVsum = (data.HP_EV + data.ATK_EV + data.DEF_EV + data.SPA_EV + data.SPD_EV + data.SPE_EV).ToString();
 			string eggDate = (data.egg_year.ToString() == "0") ? "" : "20" + data.egg_year.ToString("00") + "-" + data.egg_month.ToString("00") + "-" + data.egg_day.ToString("00");
-			string metDate = "20" + data.met_year.ToString("00") + "-" + data.met_month.ToString("00") + "-" + data.met_day.ToString("00");
+			string metDate = (data.isegg) ? "" : "20" + data.met_year.ToString("00") + "-" + data.met_month.ToString("00") + "-" + data.met_day.ToString("00");
 			string experience = data.exp.ToString();
             string level = (data.isegg) ? "" : getLevel(Convert.ToInt32(data.species), Convert.ToInt32(data.exp)).ToString();
             string region = regionList[data.gamevers];
