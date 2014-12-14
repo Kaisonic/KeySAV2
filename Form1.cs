@@ -823,7 +823,7 @@ namespace KeySAV2
             string spam = ""; if (data.SPA_IV == 31) { spam = "4"; IVcounter++; }
             string spdm = ""; if (data.SPD_IV == 31) { spdm = "5"; IVcounter++; }
             string spem = ""; if (data.SPE_IV == 31) { spem = "6"; IVcounter++; }
-            string IVs = IVcounter.ToString() + " IVs";
+            string IVs = (IVcounter == 1) ? IVcounter.ToString() + " IV" : IVcounter.ToString() + " IVs";
 			string IVsum = (data.HP_IV + data.ATK_IV + data.DEF_IV + data.SPA_IV + data.SPD_IV + data.SPE_IV).ToString();
 			string EVsum = (data.HP_EV + data.ATK_EV + data.DEF_EV + data.SPA_EV + data.SPD_EV + data.SPE_EV).ToString();
 			string eggDate = (data.egg_year.ToString() == "0") ? "" : "20" + data.egg_year.ToString("00") + "-" + data.egg_month.ToString("00") + "-" + data.egg_day.ToString("00");
