@@ -384,8 +384,10 @@ namespace KeySAV2
             ofd.RestoreDirectory = true;
             ofd.Filter = "SAV|*.sav;*.bin";
             if (ofd.ShowDialog() == DialogResult.OK)
+			{
 				lastOpenedFilename = ofd.SafeFileName;
                 openSAV(ofd.FileName);
+			}
         }
         private void B_OpenVid_Click(object sender, EventArgs e)
         {
@@ -395,8 +397,10 @@ namespace KeySAV2
             ofd.RestoreDirectory = true;
             ofd.Filter = "Battle Video|*.*";
             if (ofd.ShowDialog() == DialogResult.OK)
+			{
 				lastOpenedFilename = ofd.SafeFileName;
                 openVID(ofd.FileName);
+			}
         }
         private void openSAV(string path)
         {
