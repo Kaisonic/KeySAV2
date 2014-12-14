@@ -846,6 +846,7 @@ namespace KeySAV2
 			string metLevel = data.metlevel.ToString();
 			string OTfriendship = data.OTfriendship.ToString();
 			string OTaffection = data.OTaffection.ToString();
+			string stepsToHatch = (!data.isegg) ? "" : (data.OTfriendship * 255).ToString();
 			
             bool statisfiesFilters = true;
 
@@ -951,7 +952,7 @@ namespace KeySAV2
 				}
 				
 				// Generate result for this Pokemon
-				string result = String.Format(format, box, slot, species, gender, nature, ability, hp, atk, def, spa, spd, spe, hptype, ESV, TSV, nickname, otname, ball, TID, SID, ev_hp, ev_at, ev_de, ev_sa, ev_sd, ev_se, move1, move2, move3, move4, relearn1, relearn2, relearn3, relearn4, isshiny, isegg, level, region, country, helditem, language, game, number, PID, mark, dex, form, hpm, atkm, defm, spam, spdm, spem, IVs, IVsum, EVsum, eggDate, metDate, experience, overallCount, pkrsInfected, pkrsCured, OTgender, metLevel, OTfriendship, OTaffection);
+				string result = String.Format(format, box, slot, species, gender, nature, ability, hp, atk, def, spa, spd, spe, hptype, ESV, TSV, nickname, otname, ball, TID, SID, ev_hp, ev_at, ev_de, ev_sa, ev_sd, ev_se, move1, move2, move3, move4, relearn1, relearn2, relearn3, relearn4, isshiny, isegg, level, region, country, helditem, language, game, number, PID, mark, dex, form, hpm, atkm, defm, spam, spdm, spem, IVs, IVsum, EVsum, eggDate, metDate, experience, overallCount, pkrsInfected, pkrsCured, OTgender, metLevel, OTfriendship, OTaffection, stepsToHatch);
 				
 				// Add the result to the CSV data if needed
 				if (CB_ExportStyle.SelectedIndex == 6 || CB_ExportStyle.SelectedIndex == 7)
@@ -971,7 +972,7 @@ namespace KeySAV2
 			if (CB_ExportStyle.SelectedIndex == 8)
 				format = "{0} - {1} - {2} ({3}) - {4} - {5} - {6}.{7}.{8}.{9}.{10}.{11} - {12} - {13}";
 			
-            string header = String.Format(format, "Box", "Row,Col", "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nickname", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Slot", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched", "Exp", "Count", "Infected", "Cured", "OTG", "Met Level", "Friendship", "Affection");
+            string header = String.Format(format, "Box", "Row,Col", "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nickname", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Slot", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched", "Exp", "Count", "Infected", "Cured", "OTG", "Met Level", "Friendship", "Affection", "Steps to Hatch");
             csvdata = header + "\n";
 			
             RTB_SAV.Clear();
@@ -1090,7 +1091,7 @@ namespace KeySAV2
 			if (CB_ExportStyle.SelectedIndex == 8)
 				format = "{1} - {2} ({3}) - {4} - {5} - {6}.{7}.{8}.{9}.{10}.{11} - {12} - {13}";
 			
-            string header = String.Format(format, "Box", "Slot", "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nickname", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Slot", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched", "Exp", "Count", "Infected", "Cured", "OTG", "Met Level", "Friendship", "Affection");
+            string header = String.Format(format, "Box", "Slot", "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nickname", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Slot", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched", "Exp", "Count", "Infected", "Cured", "OTG", "Met Level", "Friendship", "Affection", "Steps to Hatch");
             csvdata = header + "\n";
 			
             RTB_VID.Clear();
@@ -1944,7 +1945,7 @@ namespace KeySAV2
 				CHK_NameQuotes.Visible = true;
                 RTB_OPTIONS.ReadOnly = false;
 				// If nothing is saved, fill with all columns by default
-				RTB_OPTIONS.Text = (customcsv == "") ? "{59},{42},{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{54},{47},{48},{49},{50},{51},{52},{53},{12},{60},{61},{35},{34},{13},{14},{15},{16},{18},{19},{17},{20},{21},{22},{23},{24},{25},{55},{56},{57},{63},{26},{27},{28},{29},{30},{31},{32},{33},{58},{36},{44},{37},{38},{39},{40},{41},{43},{45},{46},{62},{64},{65}" : customcsv;
+				RTB_OPTIONS.Text = (customcsv == "") ? "{59},{42},{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{54},{47},{48},{49},{50},{51},{52},{53},{12},{60},{61},{35},{34},{13},{14},{15},{16},{18},{19},{17},{20},{21},{22},{23},{24},{25},{55},{56},{57},{63},{26},{27},{28},{29},{30},{31},{32},{33},{58},{36},{44},{37},{38},{39},{40},{41},{43},{45},{46},{62},{64},{66},{65}" : customcsv;
             }
             else if (CB_ExportStyle.SelectedIndex == 8) // PK6
             {

@@ -189,6 +189,7 @@ The last column prints the amount of perfect IVs
 {62} OT Gender
 {63} Met Level
 {64} OT Friendship
-{65} OT Affection</value>
+{65} OT Affection
+{66} Minimum Steps to Hatch (Eggs only)</value>
   </data>
 </root>
