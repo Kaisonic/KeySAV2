@@ -28,6 +28,13 @@ Kaisonic (http://www.reddit.com/r/SVExchange/comments/2o4qiu/a_newer_keysav2_bui
 ==============================
 Changelog for Kaisonic's Build
 ==============================
+KeySAV2 1.3.6 (2014-12-14)
+- CSV output file name now defaults to name of the SAV or BV you've opened
+- Fixed: IV counter shows "1 IVs"
+- Fixed: hatched date for eggs is "2000-00-00"
+- Added: "Steps to Hatch" column for eggs
+- Added: "Reset to Default" button for CSV custom output
+
 KeySAV2 1.3.5 (2014-12-07)
 - Added columns: OT gender, met level, OT friendship, OT affection
 - Fixed newlines and file paths for better compatibility
