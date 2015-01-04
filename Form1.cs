@@ -1773,51 +1773,47 @@ namespace KeySAV2
         private void detectMostRecent()
         {
             // Fetch the selected save file and video
-            //try
-            {
-                if (game == 0)
-                {
-                    // X
-                    savpath = Path.Combine(path_3DS, "title", "00040000", "00055d00"); 
-                    vidpath = Path.Combine(path_3DS, "extdata", "00000000", "0000055d", "00000000"); 
-                }
-                else if (game == 1)
-                {
-                    // Y
-                    savpath = Path.Combine(path_3DS, "title", "00040000", "00055e00"); 
-                    vidpath = Path.Combine(path_3DS, "extdata", "00000000", "0000055e", "00000000"); 
-                }
-                else if (game == 2) 
-                {
-                    // OR
-                    savpath = Path.Combine(path_3DS, "title", "00040000", "0011c400");
-                    vidpath = Path.Combine(path_3DS, "extdata", "00000000", "000011c4", "00000000");
-                }
-                else if (game == 3)
-                {
-                    // AS
-                    savpath = Path.Combine(path_3DS, "title", "00040000", "0011c500");
-                    vidpath = Path.Combine(path_3DS, "extdata", "00000000", "000011c5", "00000000");
-                }
+			if (game == 0)
+			{
+				// X
+				savpath = Path.Combine(path_3DS, "title", "00040000", "00055d00", "data"); 
+				vidpath = Path.Combine(path_3DS, "extdata", "00000000", "0000055d", "00000000"); 
+			}
+			else if (game == 1)
+			{
+				// Y
+				savpath = Path.Combine(path_3DS, "title", "00040000", "00055e00", "data"); 
+				vidpath = Path.Combine(path_3DS, "extdata", "00000000", "0000055e", "00000000"); 
+			}
+			else if (game == 2) 
+			{
+				// OR
+				savpath = Path.Combine(path_3DS, "title", "00040000", "0011c400", "data");
+				vidpath = Path.Combine(path_3DS, "extdata", "00000000", "000011c4", "00000000");
+			}
+			else if (game == 3)
+			{
+				// AS
+				savpath = Path.Combine(path_3DS, "title", "00040000", "0011c500", "data");
+				vidpath = Path.Combine(path_3DS, "extdata", "00000000", "000011c5", "00000000");
+			}
 
-                if (Directory.Exists(savpath))
-                {
-                    if (File.Exists(Path.Combine(savpath,"00000001.sav")))
-                        this.Invoke(new MethodInvoker(delegate { openSAV(Path.Combine(savpath, "00000001.sav")); }));
-                }
-                // Fetch the latest video
-                if (Directory.Exists(vidpath))
-                {
-                    try
-                    {
-                        FileInfo BV = GetNewestFile(new DirectoryInfo(vidpath));
-                        if (BV.Length == 28256)
-                        { this.Invoke(new MethodInvoker(delegate { openVID(BV.FullName); })); }
-                    }
-                    catch { }
-                }
-            }
-            //catch { }
+			if (Directory.Exists(savpath))
+			{
+				if (File.Exists(Path.Combine(savpath,"00000001.sav")))
+					this.Invoke(new MethodInvoker(delegate { openSAV(Path.Combine(savpath, "00000001.sav")); }));
+			}
+			// Fetch the latest video
+			if (Directory.Exists(vidpath))
+			{
+				try
+				{
+					FileInfo BV = GetNewestFile(new DirectoryInfo(vidpath));
+					if (BV.Length == 28256)
+					{ this.Invoke(new MethodInvoker(delegate { openVID(BV.FullName); })); }
+				}
+				catch { }
+			}
         }
         private void find3DS()
         {
