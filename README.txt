@@ -32,6 +32,14 @@ Kaisonic (http://www.reddit.com/r/SVExchange/comments/2o4qiu/a_newer_keysav2_bui
 ==============================
 Changelog for Kaisonic's Build
 ==============================
+KeySAV2 1.3.7 (2015-01-05)
+- Fixed auto-open paths - battle videos and saves should now open automatically when the SD card is inserted
+- Added support for CyberGadget backups
+- Merged filter updates from Cu3PO42's version
+- Filter options are only visible when filter is enabled
+- Fixed level calculation (see change in PkHex)
+- Added ball image column for the SVExchange subreddit
+
 KeySAV2 1.3.6 (2014-12-14)
 - CSV output file name now defaults to name of the SAV or BV you've opened
 - Fixed: IV counter shows "1 IVs"
