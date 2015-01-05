@@ -1,4 +1,4 @@
-=======
+﻿=======
 KeySAV2
 =======
 
@@ -37,7 +37,6 @@ KeySAV2 1.3.7 (2015-01-05)
 - Added support for CyberGadget backups
 - Merged filter updates from Cu3PO42's version
 - Filter options are only visible when filter is enabled
-- Fixed level calculation (see change in PkHex)
 - Added ball image column for the SVExchange subreddit
 
 KeySAV2 1.3.6 (2014-12-14)
