@@ -1186,6 +1186,18 @@ namespace KeySAV2
             CHK_Egg.Enabled = RAD_Male.Enabled = RAD_Female.Enabled =
             RAD_GenderAny.Enabled  = CCB_Natures.Enabled =
             CB_Abilities.Enabled = CHK_Enable_Filtering.Checked;
+			if (CHK_Enable_Filtering.Checked)
+			{
+				GB_Filter.Height = 251;
+				RTB_SAV.Height = 168;
+				RTB_SAV.Location = new System.Drawing.Point(0, 334);
+			}
+			else
+			{
+				GB_Filter.Height = 39;
+				RTB_SAV.Height = 380;
+				RTB_SAV.Location = new System.Drawing.Point(0, 122);
+			}
         }
 
         // File Keystream Breaking

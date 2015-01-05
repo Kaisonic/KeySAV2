@@ -44,6 +44,8 @@ namespace KeySAV2
             this.CB_Abilities = new System.Windows.Forms.ComboBox();
             this.L_Ability = new System.Windows.Forms.Label();
             this.L_Nature = new System.Windows.Forms.Label();
+            this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
+            this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.RAD_GenderAny = new System.Windows.Forms.RadioButton();
             this.RAD_Female = new System.Windows.Forms.RadioButton();
             this.RAD_Male = new System.Windows.Forms.RadioButton();
@@ -82,6 +84,7 @@ namespace KeySAV2
             this.CHK_NameQuotes = new System.Windows.Forms.CheckBox();
             this.CHK_ShowESV = new System.Windows.Forms.CheckBox();
             this.CHK_HideFirst = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.CHK_R_Table = new System.Windows.Forms.CheckBox();
             this.CHK_ColorBox = new System.Windows.Forms.CheckBox();
             this.CB_BoxColor = new System.Windows.Forms.ComboBox();
@@ -108,9 +111,6 @@ namespace KeySAV2
             this.RTB_OPTIONS = new System.Windows.Forms.RichTextBox();
             this.CB_MainLanguage = new System.Windows.Forms.ComboBox();
             this.CB_Game = new System.Windows.Forms.ComboBox();
-            this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
-            this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
-            this.label1 = new System.Windows.Forms.Label();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -292,7 +292,7 @@ namespace KeySAV2
             this.GB_Filter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.GB_Filter.Location = new System.Drawing.Point(3, 77);
             this.GB_Filter.Name = "GB_Filter";
-            this.GB_Filter.Size = new System.Drawing.Size(316, 251);
+            this.GB_Filter.Size = new System.Drawing.Size(316, 39);
             this.GB_Filter.TabIndex = 31;
             this.GB_Filter.TabStop = false;
             this.GB_Filter.Text = "Filtering";
@@ -324,6 +324,36 @@ namespace KeySAV2
             this.L_Nature.Size = new System.Drawing.Size(39, 13);
             this.L_Nature.TabIndex = 29;
             this.L_Nature.Text = "Nature";
+            // 
+            // CCB_HPType
+            // 
+            this.CCB_HPType.CheckOnClick = false;
+            this.CCB_HPType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.CCB_HPType.DropDownHeight = 1;
+            this.CCB_HPType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CCB_HPType.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.CCB_HPType.FormattingEnabled = true;
+            this.CCB_HPType.IntegralHeight = false;
+            this.CCB_HPType.Location = new System.Drawing.Point(187, 40);
+            this.CCB_HPType.Name = "CCB_HPType";
+            this.CCB_HPType.Size = new System.Drawing.Size(123, 21);
+            this.CCB_HPType.TabIndex = 28;
+            this.CCB_HPType.ValueSeparator = ", ";
+            // 
+            // CCB_Natures
+            // 
+            this.CCB_Natures.BackColor = System.Drawing.Color.White;
+            this.CCB_Natures.CheckOnClick = true;
+            this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.CCB_Natures.DropDownHeight = 1;
+            this.CCB_Natures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CCB_Natures.FormattingEnabled = true;
+            this.CCB_Natures.IntegralHeight = false;
+            this.CCB_Natures.Location = new System.Drawing.Point(187, 198);
+            this.CCB_Natures.Name = "CCB_Natures";
+            this.CCB_Natures.Size = new System.Drawing.Size(123, 21);
+            this.CCB_Natures.TabIndex = 27;
+            this.CCB_Natures.ValueSeparator = ", ";
             // 
             // RAD_GenderAny
             // 
@@ -670,10 +700,10 @@ namespace KeySAV2
             this.RTB_SAV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RTB_SAV.Location = new System.Drawing.Point(0, 334);
+            this.RTB_SAV.Location = new System.Drawing.Point(0, 122);
             this.RTB_SAV.Name = "RTB_SAV";
             this.RTB_SAV.ReadOnly = true;
-            this.RTB_SAV.Size = new System.Drawing.Size(320, 168);
+            this.RTB_SAV.Size = new System.Drawing.Size(320, 380);
             this.RTB_SAV.TabIndex = 30;
             this.RTB_SAV.Text = "";
             this.RTB_SAV.WordWrap = false;
@@ -774,6 +804,15 @@ namespace KeySAV2
             this.CHK_HideFirst.TabIndex = 21;
             this.CHK_HideFirst.Text = "Don\'t Show";
             this.CHK_HideFirst.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(216, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "<100% data";
             // 
             // CHK_R_Table
             // 
@@ -1092,45 +1131,6 @@ namespace KeySAV2
             this.CB_Game.Size = new System.Drawing.Size(41, 21);
             this.CB_Game.TabIndex = 2;
             this.CB_Game.SelectedIndexChanged += new System.EventHandler(this.changedetectgame);
-            // 
-            // CCB_HPType
-            // 
-            this.CCB_HPType.CheckOnClick = false;
-            this.CCB_HPType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.CCB_HPType.DropDownHeight = 1;
-            this.CCB_HPType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CCB_HPType.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.CCB_HPType.FormattingEnabled = true;
-            this.CCB_HPType.IntegralHeight = false;
-            this.CCB_HPType.Location = new System.Drawing.Point(187, 40);
-            this.CCB_HPType.Name = "CCB_HPType";
-            this.CCB_HPType.Size = new System.Drawing.Size(123, 21);
-            this.CCB_HPType.TabIndex = 28;
-            this.CCB_HPType.ValueSeparator = ", ";
-            // 
-            // CCB_Natures
-            // 
-            this.CCB_Natures.BackColor = System.Drawing.Color.White;
-            this.CCB_Natures.CheckOnClick = true;
-            this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.CCB_Natures.DropDownHeight = 1;
-            this.CCB_Natures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CCB_Natures.FormattingEnabled = true;
-            this.CCB_Natures.IntegralHeight = false;
-            this.CCB_Natures.Location = new System.Drawing.Point(187, 198);
-            this.CCB_Natures.Name = "CCB_Natures";
-            this.CCB_Natures.Size = new System.Drawing.Size(123, 21);
-            this.CCB_Natures.TabIndex = 27;
-            this.CCB_Natures.ValueSeparator = ", ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(216, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "<100% data";
             // 
             // Form1
             // 
