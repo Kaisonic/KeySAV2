@@ -2124,22 +2124,16 @@ namespace KeySAV2
         {
 			if (exp == 0) return 1;
             int growth = Convert.ToInt16(expGrowth[species]);
-            int level = 1;
-            if (expTable[level][growth] < exp)
-            {
-                while (expTable[level][growth] < exp)
-                {
-                    // While EXP for guessed level is below our current exp
-                    level++;
-                    if (level == 100) return level;
-                    // when calcexp exceeds our exp, we exit loop
-                }
-                if (expTable[level][growth] == exp)
-                    // Matches level threshold
-                    return level;
-                else return (level - 1);
-            }
-            else return level;
+			
+			// Iterate upwards to find the level above our current level
+			int level = 0; // Initial level, immediately incremented before loop
+			while ((uint)expTable[++level][growth] <= exp)
+			{
+				if (level == 100)
+					return level;
+				// After we find the level above ours, we're done
+			}
+			return --level;
         }
 		
         // Structs
