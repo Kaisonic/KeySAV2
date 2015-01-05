@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Timers;
+using CheckComboBox;
 
 namespace KeySAV2
 {
@@ -39,7 +40,6 @@ namespace KeySAV2
             CB_Team.SelectedIndex = 0;
             CB_ExportStyle.SelectedIndex = 0;
             CB_BoxColor.SelectedIndex = 0;
-            CB_HP_Type.SelectedIndex = 0;
             CB_No_IVs.SelectedIndex = 0;
             toggleFilter(null, null);
             loadINI();
@@ -146,6 +146,9 @@ namespace KeySAV2
         public byte[] break3 = new Byte[0x10009C];
         public byte[] video1 = new Byte[28256];
         public byte[] video2 = new Byte[28256];
+
+        // UI Usage
+        private bool updateIVCheckboxes = true;
 
         #endregion
 
@@ -856,37 +859,46 @@ namespace KeySAV2
 				while (CHK_Enable_Filtering.Checked)
 				{
 					if (CHK_Egg.Checked && !data.isegg) { statisfiesFilters = false; break; }
-					bool checkHp = false;
-					if (CB_HP_Type.SelectedIndex > 0)
+
+					if (CB_Abilities.Text != "" && CB_Abilities.SelectedIndex != 0 && CB_Abilities.Text != ability)
+					{ statisfiesFilters = false; break; }
+
+					bool checkHP = CCB_HPType.GetItemCheckState(0) != CheckState.Checked;
+					byte checkHPDiff = (byte)Convert.ToInt16(checkHP);
+					int perfects = CB_No_IVs.SelectedIndex;
+					foreach(var iv in new [] {
+						new Tuple<uint, bool>(data.HP_IV, CHK_IV_HP.Checked), 
+						new Tuple<uint, bool>(data.DEF_IV, CHK_IV_Def.Checked), 
+						new Tuple<uint, bool>(data.SPA_IV, CHK_IV_SpAtk.Checked), 
+						new Tuple<uint, bool>(data.SPD_IV, CHK_IV_SpDef.Checked) })
 					{
-						if (CB_HP_Type.SelectedIndex != data.hptype) { statisfiesFilters = false; break; }
-						checkHp = true;
+						if (31 - iv.Item1 <= checkHPDiff) --perfects;
+						else if (iv.Item2) { statisfiesFilters = false; break; }
+					}
+					foreach(var iv in new [] {
+						new Tuple<uint, bool, bool>(data.ATK_IV, CHK_IV_Atk.Checked, CHK_Special_Attacker.Checked), 
+						new Tuple<uint, bool, bool>(data.SPE_IV, CHK_IV_Spe.Checked, CHK_Trickroom.Checked) })
+					{
+						if (Math.Abs((iv.Item3 ? 0: 31) - iv.Item1) <= checkHPDiff) --perfects;
+						else if (iv.Item2) { statisfiesFilters = false; break; }
 					}
 
-					int perfects = Convert.ToInt16(CB_No_IVs.SelectedItem);
-					bool ivsSelected = CHK_IV_HP.Checked || CHK_IV_Atk.Checked || CHK_IV_Def.Checked || CHK_IV_SpAtk.Checked || CHK_IV_SpDef.Checked || CHK_IV_Spe.Checked;
-					if (hp == "31" ||checkHp && hp == "30") --perfects;
-					else if (ivsSelected && CHK_IV_HP.Checked != RAD_IVs_Miss.Checked) { statisfiesFilters = false; break; }
-					if ((atk == "31" || checkHp && atk == "30") && !CHK_Special_Attacker.Checked || (atk == "0" || checkHp && atk == "1") && CHK_Special_Attacker.Checked) --perfects;
-					else if (ivsSelected && CHK_IV_Atk.Checked != RAD_IVs_Miss.Checked) { statisfiesFilters = false; break; }
-					if (def == "31" || checkHp && def == "30") --perfects;
-					else if (ivsSelected && CHK_IV_Def.Checked != RAD_IVs_Miss.Checked) { statisfiesFilters = false; break; }
-					if (spa == "31" || checkHp && spa == "30") --perfects;
-					else if (ivsSelected && CHK_IV_SpAtk.Checked != RAD_IVs_Miss.Checked) { statisfiesFilters = false; break; }
-					if (spd == "31" || checkHp && spd == "30") --perfects;
-					else if (ivsSelected && CHK_IV_SpDef.Checked != RAD_IVs_Miss.Checked) { statisfiesFilters = false; break; }
-					if ((spe == "31" || checkHp && spe == "30") && !CHK_Trickroom.Checked || (spe == "0" || checkHp && spe == "1") && CHK_Trickroom.Checked) --perfects;
-					else if (ivsSelected && CHK_IV_Spe.Checked != RAD_IVs_Miss.Checked) { statisfiesFilters = false; break; }
-					if (perfects > 0) { statisfiesFilters = false; break; }
+					if(perfects > 0) { statisfiesFilters = false; break; }
+
+					if(checkHP && !CCB_HPType.GetItemChecked((int)data.hptype)) { statisfiesFilters = false; break; }
+
+					if(!CCB_Natures.GetItemChecked((int)data.nature+1)) { statisfiesFilters = false; break; }
 
 					if (CHK_Is_Shiny.Checked || CHK_Hatches_Shiny_For_Me.Checked || CHK_Hatches_Shiny_For.Checked)
 					{
-						// TODO: Should probably cache this somewhere...
 						if (!(CHK_Is_Shiny.Checked && data.isshiny ||
 							data.isegg && CHK_Hatches_Shiny_For_Me.Checked && ESV == TSV ||
 							data.isegg && CHK_Hatches_Shiny_For.Checked && Array.IndexOf(selectedTSVs, data.ESV) > -1))
 						{ statisfiesFilters = false; break; }
 					}
+
+					if(RAD_Male.Checked && data.genderflag != 0 || RAD_Female.Checked && data.genderflag != 1)
+					{ statisfiesFilters = false; break; }
 
 					break;
 				}
@@ -1165,13 +1177,15 @@ namespace KeySAV2
 
         private void toggleFilter(object sender, EventArgs e)
         {
-            CB_HP_Type.Enabled = CB_No_IVs.Enabled = CHK_Trickroom.Enabled =
-            CHK_Special_Attacker.Enabled = RAD_IVs_Miss.Enabled = RAD_IVs.Enabled =
+            CCB_HPType.Enabled = CB_No_IVs.Enabled = CHK_Trickroom.Enabled =
+            CHK_Special_Attacker.Enabled = CHK_IVsAny.Enabled =
             CHK_IV_HP.Enabled = CHK_IV_Atk.Enabled = CHK_IV_Def.Enabled =
             CHK_IV_SpAtk.Enabled = CHK_IV_SpDef.Enabled = CHK_IV_Spe.Enabled =
             CHK_Is_Shiny.Enabled = CHK_Hatches_Shiny_For_Me.Enabled =
             CHK_Hatches_Shiny_For.Enabled = TB_SVs.Enabled =
-            CHK_Egg.Enabled = CHK_Enable_Filtering.Checked;
+            CHK_Egg.Enabled = RAD_Male.Enabled = RAD_Female.Enabled =
+            RAD_GenderAny.Enabled  = CCB_Natures.Enabled =
+            CB_Abilities.Enabled = CHK_Enable_Filtering.Checked;
         }
 
         // File Keystream Breaking
@@ -2008,6 +2022,20 @@ namespace KeySAV2
         }
         private void InitializeStrings()
         {
+            int curAbility;
+            if (CB_Abilities.Text != "")
+            {
+                try
+                {
+                    for (curAbility = 0; abilitylist[curAbility] != CB_Abilities.Text; ++curAbility) ;
+                }
+                catch
+                {
+                    curAbility = -1;
+                }
+            }
+            else
+                curAbility = -1;
             string[] lang_val = { "en", "ja", "fr", "it", "de", "es", "ko" };
             string l = lang_val[CB_MainLanguage.SelectedIndex];
 			
@@ -2039,6 +2067,44 @@ namespace KeySAV2
             vivlist[0] = formlist[666];
             for (int i = 1; i < 20; i++)
                 vivlist[i] = formlist[835+i];
+
+            // Populate natures in filters
+            if (CCB_Natures.Items.Count == 0)
+            {
+                CCB_Natures.Items.Add(new CCBoxItem("All", 0));
+                for (byte i = 0; i < natures.Length;)
+                    CCB_Natures.Items.Add(new CCBoxItem(natures[i], ++i));
+                CCB_Natures.DisplayMember = "Name";
+                CCB_Natures.SetItemChecked(0, true);
+            }
+            else
+            {
+                for (byte i = 0; i < natures.Length; ++i)
+                    (CCB_Natures.Items[i+1] as CCBoxItem).Name = natures[i];
+            }
+
+            // Populate HP types in filters
+            if (CCB_HPType.Items.Count == 0)
+            {
+                CCB_HPType.Items.Add(new CCBoxItem("Any", 0));
+                for (byte i = 1; i < types.Length-1;)
+                    CCB_HPType.Items.Add(new CCBoxItem(types[i], ++i));
+                CCB_HPType.DisplayMember = "Name";
+                CCB_HPType.SetItemChecked(0, true);
+            }
+            else
+            {
+                for (byte i = 1; i < types.Length-1; ++i)
+                    (CCB_HPType.Items[i] as CCBoxItem).Name = types[i];
+            }
+
+            // Populate ability list
+            string[] sortedAbilities = (string[])abilitylist.Clone();
+            Array.Sort(sortedAbilities);
+            CB_Abilities.Items.Clear();
+            CB_Abilities.Items.AddRange(sortedAbilities);
+            if (curAbility != -1) CB_Abilities.Text = abilitylist[curAbility];
+
         }
 		
 		// Based on method in PkHex
@@ -2292,6 +2358,42 @@ namespace KeySAV2
 				return;
 			}
 			else return;
+		}
+
+        private void toggleIVAll(object sender, EventArgs e)
+        {
+            if(updateIVCheckboxes)
+                switch ((new [] {CHK_IV_HP, CHK_IV_Atk, CHK_IV_Def, CHK_IV_SpAtk, CHK_IV_SpDef, CHK_IV_Spe}).Count(c => c.Checked))
+                {
+                    case 0:
+                        CHK_IVsAny.CheckState = CheckState.Unchecked;
+                        break;
+                    case 6:
+                        CHK_IVsAny.CheckState = CheckState.Checked;
+                        break;
+                    default:
+                        CHK_IVsAny.CheckState = CheckState.Indeterminate;
+                        break;
+                }
+        }
+
+        private void toggleIVsAny(object sender, EventArgs e)
+        {
+            updateIVCheckboxes = false;
+            if (CHK_IVsAny.CheckState != CheckState.Indeterminate)
+                foreach (var box in new [] {CHK_IV_HP, CHK_IV_Atk, CHK_IV_Def, CHK_IV_SpAtk, CHK_IV_SpDef, CHK_IV_Spe})
+                    box.Checked = CHK_IVsAny.Checked;
+            updateIVCheckboxes = true;
+        }
+
+        private void toggleTrickroom(object sender, EventArgs e)
+        {
+            CHK_IV_Spe.Text = (CHK_Trickroom.Checked ? "Spe (= 0)" : "Spe");
+        }
+
+        private void toggleSpecialAttacker(object sender, EventArgs e)
+        {
+            CHK_IV_Atk.Text = (CHK_Special_Attacker.Checked ? "Atk (= 0)" : "Atk");
         }
     }
 }
