@@ -1212,7 +1212,7 @@ namespace KeySAV2
             {
                 string path = boxsave.FileName;
                 byte[] input = File.ReadAllBytes(path);
-                if (input.Length == 0x100000 || input.Length == 0x100009C || input.Length == 0x10019A)
+                if (input.Length == 0x100000 || input.Length == 0x10009C || input.Length == 0x10019A)
                 {
                     Array.Copy(input, input.Length % 0x100000, break1, 0, 0x100000);
                     TB_File1.Text = path;
@@ -1242,7 +1242,7 @@ namespace KeySAV2
             {
                 string path = boxsave.FileName;
                 byte[] input = File.ReadAllBytes(path);
-                if (input.Length == 0x100000 || input.Length == 0x100009C || input.Length == 0x10019A)
+                if (input.Length == 0x100000 || input.Length == 0x10009C || input.Length == 0x10019A)
                 {
                     Array.Copy(input, input.Length % 0x100000, break2, 0, 0x100000); // Force save to 0x100000
                     TB_File2.Text = path;
@@ -1273,7 +1273,7 @@ namespace KeySAV2
             {
                 string path = boxsave.FileName;
                 byte[] input = File.ReadAllBytes(path);
-                if (input.Length == 0x100000 || input.Length == 0x100009C || input.Length == 0x10019A)
+                if (input.Length == 0x100000 || input.Length == 0x10009C || input.Length == 0x10019A)
                 {
                     Array.Copy(input, input.Length % 0x100000, break3, 0, 0x100000); // Force save to 0x100000
                     TB_File3.Text = path;
