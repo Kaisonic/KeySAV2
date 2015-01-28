@@ -80,6 +80,7 @@ namespace KeySAV2
             this.B_OpenSAV = new System.Windows.Forms.Button();
             this.TB_SAV = new System.Windows.Forms.TextBox();
             this.Tab_Options = new System.Windows.Forms.TabPage();
+            this.CHK_Unicode = new System.Windows.Forms.CheckBox();
             this.B_ResetCSV = new System.Windows.Forms.Button();
             this.CHK_NameQuotes = new System.Windows.Forms.CheckBox();
             this.CHK_ShowESV = new System.Windows.Forms.CheckBox();
@@ -111,7 +112,7 @@ namespace KeySAV2
             this.RTB_OPTIONS = new System.Windows.Forms.RichTextBox();
             this.CB_MainLanguage = new System.Windows.Forms.ComboBox();
             this.CB_Game = new System.Windows.Forms.ComboBox();
-            this.CHK_Unicode = new System.Windows.Forms.CheckBox();
+            this.CHK_Has_HA = new System.Windows.Forms.CheckBox();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -263,6 +264,7 @@ namespace KeySAV2
             // 
             // GB_Filter
             // 
+            this.GB_Filter.Controls.Add(this.CHK_Has_HA);
             this.GB_Filter.Controls.Add(this.CB_Abilities);
             this.GB_Filter.Controls.Add(this.L_Ability);
             this.GB_Filter.Controls.Add(this.L_Nature);
@@ -766,6 +768,18 @@ namespace KeySAV2
             this.Tab_Options.Text = "Options";
             this.Tab_Options.UseVisualStyleBackColor = true;
             // 
+            // CHK_Unicode
+            // 
+            this.CHK_Unicode.AutoSize = true;
+            this.CHK_Unicode.Checked = true;
+            this.CHK_Unicode.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_Unicode.Location = new System.Drawing.Point(101, 31);
+            this.CHK_Unicode.Name = "CHK_Unicode";
+            this.CHK_Unicode.Size = new System.Drawing.Size(66, 17);
+            this.CHK_Unicode.TabIndex = 39;
+            this.CHK_Unicode.Text = "Unicode";
+            this.CHK_Unicode.UseVisualStyleBackColor = true;
+            // 
             // B_ResetCSV
             // 
             this.B_ResetCSV.Location = new System.Drawing.Point(214, 74);
@@ -1134,17 +1148,15 @@ namespace KeySAV2
             this.CB_Game.TabIndex = 2;
             this.CB_Game.SelectedIndexChanged += new System.EventHandler(this.changedetectgame);
             // 
-            // CHK_Unicode
+            // CHK_Has_HA
             // 
-            this.CHK_Unicode.AutoSize = true;
-            this.CHK_Unicode.Checked = true;
-            this.CHK_Unicode.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_Unicode.Location = new System.Drawing.Point(101, 31);
-            this.CHK_Unicode.Name = "CHK_Unicode";
-            this.CHK_Unicode.Size = new System.Drawing.Size(66, 17);
-            this.CHK_Unicode.TabIndex = 39;
-            this.CHK_Unicode.Text = "Unicode";
-            this.CHK_Unicode.UseVisualStyleBackColor = true;
+            this.CHK_Has_HA.AutoSize = true;
+            this.CHK_Has_HA.Location = new System.Drawing.Point(6, 227);
+            this.CHK_Has_HA.Name = "CHK_Has_HA";
+            this.CHK_Has_HA.Size = new System.Drawing.Size(112, 17);
+            this.CHK_Has_HA.TabIndex = 32;
+            this.CHK_Has_HA.Text = "Has Hidden Ability";
+            this.CHK_Has_HA.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1261,6 +1273,7 @@ namespace KeySAV2
         private System.Windows.Forms.RichTextBox RTB_OPTIONS;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox CHK_Unicode;
+        private System.Windows.Forms.CheckBox CHK_Has_HA;
 
     }
 }

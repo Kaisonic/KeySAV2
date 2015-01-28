@@ -866,6 +866,8 @@ namespace KeySAV2
                 while (CHK_Enable_Filtering.Checked)
                 {
                     if (CHK_Egg.Checked && !data.isegg) { statisfiesFilters = false; break; }
+                    
+                    if (CHK_Has_HA.Checked && data.abilitynum != 4) { statisfiesFilters = false; break; }
 
                     if (CB_Abilities.Text != "" && CB_Abilities.SelectedIndex != 0 && CB_Abilities.Text != ability)
                     { statisfiesFilters = false; break; }
