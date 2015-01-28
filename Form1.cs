@@ -2070,8 +2070,6 @@ namespace KeySAV2
             gameList = getStringList("Games", l);
             expGrowth = getStringList("expGrowth", "all");
 
-            abilitylist[0] = itemlist[0] = movelist[0] = "(" + itemlist[0] + ")";
-
             int[] ballindex = {
                                   0,1,2,3,4,5,6,7,8,9,0xA,0xB,0xC,0xD,0xE,0xF,0x10,
                                   0x1EC,0x1ED,0x1EE,0x1EF,0x1F0,0x1F1,0x1F2,0x1F3,
