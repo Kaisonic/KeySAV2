@@ -993,8 +993,11 @@ namespace KeySAV2
             // For PK6 output, display default format
             if (CB_ExportStyle.SelectedIndex == 8)
                 format = "{0} - {1} - {2} ({3}) - {4} - {5} - {6}.{7}.{8}.{9}.{10}.{11} - {12} - {13}";
+                
+            // Only output Row,Col for CSV output
+            string slotString = (CB_ExportStyle.SelectedIndex == 6 || CB_ExportStyle.SelectedIndex == 7) ? "Row,Col" : "Slot";
             
-            string header = String.Format(format, "Box", "Row,Col", "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nickname", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Slot", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched", "Exp", "Count", "Infected", "Cured", "OTG", "Met Level", "Friendship", "Affection", "Steps to Hatch", "Ball", "HA");
+            string header = String.Format(format, "Box", slotString, "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nickname", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Slot", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched", "Exp", "Count", "Infected", "Cured", "OTG", "Met Level", "Friendship", "Affection", "Steps to Hatch", "Ball", "HA");
             csvdata = header + "\n";
             
             RTB_SAV.Clear();
