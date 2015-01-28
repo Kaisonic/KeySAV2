@@ -200,6 +200,7 @@ namespace KeySAV2
                         CHK_HideFirst.Checked = Convert.ToBoolean(Convert.ToInt16(tr.ReadLine()));
                         this.Height = Convert.ToInt16(tr.ReadLine());
                         this.Width = Convert.ToInt16(tr.ReadLine());
+                        CHK_Unicode.Checked = Convert.ToBoolean(Convert.ToInt16(tr.ReadLine()));
                         tr.Close();
                     }
                     catch
@@ -248,6 +249,7 @@ namespace KeySAV2
                         tr.WriteLine(Convert.ToInt16(CHK_HideFirst.Checked).ToString());
                         tr.WriteLine(this.Height.ToString());
                         tr.WriteLine(this.Width.ToString());
+                        tr.WriteLine(Convert.ToInt16(CHK_Unicode.Checked).ToString());
                         tr.Close();
                     }
                     catch
@@ -766,20 +768,23 @@ namespace KeySAV2
             if (data.species == 0) //RTB_SAV.AppendText("SLOT EMPTY");
                 return;
 
-            string box = "";
-            string slot = "";
-            if (isSAV)
-            {
-                box = "B"+(dumpstart + (dumpnum/30)).ToString("00");
-                slot = (((dumpnum%30) / 6 + 1).ToString() + "," + (dumpnum % 6 + 1).ToString());
-            }
-            else
-            {
-                box = "-";
-                slot = dumpnum.ToString();
-            }
+            // Unicode stuff
+            string checkmark = (CHK_Unicode.Checked) ? "✓" : "#";
+            string shinymark = (CHK_Unicode.Checked) ? "★" : "*";
+            string gen6mark = (CHK_Unicode.Checked) ? "⬟" : "#";
+            string femalemark = (CHK_Unicode.Checked) ? "♀" : "F";
+            string malemark = (CHK_Unicode.Checked) ? "♂" : "M";
+            
+            // Parse Pokemon info
+            string box = (isSAV) ? "B"+(dumpstart + (dumpnum/30)).ToString("00") : "-";
+            string slot = (isSAV) ? (((dumpnum%30) / 6 + 1).ToString() + "," + (dumpnum % 6 + 1).ToString()) : dumpnum.ToString();
             string species = specieslist[data.species];
-            string gender = data.genderstring;
+			string gender = "";
+			if (data.genderflag == 0)
+				gender = malemark;
+			else if (data.genderflag == 1)
+				gender = femalemark;
+			else gender = "-";
             string nature = natures[data.nature];
             string ability = abilitylist[data.ability];
             string abilitynum = data.abilitynum.ToString();
@@ -816,8 +821,8 @@ namespace KeySAV2
             string relearn2 = movelist[data.eggmove2].ToString();
             string relearn3 = movelist[data.eggmove3].ToString();
             string relearn4 = movelist[data.eggmove4].ToString();
-            string isshiny = (data.isshiny) ? "★" : "";
-            string isegg = (data.isegg) ? "✓" : "";
+            string isshiny = (data.isshiny) ? shinymark : "";
+            string isegg = (data.isegg) ? checkmark : "";
             
             // Extra fields for CSV custom output
             // TODO: add an option to use actual markers below instead of numbers
@@ -842,13 +847,13 @@ namespace KeySAV2
             string helditem = (data.helditem == 0) ? "" : itemlist[data.helditem];
             string language = languageList[data.otlang];
             // Mark is for Gen 6 Pokemon, so X Y OR AS
-            string mark = (data.gamevers >= 24 && data.gamevers <= 27) ? "⬟" : "";
+            string mark = (data.gamevers >= 24 && data.gamevers <= 27) ? gen6mark : "";
             string PID = data.PID.ToString();
             string dex = data.species.ToString();
             string form = data.altforms.ToString();
-            string pkrsInfected = (data.PKRS_Strain > 0) ? "✓" : "";
-            string pkrsCured = (data.PKRS_Strain > 0 && data.PKRS_Duration == 0) ? "✓" : "";
-            string OTgender = (data.otgender == 1) ? "♀": "♂";
+            string pkrsInfected = (data.PKRS_Strain > 0) ? checkmark : "";
+            string pkrsCured = (data.PKRS_Strain > 0 && data.PKRS_Duration == 0) ? checkmark : "";
+            string OTgender = (data.otgender == 1) ? femalemark : malemark;
             string metLevel = data.metlevel.ToString();
             string OTfriendship = data.OTfriendship.ToString();
             string OTaffection = data.OTaffection.ToString();

@@ -111,6 +111,7 @@ namespace KeySAV2
             this.RTB_OPTIONS = new System.Windows.Forms.RichTextBox();
             this.CB_MainLanguage = new System.Windows.Forms.ComboBox();
             this.CB_Game = new System.Windows.Forms.ComboBox();
+            this.CHK_Unicode = new System.Windows.Forms.CheckBox();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -741,6 +742,7 @@ namespace KeySAV2
             // 
             // Tab_Options
             // 
+            this.Tab_Options.Controls.Add(this.CHK_Unicode);
             this.Tab_Options.Controls.Add(this.B_ResetCSV);
             this.Tab_Options.Controls.Add(this.CHK_NameQuotes);
             this.Tab_Options.Controls.Add(this.CHK_ShowESV);
@@ -817,7 +819,7 @@ namespace KeySAV2
             // CHK_R_Table
             // 
             this.CHK_R_Table.AutoSize = true;
-            this.CHK_R_Table.Location = new System.Drawing.Point(128, 31);
+            this.CHK_R_Table.Location = new System.Drawing.Point(214, 77);
             this.CHK_R_Table.Name = "CHK_R_Table";
             this.CHK_R_Table.Size = new System.Drawing.Size(70, 17);
             this.CHK_R_Table.TabIndex = 17;
@@ -1132,6 +1134,18 @@ namespace KeySAV2
             this.CB_Game.TabIndex = 2;
             this.CB_Game.SelectedIndexChanged += new System.EventHandler(this.changedetectgame);
             // 
+            // CHK_Unicode
+            // 
+            this.CHK_Unicode.AutoSize = true;
+            this.CHK_Unicode.Checked = true;
+            this.CHK_Unicode.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_Unicode.Location = new System.Drawing.Point(101, 31);
+            this.CHK_Unicode.Name = "CHK_Unicode";
+            this.CHK_Unicode.Size = new System.Drawing.Size(66, 17);
+            this.CHK_Unicode.TabIndex = 39;
+            this.CHK_Unicode.Text = "Unicode";
+            this.CHK_Unicode.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -1246,6 +1260,7 @@ namespace KeySAV2
         private System.Windows.Forms.ComboBox CB_ExportStyle;
         private System.Windows.Forms.RichTextBox RTB_OPTIONS;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox CHK_Unicode;
 
     }
 }
