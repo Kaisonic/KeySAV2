@@ -153,11 +153,11 @@
 {32} - Relearn (Egg) Move 3
 {33} - Relearn (Egg) Move 4
 {34} - Is Shiny
-{35} - Is Egg</value>
+{35} - Is Egg
+{36} - Level</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>{36} - Level
-{37} - Region
+    <value>{37} - Region
 {38} - Country
 {39} - Held Item
 {40} - Language
@@ -191,6 +191,7 @@ The last column prints the amount of perfect IVs
 {64} OT Friendship
 {65} OT Affection
 {66} Minimum Steps to Hatch (Eggs only)
-{67} Ball Image (for /r/SVExchange)</value>
+{67} Ball Image (for /r/SVExchange)
+{68} Has Hidden Ability</value>
   </data>
 </root>

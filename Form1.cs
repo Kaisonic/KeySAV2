@@ -135,7 +135,7 @@ namespace KeySAV2
         private int slots = 0;
         public bool ghost = false;
         private ushort[] selectedTSVs = new ushort[0];
-        private string defaultCSVcustom = "{59},{42},{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{54},{47},{48},{49},{50},{51},{52},{53},{12},{60},{61},{35},{34},{13},{14},{15},{16},{18},{19},{17},{20},{21},{22},{23},{24},{25},{55},{56},{57},{63},{26},{27},{28},{29},{30},{31},{32},{33},{58},{36},{44},{37},{38},{39},{40},{41},{43},{45},{46},{62},{64},{66},{65}";
+        private string defaultCSVcustom = "{59},{42},{0},{1},{2},{3},{4},{5},{68},{6},{7},{8},{9},{10},{11},{54},{47},{48},{49},{50},{51},{52},{53},{12},{60},{61},{35},{34},{13},{14},{15},{16},{18},{19},{17},{20},{21},{22},{23},{24},{25},{55},{56},{57},{63},{26},{27},{28},{29},{30},{31},{32},{33},{58},{36},{44},{37},{38},{39},{40},{41},{43},{45},{46},{62},{64},{66},{65}";
 
         // Breaking Usage
         public string file1 = "";
@@ -779,15 +779,15 @@ namespace KeySAV2
             string box = (isSAV) ? "B"+(dumpstart + (dumpnum/30)).ToString("00") : "-";
             string slot = (isSAV) ? (((dumpnum%30) / 6 + 1).ToString() + "," + (dumpnum % 6 + 1).ToString()) : dumpnum.ToString();
             string species = specieslist[data.species];
-			string gender = "";
-			if (data.genderflag == 0)
-				gender = malemark;
-			else if (data.genderflag == 1)
-				gender = femalemark;
-			else gender = "-";
+            string gender = "";
+            if (data.genderflag == 0)
+                gender = malemark;
+            else if (data.genderflag == 1)
+                gender = femalemark;
+            else gender = "-";
             string nature = natures[data.nature];
             string ability = abilitylist[data.ability];
-            string abilitynum = data.abilitynum.ToString();
+            string hiddenability = (data.abilitynum == 4) ? checkmark : "";
             string hp = data.HP_IV.ToString();
             string atk = data.ATK_IV.ToString();
             string def = data.DEF_IV.ToString();
@@ -972,7 +972,7 @@ namespace KeySAV2
                 }
                 
                 // Generate result for this Pokemon
-                string result = String.Format(format, box, slot, species, gender, nature, ability, hp, atk, def, spa, spd, spe, hptype, ESV, TSV, nickname, otname, ball, TID, SID, ev_hp, ev_at, ev_de, ev_sa, ev_sd, ev_se, move1, move2, move3, move4, relearn1, relearn2, relearn3, relearn4, isshiny, isegg, level, region, country, helditem, language, game, number, PID, mark, dex, form, hpm, atkm, defm, spam, spdm, spem, IVs, IVsum, EVsum, eggDate, metDate, experience, overallCount, pkrsInfected, pkrsCured, OTgender, metLevel, OTfriendship, OTaffection, stepsToHatch, ballimg, abilitynum);
+                string result = String.Format(format, box, slot, species, gender, nature, ability, hp, atk, def, spa, spd, spe, hptype, ESV, TSV, nickname, otname, ball, TID, SID, ev_hp, ev_at, ev_de, ev_sa, ev_sd, ev_se, move1, move2, move3, move4, relearn1, relearn2, relearn3, relearn4, isshiny, isegg, level, region, country, helditem, language, game, number, PID, mark, dex, form, hpm, atkm, defm, spam, spdm, spem, IVs, IVsum, EVsum, eggDate, metDate, experience, overallCount, pkrsInfected, pkrsCured, OTgender, metLevel, OTfriendship, OTaffection, stepsToHatch, ballimg, hiddenability);
                 
                 // Add the result to the CSV data if needed
                 if (CB_ExportStyle.SelectedIndex == 6 || CB_ExportStyle.SelectedIndex == 7)
