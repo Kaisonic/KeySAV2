@@ -998,7 +998,7 @@ namespace KeySAV2
             string slotString = (CB_ExportStyle.SelectedIndex == 6 || CB_ExportStyle.SelectedIndex == 7) ? "Row,Col" : "Slot";
             
             string header = String.Format(format, "Box", slotString, "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nickname", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Slot", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched", "Exp", "Count", "Infected", "Cured", "OTG", "Met Level", "Friendship", "Affection", "Steps to Hatch", "Ball", "HA");
-            csvdata = header + "\n";
+            if (CHK_Header.Checked) csvdata = header + "\n";
             
             RTB_SAV.Clear();
             dumpedcounter = 0;
@@ -1063,11 +1063,11 @@ namespace KeySAV2
                     // Append Box Name then Header
                     string toAppend = (CB_BoxStart.Text == "All") ? "All Boxes" : ((CB_BoxStart.Text == CB_BoxEnd.Text) ? "Box " + CB_BoxStart.Text : "Boxes " + CB_BoxStart.Text + " to " + CB_BoxEnd.Text);
                     RTB_SAV.AppendText(toAppend + "\n\n");
-                    RTB_SAV.AppendText(header + "\n");
+                    if (CHK_Header.Checked) RTB_SAV.AppendText(header + "\n");
                 }
             }
             // Print out header at least once if "Split Boxes" is not checked
-            else if (!CHK_Split.Checked)
+            else if (!CHK_Split.Checked && CHK_Header.Checked)
                 RTB_SAV.AppendText(header + "\r\n");
 
             for (int i = 0; i < count; i++)
@@ -1085,7 +1085,7 @@ namespace KeySAV2
                     }
                     // Append Box Name then Header
                     RTB_SAV.AppendText("Box " + (i / 30 + boxstart).ToString() + "\n\n");
-                    RTB_SAV.AppendText(header + "\n");
+                    if (CHK_Header.Checked) RTB_SAV.AppendText(header + "\n");
                 }
                 byte[] pkx = fetchpkx(savefile, keystream, boxoffset + i * 232, 0x100 + offset + i * 232, 0x40000 + offset + i * 232, empty);
                 dumpPKX(true, pkx, i, boxstart);

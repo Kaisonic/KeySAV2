@@ -44,8 +44,6 @@ namespace KeySAV2
             this.CB_Abilities = new System.Windows.Forms.ComboBox();
             this.L_Ability = new System.Windows.Forms.Label();
             this.L_Nature = new System.Windows.Forms.Label();
-            this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
-            this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.RAD_GenderAny = new System.Windows.Forms.RadioButton();
             this.RAD_Female = new System.Windows.Forms.RadioButton();
             this.RAD_Male = new System.Windows.Forms.RadioButton();
@@ -113,6 +111,9 @@ namespace KeySAV2
             this.CB_MainLanguage = new System.Windows.Forms.ComboBox();
             this.CB_Game = new System.Windows.Forms.ComboBox();
             this.CHK_Has_HA = new System.Windows.Forms.CheckBox();
+            this.CHK_Header = new System.Windows.Forms.CheckBox();
+            this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
+            this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -327,36 +328,6 @@ namespace KeySAV2
             this.L_Nature.Size = new System.Drawing.Size(39, 13);
             this.L_Nature.TabIndex = 29;
             this.L_Nature.Text = "Nature";
-            // 
-            // CCB_HPType
-            // 
-            this.CCB_HPType.CheckOnClick = false;
-            this.CCB_HPType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.CCB_HPType.DropDownHeight = 1;
-            this.CCB_HPType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CCB_HPType.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.CCB_HPType.FormattingEnabled = true;
-            this.CCB_HPType.IntegralHeight = false;
-            this.CCB_HPType.Location = new System.Drawing.Point(187, 40);
-            this.CCB_HPType.Name = "CCB_HPType";
-            this.CCB_HPType.Size = new System.Drawing.Size(123, 21);
-            this.CCB_HPType.TabIndex = 28;
-            this.CCB_HPType.ValueSeparator = ", ";
-            // 
-            // CCB_Natures
-            // 
-            this.CCB_Natures.BackColor = System.Drawing.Color.White;
-            this.CCB_Natures.CheckOnClick = true;
-            this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.CCB_Natures.DropDownHeight = 1;
-            this.CCB_Natures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CCB_Natures.FormattingEnabled = true;
-            this.CCB_Natures.IntegralHeight = false;
-            this.CCB_Natures.Location = new System.Drawing.Point(187, 198);
-            this.CCB_Natures.Name = "CCB_Natures";
-            this.CCB_Natures.Size = new System.Drawing.Size(123, 21);
-            this.CCB_Natures.TabIndex = 27;
-            this.CCB_Natures.ValueSeparator = ", ";
             // 
             // RAD_GenderAny
             // 
@@ -744,6 +715,7 @@ namespace KeySAV2
             // 
             // Tab_Options
             // 
+            this.Tab_Options.Controls.Add(this.CHK_Header);
             this.Tab_Options.Controls.Add(this.CHK_Unicode);
             this.Tab_Options.Controls.Add(this.B_ResetCSV);
             this.Tab_Options.Controls.Add(this.CHK_NameQuotes);
@@ -814,7 +786,7 @@ namespace KeySAV2
             // CHK_HideFirst
             // 
             this.CHK_HideFirst.AutoSize = true;
-            this.CHK_HideFirst.Location = new System.Drawing.Point(214, 57);
+            this.CHK_HideFirst.Location = new System.Drawing.Point(239, 57);
             this.CHK_HideFirst.Name = "CHK_HideFirst";
             this.CHK_HideFirst.Size = new System.Drawing.Size(81, 17);
             this.CHK_HideFirst.TabIndex = 21;
@@ -824,7 +796,7 @@ namespace KeySAV2
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(216, 26);
+            this.label1.Location = new System.Drawing.Point(241, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 35;
@@ -833,7 +805,7 @@ namespace KeySAV2
             // CHK_R_Table
             // 
             this.CHK_R_Table.AutoSize = true;
-            this.CHK_R_Table.Location = new System.Drawing.Point(214, 77);
+            this.CHK_R_Table.Location = new System.Drawing.Point(239, 77);
             this.CHK_R_Table.Name = "CHK_R_Table";
             this.CHK_R_Table.Size = new System.Drawing.Size(70, 17);
             this.CHK_R_Table.TabIndex = 17;
@@ -876,7 +848,7 @@ namespace KeySAV2
             this.CHK_MarkFirst.AutoSize = true;
             this.CHK_MarkFirst.Checked = true;
             this.CHK_MarkFirst.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_MarkFirst.Location = new System.Drawing.Point(214, 42);
+            this.CHK_MarkFirst.Location = new System.Drawing.Point(239, 42);
             this.CHK_MarkFirst.Name = "CHK_MarkFirst";
             this.CHK_MarkFirst.Size = new System.Drawing.Size(60, 17);
             this.CHK_MarkFirst.TabIndex = 22;
@@ -1158,6 +1130,48 @@ namespace KeySAV2
             this.CHK_Has_HA.Text = "Has Hidden Ability";
             this.CHK_Has_HA.UseVisualStyleBackColor = true;
             // 
+            // CHK_Header
+            // 
+            this.CHK_Header.AutoSize = true;
+            this.CHK_Header.Checked = true;
+            this.CHK_Header.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_Header.Location = new System.Drawing.Point(167, 31);
+            this.CHK_Header.Name = "CHK_Header";
+            this.CHK_Header.Size = new System.Drawing.Size(61, 17);
+            this.CHK_Header.TabIndex = 40;
+            this.CHK_Header.Text = "Header";
+            this.CHK_Header.UseVisualStyleBackColor = true;
+            // 
+            // CCB_HPType
+            // 
+            this.CCB_HPType.CheckOnClick = false;
+            this.CCB_HPType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.CCB_HPType.DropDownHeight = 1;
+            this.CCB_HPType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CCB_HPType.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.CCB_HPType.FormattingEnabled = true;
+            this.CCB_HPType.IntegralHeight = false;
+            this.CCB_HPType.Location = new System.Drawing.Point(187, 40);
+            this.CCB_HPType.Name = "CCB_HPType";
+            this.CCB_HPType.Size = new System.Drawing.Size(123, 21);
+            this.CCB_HPType.TabIndex = 28;
+            this.CCB_HPType.ValueSeparator = ", ";
+            // 
+            // CCB_Natures
+            // 
+            this.CCB_Natures.BackColor = System.Drawing.Color.White;
+            this.CCB_Natures.CheckOnClick = true;
+            this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.CCB_Natures.DropDownHeight = 1;
+            this.CCB_Natures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CCB_Natures.FormattingEnabled = true;
+            this.CCB_Natures.IntegralHeight = false;
+            this.CCB_Natures.Location = new System.Drawing.Point(187, 198);
+            this.CCB_Natures.Name = "CCB_Natures";
+            this.CCB_Natures.Size = new System.Drawing.Size(123, 21);
+            this.CCB_Natures.TabIndex = 27;
+            this.CCB_Natures.ValueSeparator = ", ";
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -1274,6 +1288,7 @@ namespace KeySAV2
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox CHK_Unicode;
         private System.Windows.Forms.CheckBox CHK_Has_HA;
+        private System.Windows.Forms.CheckBox CHK_Header;
 
     }
 }
