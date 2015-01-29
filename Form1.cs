@@ -65,15 +65,15 @@ namespace KeySAV2
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             string path = files[0]; // open first D&D
             long len = new FileInfo(files[0]).Length;
-            if (len == 0x100000 || len == 0x10009C || len == 0x10019A)
-            {
-                tab_Main.SelectedIndex = 1;
-                openSAV(path);
-            }
-            else if (len == 28256)
+            if (len == 28256)
             {
                 tab_Main.SelectedIndex = 0;
                 openVID(path);
+            }
+            else
+            {
+                tab_Main.SelectedIndex = 1;
+                openSAV(path);
             }
             else MessageBox.Show("Dropped file is not supported.", "Error");
         }
