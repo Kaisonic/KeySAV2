@@ -803,10 +803,6 @@ namespace KeySAV2
             string otname = data.ot;
             string TID = data.TID.ToString("00000");
             string SID = data.SID.ToString("00000");
-            string move1 = movelist[data.move1];
-            string move2 = movelist[data.move2];
-            string move3 = movelist[data.move3];
-            string move4 = movelist[data.move4];
             string ev_hp = data.HP_EV.ToString();
             string ev_at = data.ATK_EV.ToString();
             string ev_de = data.DEF_EV.ToString();
@@ -815,14 +811,26 @@ namespace KeySAV2
             string ev_se = data.SPE_EV.ToString();
             string number = (isSAV) ? (dumpnum % 30 + 1).ToString() : slot;
             string overallCount = (dumpedcounter+1).ToString();
-
-            // Bonus
-            string relearn1 = movelist[data.eggmove1].ToString();
-            string relearn2 = movelist[data.eggmove2].ToString();
-            string relearn3 = movelist[data.eggmove3].ToString();
-            string relearn4 = movelist[data.eggmove4].ToString();
             string isshiny = (data.isshiny) ? shinymark : "";
             string isegg = (data.isegg) ? checkmark : "";
+            
+            // Handle bad decryption on moves
+            string move1 = "";
+            string move2 = "";
+            string move3 = "";
+            string move4 = "";
+            string relearn1 = "";
+            string relearn2 = "";
+            string relearn3 = "";
+            string relearn4 = "";
+            try { move1 = movelist[data.move1]; } catch { move1 = "ERROR"; }
+            try { move2 = movelist[data.move2]; } catch { move2 = "ERROR"; }
+            try { move3 = movelist[data.move3]; } catch { move3 = "ERROR"; }
+            try { move4 = movelist[data.move4]; } catch { move4 = "ERROR"; }
+            try { relearn1 = movelist[data.eggmove1]; } catch { relearn1 = "ERROR"; }
+            try { relearn2 = movelist[data.eggmove2]; } catch { relearn2 = "ERROR"; }
+            try { relearn3 = movelist[data.eggmove3]; } catch { relearn3 = "ERROR"; }
+            try { relearn4 = movelist[data.eggmove4]; } catch { relearn4 = "ERROR"; }
             
             // Extra fields for CSV custom output
             // TODO: add an option to use actual markers below instead of numbers
