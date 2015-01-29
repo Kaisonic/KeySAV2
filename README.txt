@@ -32,6 +32,19 @@ Kaisonic (http://www.reddit.com/r/SVExchange/comments/2o4qiu/a_newer_keysav2_bui
 ==============================
 Changelog for Kaisonic's Build
 ==============================
+KeySAV2 1.3.8 (2015-01-29)
+- Fixed output text box size on filter enable
+- Ensured level calculation is correct
+- Fixed file size checking on break files
+- Fixed pk6 file output number format
+- Added option to disable Unicode characters in output (uncheck Unicode if your gender symbols are not appearing correctly)
+- Changed (None) to empty for empty moves (and other things)
+- Added "Has Hidden Ability" column
+- Added "Has Hidden Ability" filter
+- Changed "Row,Col" back to "Slot" for all output except CSV output
+- Added option to not add header to output (it's recommended to keep "Header" checked for any Reddit output)
+- Fixed unhandled exception when decrypting certain Pokemon moves failed
+
 KeySAV2 1.3.7 (2015-01-05)
 - Fixed auto-open paths - battle videos and saves should now open automatically when the SD card is inserted
 - Added support for CyberGadget backups
