@@ -75,7 +75,6 @@ namespace KeySAV2
                 tab_Main.SelectedIndex = 1;
                 openSAV(path);
             }
-            else MessageBox.Show("Dropped file is not supported.", "Error");
         }
         public void DisplayTimeEvent(object source, ElapsedEventArgs e)
         {
