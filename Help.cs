@@ -15,6 +15,18 @@ namespace KeySAV2
         {
             InitializeComponent();
         }
+        
+        private static Help inst;
+        
+        public static Help GetHelp
+        {
+            get
+            {
+                if (inst == null || inst.IsDisposed)
+                    inst = new Help();
+                return inst;
+            }
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {

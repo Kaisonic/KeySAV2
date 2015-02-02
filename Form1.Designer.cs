@@ -41,6 +41,7 @@ namespace KeySAV2
             this.RTB_VID = new System.Windows.Forms.RichTextBox();
             this.Tab_SAV = new System.Windows.Forms.TabPage();
             this.GB_Filter = new System.Windows.Forms.GroupBox();
+            this.CHK_Has_HA = new System.Windows.Forms.CheckBox();
             this.CB_Abilities = new System.Windows.Forms.ComboBox();
             this.L_Ability = new System.Windows.Forms.Label();
             this.L_Nature = new System.Windows.Forms.Label();
@@ -78,12 +79,12 @@ namespace KeySAV2
             this.B_OpenSAV = new System.Windows.Forms.Button();
             this.TB_SAV = new System.Windows.Forms.TextBox();
             this.Tab_Options = new System.Windows.Forms.TabPage();
+            this.CHK_Header = new System.Windows.Forms.CheckBox();
             this.CHK_Unicode = new System.Windows.Forms.CheckBox();
             this.B_ResetCSV = new System.Windows.Forms.Button();
             this.CHK_NameQuotes = new System.Windows.Forms.CheckBox();
             this.CHK_ShowESV = new System.Windows.Forms.CheckBox();
             this.CHK_HideFirst = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.CHK_R_Table = new System.Windows.Forms.CheckBox();
             this.CHK_ColorBox = new System.Windows.Forms.CheckBox();
             this.CB_BoxColor = new System.Windows.Forms.ComboBox();
@@ -110,8 +111,12 @@ namespace KeySAV2
             this.RTB_OPTIONS = new System.Windows.Forms.RichTextBox();
             this.CB_MainLanguage = new System.Windows.Forms.ComboBox();
             this.CB_Game = new System.Windows.Forms.ComboBox();
-            this.CHK_Has_HA = new System.Windows.Forms.CheckBox();
-            this.CHK_Header = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
             this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.tab_Main.SuspendLayout();
@@ -120,6 +125,10 @@ namespace KeySAV2
             this.GB_Filter.SuspendLayout();
             this.Tab_Options.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab_Main
@@ -157,6 +166,7 @@ namespace KeySAV2
             // 
             // B_BKP_BV
             // 
+            this.B_BKP_BV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.B_BKP_BV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.B_BKP_BV.Location = new System.Drawing.Point(233, 50);
             this.B_BKP_BV.Name = "B_BKP_BV";
@@ -177,6 +187,7 @@ namespace KeySAV2
             // 
             // L_BVTeam
             // 
+            this.L_BVTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.L_BVTeam.AutoSize = true;
             this.L_BVTeam.Location = new System.Drawing.Point(85, 53);
             this.L_BVTeam.Name = "L_BVTeam";
@@ -186,6 +197,7 @@ namespace KeySAV2
             // 
             // CB_Team
             // 
+            this.CB_Team.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CB_Team.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Team.Enabled = false;
             this.CB_Team.FormattingEnabled = true;
@@ -265,6 +277,8 @@ namespace KeySAV2
             // 
             // GB_Filter
             // 
+            this.GB_Filter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.GB_Filter.Controls.Add(this.CHK_Has_HA);
             this.GB_Filter.Controls.Add(this.CB_Abilities);
             this.GB_Filter.Controls.Add(this.L_Ability);
@@ -301,10 +315,19 @@ namespace KeySAV2
             this.GB_Filter.TabStop = false;
             this.GB_Filter.Text = "Filtering";
             // 
+            // CHK_Has_HA
+            // 
+            this.CHK_Has_HA.AutoSize = true;
+            this.CHK_Has_HA.Location = new System.Drawing.Point(6, 227);
+            this.CHK_Has_HA.Name = "CHK_Has_HA";
+            this.CHK_Has_HA.Size = new System.Drawing.Size(112, 17);
+            this.CHK_Has_HA.TabIndex = 32;
+            this.CHK_Has_HA.Text = "Has Hidden Ability";
+            this.CHK_Has_HA.UseVisualStyleBackColor = true;
+            // 
             // CB_Abilities
             // 
             this.CB_Abilities.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CB_Abilities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CB_Abilities.FormattingEnabled = true;
             this.CB_Abilities.Location = new System.Drawing.Point(187, 225);
             this.CB_Abilities.Name = "CB_Abilities";
@@ -565,6 +588,7 @@ namespace KeySAV2
             // 
             // B_BKP_SAV
             // 
+            this.B_BKP_SAV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.B_BKP_SAV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.B_BKP_SAV.Location = new System.Drawing.Point(233, 50);
             this.B_BKP_SAV.Name = "B_BKP_SAV";
@@ -585,6 +609,7 @@ namespace KeySAV2
             // 
             // L_BoxThru
             // 
+            this.L_BoxThru.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.L_BoxThru.AutoSize = true;
             this.L_BoxThru.Location = new System.Drawing.Point(174, 53);
             this.L_BoxThru.Name = "L_BoxThru";
@@ -596,6 +621,7 @@ namespace KeySAV2
             // 
             // CB_BoxEnd
             // 
+            this.CB_BoxEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CB_BoxEnd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_BoxEnd.Enabled = false;
             this.CB_BoxEnd.FormattingEnabled = true;
@@ -618,6 +644,7 @@ namespace KeySAV2
             // 
             // L_BoxSAV
             // 
+            this.L_BoxSAV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.L_BoxSAV.AutoSize = true;
             this.L_BoxSAV.Location = new System.Drawing.Point(85, 53);
             this.L_BoxSAV.Name = "L_BoxSAV";
@@ -627,6 +654,7 @@ namespace KeySAV2
             // 
             // CB_BoxStart
             // 
+            this.CB_BoxStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CB_BoxStart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_BoxStart.Enabled = false;
             this.CB_BoxStart.FormattingEnabled = true;
@@ -715,24 +743,12 @@ namespace KeySAV2
             // 
             // Tab_Options
             // 
-            this.Tab_Options.Controls.Add(this.CHK_Header);
-            this.Tab_Options.Controls.Add(this.CHK_Unicode);
-            this.Tab_Options.Controls.Add(this.B_ResetCSV);
-            this.Tab_Options.Controls.Add(this.CHK_NameQuotes);
-            this.Tab_Options.Controls.Add(this.CHK_ShowESV);
-            this.Tab_Options.Controls.Add(this.CHK_HideFirst);
-            this.Tab_Options.Controls.Add(this.label1);
-            this.Tab_Options.Controls.Add(this.CHK_R_Table);
-            this.Tab_Options.Controls.Add(this.CHK_ColorBox);
-            this.Tab_Options.Controls.Add(this.CB_BoxColor);
-            this.Tab_Options.Controls.Add(this.CHK_MarkFirst);
-            this.Tab_Options.Controls.Add(this.CHK_Split);
-            this.Tab_Options.Controls.Add(this.CHK_BoldIVs);
             this.Tab_Options.Controls.Add(this.groupBox1);
-            this.Tab_Options.Controls.Add(this.B_ShowOptions);
-            this.Tab_Options.Controls.Add(this.L_ExportStyle);
-            this.Tab_Options.Controls.Add(this.CB_ExportStyle);
             this.Tab_Options.Controls.Add(this.RTB_OPTIONS);
+            this.Tab_Options.Controls.Add(this.groupBox2);
+            this.Tab_Options.Controls.Add(this.groupBox3);
+            this.Tab_Options.Controls.Add(this.groupBox4);
+            this.Tab_Options.Controls.Add(this.groupBox5);
             this.Tab_Options.Location = new System.Drawing.Point(4, 22);
             this.Tab_Options.Name = "Tab_Options";
             this.Tab_Options.Size = new System.Drawing.Size(322, 505);
@@ -740,78 +756,80 @@ namespace KeySAV2
             this.Tab_Options.Text = "Options";
             this.Tab_Options.UseVisualStyleBackColor = true;
             // 
+            // CHK_Header
+            // 
+            this.CHK_Header.AutoSize = true;
+            this.CHK_Header.Checked = true;
+            this.CHK_Header.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_Header.Location = new System.Drawing.Point(93, 113);
+            this.CHK_Header.Name = "CHK_Header";
+            this.CHK_Header.Size = new System.Drawing.Size(91, 17);
+            this.CHK_Header.TabIndex = 40;
+            this.CHK_Header.Text = "Show Header";
+            this.CHK_Header.UseVisualStyleBackColor = true;
+            // 
             // CHK_Unicode
             // 
             this.CHK_Unicode.AutoSize = true;
             this.CHK_Unicode.Checked = true;
             this.CHK_Unicode.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_Unicode.Location = new System.Drawing.Point(101, 31);
+            this.CHK_Unicode.Location = new System.Drawing.Point(9, 136);
             this.CHK_Unicode.Name = "CHK_Unicode";
-            this.CHK_Unicode.Size = new System.Drawing.Size(66, 17);
+            this.CHK_Unicode.Size = new System.Drawing.Size(142, 17);
             this.CHK_Unicode.TabIndex = 39;
-            this.CHK_Unicode.Text = "Unicode";
+            this.CHK_Unicode.Text = "Use Unicode Characters";
             this.CHK_Unicode.UseVisualStyleBackColor = true;
             // 
             // B_ResetCSV
             // 
-            this.B_ResetCSV.Location = new System.Drawing.Point(214, 74);
+            this.B_ResetCSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_ResetCSV.Location = new System.Drawing.Point(210, -1);
             this.B_ResetCSV.Name = "B_ResetCSV";
             this.B_ResetCSV.Size = new System.Drawing.Size(101, 23);
             this.B_ResetCSV.TabIndex = 38;
             this.B_ResetCSV.Text = "Reset to Default";
             this.B_ResetCSV.UseVisualStyleBackColor = true;
-            this.B_ResetCSV.Visible = false;
             this.B_ResetCSV.Click += new System.EventHandler(this.B_ResetCSV_Click);
             // 
             // CHK_NameQuotes
             // 
             this.CHK_NameQuotes.AutoSize = true;
-            this.CHK_NameQuotes.Location = new System.Drawing.Point(17, 77);
+            this.CHK_NameQuotes.Location = new System.Drawing.Point(6, 19);
             this.CHK_NameQuotes.Name = "CHK_NameQuotes";
-            this.CHK_NameQuotes.Size = new System.Drawing.Size(179, 17);
+            this.CHK_NameQuotes.Size = new System.Drawing.Size(113, 30);
             this.CHK_NameQuotes.TabIndex = 37;
-            this.CHK_NameQuotes.Text = "Enclose nickname/OT in quotes";
+            this.CHK_NameQuotes.Text = "Enclose nickname\r\nand OT in quotes";
             this.CHK_NameQuotes.UseVisualStyleBackColor = true;
             // 
             // CHK_ShowESV
             // 
             this.CHK_ShowESV.AutoSize = true;
-            this.CHK_ShowESV.Location = new System.Drawing.Point(17, 54);
+            this.CHK_ShowESV.Location = new System.Drawing.Point(9, 159);
             this.CHK_ShowESV.Name = "CHK_ShowESV";
-            this.CHK_ShowESV.Size = new System.Drawing.Size(182, 17);
+            this.CHK_ShowESV.Size = new System.Drawing.Size(184, 17);
             this.CHK_ShowESV.TabIndex = 36;
-            this.CHK_ShowESV.Text = "Show ESV for hatched Pokemon";
+            this.CHK_ShowESV.Text = "Show ESV for Hatched Pokemon";
             this.CHK_ShowESV.UseVisualStyleBackColor = true;
             // 
             // CHK_HideFirst
             // 
             this.CHK_HideFirst.AutoSize = true;
-            this.CHK_HideFirst.Location = new System.Drawing.Point(239, 57);
+            this.CHK_HideFirst.Location = new System.Drawing.Point(9, 90);
             this.CHK_HideFirst.Name = "CHK_HideFirst";
-            this.CHK_HideFirst.Size = new System.Drawing.Size(81, 17);
+            this.CHK_HideFirst.Size = new System.Drawing.Size(144, 17);
             this.CHK_HideFirst.TabIndex = 21;
-            this.CHK_HideFirst.Text = "Don\'t Show";
+            this.CHK_HideFirst.Text = "Don\'t Show Unsure Data";
             this.CHK_HideFirst.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(241, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "<100% data";
             // 
             // CHK_R_Table
             // 
             this.CHK_R_Table.AutoSize = true;
-            this.CHK_R_Table.Location = new System.Drawing.Point(239, 77);
+            this.CHK_R_Table.Location = new System.Drawing.Point(6, 19);
             this.CHK_R_Table.Name = "CHK_R_Table";
-            this.CHK_R_Table.Size = new System.Drawing.Size(70, 17);
+            this.CHK_R_Table.Size = new System.Drawing.Size(102, 17);
             this.CHK_R_Table.TabIndex = 17;
-            this.CHK_R_Table.Text = "[R] Table";
+            this.CHK_R_Table.Text = "Format as Table";
             this.CHK_R_Table.UseVisualStyleBackColor = true;
-            this.CHK_R_Table.Visible = false;
             this.CHK_R_Table.CheckedChanged += new System.EventHandler(this.changeTableStatus);
             this.CHK_R_Table.Click += new System.EventHandler(this.changeTableStatus);
             // 
@@ -820,11 +838,11 @@ namespace KeySAV2
             this.CHK_ColorBox.AutoSize = true;
             this.CHK_ColorBox.Checked = true;
             this.CHK_ColorBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_ColorBox.Location = new System.Drawing.Point(17, 77);
+            this.CHK_ColorBox.Location = new System.Drawing.Point(6, 65);
             this.CHK_ColorBox.Name = "CHK_ColorBox";
-            this.CHK_ColorBox.Size = new System.Drawing.Size(99, 17);
+            this.CHK_ColorBox.Size = new System.Drawing.Size(82, 17);
             this.CHK_ColorBox.TabIndex = 19;
-            this.CHK_ColorBox.Text = "[R] Color Boxes";
+            this.CHK_ColorBox.Text = "Color Boxes";
             this.CHK_ColorBox.UseVisualStyleBackColor = true;
             // 
             // CB_BoxColor
@@ -838,7 +856,7 @@ namespace KeySAV2
             "Green",
             "Yellow",
             "Red"});
-            this.CB_BoxColor.Location = new System.Drawing.Point(122, 74);
+            this.CB_BoxColor.Location = new System.Drawing.Point(6, 88);
             this.CB_BoxColor.Name = "CB_BoxColor";
             this.CB_BoxColor.Size = new System.Drawing.Size(80, 21);
             this.CB_BoxColor.TabIndex = 20;
@@ -848,17 +866,17 @@ namespace KeySAV2
             this.CHK_MarkFirst.AutoSize = true;
             this.CHK_MarkFirst.Checked = true;
             this.CHK_MarkFirst.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_MarkFirst.Location = new System.Drawing.Point(239, 42);
+            this.CHK_MarkFirst.Location = new System.Drawing.Point(9, 67);
             this.CHK_MarkFirst.Name = "CHK_MarkFirst";
-            this.CHK_MarkFirst.Size = new System.Drawing.Size(60, 17);
+            this.CHK_MarkFirst.Size = new System.Drawing.Size(148, 17);
             this.CHK_MarkFirst.TabIndex = 22;
-            this.CHK_MarkFirst.Text = "Mark ~";
+            this.CHK_MarkFirst.Text = "Mark Unsure Data With ~";
             this.CHK_MarkFirst.UseVisualStyleBackColor = true;
             // 
             // CHK_Split
             // 
             this.CHK_Split.AutoSize = true;
-            this.CHK_Split.Location = new System.Drawing.Point(17, 31);
+            this.CHK_Split.Location = new System.Drawing.Point(9, 113);
             this.CHK_Split.Name = "CHK_Split";
             this.CHK_Split.Size = new System.Drawing.Size(78, 17);
             this.CHK_Split.TabIndex = 16;
@@ -870,11 +888,11 @@ namespace KeySAV2
             this.CHK_BoldIVs.AutoSize = true;
             this.CHK_BoldIVs.Checked = true;
             this.CHK_BoldIVs.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_BoldIVs.Location = new System.Drawing.Point(17, 54);
+            this.CHK_BoldIVs.Location = new System.Drawing.Point(6, 42);
             this.CHK_BoldIVs.Name = "CHK_BoldIVs";
-            this.CHK_BoldIVs.Size = new System.Drawing.Size(119, 17);
+            this.CHK_BoldIVs.Size = new System.Drawing.Size(102, 17);
             this.CHK_BoldIVs.TabIndex = 18;
-            this.CHK_BoldIVs.Text = "[R] Bold Perfect IVs";
+            this.CHK_BoldIVs.Text = "Bold Perfect IVs";
             this.CHK_BoldIVs.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -1034,22 +1052,23 @@ namespace KeySAV2
             // 
             // B_ShowOptions
             // 
-            this.B_ShowOptions.Location = new System.Drawing.Point(204, 3);
+            this.B_ShowOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_ShowOptions.Location = new System.Drawing.Point(291, 5);
             this.B_ShowOptions.Name = "B_ShowOptions";
-            this.B_ShowOptions.Size = new System.Drawing.Size(111, 23);
+            this.B_ShowOptions.Size = new System.Drawing.Size(51, 23);
             this.B_ShowOptions.TabIndex = 15;
-            this.B_ShowOptions.Text = "Show Export Strings";
+            this.B_ShowOptions.Text = "Help";
             this.B_ShowOptions.UseVisualStyleBackColor = true;
             this.B_ShowOptions.Click += new System.EventHandler(this.B_ShowOptions_Click);
             // 
             // L_ExportStyle
             // 
             this.L_ExportStyle.AutoSize = true;
-            this.L_ExportStyle.Location = new System.Drawing.Point(14, 7);
+            this.L_ExportStyle.Location = new System.Drawing.Point(6, 43);
             this.L_ExportStyle.Name = "L_ExportStyle";
-            this.L_ExportStyle.Size = new System.Drawing.Size(66, 13);
+            this.L_ExportStyle.Size = new System.Drawing.Size(33, 13);
             this.L_ExportStyle.TabIndex = 14;
-            this.L_ExportStyle.Text = "Export Style:";
+            this.L_ExportStyle.Text = "Style:";
             // 
             // CB_ExportStyle
             // 
@@ -1065,7 +1084,7 @@ namespace KeySAV2
             "CSV default",
             "CSV custom",
             "To .PK6 File"});
-            this.CB_ExportStyle.Location = new System.Drawing.Point(86, 4);
+            this.CB_ExportStyle.Location = new System.Drawing.Point(39, 40);
             this.CB_ExportStyle.Name = "CB_ExportStyle";
             this.CB_ExportStyle.Size = new System.Drawing.Size(112, 21);
             this.CB_ExportStyle.TabIndex = 14;
@@ -1076,10 +1095,10 @@ namespace KeySAV2
             this.RTB_OPTIONS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RTB_OPTIONS.Location = new System.Drawing.Point(0, 100);
+            this.RTB_OPTIONS.Location = new System.Drawing.Point(11, 211);
             this.RTB_OPTIONS.Name = "RTB_OPTIONS";
             this.RTB_OPTIONS.ReadOnly = true;
-            this.RTB_OPTIONS.Size = new System.Drawing.Size(320, 213);
+            this.RTB_OPTIONS.Size = new System.Drawing.Size(305, 96);
             this.RTB_OPTIONS.TabIndex = 29;
             this.RTB_OPTIONS.Text = "";
             this.RTB_OPTIONS.ReadOnlyChanged += new System.EventHandler(this.changeReadOnly);
@@ -1087,7 +1106,6 @@ namespace KeySAV2
             // 
             // CB_MainLanguage
             // 
-            this.CB_MainLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CB_MainLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_MainLanguage.FormattingEnabled = true;
             this.CB_MainLanguage.Items.AddRange(new object[] {
@@ -1098,7 +1116,7 @@ namespace KeySAV2
             "Deutsch",
             "Español",
             "한국어"});
-            this.CB_MainLanguage.Location = new System.Drawing.Point(214, 11);
+            this.CB_MainLanguage.Location = new System.Drawing.Point(70, 13);
             this.CB_MainLanguage.Name = "CB_MainLanguage";
             this.CB_MainLanguage.Size = new System.Drawing.Size(81, 21);
             this.CB_MainLanguage.TabIndex = 1;
@@ -1112,42 +1130,93 @@ namespace KeySAV2
             this.CB_Game.Items.AddRange(new object[] {
             "X",
             "Y",
-            "R",
-            "S"});
-            this.CB_Game.Location = new System.Drawing.Point(299, 11);
+            "OR",
+            "AS"});
+            this.CB_Game.Location = new System.Drawing.Point(244, 5);
             this.CB_Game.Name = "CB_Game";
             this.CB_Game.Size = new System.Drawing.Size(41, 21);
             this.CB_Game.TabIndex = 2;
             this.CB_Game.SelectedIndexChanged += new System.EventHandler(this.changedetectgame);
             // 
-            // CHK_Has_HA
+            // label3
             // 
-            this.CHK_Has_HA.AutoSize = true;
-            this.CHK_Has_HA.Location = new System.Drawing.Point(6, 227);
-            this.CHK_Has_HA.Name = "CHK_Has_HA";
-            this.CHK_Has_HA.Size = new System.Drawing.Size(112, 17);
-            this.CHK_Has_HA.TabIndex = 32;
-            this.CHK_Has_HA.Text = "Has Hidden Ability";
-            this.CHK_Has_HA.UseVisualStyleBackColor = true;
+            this.label3.Location = new System.Drawing.Point(203, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 18);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Game:";
             // 
-            // CHK_Header
+            // groupBox2
             // 
-            this.CHK_Header.AutoSize = true;
-            this.CHK_Header.Checked = true;
-            this.CHK_Header.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_Header.Location = new System.Drawing.Point(167, 31);
-            this.CHK_Header.Name = "CHK_Header";
-            this.CHK_Header.Size = new System.Drawing.Size(61, 17);
-            this.CHK_Header.TabIndex = 40;
-            this.CHK_Header.Text = "Header";
-            this.CHK_Header.UseVisualStyleBackColor = true;
+            this.groupBox2.Controls.Add(this.CHK_Header);
+            this.groupBox2.Controls.Add(this.CHK_ShowESV);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.CHK_Unicode);
+            this.groupBox2.Controls.Add(this.CB_MainLanguage);
+            this.groupBox2.Controls.Add(this.L_ExportStyle);
+            this.groupBox2.Controls.Add(this.CB_ExportStyle);
+            this.groupBox2.Controls.Add(this.CHK_MarkFirst);
+            this.groupBox2.Controls.Add(this.CHK_HideFirst);
+            this.groupBox2.Controls.Add(this.CHK_Split);
+            this.groupBox2.Location = new System.Drawing.Point(5, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(189, 181);
+            this.groupBox2.TabIndex = 41;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Export Options";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Language:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.CHK_ColorBox);
+            this.groupBox3.Controls.Add(this.CB_BoxColor);
+            this.groupBox3.Controls.Add(this.CHK_R_Table);
+            this.groupBox3.Controls.Add(this.CHK_BoldIVs);
+            this.groupBox3.Location = new System.Drawing.Point(200, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(119, 118);
+            this.groupBox3.TabIndex = 42;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Reddit Options";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.B_ResetCSV);
+            this.groupBox4.Location = new System.Drawing.Point(5, 192);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(317, 121);
+            this.groupBox4.TabIndex = 43;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Text Format (see \"Help\" for help)";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.Controls.Add(this.CHK_NameQuotes);
+            this.groupBox5.Location = new System.Drawing.Point(200, 128);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(119, 57);
+            this.groupBox5.TabIndex = 44;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "CSV Options";
             // 
             // CCB_HPType
             // 
             this.CCB_HPType.CheckOnClick = false;
             this.CCB_HPType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.CCB_HPType.DropDownHeight = 1;
-            this.CCB_HPType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CCB_HPType.ForeColor = System.Drawing.SystemColors.WindowText;
             this.CCB_HPType.FormattingEnabled = true;
             this.CCB_HPType.IntegralHeight = false;
@@ -1163,7 +1232,6 @@ namespace KeySAV2
             this.CCB_Natures.CheckOnClick = true;
             this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.CCB_Natures.DropDownHeight = 1;
-            this.CCB_Natures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CCB_Natures.FormattingEnabled = true;
             this.CCB_Natures.IntegralHeight = false;
             this.CCB_Natures.Location = new System.Drawing.Point(187, 198);
@@ -1179,14 +1247,15 @@ namespace KeySAV2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(354, 550);
             this.Controls.Add(this.CB_Game);
-            this.Controls.Add(this.CB_MainLanguage);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.B_ShowOptions);
             this.Controls.Add(this.tab_Main);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(700, 750);
-            this.MinimumSize = new System.Drawing.Size(370, 485);
+            this.MinimumSize = new System.Drawing.Size(370, 588);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "KeySAV";
+            this.Text = "KeySAV2";
             this.tab_Main.ResumeLayout(false);
             this.Tab_BV.ResumeLayout(false);
             this.Tab_BV.PerformLayout();
@@ -1195,9 +1264,15 @@ namespace KeySAV2
             this.GB_Filter.ResumeLayout(false);
             this.GB_Filter.PerformLayout();
             this.Tab_Options.ResumeLayout(false);
-            this.Tab_Options.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1285,10 +1360,15 @@ namespace KeySAV2
         private System.Windows.Forms.Label L_ExportStyle;
         private System.Windows.Forms.ComboBox CB_ExportStyle;
         private System.Windows.Forms.RichTextBox RTB_OPTIONS;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox CHK_Unicode;
         private System.Windows.Forms.CheckBox CHK_Has_HA;
         private System.Windows.Forms.CheckBox CHK_Header;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox5;
 
     }
 }

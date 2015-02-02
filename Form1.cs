@@ -33,7 +33,7 @@ namespace KeySAV2
             myTimer.Start();
             CB_Game.SelectedIndex = 0;
             CB_MainLanguage.SelectedIndex = 0;
-            CB_BoxStart.SelectedIndex = 1;
+            CB_BoxStart.SelectedIndex = 0;
             changeboxsetting(null, null);
             CB_BoxEnd.SelectedIndex = 0;
             CB_BoxEnd.Enabled = false;
@@ -1911,8 +1911,7 @@ namespace KeySAV2
         }
         private void B_ShowOptions_Click(object sender, EventArgs e)
         {
-            Help help = new Help();
-            help.Show(this);
+            Help.GetHelp.Show();
         }
         private void changeExportStyle(object sender, EventArgs e)
         {
@@ -1929,82 +1928,82 @@ namespace KeySAV2
              */
             if (CB_ExportStyle.SelectedIndex == 0) // Default
             {
-                CHK_BoldIVs.Visible = CHK_ColorBox.Visible = CB_BoxColor.Visible = false;
-                CHK_R_Table.Visible = false;
-                CHK_NameQuotes.Visible = false;
-                B_ResetCSV.Visible = false;
+                CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = false;
+                CHK_R_Table.Enabled = false;
+                CHK_NameQuotes.Enabled = false;
+                B_ResetCSV.Enabled = false;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
                     "{0} - {1} - {2} ({3}) - {4} - {5} - {6}.{7}.{8}.{9}.{10}.{11} - {12} - {13}";
             }
             else if (CB_ExportStyle.SelectedIndex == 1) // Reddit
             {
-                CHK_BoldIVs.Visible = CHK_ColorBox.Visible = CB_BoxColor.Visible = true;
-                CHK_R_Table.Visible = false;
-                CHK_NameQuotes.Visible = false;
-                B_ResetCSV.Visible = false;
+                CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = true;
+                CHK_R_Table.Enabled = false;
+                CHK_NameQuotes.Enabled = false;
+                B_ResetCSV.Enabled = false;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
                 "{0} | {1} | {2} ({3}) | {4} | {5} | {6}.{7}.{8}.{9}.{10}.{11} | {12} | {13} |";
             }
             else if (CB_ExportStyle.SelectedIndex == 2) // TSV
             {
-                CHK_BoldIVs.Visible = CHK_ColorBox.Visible = CB_BoxColor.Visible = true;
-                CHK_R_Table.Visible = false;
-                CHK_NameQuotes.Visible = false;
-                B_ResetCSV.Visible = false;
+                CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = true;
+                CHK_R_Table.Enabled = false;
+                CHK_NameQuotes.Enabled = false;
+                B_ResetCSV.Enabled = false;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
                 "{0} | {1} | {16} | {18} | {14} |";
             }
             else if (CB_ExportStyle.SelectedIndex == 3) // Custom 1
             {
-                CHK_NameQuotes.Visible = false;
-                B_ResetCSV.Visible = false;
-                CHK_R_Table.Visible = true; CHK_R_Table.Checked = custom1b;
-                CHK_BoldIVs.Visible = CHK_ColorBox.Visible = CB_BoxColor.Visible = true;
+                CHK_NameQuotes.Enabled = false;
+                B_ResetCSV.Enabled = false;
+                CHK_R_Table.Enabled = true; CHK_R_Table.Checked = custom1b;
+                CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = true;
                 RTB_OPTIONS.ReadOnly = false;
                 RTB_OPTIONS.Text = custom1;
             }
             else if (CB_ExportStyle.SelectedIndex == 4) // Custom 2
             {
-                CHK_NameQuotes.Visible = false;
-                B_ResetCSV.Visible = false;
-                CHK_R_Table.Visible = true; CHK_R_Table.Checked = custom2b;
-                CHK_BoldIVs.Visible = CHK_ColorBox.Visible = CB_BoxColor.Visible = true;
+                CHK_NameQuotes.Enabled = false;
+                B_ResetCSV.Enabled = false;
+                CHK_R_Table.Enabled = true; CHK_R_Table.Checked = custom2b;
+                CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = true;
                 RTB_OPTIONS.ReadOnly = false;
                 RTB_OPTIONS.Text = custom2;
             }
             else if (CB_ExportStyle.SelectedIndex == 5) // Custom 3
             {
-                CHK_NameQuotes.Visible = false;
-                B_ResetCSV.Visible = false;
-                CHK_R_Table.Visible = true; CHK_R_Table.Checked = custom3b;
-                CHK_BoldIVs.Visible = CHK_ColorBox.Visible = CB_BoxColor.Visible = true;
+                CHK_NameQuotes.Enabled = false;
+                B_ResetCSV.Enabled = false;
+                CHK_R_Table.Enabled = true; CHK_R_Table.Checked = custom3b;
+                CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = true;
                 RTB_OPTIONS.ReadOnly = false;
                 RTB_OPTIONS.Text = custom3;
             }
             else if (CB_ExportStyle.SelectedIndex == 6) // CSV
             {
-                CHK_BoldIVs.Visible = CHK_ColorBox.Visible = CB_BoxColor.Visible = false;
-                CHK_R_Table.Visible = false;
-                B_ResetCSV.Visible = false;
-                CHK_NameQuotes.Visible = true;
+                CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = false;
+                CHK_R_Table.Enabled = false;
+                B_ResetCSV.Enabled = false;
+                CHK_NameQuotes.Enabled = true;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text ="{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35}";
             }
             else if (CB_ExportStyle.SelectedIndex == 7) // CSV custom
             {
-                CHK_BoldIVs.Visible = CHK_ColorBox.Visible = CB_BoxColor.Visible = false;
-                CHK_R_Table.Visible = false;
-                CHK_NameQuotes.Visible = true;
+                CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = false;
+                CHK_R_Table.Enabled = false;
+                CHK_NameQuotes.Enabled = true;
                 RTB_OPTIONS.ReadOnly = false;
-                B_ResetCSV.Visible = true;
+                B_ResetCSV.Enabled = true;
                 // If nothing is saved, fill with all columns by default
                 RTB_OPTIONS.Text = (customcsv == "") ? defaultCSVcustom : customcsv;
             }
             else if (CB_ExportStyle.SelectedIndex == 8) // PK6
             {
-                CHK_BoldIVs.Visible = CHK_ColorBox.Visible = CB_BoxColor.Visible = false;
-                CHK_R_Table.Visible = false;
-                CHK_NameQuotes.Visible = false;
-                B_ResetCSV.Visible = false;
+                CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = false;
+                CHK_R_Table.Enabled = false;
+                CHK_NameQuotes.Enabled = false;
+                B_ResetCSV.Enabled = false;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
                 "Files will be saved in .PK6 format, and the default method will display.";
             }
