@@ -417,7 +417,7 @@ namespace KeySAV2
             long len = new FileInfo(path).Length;
             if (len != 0x100000 && len != 0x10009C && len != 0x10019A)
             { 
-                if(showUI) MessageBox.Show("Incorrect File Size");
+                if(showUI) MessageBox.Show("Unsupported File", "Error");
                 return;
             }
             
@@ -489,7 +489,7 @@ namespace KeySAV2
             B_GoBV.Enabled = CB_Team.Enabled = false;
             long len = new FileInfo(path).Length;
             if (len != 28256)
-            { MessageBox.Show("Incorrect File Size"); return; }
+            { MessageBox.Show("Unsupported File", "Error"); return; }
 
             TB_BV.Text = path;
 
@@ -992,7 +992,16 @@ namespace KeySAV2
                 if (isSAV) RTB_SAV.AppendText(result + "\n"); else RTB_VID.AppendText(result + "\n");
             }
         }
-        private void DumpSAV(object sender, EventArgs e)
+        private void dumpSAV(object sender, EventArgs e)
+        {
+            dumpData(true);
+        }
+        private void dumpBV(object sender, EventArgs e)
+        {
+            dumpData(false);
+        }
+
+        private void dumpData(bool isSAV)
         {
             // Get the output format from the input text box
             string format = RTB_OPTIONS.Text;
@@ -1001,56 +1010,14 @@ namespace KeySAV2
             if (CB_ExportStyle.SelectedIndex == 8)
                 format = "{0} - {1} - {2} ({3}) - {4} - {5} - {6}.{7}.{8}.{9}.{10}.{11} - {12} - {13}";
                 
-            // Only output Row,Col for CSV output
-            string slotString = (CB_ExportStyle.SelectedIndex == 6 || CB_ExportStyle.SelectedIndex == 7) ? "Row,Col" : "Slot";
+            // Only output Row,Col for CSV output for SAVs
+            string slotString = (isSAV && (CB_ExportStyle.SelectedIndex == 6 || CB_ExportStyle.SelectedIndex == 7)) ? "Row,Col" : "Slot";
             
             string header = String.Format(format, "Box", slotString, "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nickname", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Slot", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched", "Exp", "Count", "Infected", "Cured", "OTG", "Met Level", "Friendship", "Affection", "Steps to Hatch", "Ball", "HA");
             if (CHK_Header.Checked) csvdata = header + "\n";
             
-            RTB_SAV.Clear();
-            dumpedcounter = 0;
-            // Load our Keystream file.
-            byte[] keystream = File.ReadAllBytes(savkeypath);
-            byte[] empty = new Byte[232];
-            // Save file is already loaded.
-
-            // Get our empty file set up.
-            Array.Copy(keystream, 0x10, empty, 0xE0, 0x4);
-            string nick = eggnames[empty[0xE3] - 1];
-            // Stuff in the nickname to our blank EKX.
-            byte[] nicknamebytes = Encoding.Unicode.GetBytes(nick);
-            Array.Resize(ref nicknamebytes, 24);
-            Array.Copy(nicknamebytes, 0, empty, 0x40, nicknamebytes.Length);
-            // Fix CHK
-            uint chk = 0;
-            for (int i = 8; i < 232; i += 2) // Loop through the entire PKX
-                chk += BitConverter.ToUInt16(empty, i);
-
-            // Apply New Checksum
-            Array.Copy(BitConverter.GetBytes(chk), 0, empty, 06, 2);
-            empty = encryptArray(empty);
-            Array.Resize(ref empty, 0xE8);
-
-            // Get our dumping parameters.
-            int boxoffset = BitConverter.ToInt32(keystream, 0x1C);
-            int offset = 0;
-            int count = 30;
-            int boxstart = 1;
-            if (CB_BoxStart.Text == "All")
-                count = 30 * 31;
-            else
-            {
-                boxoffset += (Convert.ToInt16(CB_BoxStart.Text) - 1) * 30 * 232;
-                offset += (Convert.ToInt16(CB_BoxStart.Text) - 1) * 30 * 232;
-                count = (Convert.ToInt16(CB_BoxEnd.Text) - Convert.ToInt16(CB_BoxStart.Text) + 1) * 30;
-                boxstart = Convert.ToInt16(CB_BoxStart.Text);
-            }
-
-            // Get our TSVs for filtering
-            ushort tmp = 0;
-            selectedTSVs = (from val in Regex.Split(TB_SVs.Text, @"\s*[\s,;.]\s*") where UInt16.TryParse(val, out tmp) select tmp).ToArray();
-
             // Add header if Reddit, or if custom and Reddit table checked
+            string toAppend = "";
             if (CB_ExportStyle.SelectedIndex == 1 || CB_ExportStyle.SelectedIndex == 2 || (CB_ExportStyle.SelectedIndex >= 1 && CB_ExportStyle.SelectedIndex <= 5 && CHK_R_Table.Checked))
             {
                 int args = Regex.Split(RTB_OPTIONS.Text, "{").Length;
@@ -1058,132 +1025,142 @@ namespace KeySAV2
                 for (int i = 0; i < args; i++)
                     header += ":---:|";
 
-                if (!CHK_Split.Checked) // Still append the header if we aren't doing it for every box.
+                if (!CHK_Split.Checked || !isSAV) // Still append the header if we aren't doing it for every box.
                 {
                     // Add header if reddit
                     if (CHK_ColorBox.Checked)
                     {
                         if (CB_BoxColor.SelectedIndex == 0)
-                            RTB_SAV.AppendText(boxcolors[1 + (rnd32() % 4)]);
-                        else RTB_SAV.AppendText(boxcolors[CB_BoxColor.SelectedIndex - 1]);
+                            toAppend += boxcolors[1 + (rnd32() % 4)];
+                        else toAppend += boxcolors[CB_BoxColor.SelectedIndex - 1];
                     }
                     // Append Box Name then Header
-                    string toAppend = (CB_BoxStart.Text == "All") ? "All Boxes" : ((CB_BoxStart.Text == CB_BoxEnd.Text) ? "Box " + CB_BoxStart.Text : "Boxes " + CB_BoxStart.Text + " to " + CB_BoxEnd.Text);
-                    RTB_SAV.AppendText(toAppend + "\n\n");
-                    if (CHK_Header.Checked) RTB_SAV.AppendText(header + "\n");
+                    if (isSAV)
+                        toAppend += (CB_BoxStart.Text == "All") ? "All Boxes" : ((CB_BoxStart.Text == CB_BoxEnd.Text) ? "Box " + CB_BoxStart.Text : "Boxes " + CB_BoxStart.Text + " to " + CB_BoxEnd.Text);
+                    else
+                        toAppend += (CB_Team.SelectedIndex == 1) ? "Opponent's Team" : "My Team";
+                    toAppend += "\n\n";
+                    if (CHK_Header.Checked) toAppend += header + "\n";
                 }
             }
             // Print out header at least once if "Split Boxes" is not checked
-            else if (!CHK_Split.Checked && CHK_Header.Checked)
-                RTB_SAV.AppendText(header + "\r\n");
-
-            for (int i = 0; i < count; i++)
-            {
-                if (i % 30 == 0 && CHK_Split.Checked)
-                {
-                    if (i != 0) RTB_SAV.AppendText("\n");
-                    
-                    // Add Reddit coloring
-                    if (CHK_ColorBox.Checked && (CB_ExportStyle.SelectedIndex == 1 || CB_ExportStyle.SelectedIndex == 2 || (CB_ExportStyle.SelectedIndex >= 1 && CB_ExportStyle.SelectedIndex <= 5 && CHK_R_Table.Checked)))
-                    {
-                        if (CB_BoxColor.SelectedIndex == 0)
-                            RTB_SAV.AppendText(boxcolors[1 + ((i / 30 + boxstart) % 4)]);
-                        else RTB_SAV.AppendText(boxcolors[CB_BoxColor.SelectedIndex - 1]);
-                    }
-                    // Append Box Name then Header
-                    RTB_SAV.AppendText("Box " + (i / 30 + boxstart).ToString() + "\n\n");
-                    if (CHK_Header.Checked) RTB_SAV.AppendText(header + "\n");
-                }
-                byte[] pkx = fetchpkx(savefile, keystream, boxoffset + i * 232, 0x100 + offset + i * 232, 0x40000 + offset + i * 232, empty);
-                dumpPKX(true, pkx, i, boxstart);
-            }
-
-            // Copy Results to Clipboard
-            try { Clipboard.SetText(RTB_SAV.Text); }
-            catch { };
-            RTB_SAV.AppendText("\nData copied to clipboard!\nDumped: " + dumpedcounter);
-            RTB_SAV.Select(RTB_SAV.Text.Length - 1, 0);
-            RTB_SAV.ScrollToCaret();
-
-            if (CB_ExportStyle.SelectedIndex == 6 || CB_ExportStyle.SelectedIndex == 7)
-            {
-                SaveFileDialog savecsv = new SaveFileDialog();
-                savecsv.Filter = "Spreadsheet|*.csv";
-                savecsv.FileName = (lastOpenedFilename == "") ? "KeySAV Data Dump.csv" : lastOpenedFilename.Substring(0, lastOpenedFilename.Length - 4) + ".csv";
-                if (savecsv.ShowDialog() == DialogResult.OK)
-                    System.IO.File.WriteAllText(savecsv.FileName, csvdata, Encoding.UTF8);
-            }
-        }
-        private void dumpBV(object sender, EventArgs e)
-        {
-            // Get the output format from the input text box
-            string format = RTB_OPTIONS.Text;
+            else if ((!CHK_Split.Checked || !isSAV) && CHK_Header.Checked)
+                toAppend += header + "\n";
             
-            // For PK6 output, display default format
-            if (CB_ExportStyle.SelectedIndex == 8)
-                format = "{1} - {2} ({3}) - {4} - {5} - {6}.{7}.{8}.{9}.{10}.{11} - {12} - {13}";
-            
-            string header = String.Format(format, "Box", "Slot", "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nickname", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Slot", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched", "Exp", "Count", "Infected", "Cured", "OTG", "Met Level", "Friendship", "Affection", "Steps to Hatch", "Ball", "HA");
-            csvdata = header + "\n";
-            
-            RTB_VID.Clear();
-            // player @ 0xX100, opponent @ 0x1800;
-            byte[] keystream = File.ReadAllBytes(vidkeypath);
-            byte[] key = new Byte[260];
-            byte[] empty = new Byte[260];
-            byte[] emptyekx = encryptArray(empty);
-            byte[] ekx = new Byte[260];
-            int offset = 0x4E18;
-            int keyoff = 0x100;
-            if (CB_Team.SelectedIndex == 1)
+            if (isSAV)
             {
-                offset = 0x5438;
-                keyoff = 0x800;
-            }
+                RTB_SAV.Clear();
+                dumpedcounter = 0;
+                // Load our Keystream file.
+                byte[] keystream = File.ReadAllBytes(savkeypath);
+                byte[] empty = new Byte[232];
+                // Save file is already loaded.
 
-            // Add header if Reddit, or if custom and Reddit table checked
-            if (CB_ExportStyle.SelectedIndex == 1 || CB_ExportStyle.SelectedIndex == 2 || (CB_ExportStyle.SelectedIndex >= 1 && CB_ExportStyle.SelectedIndex <= 5 && CHK_R_Table.Checked))
-            {
-                // Add Reddit Coloring
-                if (CHK_ColorBox.Checked)
-                {
-                    if (CB_BoxColor.SelectedIndex == 0)
-                    {
-                        RTB_VID.AppendText(boxcolors[1 + (rnd32() % 4)]);
-                    }
-                    else RTB_VID.AppendText(boxcolors[CB_BoxColor.SelectedIndex - 1]);
-                }
-                RTB_VID.AppendText(CB_Team.Text + "\n\n");
-                
-                int args = Regex.Split(RTB_OPTIONS.Text, "{").Length;
-                header += "\n|";
-                for (int i = 0; i < args; i++)
-                    header += ":---:|";
+                // Get our empty file set up.
+                Array.Copy(keystream, 0x10, empty, 0xE0, 0x4);
+                string nick = eggnames[empty[0xE3] - 1];
+                // Stuff in the nickname to our blank EKX.
+                byte[] nicknamebytes = Encoding.Unicode.GetBytes(nick);
+                Array.Resize(ref nicknamebytes, 24);
+                Array.Copy(nicknamebytes, 0, empty, 0x40, nicknamebytes.Length);
+                // Fix CHK
+                uint chk = 0;
+                for (int i = 8; i < 232; i += 2) // Loop through the entire PKX
+                    chk += BitConverter.ToUInt16(empty, i);
 
-                RTB_VID.AppendText(header + "\n");
-            }
-            // Print out header at least once if "Split Boxes" is not checked
-            else if (!CHK_Split.Checked)
-                RTB_SAV.AppendText(header + "\r\n");
+                // Apply New Checksum
+                Array.Copy(BitConverter.GetBytes(chk), 0, empty, 06, 2);
+                empty = encryptArray(empty);
+                Array.Resize(ref empty, 0xE8);
 
-            for (int i = 0; i < 6; i++)
-            {
-                Array.Copy(batvideo, offset + 260 * i, ekx, 0, 260);
-                Array.Copy(keystream, keyoff + 260 * i, key, 0, 260);
-                ekx = xortwos(ekx, key);
-                if (verifyCHK(decryptArray(ekx)))
-                    dumpPKX(false, decryptArray(ekx),i+1);
+                // Get our dumping parameters.
+                int boxoffset = BitConverter.ToInt32(keystream, 0x1C);
+                int offset = 0;
+                int count = 30;
+                int boxstart = 1;
+                if (CB_BoxStart.Text == "All")
+                    count = 30 * 31;
                 else
-                    dumpPKX(false, null,i);
+                {
+                    boxoffset += (Convert.ToInt16(CB_BoxStart.Text) - 1) * 30 * 232;
+                    offset += (Convert.ToInt16(CB_BoxStart.Text) - 1) * 30 * 232;
+                    count = (Convert.ToInt16(CB_BoxEnd.Text) - Convert.ToInt16(CB_BoxStart.Text) + 1) * 30;
+                    boxstart = Convert.ToInt16(CB_BoxStart.Text);
+                }
+
+                // Get our TSVs for filtering
+                ushort tmp = 0;
+                selectedTSVs = (from val in Regex.Split(TB_SVs.Text, @"\s*[\s,;.]\s*") where UInt16.TryParse(val, out tmp) select tmp).ToArray();
+                
+                RTB_SAV.AppendText(toAppend);
+                for (int i = 0; i < count; i++)
+                {
+                    if (i % 30 == 0 && CHK_Split.Checked)
+                    {
+                        if (i != 0) RTB_SAV.AppendText("\n");
+                        
+                        // Add Reddit coloring
+                        if (CHK_ColorBox.Checked && (CB_ExportStyle.SelectedIndex == 1 || CB_ExportStyle.SelectedIndex == 2 || (CB_ExportStyle.SelectedIndex >= 1 && CB_ExportStyle.SelectedIndex <= 5 && CHK_R_Table.Checked)))
+                        {
+                            if (CB_BoxColor.SelectedIndex == 0)
+                                RTB_SAV.AppendText(boxcolors[1 + ((i / 30 + boxstart) % 4)]);
+                            else RTB_SAV.AppendText(boxcolors[CB_BoxColor.SelectedIndex - 1]);
+                        }
+                        // Append Box Name then Header
+                        RTB_SAV.AppendText("Box " + (i / 30 + boxstart).ToString() + "\n\n");
+                        if (CHK_Header.Checked) RTB_SAV.AppendText(header + "\n");
+                    }
+                    byte[] pkx = fetchpkx(savefile, keystream, boxoffset + i * 232, 0x100 + offset + i * 232, 0x40000 + offset + i * 232, empty);
+                    dumpPKX(true, pkx, i, boxstart);
+                }
+            }
+            else
+            {
+                RTB_VID.Clear();
+                // player @ 0xX100, opponent @ 0x1800;
+                byte[] keystream = File.ReadAllBytes(vidkeypath);
+                byte[] key = new Byte[260];
+                byte[] empty = new Byte[260];
+                byte[] emptyekx = encryptArray(empty);
+                byte[] ekx = new Byte[260];
+                int offset = 0x4E18;
+                int keyoff = 0x100;
+                if (CB_Team.SelectedIndex == 1)
+                {
+                    offset = 0x5438;
+                    keyoff = 0x800;
+                }
+                RTB_VID.AppendText(toAppend);
+                for (int i = 0; i < 6; i++)
+                {
+                    Array.Copy(batvideo, offset + 260 * i, ekx, 0, 260);
+                    Array.Copy(keystream, keyoff + 260 * i, key, 0, 260);
+                    ekx = xortwos(ekx, key);
+                    if (verifyCHK(decryptArray(ekx)))
+                        dumpPKX(false, decryptArray(ekx),i+1);
+                    else
+                        dumpPKX(false, null,i);
+                }
             }
 
             // Copy Results to Clipboard
-            try { Clipboard.SetText(RTB_VID.Text); }
-            catch { };
-            RTB_VID.AppendText("\nData copied to clipboard!"); 
-            
-            RTB_VID.Select(RTB_VID.Text.Length - 1, 0);
-            RTB_VID.ScrollToCaret(); 
+            if (isSAV)
+            {
+                try { Clipboard.SetText(RTB_SAV.Text); }
+                catch { };
+                RTB_SAV.AppendText("\nData copied to clipboard!\nDumped: " + dumpedcounter);
+                RTB_SAV.Select(RTB_SAV.Text.Length - 1, 0);
+                RTB_SAV.ScrollToCaret();
+            }
+            else
+            {
+                try { Clipboard.SetText(RTB_VID.Text); }
+                catch { };
+                RTB_VID.AppendText("\nData copied to clipboard!"); 
+                RTB_VID.Select(RTB_VID.Text.Length - 1, 0);
+                RTB_VID.ScrollToCaret();
+            }
+
             if (CB_ExportStyle.SelectedIndex == 6 || CB_ExportStyle.SelectedIndex == 7)
             {
                 SaveFileDialog savecsv = new SaveFileDialog();
@@ -1902,7 +1879,8 @@ namespace KeySAV2
             if (CB_BoxEnd.Enabled)
             {
                 int start = Convert.ToInt16(CB_BoxStart.Text);
-                int oldValue = Convert.ToInt16(CB_BoxEnd.SelectedItem);
+                int oldValue = 0;
+                try {oldValue = Convert.ToInt16(CB_BoxEnd.SelectedItem); } catch {oldValue = 1;}
                 CB_BoxEnd.Items.Clear();
                 for (int i = start; i < 32; i++)
                     CB_BoxEnd.Items.Add(i.ToString());

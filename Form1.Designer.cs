@@ -719,7 +719,7 @@ namespace KeySAV2
             this.B_GoSAV.TabIndex = 10;
             this.B_GoSAV.Text = "Go";
             this.B_GoSAV.UseVisualStyleBackColor = true;
-            this.B_GoSAV.Click += new System.EventHandler(this.DumpSAV);
+            this.B_GoSAV.Click += new System.EventHandler(this.dumpSAV);
             // 
             // B_OpenSAV
             // 
