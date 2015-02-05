@@ -122,6 +122,7 @@ namespace KeySAV2
         private byte[] zerobox = new Byte[232 * 30];
 
         // Dumping Usage
+        public bool isBIN = false;
         public string vidpath = "";
         public string savpath = "";
         public string savkeypath = "";
@@ -409,7 +410,17 @@ namespace KeySAV2
         }
         private void openSAV(string path)
         {
-            openSAV_(path, ref savefile, ref savkeypath, true);
+            long len = new FileInfo(path).Length;
+            if (len == 232*30*31)
+            {
+                isBIN = true;
+                openBIN(path);
+            }
+            else
+            {
+                isBIN = false;
+                openSAV_(path, ref savefile, ref savkeypath, true);
+            }
         }
         private void openSAV_(string path, ref byte[] savefile, ref string savkeypath, bool showUI)
         {
@@ -482,6 +493,18 @@ namespace KeySAV2
             Array.Resize(ref empty, 0xE8);
             scanSAV(savefile, key, empty, showUI);
             File.WriteAllBytes(keyfile, key); // Key has been scanned for new slots, re-save key.
+        }
+        private void openBIN(string path)
+        {
+            // File size already checked, so we're good to "Go"; load it in to RAM
+            byte[] input = File.ReadAllBytes(path);
+            long len = new FileInfo(path).Length;
+            int offset = (len == 232*30*32) ? 8 : 0;
+            Array.Copy(input, offset, savefile, 0, input.Length - offset);
+            TB_SAV.Text = path;
+            L_KeySAV.Text = "Decrypted; no key neeeded.";
+            CB_BoxEnd.Enabled = CB_BoxStart.Enabled = B_BKP_SAV.Visible = B_GoSAV.Enabled = true;
+            return;
         }
         private void openVID(string path)
         {
@@ -1051,30 +1074,47 @@ namespace KeySAV2
             {
                 RTB_SAV.Clear();
                 dumpedcounter = 0;
-                // Load our Keystream file.
-                byte[] keystream = File.ReadAllBytes(savkeypath);
+                int boxoffset = 0;
+                byte[] keystream = new Byte[0xB4AD4];
                 byte[] empty = new Byte[232];
-                // Save file is already loaded.
+                
+                if (!isBIN)
+                {
+                    // Load our Keystream file.
+                    keystream = File.ReadAllBytes(savkeypath);
+                    // Save file is already loaded.
 
-                // Get our empty file set up.
-                Array.Copy(keystream, 0x10, empty, 0xE0, 0x4);
-                string nick = eggnames[empty[0xE3] - 1];
-                // Stuff in the nickname to our blank EKX.
-                byte[] nicknamebytes = Encoding.Unicode.GetBytes(nick);
-                Array.Resize(ref nicknamebytes, 24);
-                Array.Copy(nicknamebytes, 0, empty, 0x40, nicknamebytes.Length);
-                // Fix CHK
-                uint chk = 0;
-                for (int i = 8; i < 232; i += 2) // Loop through the entire PKX
-                    chk += BitConverter.ToUInt16(empty, i);
+                    // Get our empty file set up.
+                    Array.Copy(keystream, 0x10, empty, 0xE0, 0x4);
+                    string nick = eggnames[empty[0xE3] - 1];
+                    // Stuff in the nickname to our blank EKX.
+                    byte[] nicknamebytes = Encoding.Unicode.GetBytes(nick);
+                    Array.Resize(ref nicknamebytes, 24);
+                    Array.Copy(nicknamebytes, 0, empty, 0x40, nicknamebytes.Length);
+                    // Fix CHK
+                    uint chk = 0;
+                    for (int i = 8; i < 232; i += 2) // Loop through the entire PKX
+                        chk += BitConverter.ToUInt16(empty, i);
 
-                // Apply New Checksum
-                Array.Copy(BitConverter.GetBytes(chk), 0, empty, 06, 2);
-                empty = encryptArray(empty);
-                Array.Resize(ref empty, 0xE8);
+                    // Apply New Checksum
+                    Array.Copy(BitConverter.GetBytes(chk), 0, empty, 06, 2);
+                    empty = encryptArray(empty);
+                    Array.Resize(ref empty, 0xE8);
+                    
+                    boxoffset = BitConverter.ToInt32(keystream, 0x1C);
+                }
 
+                // Find our box data offset
+                int binOffset = 0;
+                /* if (isBIN)
+                {
+                    byte[] test = new byte[232];
+                    Array.Copy(savefile, test, 232);
+                    if (!verifyCHK(decryptArray(test)))
+                        binOffset = -4;
+                } */
+                
                 // Get our dumping parameters.
-                int boxoffset = BitConverter.ToInt32(keystream, 0x1C);
                 int offset = 0;
                 int count = 30;
                 int boxstart = 1;
@@ -1110,7 +1150,14 @@ namespace KeySAV2
                         RTB_SAV.AppendText("Box " + (i / 30 + boxstart).ToString() + "\n\n");
                         if (CHK_Header.Checked) RTB_SAV.AppendText(header + "\n");
                     }
-                    byte[] pkx = fetchpkx(savefile, keystream, boxoffset + i * 232, 0x100 + offset + i * 232, 0x40000 + offset + i * 232, empty);
+                    byte[] pkx = new Byte[232];
+                    if (isBIN)
+                    {
+                        Array.Copy(savefile, binOffset + boxoffset + i * 232, pkx, 0, 232);
+                        pkx = decryptArray(pkx);
+                    }
+                    else
+                        pkx = fetchpkx(savefile, keystream, boxoffset + i * 232, 0x100 + offset + i * 232, 0x40000 + offset + i * 232, empty);
                     dumpPKX(true, pkx, i, boxstart);
                 }
             }
@@ -2341,6 +2388,7 @@ namespace KeySAV2
         {
             byte[] savefile = new byte[0x10009C];
             string savkeypath = "";
+            isBIN = false;
             foreach (string path in Directory.GetFiles(TB_Folder.Text))
             {
                 openSAV_(path, ref savefile, ref savkeypath, false);
