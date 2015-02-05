@@ -1968,7 +1968,7 @@ namespace KeySAV2
                 CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = false;
                 CHK_R_Table.Enabled = false;
                 CHK_NameQuotes.Enabled = false;
-                B_ResetCSV.Enabled = false;
+                B_ResetCSV.Visible = false;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
                     "{0} - {1} - {2} ({3}) - {4} - {5} - {6}.{7}.{8}.{9}.{10}.{11} - {12} - {13}";
             }
@@ -1976,8 +1976,9 @@ namespace KeySAV2
             {
                 CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = true;
                 CHK_R_Table.Enabled = false;
+                CHK_R_Table.Checked = true;
                 CHK_NameQuotes.Enabled = false;
-                B_ResetCSV.Enabled = false;
+                B_ResetCSV.Visible = false;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
                 "{0} | {1} | {2} ({3}) | {4} | {5} | {6}.{7}.{8}.{9}.{10}.{11} | {12} | {13} |";
             }
@@ -1985,6 +1986,7 @@ namespace KeySAV2
             {
                 CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = true;
                 CHK_R_Table.Enabled = false;
+                CHK_R_Table.Checked = true;
                 CHK_NameQuotes.Enabled = false;
                 B_ResetCSV.Enabled = false;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
@@ -1993,7 +1995,7 @@ namespace KeySAV2
             else if (CB_ExportStyle.SelectedIndex == 3) // Custom 1
             {
                 CHK_NameQuotes.Enabled = false;
-                B_ResetCSV.Enabled = false;
+                B_ResetCSV.Visible = false;
                 CHK_R_Table.Enabled = true; CHK_R_Table.Checked = custom1b;
                 CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = true;
                 RTB_OPTIONS.ReadOnly = false;
@@ -2002,7 +2004,7 @@ namespace KeySAV2
             else if (CB_ExportStyle.SelectedIndex == 4) // Custom 2
             {
                 CHK_NameQuotes.Enabled = false;
-                B_ResetCSV.Enabled = false;
+                B_ResetCSV.Visible = false;
                 CHK_R_Table.Enabled = true; CHK_R_Table.Checked = custom2b;
                 CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = true;
                 RTB_OPTIONS.ReadOnly = false;
@@ -2011,7 +2013,7 @@ namespace KeySAV2
             else if (CB_ExportStyle.SelectedIndex == 5) // Custom 3
             {
                 CHK_NameQuotes.Enabled = false;
-                B_ResetCSV.Enabled = false;
+                B_ResetCSV.Visible = false;
                 CHK_R_Table.Enabled = true; CHK_R_Table.Checked = custom3b;
                 CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = true;
                 RTB_OPTIONS.ReadOnly = false;
@@ -2021,7 +2023,7 @@ namespace KeySAV2
             {
                 CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = false;
                 CHK_R_Table.Enabled = false;
-                B_ResetCSV.Enabled = false;
+                B_ResetCSV.Visible = false;
                 CHK_NameQuotes.Enabled = true;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text ="{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35}";
             }
@@ -2031,7 +2033,7 @@ namespace KeySAV2
                 CHK_R_Table.Enabled = false;
                 CHK_NameQuotes.Enabled = true;
                 RTB_OPTIONS.ReadOnly = false;
-                B_ResetCSV.Enabled = true;
+                B_ResetCSV.Visible = true;
                 // If nothing is saved, fill with all columns by default
                 RTB_OPTIONS.Text = (customcsv == "") ? defaultCSVcustom : customcsv;
             }
@@ -2040,7 +2042,7 @@ namespace KeySAV2
                 CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = false;
                 CHK_R_Table.Enabled = false;
                 CHK_NameQuotes.Enabled = false;
-                B_ResetCSV.Enabled = false;
+                B_ResetCSV.Visible = false;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
                 "Files will be saved in .PK6 format, and the default method will display.";
             }
