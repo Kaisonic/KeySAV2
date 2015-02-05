@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KeySAV2.Properties {
+namespace KeySAV3.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace KeySAV2.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KeySAV2.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KeySAV3.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -3633,7 +3633,7 @@ namespace KeySAV2.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to -----
+        ///   Looks up a localized string similar to 
         ///Pfund
         ///Karateschlag
         ///Duplexhieb
@@ -3679,7 +3679,8 @@ namespace KeySAV2.Properties {
         ///Silberblick
         ///Biss
         ///Heuler
-        ///Brül [rest of string was truncated]&quot;;.
+        ///Brüller
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Moves_de {
             get {
@@ -3688,7 +3689,7 @@ namespace KeySAV2.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ———
+        ///   Looks up a localized string similar to 
         ///Pound
         ///Karate Chop
         ///Double Slap
@@ -3738,7 +3739,7 @@ namespace KeySAV2.Properties {
         ///Sing
         ///Supersonic
         ///Sonic Boom
-        ///Dis [rest of string was truncated]&quot;;.
+        ///Disabl [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Moves_en {
             get {
@@ -3747,7 +3748,7 @@ namespace KeySAV2.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to -
+        ///   Looks up a localized string similar to 
         ///Destructor
         ///Golpe Kárate
         ///Doble Bofetón
@@ -3792,7 +3793,7 @@ namespace KeySAV2.Properties {
         ///Pin Misil
         ///Malicioso
         ///Mordisco
-        ///Gr [rest of string was truncated]&quot;;.
+        ///Gru [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Moves_es {
             get {
@@ -3801,7 +3802,7 @@ namespace KeySAV2.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ―――――
+        ///   Looks up a localized string similar to 
         ///Écras’Face
         ///Poing-Karaté
         ///Torgnoles
@@ -3846,7 +3847,8 @@ namespace KeySAV2.Properties {
         ///Dard-Nuée
         ///Groz’Yeux
         ///Morsure
-        ///Rugissement        /// [rest of string was truncated]&quot;;.
+        ///Rugissement
+        ///Hurl [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Moves_fr {
             get {
@@ -3855,7 +3857,7 @@ namespace KeySAV2.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to -----
+        ///   Looks up a localized string similar to 
         ///Botta
         ///Colpokarate
         ///Doppiasberla
@@ -3901,7 +3903,7 @@ namespace KeySAV2.Properties {
         ///Fulmisguardo
         ///Morso
         ///Ruggito
-        ///B [rest of string was truncated]&quot;;.
+        ///Boato        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Moves_it {
             get {
@@ -3910,7 +3912,7 @@ namespace KeySAV2.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ―――――
+        ///   Looks up a localized string similar to 
         ///はたく
         ///からてチョップ
         ///おうふくビンタ
@@ -3979,7 +3981,8 @@ namespace KeySAV2.Properties {
         ///じごくぐるま
         ///けたぐり
         ///カウンター
-        ///ちきゅうなげ        /// [rest of string was truncated]&quot;;.
+        ///ちきゅうなげ
+        ///かいりき [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Moves_ja {
             get {
@@ -3988,7 +3991,7 @@ namespace KeySAV2.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ―――――
+        ///   Looks up a localized string similar to 
         ///막치기
         ///태권당수
         ///연속뺨치기
@@ -4075,7 +4078,8 @@ namespace KeySAV2.Properties {
         ///전기쇼크
         ///10만볼트
         ///전기자석파
-        ///번개        /// [rest of string was truncated]&quot;;.
+        ///번개
+        ///돌떨구기 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string text_Moves_ko {
             get {
