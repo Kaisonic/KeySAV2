@@ -413,13 +413,27 @@ namespace KeySAV2
             long len = new FileInfo(path).Length;
             switch (len)
             {
+                // PCEdit pcdata.bin
                 case 232*30*31:
                 binType = "raw";
                 openBIN(path);
                 break;
 
+                // Cu3PO42's boxes.bin
                 case 232*30*32:
                 binType = "yabd";
+                openBIN(path);
+                break;
+                
+                // RAMSAV for XY
+                case 0x70000:
+                binType = "xy";
+                openBIN(path);
+                break;
+                
+                // RAMSAV for ORAS
+                case 0x80000:
+                binType = "oras";
                 openBIN(path);
                 break;
 
@@ -1123,6 +1137,18 @@ namespace KeySAV2
                         Array.Copy(savefile, binOffset, test, 0, 232);
                         if (!verifyCHK(decryptArray(test)))
                             binOffset = 8;
+                        break;
+                    
+                    case "xy":
+                        binOffset = 0x1EF38;
+                        break;
+                        
+                    case "oras":
+                        binOffset = 0x2F794;
+                        byte[] test2 = new byte[232];
+                        Array.Copy(savefile, binOffset, test2, 0, 232);
+                        if (!verifyCHK(decryptArray(test2)))
+                            binOffset = 0x1EF38;
                         break;
                 }
                 
