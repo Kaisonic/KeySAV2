@@ -122,7 +122,7 @@ namespace KeySAV2
         private byte[] zerobox = new Byte[232 * 30];
 
         // Dumping Usage
-        public bool isBIN = false;
+        public string binType = "sav";
         public string vidpath = "";
         public string savpath = "";
         public string savkeypath = "";
@@ -411,15 +411,22 @@ namespace KeySAV2
         private void openSAV(string path)
         {
             long len = new FileInfo(path).Length;
-            if (len == 232*30*31)
+            switch (len)
             {
-                isBIN = true;
+                case 232*30*31:
+                binType = "raw";
                 openBIN(path);
-            }
-            else
-            {
-                isBIN = false;
+                break;
+
+                case 232*30*32:
+                binType = "yabd";
+                openBIN(path);
+                break;
+
+                default:
+                binType = "sav";
                 openSAV_(path, ref savefile, ref savkeypath, true);
+                break;
             }
         }
         private void openSAV_(string path, ref byte[] savefile, ref string savkeypath, bool showUI)
@@ -498,9 +505,7 @@ namespace KeySAV2
         {
             // File size already checked, so we're good to "Go"; load it in to RAM
             byte[] input = File.ReadAllBytes(path);
-            long len = new FileInfo(path).Length;
-            int offset = (len == 232*30*32) ? 8 : 0;
-            Array.Copy(input, offset, savefile, 0, input.Length - offset);
+            Array.Copy(input, savefile, input.Length);
             TB_SAV.Text = path;
             L_KeySAV.Text = "Decrypted; no key neeeded.";
             CB_BoxEnd.Enabled = CB_BoxStart.Enabled = B_BKP_SAV.Visible = B_GoSAV.Enabled = true;
@@ -1078,7 +1083,7 @@ namespace KeySAV2
                 byte[] keystream = new Byte[0xB4AD4];
                 byte[] empty = new Byte[232];
                 
-                if (!isBIN)
+                if (binType == "sav")
                 {
                     // Load our Keystream file.
                     keystream = File.ReadAllBytes(savkeypath);
@@ -1104,15 +1109,22 @@ namespace KeySAV2
                     boxoffset = BitConverter.ToInt32(keystream, 0x1C);
                 }
 
-                // Find our box data offset
+                // Set our box data offset based on where the file came from
                 int binOffset = 0;
-                /* if (isBIN)
+                switch (binType)
                 {
-                    byte[] test = new byte[232];
-                    Array.Copy(savefile, test, 232);
-                    if (!verifyCHK(decryptArray(test)))
-                        binOffset = -4;
-                } */
+                    case "sav":
+                        // Offset is already 0
+                        break;
+                        
+                    case "yabd":
+                        binOffset = 4;
+                        byte[] test = new byte[232];
+                        Array.Copy(savefile, binOffset, test, 0, 232);
+                        if (!verifyCHK(decryptArray(test)))
+                            binOffset = 8;
+                        break;
+                }
                 
                 // Get our dumping parameters.
                 int offset = 0;
@@ -1151,13 +1163,13 @@ namespace KeySAV2
                         if (CHK_Header.Checked) RTB_SAV.AppendText(header + "\n");
                     }
                     byte[] pkx = new Byte[232];
-                    if (isBIN)
+                    if (binType == "sav")
+                        pkx = fetchpkx(savefile, keystream, boxoffset + i * 232, 0x100 + offset + i * 232, 0x40000 + offset + i * 232, empty);
+                    else
                     {
                         Array.Copy(savefile, binOffset + boxoffset + i * 232, pkx, 0, 232);
                         pkx = decryptArray(pkx);
                     }
-                    else
-                        pkx = fetchpkx(savefile, keystream, boxoffset + i * 232, 0x100 + offset + i * 232, 0x40000 + offset + i * 232, empty);
                     dumpPKX(true, pkx, i, boxstart);
                 }
             }
@@ -2388,7 +2400,7 @@ namespace KeySAV2
         {
             byte[] savefile = new byte[0x10009C];
             string savkeypath = "";
-            isBIN = false;
+            binType = "sav";
             foreach (string path in Directory.GetFiles(TB_Folder.Text))
             {
                 openSAV_(path, ref savefile, ref savkeypath, false);
