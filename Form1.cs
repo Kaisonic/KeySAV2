@@ -2483,5 +2483,10 @@ namespace KeySAV3
         {
             CHK_IV_Atk.Text = (CHK_Special_Attacker.Checked ? "Atk (= 0)" : "Atk");
         }
+
+        private void CCB_HPType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

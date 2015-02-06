@@ -365,6 +365,7 @@ namespace KeySAV3
             this.CCB_HPType.Size = new System.Drawing.Size(123, 21);
             this.CCB_HPType.TabIndex = 28;
             this.CCB_HPType.ValueSeparator = ", ";
+            this.CCB_HPType.SelectedIndexChanged += new System.EventHandler(this.CCB_HPType_SelectedIndexChanged);
             // 
             // CCB_Natures
             // 
@@ -448,9 +449,9 @@ namespace KeySAV3
             this.CHK_IV_Spe.AutoSize = true;
             this.CHK_IV_Spe.Location = new System.Drawing.Point(209, 124);
             this.CHK_IV_Spe.Name = "CHK_IV_Spe";
-            this.CHK_IV_Spe.Size = new System.Drawing.Size(45, 17);
+            this.CHK_IV_Spe.Size = new System.Drawing.Size(57, 17);
             this.CHK_IV_Spe.TabIndex = 20;
-            this.CHK_IV_Spe.Text = "Spe";
+            this.CHK_IV_Spe.Text = "Speed";
             this.CHK_IV_Spe.UseVisualStyleBackColor = true;
             this.CHK_IV_Spe.CheckedChanged += new System.EventHandler(this.toggleIVAll);
             // 
@@ -459,9 +460,9 @@ namespace KeySAV3
             this.CHK_IV_SpDef.AutoSize = true;
             this.CHK_IV_SpDef.Location = new System.Drawing.Point(209, 110);
             this.CHK_IV_SpDef.Name = "CHK_IV_SpDef";
-            this.CHK_IV_SpDef.Size = new System.Drawing.Size(62, 17);
+            this.CHK_IV_SpDef.Size = new System.Drawing.Size(104, 17);
             this.CHK_IV_SpDef.TabIndex = 19;
-            this.CHK_IV_SpDef.Text = "Sp. Def";
+            this.CHK_IV_SpDef.Text = "Special Defense";
             this.CHK_IV_SpDef.UseVisualStyleBackColor = true;
             this.CHK_IV_SpDef.CheckedChanged += new System.EventHandler(this.toggleIVAll);
             // 
@@ -470,9 +471,9 @@ namespace KeySAV3
             this.CHK_IV_SpAtk.AutoSize = true;
             this.CHK_IV_SpAtk.Location = new System.Drawing.Point(209, 96);
             this.CHK_IV_SpAtk.Name = "CHK_IV_SpAtk";
-            this.CHK_IV_SpAtk.Size = new System.Drawing.Size(61, 17);
+            this.CHK_IV_SpAtk.Size = new System.Drawing.Size(95, 17);
             this.CHK_IV_SpAtk.TabIndex = 18;
-            this.CHK_IV_SpAtk.Text = "Sp. Atk";
+            this.CHK_IV_SpAtk.Text = "Special Attack";
             this.CHK_IV_SpAtk.UseVisualStyleBackColor = true;
             this.CHK_IV_SpAtk.CheckedChanged += new System.EventHandler(this.toggleIVAll);
             // 
@@ -481,9 +482,9 @@ namespace KeySAV3
             this.CHK_IV_Def.AutoSize = true;
             this.CHK_IV_Def.Location = new System.Drawing.Point(135, 124);
             this.CHK_IV_Def.Name = "CHK_IV_Def";
-            this.CHK_IV_Def.Size = new System.Drawing.Size(43, 17);
+            this.CHK_IV_Def.Size = new System.Drawing.Size(66, 17);
             this.CHK_IV_Def.TabIndex = 17;
-            this.CHK_IV_Def.Text = "Def";
+            this.CHK_IV_Def.Text = "Defense";
             this.CHK_IV_Def.UseVisualStyleBackColor = true;
             this.CHK_IV_Def.CheckedChanged += new System.EventHandler(this.toggleIVAll);
             // 
@@ -492,9 +493,9 @@ namespace KeySAV3
             this.CHK_IV_Atk.AutoSize = true;
             this.CHK_IV_Atk.Location = new System.Drawing.Point(135, 110);
             this.CHK_IV_Atk.Name = "CHK_IV_Atk";
-            this.CHK_IV_Atk.Size = new System.Drawing.Size(42, 17);
+            this.CHK_IV_Atk.Size = new System.Drawing.Size(57, 17);
             this.CHK_IV_Atk.TabIndex = 16;
-            this.CHK_IV_Atk.Text = "Atk";
+            this.CHK_IV_Atk.Text = "Attack";
             this.CHK_IV_Atk.UseVisualStyleBackColor = true;
             this.CHK_IV_Atk.CheckedChanged += new System.EventHandler(this.toggleIVAll);
             // 
