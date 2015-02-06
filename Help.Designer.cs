@@ -76,6 +76,7 @@ namespace KeySAV3
             this.RTB_Help.Location = new System.Drawing.Point(13, 43);
             this.RTB_Help.Name = "RTB_Help";
             this.RTB_Help.ReadOnly = true;
+            this.RTB_Help.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
             this.RTB_Help.Size = new System.Drawing.Size(443, 441);
             this.RTB_Help.TabIndex = 2;
             this.RTB_Help.Text = "";
