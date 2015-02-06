@@ -14,7 +14,24 @@ namespace KeySAV3
         public Help()
         {
             InitializeComponent();
+            CB_HelpSelector.SelectedIndex = 0;
+            loadHelp();
         }
+        
+        private static string[] topics = {
+            "formatting",
+            "howto",
+            "howto_getsave",
+            "howto_breaksave",
+            "howto_getvideo",
+            "howto_breakvideo",
+            "howto_encrypted",
+            "howto_decrypted",
+            "howto_videos",
+			"options",
+            "about",
+            "changelog"
+        };
         
         private static Help inst;
         
@@ -26,6 +43,17 @@ namespace KeySAV3
                     inst = new Help();
                 return inst;
             }
+        }
+
+        private void loadHelp(object sender = null, EventArgs e = null)
+        {
+            RTB_Help.Text = (string)Properties.Resources.ResourceManager.GetObject(topics[CB_HelpSelector.SelectedIndex]);
+            return;
+        }
+        
+        private void Link_Clicked (object sender, System.Windows.Forms.LinkClickedEventArgs e)
+        {
+           System.Diagnostics.Process.Start(e.LinkText);
         }
 
         private void label2_Click(object sender, EventArgs e)

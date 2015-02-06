@@ -61,6 +61,232 @@ namespace KeySAV3.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to =============================================
+        ///KeySAV3 (This version maintained by Kaisonic)
+        ///=============================================
+        ///
+        ///3DS X/Y/OR/AS SaveFile Box / Battle Video PKX cracking program.
+        ///
+        ///KeySAV is a tool that can decrypt portions of encrypted Generation 6 Pokémon saves, including X, Y, Omega Ruby, and Alpha Sapphire.
+        ///
+        ///With this tool you can view IVs/Nature/ESV/TSV and much more of Hatched/Unhatched Pokémon that are in your boxes or battle videos, as long as you follow the setup guid [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string about {
+            get {
+                return ResourceManager.GetString("about", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to =======================================
+        ///Changelog for Kaisonic&apos;s Build, KeySAV3
+        ///=======================================
+        ///KeySAV3 3.0 (2015-02-5)
+        ///- 
+        ///
+        ///KeySAV2 1.3.8 (2015-01-29)
+        ///- Fixed output text box size on filter enable
+        ///- Ensured level calculation is correct
+        ///- Fixed file size checking on break files
+        ///- Fixed pk6 file output number format
+        ///- Added option to disable Unicode characters in output (uncheck Unicode if your gender symbols are not appearing correctly)
+        ///- Changed (None) to empty for empty  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string changelog {
+            get {
+                return ResourceManager.GetString("changelog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to String Formatting
+        ///
+        ///Use the mapping below to create custom output formats. Each number in brackets will be replaced with the appropriate data in the output window.
+        ///
+        ///{0} - Box
+        ///{1} - Slot (Row,Column)
+        ///{2} - Species
+        ///{3} - Gender
+        ///{4} - Nature
+        ///{5} - Ability
+        ///{6} - HP IV
+        ///{7} - Attack IV
+        ///{8} - Defense IV
+        ///{9} - Sp. Attack IV
+        ///{10} - Sp. Defense IV
+        ///{11} - Speed IV
+        ///{12} - Hidden Power Type
+        ///{13} - ESV (Egg Shiny Value)
+        ///{14} - TSV (Trainer Shiny Value)
+        ///{15} - Nickname
+        ///{16} - OT Name (Original Trainer)        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string formatting {
+            get {
+                return ResourceManager.GetString("formatting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How to Use KeySAV3
+        ///
+        ///This program is for dumping various information about Pokémon from various files. There are two types of save game backups: encrypted and decrypted. The following encrypted files are supported:
+        ///
+        ///- Digital copy saved games
+        ///- Datel Action Replay PowerSaves backups
+        ///- CyberGadget backups
+        ///
+        ///This program will break the encryption of those files - see &quot;How to Break Save Encryption&quot;.
+        ///
+        ///The following decrypted files are supported:
+        ///
+        ///- YABD boxes.bin files (https://www.reddit.com/r/SVExch [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string howto {
+            get {
+                return ResourceManager.GetString("howto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How to Break Save Encryption
+        ///
+        ///Before viewing a save for any game, you must use this program to create a key file for that game. This allows you to break the encryption of the game&apos;s saves and view information about your Pokémon.
+        ///
+        ///This setup only needs to be done once per game.
+        ///
+        ///See &quot;How to Get Your Saves&quot; for help in obtaining your save files.
+        ///
+        ///    - In your game, clear out boxes 1 and 2 by moving the Pokémon to other boxes.
+        ///        - The boxes don&apos;t need to be named &quot;Box 1&quot; and &quot;Box 2&quot;, nor do the [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string howto_breaksave {
+            get {
+                return ResourceManager.GetString("howto_breaksave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How to Break Battle Video Encryption
+        ///
+        ///You will need the following:
+        ///
+        ///    - A friend in your Friend List that would be willing to battle you.
+        ///    - The Vs. Player, obtained in Kiloude City after beating the E4 (X/Y) or at the Battle Resort (OR/AS).
+        ///    - Disable forced saving. Go to your game&apos;s options, scroll down to the bottom, and disable forced saves.
+        ///
+        ///Note: up to 100 Battle Videos can be stored on the SD card. Before being able to dump the contents of your team, you will need to break the encrypt [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string howto_breakvideo {
+            get {
+                return ResourceManager.GetString("howto_breakvideo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How to Open Decrypted Saves
+        ///
+        ///- Go to the &quot;SAV&quot; tab of the program.
+        ///- Click on &quot;Open SAV&quot;
+        ///- Select your file.
+        ///- Select the boxes you would like to show, or leave &quot;All&quot; selected.
+        ///- Go the &quot;Options&quot; tab to make your selections on Export Style and various other options.
+        ///- Click &quot;Enable&quot; under &quot;Filtering&quot; in the &quot;SAV&quot; tab to do any filtering that you would like.
+        ///- Click &quot;Go&quot;.
+        ///- Your Pokémon information should appear!
+        ///
+        ///If no Pokémon appear, it&apos;s likely that your Filter or Box settings are incorrect..
+        /// </summary>
+        internal static string howto_decrypted {
+            get {
+                return ResourceManager.GetString("howto_decrypted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How to Open Encrypted Saves
+        ///
+        ///- Go to the &quot;SAV&quot; tab of the program.
+        ///- Click on &quot;Open SAV&quot;
+        ///    - If you have a digital copy and your SD card is inserted, the program should automatically load your save for you.
+        ///    - Otherwise, select your file.
+        ///- If you have not yet generated a key file for your selected save, the program will tell you and it will not let you proceed.
+        ///- Select the boxes you would like to show, or leave &quot;All&quot; selected.
+        ///- Go the &quot;Options&quot; tab to make your selections on Export Style and [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string howto_encrypted {
+            get {
+                return ResourceManager.GetString("howto_encrypted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How to Get Your Saves
+        ///
+        ///If you have a 3DS or 3DS XL (not the new 3DS) running firmware version 9.x (up to 9.5 - you can check this in your System Options), then the best method to get your saves is the web injection exploit method. You&apos;ll need Cu3PO42&apos;s tool called YABD (https://www.reddit.com/r/SVExchange/wiki/yabd). See &quot;How to Open Decrypted Saves&quot; for how to open those files.
+        ///
+        ///If you have a digital copy, you can copy your saves directly from your SD card. Go into your SD card, then into the &quot;Nintendo [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string howto_getsave {
+            get {
+                return ResourceManager.GetString("howto_getsave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How to Get Your Battle Videos
+        ///
+        ///Battle videos are stored on the SD card for both retail copies and digital copies. Keep in mind that Battle Videos might not be sorted chronologically, so check the files&apos; modification dates to make sure you pick the correct one.
+        ///
+        ///Go into your SD card, then into the &quot;Nintendo 3DS&quot; directory, then the directory with a bunch of letters and numbers, then another directory with a bunch of letters and numbers, then:
+        ///
+        ///    For X, your battle videos are in \extdata\00000000\0000 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string howto_getvideo {
+            get {
+                return ResourceManager.GetString("howto_getvideo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How to Use Battle Videos
+        ///
+        ///- If you want to check ESVs, get up to 6 eggs, save the game, hatch the eggs, put them in your party, and battle your friend.
+        ///- If you want to check TSVs, put the 6 Pokémon you want to check in your party and battle your friend.
+        ///- Forfeit the battle and save the Battle Video.
+        ///- Plug the SD card into your computer.
+        ///- Go to the &quot;BV&quot; tab of the program.
+        ///- Click on &quot;Open Video&quot;
+        ///    - The program should automatically open your video for you.
+        ///    - Otherwise, select your file.
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string howto_videos {
+            get {
+                return ResourceManager.GetString("howto_videos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export Options
+        ///
+        ///There are many options to help you get the data you need in the format you want!
+        ///
+        ///--Export Options--
+        ///
+        ///&quot;Language&quot; - this option changes the language of the exported information about your Pokémon. Unfortunately, only the language of the information is changed - this program is only available in English. (Let me know if you want to help translate to other languages!)
+        ///
+        ///&quot;Style&quot; - this is your main export option.
+        ///
+        ///    &quot;Default&quot; - This will show basic information about your Pokémon, incl [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string options {
+            get {
+                return ResourceManager.GetString("options", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to -
         ///Duftnote
         ///Niesel

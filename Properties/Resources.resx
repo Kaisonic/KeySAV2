@@ -334,4 +334,40 @@
   <data name="text_Types_ko" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\text\ko\text_Types_ko.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="about" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text\help_en\about.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="changelog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text\help_en\changelog.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="formatting" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text\help_en\formatting.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="howto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text\help_en\howto.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="howto_breaksave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text\help_en\howto_breaksave.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="howto_breakvideo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text\help_en\howto_breakvideo.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="howto_decrypted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text\help_en\howto_decrypted.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="howto_encrypted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text\help_en\howto_encrypted.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="howto_getsave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text\help_en\howto_getsave.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="howto_getvideo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text\help_en\howto_getvideo.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="howto_videos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text\help_en\howto_videos.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="options" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text\help_en\options.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>
