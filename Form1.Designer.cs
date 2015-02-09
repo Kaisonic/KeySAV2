@@ -118,6 +118,8 @@ namespace KeySAV3
             this.B_File1 = new System.Windows.Forms.Button();
             this.TB_File2 = new System.Windows.Forms.TextBox();
             this.TB_File1 = new System.Windows.Forms.TextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.RTB_Preview = new System.Windows.Forms.RichTextBox();
             this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
             this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.tab_Main.SuspendLayout();
@@ -131,6 +133,7 @@ namespace KeySAV3
             this.groupBox5.SuspendLayout();
             this.Tab_Breaker.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab_Main
@@ -762,7 +765,7 @@ namespace KeySAV3
             // 
             // Tab_Options
             // 
-            this.Tab_Options.Controls.Add(this.RTB_OPTIONS);
+            this.Tab_Options.Controls.Add(this.groupBox6);
             this.Tab_Options.Controls.Add(this.groupBox2);
             this.Tab_Options.Controls.Add(this.groupBox3);
             this.Tab_Options.Controls.Add(this.groupBox4);
@@ -776,13 +779,12 @@ namespace KeySAV3
             // 
             // RTB_OPTIONS
             // 
-            this.RTB_OPTIONS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.RTB_OPTIONS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RTB_OPTIONS.Location = new System.Drawing.Point(11, 211);
+            this.RTB_OPTIONS.Location = new System.Drawing.Point(6, 19);
             this.RTB_OPTIONS.Name = "RTB_OPTIONS";
             this.RTB_OPTIONS.ReadOnly = true;
-            this.RTB_OPTIONS.Size = new System.Drawing.Size(305, 77);
+            this.RTB_OPTIONS.Size = new System.Drawing.Size(305, 107);
             this.RTB_OPTIONS.TabIndex = 29;
             this.RTB_OPTIONS.Text = "";
             this.RTB_OPTIONS.ReadOnlyChanged += new System.EventHandler(this.changeReadOnly);
@@ -802,7 +804,7 @@ namespace KeySAV3
             this.groupBox2.Controls.Add(this.CHK_Split);
             this.groupBox2.Location = new System.Drawing.Point(5, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(189, 181);
+            this.groupBox2.Size = new System.Drawing.Size(189, 206);
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Export Options";
@@ -812,7 +814,7 @@ namespace KeySAV3
             this.CHK_Header.AutoSize = true;
             this.CHK_Header.Checked = true;
             this.CHK_Header.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_Header.Location = new System.Drawing.Point(93, 113);
+            this.CHK_Header.Location = new System.Drawing.Point(9, 136);
             this.CHK_Header.Name = "CHK_Header";
             this.CHK_Header.Size = new System.Drawing.Size(91, 17);
             this.CHK_Header.TabIndex = 40;
@@ -822,7 +824,7 @@ namespace KeySAV3
             // CHK_ShowESV
             // 
             this.CHK_ShowESV.AutoSize = true;
-            this.CHK_ShowESV.Location = new System.Drawing.Point(9, 159);
+            this.CHK_ShowESV.Location = new System.Drawing.Point(9, 182);
             this.CHK_ShowESV.Name = "CHK_ShowESV";
             this.CHK_ShowESV.Size = new System.Drawing.Size(184, 17);
             this.CHK_ShowESV.TabIndex = 36;
@@ -843,7 +845,7 @@ namespace KeySAV3
             this.CHK_Unicode.AutoSize = true;
             this.CHK_Unicode.Checked = true;
             this.CHK_Unicode.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_Unicode.Location = new System.Drawing.Point(9, 136);
+            this.CHK_Unicode.Location = new System.Drawing.Point(9, 159);
             this.CHK_Unicode.Name = "CHK_Unicode";
             this.CHK_Unicode.Size = new System.Drawing.Size(142, 17);
             this.CHK_Unicode.TabIndex = 39;
@@ -864,7 +866,7 @@ namespace KeySAV3
             "한국어"});
             this.CB_MainLanguage.Location = new System.Drawing.Point(70, 13);
             this.CB_MainLanguage.Name = "CB_MainLanguage";
-            this.CB_MainLanguage.Size = new System.Drawing.Size(81, 21);
+            this.CB_MainLanguage.Size = new System.Drawing.Size(113, 21);
             this.CB_MainLanguage.TabIndex = 1;
             this.CB_MainLanguage.SelectedIndexChanged += new System.EventHandler(this.changeLanguage);
             // 
@@ -893,7 +895,7 @@ namespace KeySAV3
             "To .PK6 File"});
             this.CB_ExportStyle.Location = new System.Drawing.Point(39, 40);
             this.CB_ExportStyle.Name = "CB_ExportStyle";
-            this.CB_ExportStyle.Size = new System.Drawing.Size(112, 21);
+            this.CB_ExportStyle.Size = new System.Drawing.Size(144, 21);
             this.CB_ExportStyle.TabIndex = 14;
             this.CB_ExportStyle.SelectedIndexChanged += new System.EventHandler(this.changeExportStyle);
             // 
@@ -997,13 +999,12 @@ namespace KeySAV3
             // 
             // groupBox4
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.B_ResetCSV);
-            this.groupBox4.Location = new System.Drawing.Point(5, 192);
+            this.groupBox4.Controls.Add(this.RTB_OPTIONS);
+            this.groupBox4.Location = new System.Drawing.Point(3, 216);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(317, 102);
+            this.groupBox4.Size = new System.Drawing.Size(314, 132);
             this.groupBox4.TabIndex = 43;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Text Format (see \"Help\" for help)";
@@ -1011,7 +1012,7 @@ namespace KeySAV3
             // B_ResetCSV
             // 
             this.B_ResetCSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_ResetCSV.Location = new System.Drawing.Point(210, 0);
+            this.B_ResetCSV.Location = new System.Drawing.Point(6, 53);
             this.B_ResetCSV.Name = "B_ResetCSV";
             this.B_ResetCSV.Size = new System.Drawing.Size(101, 22);
             this.B_ResetCSV.TabIndex = 38;
@@ -1023,10 +1024,11 @@ namespace KeySAV3
             // groupBox5
             // 
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.Controls.Add(this.B_ResetCSV);
             this.groupBox5.Controls.Add(this.CHK_NameQuotes);
             this.groupBox5.Location = new System.Drawing.Point(200, 128);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(119, 57);
+            this.groupBox5.Size = new System.Drawing.Size(119, 82);
             this.groupBox5.TabIndex = 44;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "CSV Options";
@@ -1243,6 +1245,29 @@ namespace KeySAV3
             this.TB_File1.Size = new System.Drawing.Size(229, 20);
             this.TB_File1.TabIndex = 25;
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox6.Controls.Add(this.RTB_Preview);
+            this.groupBox6.Location = new System.Drawing.Point(3, 351);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(314, 132);
+            this.groupBox6.TabIndex = 45;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Text Format Preview";
+            // 
+            // RTB_Preview
+            // 
+            this.RTB_Preview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RTB_Preview.Location = new System.Drawing.Point(6, 19);
+            this.RTB_Preview.Name = "RTB_Preview";
+            this.RTB_Preview.ReadOnly = true;
+            this.RTB_Preview.Size = new System.Drawing.Size(305, 107);
+            this.RTB_Preview.TabIndex = 46;
+            this.RTB_Preview.Text = "";
+            // 
             // CCB_HPType
             // 
             this.CCB_HPType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1308,6 +1333,7 @@ namespace KeySAV3
             this.Tab_Breaker.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1405,6 +1431,8 @@ namespace KeySAV3
         private System.Windows.Forms.Button B_File1;
         private System.Windows.Forms.TextBox TB_File2;
         private System.Windows.Forms.TextBox TB_File1;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.RichTextBox RTB_Preview;
 
     }
 }
