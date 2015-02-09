@@ -15,9 +15,9 @@ namespace KeySAV3
         {
             InitializeComponent();
             CB_HelpSelector.SelectedIndex = 0;
-            loadHelp();
+            loadHelp(null, null);
         }
-        
+
         private static string[] topics = {
             "formatting",
             "howto",
@@ -28,7 +28,7 @@ namespace KeySAV3
             "howto_encrypted",
             "howto_decrypted",
             "howto_videos",
-			"options",
+            "options",
             "about",
             "changelog"
         };
@@ -45,7 +45,7 @@ namespace KeySAV3
             }
         }
 
-        private void loadHelp(object sender = null, EventArgs e = null)
+        private void loadHelp(object sender, EventArgs e)
         {
             RTB_Help.Text = (string)Properties.Resources.ResourceManager.GetObject(topics[CB_HelpSelector.SelectedIndex]);
             return;

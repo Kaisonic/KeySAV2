@@ -2,6 +2,8 @@ Export Options
 
 There are many options to help you get the data you need in the format you want!
 
+"Game" - This selector will allow the program to automatically open saves and battle videos from the proper directory if your 3DS SD card is inserted in your computer. It actually has no effect on the output text (in other words, you don't need to select the game for the program to be able to read your saves and battle videos).
+
 --Export Options--
 
 "Language" - this option changes the language of the exported information about your Pokémon. Unfortunately, only the language of the information is changed - this program is only available in English. (Let me know if you want to help translate to other languages!)
