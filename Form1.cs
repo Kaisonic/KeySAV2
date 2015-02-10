@@ -2484,12 +2484,17 @@ namespace KeySAV3
                 byte[] savefile = new byte[0x10009C];
                 string savkeypath = "";
                 binType = "sav";
-                foreach (string path in Directory.GetFiles(TB_Folder.Text))
+                string[] files = Directory.GetFiles(TB_Folder.Text);
+                FolderBar.Maximum = files.Length;
+                FolderBar.Step = 1;
+                foreach (string path in files)
                 {
                     i += openSAV_(path, ref savefile, ref savkeypath, false);
+                    FolderBar.PerformStep();
                 }
             }
             MessageBox.Show("Processed " + i + " saves in folder:\n\n" + TB_Folder.Text, "Prompt");
+            FolderBar.Value = 0;
         }
 
         private void B_ResetCSV_Click(object sender, EventArgs e)

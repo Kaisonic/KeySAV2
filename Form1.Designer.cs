@@ -129,6 +129,7 @@ namespace KeySAV3
             this.B_ShowOptions = new System.Windows.Forms.Button();
             this.CB_Game = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.FolderBar = new System.Windows.Forms.ProgressBar();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -1124,13 +1125,14 @@ namespace KeySAV3
             // 
             this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox8.Controls.Add(this.FolderBar);
             this.groupBox8.Controls.Add(this.L_instrFolder);
             this.groupBox8.Controls.Add(this.B_Folder);
             this.groupBox8.Controls.Add(this.TB_Folder);
             this.groupBox8.Controls.Add(this.B_BreakFolder);
             this.groupBox8.Location = new System.Drawing.Point(3, 144);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(315, 76);
+            this.groupBox8.Size = new System.Drawing.Size(315, 96);
             this.groupBox8.TabIndex = 27;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Improve Decryption for Encrypted Saves";
@@ -1186,7 +1188,7 @@ namespace KeySAV3
             this.groupBox7.Controls.Add(this.TB_FileBV2);
             this.groupBox7.Controls.Add(this.TB_FileBV1);
             this.groupBox7.Controls.Add(this.L_instrBV);
-            this.groupBox7.Location = new System.Drawing.Point(3, 226);
+            this.groupBox7.Location = new System.Drawing.Point(3, 246);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(315, 103);
             this.groupBox7.TabIndex = 26;
@@ -1390,6 +1392,13 @@ namespace KeySAV3
             this.label3.TabIndex = 0;
             this.label3.Text = "Game:";
             // 
+            // FolderBar
+            // 
+            this.FolderBar.Location = new System.Drawing.Point(7, 70);
+            this.FolderBar.Name = "FolderBar";
+            this.FolderBar.Size = new System.Drawing.Size(303, 16);
+            this.FolderBar.TabIndex = 33;
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -1536,6 +1545,7 @@ namespace KeySAV3
         private System.Windows.Forms.Button BVFile1;
         private System.Windows.Forms.TextBox TB_FileBV2;
         private System.Windows.Forms.TextBox TB_FileBV1;
+        private System.Windows.Forms.ProgressBar FolderBar;
 
     }
 }
