@@ -45,6 +45,8 @@ namespace KeySAV3
             this.CB_Abilities = new System.Windows.Forms.ComboBox();
             this.L_Ability = new System.Windows.Forms.Label();
             this.L_Nature = new System.Windows.Forms.Label();
+            this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
+            this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.RAD_GenderAny = new System.Windows.Forms.RadioButton();
             this.RAD_Female = new System.Windows.Forms.RadioButton();
             this.RAD_Male = new System.Windows.Forms.RadioButton();
@@ -84,7 +86,7 @@ namespace KeySAV3
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.CHK_Header = new System.Windows.Forms.CheckBox();
             this.CHK_ShowESV = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.L_Language = new System.Windows.Forms.Label();
             this.CHK_Unicode = new System.Windows.Forms.CheckBox();
             this.CB_MainLanguage = new System.Windows.Forms.ComboBox();
             this.L_ExportStyle = new System.Windows.Forms.Label();
@@ -104,7 +106,7 @@ namespace KeySAV3
             this.CHK_NameQuotes = new System.Windows.Forms.CheckBox();
             this.Tab_Breaker = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.L_instrFolder = new System.Windows.Forms.Label();
             this.B_Folder = new System.Windows.Forms.Button();
             this.TB_Folder = new System.Windows.Forms.TextBox();
             this.B_BreakFolder = new System.Windows.Forms.Button();
@@ -127,8 +129,6 @@ namespace KeySAV3
             this.B_ShowOptions = new System.Windows.Forms.Button();
             this.CB_Game = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
-            this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -369,6 +369,36 @@ namespace KeySAV3
             this.L_Nature.Size = new System.Drawing.Size(40, 13);
             this.L_Nature.TabIndex = 29;
             this.L_Nature.Text = "Nature";
+            // 
+            // CCB_HPType
+            // 
+            this.CCB_HPType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CCB_HPType.CheckOnClick = false;
+            this.CCB_HPType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.CCB_HPType.DropDownHeight = 1;
+            this.CCB_HPType.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.CCB_HPType.FormattingEnabled = true;
+            this.CCB_HPType.IntegralHeight = false;
+            this.CCB_HPType.Location = new System.Drawing.Point(188, 17);
+            this.CCB_HPType.Name = "CCB_HPType";
+            this.CCB_HPType.Size = new System.Drawing.Size(123, 22);
+            this.CCB_HPType.TabIndex = 28;
+            this.CCB_HPType.ValueSeparator = ", ";
+            // 
+            // CCB_Natures
+            // 
+            this.CCB_Natures.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CCB_Natures.BackColor = System.Drawing.Color.White;
+            this.CCB_Natures.CheckOnClick = true;
+            this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.CCB_Natures.DropDownHeight = 1;
+            this.CCB_Natures.FormattingEnabled = true;
+            this.CCB_Natures.IntegralHeight = false;
+            this.CCB_Natures.Location = new System.Drawing.Point(188, 175);
+            this.CCB_Natures.Name = "CCB_Natures";
+            this.CCB_Natures.Size = new System.Drawing.Size(123, 22);
+            this.CCB_Natures.TabIndex = 27;
+            this.CCB_Natures.ValueSeparator = ", ";
             // 
             // RAD_GenderAny
             // 
@@ -814,7 +844,7 @@ namespace KeySAV3
             // 
             this.groupBox2.Controls.Add(this.CHK_Header);
             this.groupBox2.Controls.Add(this.CHK_ShowESV);
-            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.L_Language);
             this.groupBox2.Controls.Add(this.CHK_Unicode);
             this.groupBox2.Controls.Add(this.CB_MainLanguage);
             this.groupBox2.Controls.Add(this.L_ExportStyle);
@@ -851,14 +881,14 @@ namespace KeySAV3
             this.CHK_ShowESV.Text = "Show ESV for Hatched Pokemon";
             this.CHK_ShowESV.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // L_Language
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Language:";
+            this.L_Language.AutoSize = true;
+            this.L_Language.Location = new System.Drawing.Point(6, 16);
+            this.L_Language.Name = "L_Language";
+            this.L_Language.Size = new System.Drawing.Size(58, 13);
+            this.L_Language.TabIndex = 15;
+            this.L_Language.Text = "Language:";
             // 
             // CHK_Unicode
             // 
@@ -990,7 +1020,7 @@ namespace KeySAV3
             "Red"});
             this.CB_BoxColor.Location = new System.Drawing.Point(6, 88);
             this.CB_BoxColor.Name = "CB_BoxColor";
-            this.CB_BoxColor.Size = new System.Drawing.Size(80, 21);
+            this.CB_BoxColor.Size = new System.Drawing.Size(107, 21);
             this.CB_BoxColor.TabIndex = 20;
             // 
             // CHK_R_Table
@@ -1094,7 +1124,7 @@ namespace KeySAV3
             // 
             this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox8.Controls.Add(this.label2);
+            this.groupBox8.Controls.Add(this.L_instrFolder);
             this.groupBox8.Controls.Add(this.B_Folder);
             this.groupBox8.Controls.Add(this.TB_Folder);
             this.groupBox8.Controls.Add(this.B_BreakFolder);
@@ -1105,14 +1135,14 @@ namespace KeySAV3
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Improve Decryption for Encrypted Saves";
             // 
-            // label2
+            // L_instrFolder
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(206, 13);
-            this.label2.TabIndex = 32;
-            this.label2.Text = "Select folder containing encrypted saves:";
+            this.L_instrFolder.AutoSize = true;
+            this.L_instrFolder.Location = new System.Drawing.Point(6, 17);
+            this.L_instrFolder.Name = "L_instrFolder";
+            this.L_instrFolder.Size = new System.Drawing.Size(206, 13);
+            this.L_instrFolder.TabIndex = 32;
+            this.L_instrFolder.Text = "Select folder containing encrypted saves:";
             // 
             // B_Folder
             // 
@@ -1360,36 +1390,6 @@ namespace KeySAV3
             this.label3.TabIndex = 0;
             this.label3.Text = "Game:";
             // 
-            // CCB_HPType
-            // 
-            this.CCB_HPType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CCB_HPType.CheckOnClick = false;
-            this.CCB_HPType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.CCB_HPType.DropDownHeight = 1;
-            this.CCB_HPType.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.CCB_HPType.FormattingEnabled = true;
-            this.CCB_HPType.IntegralHeight = false;
-            this.CCB_HPType.Location = new System.Drawing.Point(188, 17);
-            this.CCB_HPType.Name = "CCB_HPType";
-            this.CCB_HPType.Size = new System.Drawing.Size(123, 22);
-            this.CCB_HPType.TabIndex = 28;
-            this.CCB_HPType.ValueSeparator = ", ";
-            // 
-            // CCB_Natures
-            // 
-            this.CCB_Natures.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CCB_Natures.BackColor = System.Drawing.Color.White;
-            this.CCB_Natures.CheckOnClick = true;
-            this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.CCB_Natures.DropDownHeight = 1;
-            this.CCB_Natures.FormattingEnabled = true;
-            this.CCB_Natures.IntegralHeight = false;
-            this.CCB_Natures.Location = new System.Drawing.Point(188, 175);
-            this.CCB_Natures.Name = "CCB_Natures";
-            this.CCB_Natures.Size = new System.Drawing.Size(123, 22);
-            this.CCB_Natures.TabIndex = 27;
-            this.CCB_Natures.ValueSeparator = ", ";
-            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -1507,7 +1507,7 @@ namespace KeySAV3
         private System.Windows.Forms.CheckBox CHK_Header;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label L_Language;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -1515,7 +1515,7 @@ namespace KeySAV3
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox TB_File3;
         private System.Windows.Forms.Button B_File3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label L_instrFolder;
         private System.Windows.Forms.Button B_BreakFolder;
         private System.Windows.Forms.TextBox TB_Folder;
         private System.Windows.Forms.Button B_Folder;
