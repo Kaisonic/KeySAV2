@@ -66,7 +66,6 @@ namespace KeySAV3
             this.CB_No_IVs = new System.Windows.Forms.ComboBox();
             this.L_No_IVs = new System.Windows.Forms.Label();
             this.L_HP_Type = new System.Windows.Forms.Label();
-            this.CHK_Enable_Filtering = new System.Windows.Forms.CheckBox();
             this.B_BKP_SAV = new System.Windows.Forms.Button();
             this.L_SAVStats = new System.Windows.Forms.Label();
             this.L_BoxThru = new System.Windows.Forms.Label();
@@ -78,8 +77,10 @@ namespace KeySAV3
             this.B_GoSAV = new System.Windows.Forms.Button();
             this.B_OpenSAV = new System.Windows.Forms.Button();
             this.TB_SAV = new System.Windows.Forms.TextBox();
+            this.CHK_Enable_Filtering = new System.Windows.Forms.CheckBox();
             this.Tab_Options = new System.Windows.Forms.TabPage();
-            this.RTB_OPTIONS = new System.Windows.Forms.RichTextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.RTB_Preview = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.CHK_Header = new System.Windows.Forms.CheckBox();
             this.CHK_ShowESV = new System.Windows.Forms.CheckBox();
@@ -97,12 +98,10 @@ namespace KeySAV3
             this.CHK_R_Table = new System.Windows.Forms.CheckBox();
             this.CHK_BoldIVs = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.B_ResetCSV = new System.Windows.Forms.Button();
+            this.RTB_OPTIONS = new System.Windows.Forms.RichTextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.B_ResetCSV = new System.Windows.Forms.Button();
             this.CHK_NameQuotes = new System.Windows.Forms.CheckBox();
-            this.B_ShowOptions = new System.Windows.Forms.Button();
-            this.CB_Game = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.Tab_Breaker = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TB_File3 = new System.Windows.Forms.TextBox();
@@ -118,8 +117,9 @@ namespace KeySAV3
             this.B_File1 = new System.Windows.Forms.Button();
             this.TB_File2 = new System.Windows.Forms.TextBox();
             this.TB_File1 = new System.Windows.Forms.TextBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.RTB_Preview = new System.Windows.Forms.RichTextBox();
+            this.B_ShowOptions = new System.Windows.Forms.Button();
+            this.CB_Game = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
             this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.tab_Main.SuspendLayout();
@@ -127,13 +127,13 @@ namespace KeySAV3
             this.Tab_SAV.SuspendLayout();
             this.GB_Filter.SuspendLayout();
             this.Tab_Options.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.Tab_Breaker.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab_Main
@@ -597,17 +597,6 @@ namespace KeySAV3
             this.L_HP_Type.TabIndex = 2;
             this.L_HP_Type.Text = "HP Type";
             // 
-            // CHK_Enable_Filtering
-            // 
-            this.CHK_Enable_Filtering.AutoSize = true;
-            this.CHK_Enable_Filtering.Location = new System.Drawing.Point(7, 77);
-            this.CHK_Enable_Filtering.Name = "CHK_Enable_Filtering";
-            this.CHK_Enable_Filtering.Size = new System.Drawing.Size(99, 17);
-            this.CHK_Enable_Filtering.TabIndex = 0;
-            this.CHK_Enable_Filtering.Text = "Enable Filtering";
-            this.CHK_Enable_Filtering.UseVisualStyleBackColor = true;
-            this.CHK_Enable_Filtering.CheckedChanged += new System.EventHandler(this.toggleFilter);
-            // 
             // B_BKP_SAV
             // 
             this.B_BKP_SAV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -623,10 +612,11 @@ namespace KeySAV3
             // L_SAVStats
             // 
             this.L_SAVStats.AutoSize = true;
-            this.L_SAVStats.Location = new System.Drawing.Point(240, 53);
+            this.L_SAVStats.Location = new System.Drawing.Point(41, 53);
             this.L_SAVStats.Name = "L_SAVStats";
             this.L_SAVStats.Size = new System.Drawing.Size(0, 13);
             this.L_SAVStats.TabIndex = 25;
+            this.L_SAVStats.Visible = false;
             // 
             // L_BoxThru
             // 
@@ -667,7 +657,7 @@ namespace KeySAV3
             // 
             this.L_BoxSAV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.L_BoxSAV.AutoSize = true;
-            this.L_BoxSAV.Location = new System.Drawing.Point(85, 53);
+            this.L_BoxSAV.Location = new System.Drawing.Point(93, 53);
             this.L_BoxSAV.Name = "L_BoxSAV";
             this.L_BoxSAV.Size = new System.Drawing.Size(29, 13);
             this.L_BoxSAV.TabIndex = 21;
@@ -726,7 +716,7 @@ namespace KeySAV3
             this.RTB_SAV.Location = new System.Drawing.Point(0, 339);
             this.RTB_SAV.Name = "RTB_SAV";
             this.RTB_SAV.ReadOnly = true;
-            this.RTB_SAV.Size = new System.Drawing.Size(320, 163);
+            this.RTB_SAV.Size = new System.Drawing.Size(320, 144);
             this.RTB_SAV.TabIndex = 30;
             this.RTB_SAV.Text = "";
             this.RTB_SAV.WordWrap = false;
@@ -762,6 +752,17 @@ namespace KeySAV3
             this.TB_SAV.Size = new System.Drawing.Size(226, 21);
             this.TB_SAV.TabIndex = 7;
             // 
+            // CHK_Enable_Filtering
+            // 
+            this.CHK_Enable_Filtering.AutoSize = true;
+            this.CHK_Enable_Filtering.Location = new System.Drawing.Point(7, 77);
+            this.CHK_Enable_Filtering.Name = "CHK_Enable_Filtering";
+            this.CHK_Enable_Filtering.Size = new System.Drawing.Size(99, 17);
+            this.CHK_Enable_Filtering.TabIndex = 0;
+            this.CHK_Enable_Filtering.Text = "Enable Filtering";
+            this.CHK_Enable_Filtering.UseVisualStyleBackColor = true;
+            this.CHK_Enable_Filtering.CheckedChanged += new System.EventHandler(this.toggleFilter);
+            // 
             // Tab_Options
             // 
             this.Tab_Options.Controls.Add(this.groupBox6);
@@ -776,19 +777,29 @@ namespace KeySAV3
             this.Tab_Options.Text = "Options";
             this.Tab_Options.UseVisualStyleBackColor = true;
             // 
-            // RTB_OPTIONS
+            // groupBox6
             // 
-            this.RTB_OPTIONS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RTB_OPTIONS.Location = new System.Drawing.Point(6, 19);
-            this.RTB_OPTIONS.Name = "RTB_OPTIONS";
-            this.RTB_OPTIONS.ReadOnly = true;
-            this.RTB_OPTIONS.Size = new System.Drawing.Size(305, 107);
-            this.RTB_OPTIONS.TabIndex = 29;
-            this.RTB_OPTIONS.Text = "";
-            this.RTB_OPTIONS.ReadOnlyChanged += new System.EventHandler(this.changeReadOnly);
-            this.RTB_OPTIONS.TextChanged += new System.EventHandler(this.changeFormatText);
+            this.groupBox6.Controls.Add(this.RTB_Preview);
+            this.groupBox6.Location = new System.Drawing.Point(3, 351);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(314, 132);
+            this.groupBox6.TabIndex = 45;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Text Format Preview";
+            // 
+            // RTB_Preview
+            // 
+            this.RTB_Preview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RTB_Preview.Location = new System.Drawing.Point(6, 19);
+            this.RTB_Preview.Name = "RTB_Preview";
+            this.RTB_Preview.ReadOnly = true;
+            this.RTB_Preview.Size = new System.Drawing.Size(305, 107);
+            this.RTB_Preview.TabIndex = 46;
+            this.RTB_Preview.Text = "";
+            this.RTB_Preview.WordWrap = false;
             // 
             // groupBox2
             // 
@@ -1010,17 +1021,19 @@ namespace KeySAV3
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Text Format (see \"Help\" for help)";
             // 
-            // B_ResetCSV
+            // RTB_OPTIONS
             // 
-            this.B_ResetCSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_ResetCSV.Location = new System.Drawing.Point(6, 53);
-            this.B_ResetCSV.Name = "B_ResetCSV";
-            this.B_ResetCSV.Size = new System.Drawing.Size(101, 22);
-            this.B_ResetCSV.TabIndex = 38;
-            this.B_ResetCSV.Text = "Reset to Default";
-            this.B_ResetCSV.UseVisualStyleBackColor = true;
-            this.B_ResetCSV.Visible = false;
-            this.B_ResetCSV.Click += new System.EventHandler(this.B_ResetCSV_Click);
+            this.RTB_OPTIONS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RTB_OPTIONS.Location = new System.Drawing.Point(6, 19);
+            this.RTB_OPTIONS.Name = "RTB_OPTIONS";
+            this.RTB_OPTIONS.ReadOnly = true;
+            this.RTB_OPTIONS.Size = new System.Drawing.Size(305, 107);
+            this.RTB_OPTIONS.TabIndex = 29;
+            this.RTB_OPTIONS.Text = "";
+            this.RTB_OPTIONS.ReadOnlyChanged += new System.EventHandler(this.changeReadOnly);
+            this.RTB_OPTIONS.TextChanged += new System.EventHandler(this.changeFormatText);
             // 
             // groupBox5
             // 
@@ -1034,6 +1047,17 @@ namespace KeySAV3
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "CSV Options";
             // 
+            // B_ResetCSV
+            // 
+            this.B_ResetCSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_ResetCSV.Location = new System.Drawing.Point(6, 53);
+            this.B_ResetCSV.Name = "B_ResetCSV";
+            this.B_ResetCSV.Size = new System.Drawing.Size(101, 22);
+            this.B_ResetCSV.TabIndex = 38;
+            this.B_ResetCSV.Text = "Reset to Default";
+            this.B_ResetCSV.UseVisualStyleBackColor = true;
+            this.B_ResetCSV.Click += new System.EventHandler(this.B_ResetCSV_Click);
+            // 
             // CHK_NameQuotes
             // 
             this.CHK_NameQuotes.AutoSize = true;
@@ -1043,42 +1067,6 @@ namespace KeySAV3
             this.CHK_NameQuotes.TabIndex = 37;
             this.CHK_NameQuotes.Text = "Enclose nickname\r\nand OT in quotes";
             this.CHK_NameQuotes.UseVisualStyleBackColor = true;
-            // 
-            // B_ShowOptions
-            // 
-            this.B_ShowOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_ShowOptions.Location = new System.Drawing.Point(291, 5);
-            this.B_ShowOptions.Name = "B_ShowOptions";
-            this.B_ShowOptions.Size = new System.Drawing.Size(51, 23);
-            this.B_ShowOptions.TabIndex = 15;
-            this.B_ShowOptions.Text = "Help";
-            this.B_ShowOptions.UseVisualStyleBackColor = true;
-            this.B_ShowOptions.Click += new System.EventHandler(this.B_ShowOptions_Click);
-            // 
-            // CB_Game
-            // 
-            this.CB_Game.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CB_Game.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_Game.FormattingEnabled = true;
-            this.CB_Game.Items.AddRange(new object[] {
-            "X",
-            "Y",
-            "OR",
-            "AS"});
-            this.CB_Game.Location = new System.Drawing.Point(244, 5);
-            this.CB_Game.Name = "CB_Game";
-            this.CB_Game.Size = new System.Drawing.Size(41, 21);
-            this.CB_Game.TabIndex = 2;
-            this.CB_Game.SelectedIndexChanged += new System.EventHandler(this.changedetectgame);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.Location = new System.Drawing.Point(203, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 18);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Game:";
             // 
             // Tab_Breaker
             // 
@@ -1246,28 +1234,41 @@ namespace KeySAV3
             this.TB_File1.Size = new System.Drawing.Size(229, 21);
             this.TB_File1.TabIndex = 25;
             // 
-            // groupBox6
+            // B_ShowOptions
             // 
-            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox6.Controls.Add(this.RTB_Preview);
-            this.groupBox6.Location = new System.Drawing.Point(3, 351);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(314, 132);
-            this.groupBox6.TabIndex = 45;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Text Format Preview";
+            this.B_ShowOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_ShowOptions.Location = new System.Drawing.Point(291, 5);
+            this.B_ShowOptions.Name = "B_ShowOptions";
+            this.B_ShowOptions.Size = new System.Drawing.Size(51, 23);
+            this.B_ShowOptions.TabIndex = 15;
+            this.B_ShowOptions.Text = "Help";
+            this.B_ShowOptions.UseVisualStyleBackColor = true;
+            this.B_ShowOptions.Click += new System.EventHandler(this.B_ShowOptions_Click);
             // 
-            // RTB_Preview
+            // CB_Game
             // 
-            this.RTB_Preview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.RTB_Preview.Location = new System.Drawing.Point(6, 19);
-            this.RTB_Preview.Name = "RTB_Preview";
-            this.RTB_Preview.ReadOnly = true;
-            this.RTB_Preview.Size = new System.Drawing.Size(305, 107);
-            this.RTB_Preview.TabIndex = 46;
-            this.RTB_Preview.Text = "";
+            this.CB_Game.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CB_Game.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_Game.FormattingEnabled = true;
+            this.CB_Game.Items.AddRange(new object[] {
+            "X",
+            "Y",
+            "OR",
+            "AS"});
+            this.CB_Game.Location = new System.Drawing.Point(244, 5);
+            this.CB_Game.Name = "CB_Game";
+            this.CB_Game.Size = new System.Drawing.Size(41, 21);
+            this.CB_Game.TabIndex = 2;
+            this.CB_Game.SelectedIndexChanged += new System.EventHandler(this.changedetectgame);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.Location = new System.Drawing.Point(203, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 18);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Game:";
             // 
             // CCB_HPType
             // 
@@ -1283,7 +1284,6 @@ namespace KeySAV3
             this.CCB_HPType.Size = new System.Drawing.Size(123, 22);
             this.CCB_HPType.TabIndex = 28;
             this.CCB_HPType.ValueSeparator = ", ";
-            this.CCB_HPType.SelectedIndexChanged += new System.EventHandler(this.CCB_HPType_SelectedIndexChanged);
             // 
             // CCB_Natures
             // 
@@ -1325,6 +1325,7 @@ namespace KeySAV3
             this.GB_Filter.ResumeLayout(false);
             this.GB_Filter.PerformLayout();
             this.Tab_Options.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1335,7 +1336,6 @@ namespace KeySAV3
             this.Tab_Breaker.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1365,7 +1365,6 @@ namespace KeySAV3
         private System.Windows.Forms.Label L_KeySAV;
         private System.Windows.Forms.Label L_SAVStats;
         private System.Windows.Forms.Button B_BKP_BV;
-        private System.Windows.Forms.Button B_BKP_SAV;
         private System.Windows.Forms.GroupBox GB_Filter;
         private System.Windows.Forms.Label L_HP_Type;
         private System.Windows.Forms.CheckBox CHK_Enable_Filtering;
@@ -1435,6 +1434,7 @@ namespace KeySAV3
         private System.Windows.Forms.TextBox TB_File1;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.RichTextBox RTB_Preview;
+        private System.Windows.Forms.Button B_BKP_SAV;
 
     }
 }

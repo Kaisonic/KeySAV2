@@ -45,6 +45,7 @@ namespace KeySAV3
             loadINI();
             this.FormClosing += onFormClose;
             InitializeStrings();
+            updatePreview();
             
             // Create some data arrays for our getLevel function
             // This data doesn't change, ever
@@ -1052,10 +1053,8 @@ namespace KeySAV3
             if (CB_ExportStyle.SelectedIndex == 8)
                 format = "{0} - {1} - {2} ({3}) - {4} - {5} - {6}.{7}.{8}.{9}.{10}.{11} - {12} - {13}";
                 
-            // Only output Row,Col for CSV output for SAVs
-            string slotString = (isSAV && (CB_ExportStyle.SelectedIndex == 6 || CB_ExportStyle.SelectedIndex == 7)) ? "Row,Col" : "Slot";
-            
-            string header = String.Format(format, "Box", slotString, "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nickname", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Slot", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched", "Exp", "Count", "Infected", "Cured", "OTG", "Met Level", "Friendship", "Affection", "Steps to Hatch", "Ball", "HA");
+            // Get the header
+            string header = getHeaderString(format, isSAV);
             if (CHK_Header.Checked) csvdata = header + "\n";
             
             // Add header if Reddit, or if custom and Reddit table checked
@@ -1261,12 +1260,12 @@ namespace KeySAV3
             GB_Filter.Visible = CHK_Enable_Filtering.Checked;
             if (CHK_Enable_Filtering.Checked)
             {
-                RTB_SAV.Height = this.Height - 186 - 212;
+                RTB_SAV.Height = this.Height - 205 - 233;
                 RTB_SAV.Location = new System.Drawing.Point(0, 334);
             }
             else
             {
-                RTB_SAV.Height = this.Height - 186;
+                RTB_SAV.Height = this.Height - 205;
                 RTB_SAV.Location = new System.Drawing.Point(0, 100);
             }
         }
@@ -1984,7 +1983,7 @@ namespace KeySAV3
                 CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = false;
                 CHK_R_Table.Enabled = false;
                 CHK_NameQuotes.Enabled = false;
-                B_ResetCSV.Visible = false;
+                B_ResetCSV.Enabled = false;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
                     "{0} - {1} - {2} ({3}) - {4} - {5} - {6}.{7}.{8}.{9}.{10}.{11} - {12} - {13}";
             }
@@ -1994,7 +1993,7 @@ namespace KeySAV3
                 CHK_R_Table.Enabled = false;
                 CHK_R_Table.Checked = true;
                 CHK_NameQuotes.Enabled = false;
-                B_ResetCSV.Visible = false;
+                B_ResetCSV.Enabled = false;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
                 "{0} | {1} | {2} ({3}) | {4} | {5} | {6}.{7}.{8}.{9}.{10}.{11} | {12} | {13} |";
             }
@@ -2011,7 +2010,7 @@ namespace KeySAV3
             else if (CB_ExportStyle.SelectedIndex == 3) // Custom 1
             {
                 CHK_NameQuotes.Enabled = false;
-                B_ResetCSV.Visible = false;
+                B_ResetCSV.Enabled = false;
                 CHK_R_Table.Enabled = true; CHK_R_Table.Checked = custom1b;
                 CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = true;
                 RTB_OPTIONS.ReadOnly = false;
@@ -2020,7 +2019,7 @@ namespace KeySAV3
             else if (CB_ExportStyle.SelectedIndex == 4) // Custom 2
             {
                 CHK_NameQuotes.Enabled = false;
-                B_ResetCSV.Visible = false;
+                B_ResetCSV.Enabled = false;
                 CHK_R_Table.Enabled = true; CHK_R_Table.Checked = custom2b;
                 CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = true;
                 RTB_OPTIONS.ReadOnly = false;
@@ -2029,7 +2028,7 @@ namespace KeySAV3
             else if (CB_ExportStyle.SelectedIndex == 5) // Custom 3
             {
                 CHK_NameQuotes.Enabled = false;
-                B_ResetCSV.Visible = false;
+                B_ResetCSV.Enabled = false;
                 CHK_R_Table.Enabled = true; CHK_R_Table.Checked = custom3b;
                 CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = true;
                 RTB_OPTIONS.ReadOnly = false;
@@ -2039,7 +2038,7 @@ namespace KeySAV3
             {
                 CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = false;
                 CHK_R_Table.Enabled = false;
-                B_ResetCSV.Visible = false;
+                B_ResetCSV.Enabled = false;
                 CHK_NameQuotes.Enabled = true;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text ="{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35}";
             }
@@ -2049,7 +2048,7 @@ namespace KeySAV3
                 CHK_R_Table.Enabled = false;
                 CHK_NameQuotes.Enabled = true;
                 RTB_OPTIONS.ReadOnly = false;
-                B_ResetCSV.Visible = true;
+                B_ResetCSV.Enabled = true;
                 // If nothing is saved, fill with all columns by default
                 RTB_OPTIONS.Text = (customcsv == "") ? defaultCSVcustom : customcsv;
             }
@@ -2058,10 +2057,13 @@ namespace KeySAV3
                 CHK_BoldIVs.Enabled = CHK_ColorBox.Enabled = CB_BoxColor.Enabled = false;
                 CHK_R_Table.Enabled = false;
                 CHK_NameQuotes.Enabled = false;
-                B_ResetCSV.Visible = false;
+                B_ResetCSV.Enabled = false;
                 RTB_OPTIONS.ReadOnly = true; RTB_OPTIONS.Text =
                 "Files will be saved in .PK6 format, and the default method will display.";
             }
+            
+            // Update the format preview on format change
+            updatePreview();
         }
         private void changeFormatText(object sender, EventArgs e)
         {
@@ -2073,6 +2075,9 @@ namespace KeySAV3
                 custom3 = RTB_OPTIONS.Text;
             else if (CB_ExportStyle.SelectedIndex == 7) // CSV custom
                 customcsv = RTB_OPTIONS.Text;
+            
+            // Update format preview whenever it's changed
+            updatePreview();
         }
         private void changeTableStatus(object sender, EventArgs e)
         {
@@ -2188,6 +2193,23 @@ namespace KeySAV3
             CB_Abilities.Items.AddRange(sortedAbilities);
             if (curAbility != -1) CB_Abilities.Text = abilitylist[curAbility];
 
+        }
+        
+        // Get the header string
+        private string getHeaderString(string format, bool isSAV)
+        {
+            // Only output Row,Col for CSV output for SAVs
+            string slotString = (isSAV && (CB_ExportStyle.SelectedIndex == 6 || CB_ExportStyle.SelectedIndex == 7)) ? "Row,Col" : "Slot";
+            
+            return String.Format(format, "Box", slotString, "Species", "Gender", "Nature", "Ability", "HP", "ATK", "DEF", "SPA", "SPD", "SPE", "HiddenPower", "ESV", "TSV", "Nickname", "OT", "Ball", "TID", "SID", "HP EV", "ATK EV", "DEF EV", "SPA EV", "SPD EV", "SPE EV", "Move 1", "Move 2", "Move 3", "Move 4", "Relearn 1", "Relearn 2", "Relearn 3", "Relearn 4", "Shiny", "Egg", "Level", "Region", "Country", "Held Item", "Language", "Game", "Slot", "PID", "Mark", "Dex Number", "Form", "1", "2", "3", "4", "5", "6", "IVs", "IV Sum", "EV Sum", "Egg Received", "Met/Hatched", "Exp", "Count", "Infected", "Cured", "OTG", "Met Level", "Friendship", "Affection", "Steps to Hatch", "Ball", "HA");
+        }
+        
+        // Update Text Format Preview
+        private void updatePreview()
+        {
+            // Catch a format exception to let the user finish typing formats
+            try { RTB_Preview.Text = getHeaderString(RTB_OPTIONS.Text, true); }
+            catch { };
         }
         
         // Based on method in PkHex
@@ -2433,6 +2455,7 @@ namespace KeySAV3
             {
                 customcsv = defaultCSVcustom;
                 RTB_OPTIONS.Text = defaultCSVcustom;
+                updatePreview();
                 return;
             }
             else return;
@@ -2466,17 +2489,16 @@ namespace KeySAV3
 
         private void toggleTrickroom(object sender, EventArgs e)
         {
-            CHK_IV_Spe.Text = (CHK_Trickroom.Checked ? "Spe (= 0)" : "Spe");
+            CHK_IV_Spe.Anchor = (AnchorStyles.Top | AnchorStyles.Left);
+            CHK_IV_Spe.Text = (CHK_Trickroom.Checked ? "Spe (= 0)" : "Speed");
+            CHK_IV_Spe.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
         }
 
         private void toggleSpecialAttacker(object sender, EventArgs e)
         {
-            CHK_IV_Atk.Text = (CHK_Special_Attacker.Checked ? "Atk (= 0)" : "Atk");
-        }
-
-        private void CCB_HPType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            CHK_IV_Atk.Anchor = (AnchorStyles.Top | AnchorStyles.Left);
+            CHK_IV_Atk.Text = (CHK_Special_Attacker.Checked ? "Atk (= 0)" : "Attack");
+            CHK_IV_Atk.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
         }
     }
 }
