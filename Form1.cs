@@ -139,9 +139,6 @@ namespace KeySAV3
         private string defaultCSVcustom = "{59},{42},{0},{1},{2},{3},{4},{5},{68},{6},{7},{8},{9},{10},{11},{54},{47},{48},{49},{50},{51},{52},{53},{12},{60},{61},{35},{34},{13},{14},{15},{16},{18},{19},{17},{20},{21},{22},{23},{24},{25},{55},{56},{57},{63},{26},{27},{28},{29},{30},{31},{32},{33},{58},{36},{44},{37},{38},{39},{40},{41},{43},{45},{46},{62},{64},{66},{65}";
 
         // Breaking Usage
-        public string file1 = "";
-        public string file2 = "";
-        public string file3 = "";
         public byte[] break1 = new Byte[0x10009C];
         public byte[] break2 = new Byte[0x10009C];
         public byte[] break3 = new Byte[0x10009C];
@@ -444,14 +441,14 @@ namespace KeySAV3
                 break;
             }
         }
-        private void openSAV_(string path, ref byte[] savefile, ref string savkeypath, bool showUI)
+        private int openSAV_(string path, ref byte[] savefile, ref string savkeypath, bool showUI)
         {
             // check to see if good input file
             long len = new FileInfo(path).Length;
             if (len != 0x100000 && len != 0x10009C && len != 0x10019A)
             { 
                 if(showUI) MessageBox.Show("Unsupported File", "Error");
-                return;
+                return 0;
             }
             
             TB_SAV.Text = path;
@@ -469,7 +466,7 @@ namespace KeySAV3
                     L_KeySAV.Text = "Key not found. Please break for this SAV first.";
                     B_GoSAV.Enabled = false;
                 }
-                return;
+                return 0;
             }
             else
             {
@@ -515,6 +512,7 @@ namespace KeySAV3
             Array.Resize(ref empty, 0xE8);
             scanSAV(savefile, key, empty, showUI);
             File.WriteAllBytes(keyfile, key); // Key has been scanned for new slots, re-save key.
+            return 1;
         }
         private void openBIN(string path)
         {
@@ -1275,7 +1273,7 @@ namespace KeySAV3
         {
             // Open Save File
             OpenFileDialog boxsave = new OpenFileDialog();
-            boxsave.Filter = "Save/BV File|*.*";
+            boxsave.Filter = "Save File|*.*";
 
             if (boxsave.ShowDialog() == DialogResult.OK)
             {
@@ -1285,27 +1283,41 @@ namespace KeySAV3
                 {
                     Array.Copy(input, input.Length % 0x100000, break1, 0, 0x100000);
                     TB_File1.Text = path;
-                    file1 = "SAV";
-                }
-                else if (input.Length == 28256)
-                {
-                    Array.Copy(input, video1, 28256);
-                    TB_File1.Text = path;
-                    file1 = "BV";
                 }
                 else
                 {
-                    file1 = "";
-                    MessageBox.Show("Incorrect File Loaded: Neither a SAV (1MB) or Battle Video (~27.5KB).", "Error");
+                    MessageBox.Show("Incorrect File Loaded: Not a SAV file (1MB).", "Error");
                 }
             } 
             togglebreak();
+        }
+        private void loadBreakBV1(object sender, EventArgs e)
+        {
+            // Open Save File
+            OpenFileDialog boxsave = new OpenFileDialog();
+            boxsave.Filter = "BV File|*.*";
+
+            if (boxsave.ShowDialog() == DialogResult.OK)
+            {
+                string path = boxsave.FileName;
+                byte[] input = File.ReadAllBytes(path);
+                if (input.Length == 28256)
+                {
+                    Array.Copy(input, video1, 28256);
+                    TB_FileBV1.Text = path;
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect File Loaded: Not a Battle Video (~27.5KB).", "Error");
+                }
+            } 
+            togglebreakBV();
         }
         private void loadBreak2(object sender, EventArgs e)
         {
             // Open Save File
             OpenFileDialog boxsave = new OpenFileDialog();
-            boxsave.Filter = "Save/BV File|*.*";
+            boxsave.Filter = "Save File|*.*";
 
             if (boxsave.ShowDialog() == DialogResult.OK)
             {
@@ -1315,28 +1327,43 @@ namespace KeySAV3
                 {
                     Array.Copy(input, input.Length % 0x100000, break2, 0, 0x100000); // Force save to 0x100000
                     TB_File2.Text = path;
-                    file2 = "SAV";
-                }
-                else if (input.Length == 28256)
-                {
-                    Array.Copy(input, video2, 28256);
-                    TB_File2.Text = path;
-                    file2 = "BV";
                 }
                 else
                 {
-                    file2 = "";
-                    MessageBox.Show("Incorrect File Loaded: Neither a SAV (1MB) or Battle Video (~27.5KB).", "Error");
+                    MessageBox.Show("Incorrect File Loaded: Not a SAV file (1MB).", "Error");
                 }
             }
             togglebreak();
+        }
+        
+        private void loadBreakBV2(object sender, EventArgs e)
+        {
+            // Open Save File
+            OpenFileDialog boxsave = new OpenFileDialog();
+            boxsave.Filter = "BV File|*.*";
+
+            if (boxsave.ShowDialog() == DialogResult.OK)
+            {
+                string path = boxsave.FileName;
+                byte[] input = File.ReadAllBytes(path);
+                if (input.Length == 28256)
+                {
+                    Array.Copy(input, video2, 28256);
+                    TB_FileBV2.Text = path;
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect File Loaded: Not a Battle Video (~27.5KB).", "Error");
+                }
+            }
+            togglebreakBV();
         }
 
         private void loadBreak3(object sender, EventArgs e)
         {
             // Open Save File
             OpenFileDialog boxsave = new OpenFileDialog();
-            boxsave.Filter = "Save/BV File|*.*";
+            boxsave.Filter = "Save File|*.*";
 
             if (boxsave.ShowDialog() == DialogResult.OK)
             {
@@ -1346,17 +1373,10 @@ namespace KeySAV3
                 {
                     Array.Copy(input, input.Length % 0x100000, break3, 0, 0x100000); // Force save to 0x100000
                     TB_File3.Text = path;
-                    file3 = "SAV";
-                }
-                else if (input.Length == 28256)
-                {
-                    file3 = "";
-                    MessageBox.Show("Incorrect File Loaded: For breaking Battle Videos a file 3 is not needed.", "Error");
                 }
                 else
                 {
-                    file3 = "";
-                    MessageBox.Show("Incorrect File Loaded: Not a SAV (1MB).", "Error");
+                    MessageBox.Show("Incorrect File Loaded: Not a SAV file (1MB).", "Error");
                 }
             }
             togglebreak();
@@ -1375,25 +1395,18 @@ namespace KeySAV3
         private void togglebreak()
         {
             B_Break.Enabled = false;
-            if (TB_File1.Text != "" && TB_File2.Text != "")
-                if ((file1 == "SAV" && file2 == "SAV" && file3 == "SAV" && TB_File3.Text != "") || (file1 == "BV" && file2 == "BV"))
-                   B_Break.Enabled = true;
+            if (TB_File1.Text != "" && TB_File2.Text != "" && TB_File3.Text != "")
+                B_Break.Enabled = true;
         }
-
-        // Specific Breaking Branch
-        private void B_Break_Click(object sender, EventArgs e)
+        
+        private void togglebreakBV()
         {
-            if (file1 == file2)
-            {
-                if (file1 == "SAV")
-                    breakSAV();
-                else if (file1 == "BV")
-                    breakBV();
-                else
-                    return;
-            }
+            B_BreakBV.Enabled = false;
+            if (TB_FileBV1.Text != "" && TB_FileBV2.Text != "")
+                B_BreakBV.Enabled = true;
         }
-        private void breakBV()
+        
+        private void breakBV(object sender, EventArgs e)
         {
             // Do Trick
             {
@@ -1467,26 +1480,39 @@ namespace KeySAV3
                 ushort tid = BitConverter.ToUInt16(pkx, 0xC);
                 ushort sid = BitConverter.ToUInt16(pkx, 0xE);
                 ushort tsv = (ushort)((tid ^ sid) >> 4);
-                // Finished, allow dumping of breakstream
-                MessageBox.Show(String.Format("Success!\nYour first Pokemon's TSV: {0}\nOT: {1}\n\nPlease save your keystream.", tsv.ToString("0000"),ot));
-
-
-                FileInfo fi = new FileInfo(TB_File1.Text);
-                string bvnumber = Regex.Split(fi.Name, "(-)")[0];
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.FileName = CleanFileName(String.Format("BV Key - {0}.bin", bvnumber));
-                string ID = sfd.InitialDirectory;
-                sfd.InitialDirectory = Path.Combine(path_exe, "data");
-                sfd.RestoreDirectory = true;
-                sfd.Filter = "Video Key|*.bin";
-                if (sfd.ShowDialog() == DialogResult.OK)
-                    File.WriteAllBytes(sfd.FileName, bvkey);
+                
+                DialogResult sdr = MessageBox.Show(String.Format("Success!\nYour first Pokemon's TSV: {0}\nOT: {1}\n\nClick OK to save your keystream.", tsv.ToString("0000"),ot), "Prompt", MessageBoxButtons.OKCancel);
+                if (sdr == DialogResult.OK)
+                {
+                    FileInfo fi = new FileInfo(TB_FileBV1.Text);
+                    string bvnumber = Regex.Split(fi.Name, "(-)")[0];
+                    string newPath = CleanFileName(String.Format("BV Key - {0}.bin", bvnumber));
+                    newPath = Path.Combine(path_exe, "data", newPath);
+                    bool doit = true;
+                    if (File.Exists(newPath))
+                    {
+                        DialogResult sdr2 = MessageBox.Show("Keystream already exists!\n\nOverwrite?", "Prompt", MessageBoxButtons.YesNo);
+                        if (sdr2 == DialogResult.Yes)
+                            File.Delete(newPath);
+                        else
+                        {
+                            doit = false;
+                            MessageBox.Show("Chose not to save keystream.", "Alert");
+                        }
+                    }
+                    if (doit)
+                    {
+                        File.WriteAllBytes(newPath, bvkey);
+                        MessageBox.Show("Keystream saved to file:\n\n" + newPath, "Alert");
+                    }
+                }
                 else
+                {
                     MessageBox.Show("Chose not to save keystream.", "Alert");
-                sfd.InitialDirectory = ID; sfd.RestoreDirectory = true;
+                }
             }
         }
-        private void breakSAV()
+        private void breakSAV(object sender, EventArgs e)
         {
             int[] offset = new int[2];
             byte[] empty = new Byte[232];
@@ -1806,26 +1832,39 @@ namespace KeySAV3
 
                 // Success
                 result = "Keystreams were successfully bruteforced!\n\n";
-                result += "Save your keystream now...";
-                MessageBox.Show(result);
-
-                // From our PKX data, fetch some details to name our key file...
-                string ot = TrimFromZero(Encoding.Unicode.GetString(pkx, 0xB0, 24));
-                ushort tid = BitConverter.ToUInt16(pkx, 0xC);
-                ushort sid = BitConverter.ToUInt16(pkx, 0xE);
-                ushort tsv = (ushort)((tid ^ sid) >> 4);
-                SaveFileDialog sfd = new SaveFileDialog();
-                string ID = sfd.InitialDirectory;
-                sfd.InitialDirectory = Path.Combine(path_exe, "data");
-                sfd.RestoreDirectory = true;
-                sfd.FileName = CleanFileName(String.Format("SAV Key - {0} - ({1}.{2}) - TSV {3}.bin", ot, tid.ToString("00000"), sid.ToString("00000"), tsv.ToString("0000")));
-                sfd.Filter = "Save Key|*.bin";
-                if (sfd.ShowDialog() == DialogResult.OK)
-                    File.WriteAllBytes(sfd.FileName, savkey);
+                result += "Click OK to save your keystream.";
+                DialogResult sdr = MessageBox.Show(result, "Prompt", MessageBoxButtons.OKCancel);
+                if (sdr == DialogResult.OK)
+                {
+                    // From our PKX data, fetch some details to name our key file...
+                    string ot = TrimFromZero(Encoding.Unicode.GetString(pkx, 0xB0, 24));
+                    ushort tid = BitConverter.ToUInt16(pkx, 0xC);
+                    ushort sid = BitConverter.ToUInt16(pkx, 0xE);
+                    ushort tsv = (ushort)((tid ^ sid) >> 4);
+                    string newPath = CleanFileName(String.Format("SAV Key - {0} - ({1}.{2}) - TSV {3}.bin", ot, tid.ToString("00000"), sid.ToString("00000"), tsv.ToString("0000")));
+                    newPath = Path.Combine(path_exe, "data", newPath);
+                    bool doit = true;
+                    if (File.Exists(newPath))
+                    {
+                        DialogResult sdr2 = MessageBox.Show("Keystream already exists!\n\nOverwrite?", "Prompt", MessageBoxButtons.YesNo);
+                        if (sdr2 == DialogResult.Yes)
+                            File.Delete(newPath);
+                        else
+                        {
+                            doit = false;
+                            MessageBox.Show("Chose not to save keystream.", "Alert");
+                        }
+                    }
+                    if (doit)
+                    {
+                        File.WriteAllBytes(newPath, savkey);
+                        MessageBox.Show("Keystream saved to file:\n\n" + newPath, "Alert");
+                    }
+                }
                 else
+                {
                     MessageBox.Show("Chose not to save keystream.", "Alert");
-
-                sfd.InitialDirectory = ID; sfd.RestoreDirectory = true;
+                }
             }
             else // Failed
                 MessageBox.Show(result + "Keystreams were NOT bruteforced!\n\nStart over and try again :(");
@@ -2438,14 +2477,19 @@ namespace KeySAV3
         }
         private void B_BreakFolder_Click(object sender, EventArgs e)
         {
-            byte[] savefile = new byte[0x10009C];
-            string savkeypath = "";
-            binType = "sav";
-            foreach (string path in Directory.GetFiles(TB_Folder.Text))
+            int i = 0;
+            DialogResult sdr = MessageBox.Show("This will improve your keystream by scanning saves in the folder you selected.\n\nThis may take some time. Press OK to continue.", "Prompt", MessageBoxButtons.OKCancel);
+            if (sdr == DialogResult.OK)
             {
-                openSAV_(path, ref savefile, ref savkeypath, false);
+                byte[] savefile = new byte[0x10009C];
+                string savkeypath = "";
+                binType = "sav";
+                foreach (string path in Directory.GetFiles(TB_Folder.Text))
+                {
+                    i += openSAV_(path, ref savefile, ref savkeypath, false);
+                }
             }
-            MessageBox.Show("Processed all files in folder...");
+            MessageBox.Show("Processed " + i + " saves in folder:\n\n" + TB_Folder.Text, "Prompt");
         }
 
         private void B_ResetCSV_Click(object sender, EventArgs e)

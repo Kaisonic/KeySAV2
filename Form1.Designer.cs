@@ -103,15 +103,22 @@ namespace KeySAV3
             this.B_ResetCSV = new System.Windows.Forms.Button();
             this.CHK_NameQuotes = new System.Windows.Forms.CheckBox();
             this.Tab_Breaker = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.B_Folder = new System.Windows.Forms.Button();
+            this.TB_Folder = new System.Windows.Forms.TextBox();
+            this.B_BreakFolder = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.B_BreakBV = new System.Windows.Forms.Button();
+            this.BVFile2 = new System.Windows.Forms.Button();
+            this.BVFile1 = new System.Windows.Forms.Button();
+            this.TB_FileBV2 = new System.Windows.Forms.TextBox();
+            this.TB_FileBV1 = new System.Windows.Forms.TextBox();
+            this.L_instrBV = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TB_File3 = new System.Windows.Forms.TextBox();
             this.B_File3 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.B_BreakFolder = new System.Windows.Forms.Button();
-            this.TB_Folder = new System.Windows.Forms.TextBox();
-            this.B_Folder = new System.Windows.Forms.Button();
             this.L_instrSAV = new System.Windows.Forms.Label();
-            this.L_instrBV = new System.Windows.Forms.Label();
             this.B_Break = new System.Windows.Forms.Button();
             this.B_File2 = new System.Windows.Forms.Button();
             this.B_File1 = new System.Windows.Forms.Button();
@@ -133,6 +140,8 @@ namespace KeySAV3
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.Tab_Breaker.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1070,6 +1079,8 @@ namespace KeySAV3
             // 
             // Tab_Breaker
             // 
+            this.Tab_Breaker.Controls.Add(this.groupBox8);
+            this.Tab_Breaker.Controls.Add(this.groupBox7);
             this.Tab_Breaker.Controls.Add(this.groupBox1);
             this.Tab_Breaker.Location = new System.Drawing.Point(4, 22);
             this.Tab_Breaker.Name = "Tab_Breaker";
@@ -1079,84 +1090,33 @@ namespace KeySAV3
             this.Tab_Breaker.Text = "Breaker";
             this.Tab_Breaker.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // groupBox8
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.TB_File3);
-            this.groupBox1.Controls.Add(this.B_File3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.B_BreakFolder);
-            this.groupBox1.Controls.Add(this.TB_Folder);
-            this.groupBox1.Controls.Add(this.B_Folder);
-            this.groupBox1.Controls.Add(this.L_instrSAV);
-            this.groupBox1.Controls.Add(this.L_instrBV);
-            this.groupBox1.Controls.Add(this.B_Break);
-            this.groupBox1.Controls.Add(this.B_File2);
-            this.groupBox1.Controls.Add(this.B_File1);
-            this.groupBox1.Controls.Add(this.TB_File2);
-            this.groupBox1.Controls.Add(this.TB_File1);
-            this.groupBox1.Location = new System.Drawing.Point(0, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(320, 183);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Breaker";
-            // 
-            // TB_File3
-            // 
-            this.TB_File3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_File3.Location = new System.Drawing.Point(85, 101);
-            this.TB_File3.Name = "TB_File3";
-            this.TB_File3.ReadOnly = true;
-            this.TB_File3.Size = new System.Drawing.Size(229, 21);
-            this.TB_File3.TabIndex = 34;
-            // 
-            // B_File3
-            // 
-            this.B_File3.Location = new System.Drawing.Point(5, 100);
-            this.B_File3.Name = "B_File3";
-            this.B_File3.Size = new System.Drawing.Size(75, 23);
-            this.B_File3.TabIndex = 33;
-            this.B_File3.Text = "File 3";
-            this.B_File3.UseVisualStyleBackColor = true;
-            this.B_File3.Click += new System.EventHandler(this.loadBreak3);
+            this.groupBox8.Controls.Add(this.label2);
+            this.groupBox8.Controls.Add(this.B_Folder);
+            this.groupBox8.Controls.Add(this.TB_Folder);
+            this.groupBox8.Controls.Add(this.B_BreakFolder);
+            this.groupBox8.Location = new System.Drawing.Point(3, 144);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(315, 76);
+            this.groupBox8.TabIndex = 27;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Improve Decryption for Encrypted Saves";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 133);
+            this.label2.Location = new System.Drawing.Point(6, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(227, 13);
+            this.label2.Size = new System.Drawing.Size(206, 13);
             this.label2.TabIndex = 32;
-            this.label2.Text = "Improve any keys with saves from this folder:";
-            // 
-            // B_BreakFolder
-            // 
-            this.B_BreakFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_BreakFolder.Enabled = false;
-            this.B_BreakFolder.Location = new System.Drawing.Point(239, 128);
-            this.B_BreakFolder.Name = "B_BreakFolder";
-            this.B_BreakFolder.Size = new System.Drawing.Size(75, 23);
-            this.B_BreakFolder.TabIndex = 31;
-            this.B_BreakFolder.Text = "Break";
-            this.B_BreakFolder.UseVisualStyleBackColor = true;
-            this.B_BreakFolder.Click += new System.EventHandler(this.B_BreakFolder_Click);
-            // 
-            // TB_Folder
-            // 
-            this.TB_Folder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_Folder.Location = new System.Drawing.Point(85, 158);
-            this.TB_Folder.Name = "TB_Folder";
-            this.TB_Folder.ReadOnly = true;
-            this.TB_Folder.Size = new System.Drawing.Size(229, 21);
-            this.TB_Folder.TabIndex = 30;
+            this.label2.Text = "Select folder containing encrypted saves:";
             // 
             // B_Folder
             // 
-            this.B_Folder.Location = new System.Drawing.Point(5, 157);
+            this.B_Folder.Location = new System.Drawing.Point(5, 40);
             this.B_Folder.Name = "B_Folder";
             this.B_Folder.Size = new System.Drawing.Size(75, 23);
             this.B_Folder.TabIndex = 29;
@@ -1164,39 +1124,169 @@ namespace KeySAV3
             this.B_Folder.UseVisualStyleBackColor = true;
             this.B_Folder.Click += new System.EventHandler(this.loadBreakFolder);
             // 
+            // TB_Folder
+            // 
+            this.TB_Folder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_Folder.Location = new System.Drawing.Point(85, 42);
+            this.TB_Folder.Name = "TB_Folder";
+            this.TB_Folder.ReadOnly = true;
+            this.TB_Folder.Size = new System.Drawing.Size(225, 21);
+            this.TB_Folder.TabIndex = 30;
+            // 
+            // B_BreakFolder
+            // 
+            this.B_BreakFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_BreakFolder.Enabled = false;
+            this.B_BreakFolder.Location = new System.Drawing.Point(235, 12);
+            this.B_BreakFolder.Name = "B_BreakFolder";
+            this.B_BreakFolder.Size = new System.Drawing.Size(75, 23);
+            this.B_BreakFolder.TabIndex = 31;
+            this.B_BreakFolder.Text = "Break";
+            this.B_BreakFolder.UseVisualStyleBackColor = true;
+            this.B_BreakFolder.Click += new System.EventHandler(this.B_BreakFolder_Click);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox7.Controls.Add(this.B_BreakBV);
+            this.groupBox7.Controls.Add(this.BVFile2);
+            this.groupBox7.Controls.Add(this.BVFile1);
+            this.groupBox7.Controls.Add(this.TB_FileBV2);
+            this.groupBox7.Controls.Add(this.TB_FileBV1);
+            this.groupBox7.Controls.Add(this.L_instrBV);
+            this.groupBox7.Location = new System.Drawing.Point(3, 226);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(315, 103);
+            this.groupBox7.TabIndex = 26;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Battle Videos";
+            // 
+            // B_BreakBV
+            // 
+            this.B_BreakBV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_BreakBV.Enabled = false;
+            this.B_BreakBV.Location = new System.Drawing.Point(236, 14);
+            this.B_BreakBV.Name = "B_BreakBV";
+            this.B_BreakBV.Size = new System.Drawing.Size(75, 23);
+            this.B_BreakBV.TabIndex = 32;
+            this.B_BreakBV.Text = "Break";
+            this.B_BreakBV.UseVisualStyleBackColor = true;
+            this.B_BreakBV.Click += new System.EventHandler(this.breakBV);
+            // 
+            // BVFile2
+            // 
+            this.BVFile2.Location = new System.Drawing.Point(5, 70);
+            this.BVFile2.Name = "BVFile2";
+            this.BVFile2.Size = new System.Drawing.Size(75, 23);
+            this.BVFile2.TabIndex = 30;
+            this.BVFile2.Text = "File 2";
+            this.BVFile2.UseVisualStyleBackColor = true;
+            this.BVFile2.Click += new System.EventHandler(this.loadBreakBV2);
+            // 
+            // BVFile1
+            // 
+            this.BVFile1.Location = new System.Drawing.Point(5, 41);
+            this.BVFile1.Name = "BVFile1";
+            this.BVFile1.Size = new System.Drawing.Size(75, 23);
+            this.BVFile1.TabIndex = 28;
+            this.BVFile1.Text = "File 1";
+            this.BVFile1.UseVisualStyleBackColor = true;
+            this.BVFile1.Click += new System.EventHandler(this.loadBreakBV1);
+            // 
+            // TB_FileBV2
+            // 
+            this.TB_FileBV2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_FileBV2.Location = new System.Drawing.Point(86, 71);
+            this.TB_FileBV2.Name = "TB_FileBV2";
+            this.TB_FileBV2.ReadOnly = true;
+            this.TB_FileBV2.Size = new System.Drawing.Size(225, 21);
+            this.TB_FileBV2.TabIndex = 31;
+            // 
+            // TB_FileBV1
+            // 
+            this.TB_FileBV1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_FileBV1.Location = new System.Drawing.Point(86, 43);
+            this.TB_FileBV1.Name = "TB_FileBV1";
+            this.TB_FileBV1.ReadOnly = true;
+            this.TB_FileBV1.Size = new System.Drawing.Size(225, 21);
+            this.TB_FileBV1.TabIndex = 29;
+            // 
+            // L_instrBV
+            // 
+            this.L_instrBV.AutoSize = true;
+            this.L_instrBV.Location = new System.Drawing.Point(6, 19);
+            this.L_instrBV.Name = "L_instrBV";
+            this.L_instrBV.Size = new System.Drawing.Size(150, 13);
+            this.L_instrBV.TabIndex = 21;
+            this.L_instrBV.Text = "BV: File 1 = \"-1\",  File 2 = \"-2\"";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.TB_File3);
+            this.groupBox1.Controls.Add(this.B_File3);
+            this.groupBox1.Controls.Add(this.L_instrSAV);
+            this.groupBox1.Controls.Add(this.B_Break);
+            this.groupBox1.Controls.Add(this.B_File2);
+            this.groupBox1.Controls.Add(this.B_File1);
+            this.groupBox1.Controls.Add(this.TB_File2);
+            this.groupBox1.Controls.Add(this.TB_File1);
+            this.groupBox1.Location = new System.Drawing.Point(3, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(317, 132);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Encrypted Saves";
+            // 
+            // TB_File3
+            // 
+            this.TB_File3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_File3.Location = new System.Drawing.Point(85, 97);
+            this.TB_File3.Name = "TB_File3";
+            this.TB_File3.ReadOnly = true;
+            this.TB_File3.Size = new System.Drawing.Size(226, 21);
+            this.TB_File3.TabIndex = 34;
+            // 
+            // B_File3
+            // 
+            this.B_File3.Location = new System.Drawing.Point(5, 96);
+            this.B_File3.Name = "B_File3";
+            this.B_File3.Size = new System.Drawing.Size(75, 23);
+            this.B_File3.TabIndex = 33;
+            this.B_File3.Text = "File 3";
+            this.B_File3.UseVisualStyleBackColor = true;
+            this.B_File3.Click += new System.EventHandler(this.loadBreak3);
+            // 
             // L_instrSAV
             // 
             this.L_instrSAV.AutoSize = true;
-            this.L_instrSAV.Location = new System.Drawing.Point(9, 27);
+            this.L_instrSAV.Location = new System.Drawing.Point(6, 17);
             this.L_instrSAV.Name = "L_instrSAV";
             this.L_instrSAV.Size = new System.Drawing.Size(230, 13);
             this.L_instrSAV.TabIndex = 22;
             this.L_instrSAV.Text = "SAV: File 1 = \"26\", File 2 = \"16\", File 3 = \"165\"";
             // 
-            // L_instrBV
-            // 
-            this.L_instrBV.AutoSize = true;
-            this.L_instrBV.Location = new System.Drawing.Point(17, 14);
-            this.L_instrBV.Name = "L_instrBV";
-            this.L_instrBV.Size = new System.Drawing.Size(221, 13);
-            this.L_instrBV.TabIndex = 21;
-            this.L_instrBV.Text = "BV: File 1 = \"-1\",  File 2 = \"-2\", File 3 = None";
-            // 
             // B_Break
             // 
             this.B_Break.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.B_Break.Enabled = false;
-            this.B_Break.Location = new System.Drawing.Point(239, 17);
+            this.B_Break.Location = new System.Drawing.Point(236, 12);
             this.B_Break.Name = "B_Break";
             this.B_Break.Size = new System.Drawing.Size(75, 23);
             this.B_Break.TabIndex = 28;
             this.B_Break.Text = "Break";
             this.B_Break.UseVisualStyleBackColor = true;
-            this.B_Break.Click += new System.EventHandler(this.B_Break_Click);
+            this.B_Break.Click += new System.EventHandler(this.breakSAV);
             // 
             // B_File2
             // 
-            this.B_File2.Location = new System.Drawing.Point(5, 71);
+            this.B_File2.Location = new System.Drawing.Point(5, 67);
             this.B_File2.Name = "B_File2";
             this.B_File2.Size = new System.Drawing.Size(75, 23);
             this.B_File2.TabIndex = 26;
@@ -1206,7 +1296,7 @@ namespace KeySAV3
             // 
             // B_File1
             // 
-            this.B_File1.Location = new System.Drawing.Point(5, 42);
+            this.B_File1.Location = new System.Drawing.Point(5, 38);
             this.B_File1.Name = "B_File1";
             this.B_File1.Size = new System.Drawing.Size(75, 23);
             this.B_File1.TabIndex = 24;
@@ -1218,20 +1308,20 @@ namespace KeySAV3
             // 
             this.TB_File2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_File2.Location = new System.Drawing.Point(85, 72);
+            this.TB_File2.Location = new System.Drawing.Point(85, 68);
             this.TB_File2.Name = "TB_File2";
             this.TB_File2.ReadOnly = true;
-            this.TB_File2.Size = new System.Drawing.Size(229, 21);
+            this.TB_File2.Size = new System.Drawing.Size(226, 21);
             this.TB_File2.TabIndex = 27;
             // 
             // TB_File1
             // 
             this.TB_File1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_File1.Location = new System.Drawing.Point(85, 44);
+            this.TB_File1.Location = new System.Drawing.Point(85, 40);
             this.TB_File1.Name = "TB_File1";
             this.TB_File1.ReadOnly = true;
-            this.TB_File1.Size = new System.Drawing.Size(229, 21);
+            this.TB_File1.Size = new System.Drawing.Size(226, 21);
             this.TB_File1.TabIndex = 25;
             // 
             // B_ShowOptions
@@ -1334,6 +1424,10 @@ namespace KeySAV3
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.Tab_Breaker.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -1435,6 +1529,13 @@ namespace KeySAV3
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.RichTextBox RTB_Preview;
         private System.Windows.Forms.Button B_BKP_SAV;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button B_BreakBV;
+        private System.Windows.Forms.Button BVFile2;
+        private System.Windows.Forms.Button BVFile1;
+        private System.Windows.Forms.TextBox TB_FileBV2;
+        private System.Windows.Forms.TextBox TB_FileBV1;
 
     }
 }
