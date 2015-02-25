@@ -45,8 +45,6 @@ namespace KeySAV3
             this.CB_Abilities = new System.Windows.Forms.ComboBox();
             this.L_Ability = new System.Windows.Forms.Label();
             this.L_Nature = new System.Windows.Forms.Label();
-            this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
-            this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.RAD_GenderAny = new System.Windows.Forms.RadioButton();
             this.RAD_Female = new System.Windows.Forms.RadioButton();
             this.RAD_Male = new System.Windows.Forms.RadioButton();
@@ -106,6 +104,7 @@ namespace KeySAV3
             this.CHK_NameQuotes = new System.Windows.Forms.CheckBox();
             this.Tab_Breaker = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.FolderBar = new System.Windows.Forms.ProgressBar();
             this.L_instrFolder = new System.Windows.Forms.Label();
             this.B_Folder = new System.Windows.Forms.Button();
             this.TB_Folder = new System.Windows.Forms.TextBox();
@@ -129,7 +128,8 @@ namespace KeySAV3
             this.B_ShowOptions = new System.Windows.Forms.Button();
             this.CB_Game = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.FolderBar = new System.Windows.Forms.ProgressBar();
+            this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
+            this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -183,6 +183,7 @@ namespace KeySAV3
             // B_BKP_BV
             // 
             this.B_BKP_BV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_BKP_BV.Enabled = false;
             this.B_BKP_BV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.B_BKP_BV.Location = new System.Drawing.Point(233, 50);
             this.B_BKP_BV.Name = "B_BKP_BV";
@@ -190,7 +191,6 @@ namespace KeySAV3
             this.B_BKP_BV.TabIndex = 8;
             this.B_BKP_BV.Text = "Backup BV";
             this.B_BKP_BV.UseVisualStyleBackColor = true;
-            this.B_BKP_BV.Visible = false;
             this.B_BKP_BV.Click += new System.EventHandler(this.B_BKP_BV_Click);
             // 
             // L_KeyBV
@@ -218,8 +218,7 @@ namespace KeySAV3
             this.CB_Team.Enabled = false;
             this.CB_Team.FormattingEnabled = true;
             this.CB_Team.Items.AddRange(new object[] {
-            "My Team",
-            "Opponent"});
+            "My Team"});
             this.CB_Team.Location = new System.Drawing.Point(128, 50);
             this.CB_Team.Name = "CB_Team";
             this.CB_Team.Size = new System.Drawing.Size(102, 21);
@@ -370,36 +369,6 @@ namespace KeySAV3
             this.L_Nature.Size = new System.Drawing.Size(40, 13);
             this.L_Nature.TabIndex = 29;
             this.L_Nature.Text = "Nature";
-            // 
-            // CCB_HPType
-            // 
-            this.CCB_HPType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CCB_HPType.CheckOnClick = false;
-            this.CCB_HPType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.CCB_HPType.DropDownHeight = 1;
-            this.CCB_HPType.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.CCB_HPType.FormattingEnabled = true;
-            this.CCB_HPType.IntegralHeight = false;
-            this.CCB_HPType.Location = new System.Drawing.Point(188, 17);
-            this.CCB_HPType.Name = "CCB_HPType";
-            this.CCB_HPType.Size = new System.Drawing.Size(123, 22);
-            this.CCB_HPType.TabIndex = 28;
-            this.CCB_HPType.ValueSeparator = ", ";
-            // 
-            // CCB_Natures
-            // 
-            this.CCB_Natures.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CCB_Natures.BackColor = System.Drawing.Color.White;
-            this.CCB_Natures.CheckOnClick = true;
-            this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.CCB_Natures.DropDownHeight = 1;
-            this.CCB_Natures.FormattingEnabled = true;
-            this.CCB_Natures.IntegralHeight = false;
-            this.CCB_Natures.Location = new System.Drawing.Point(188, 175);
-            this.CCB_Natures.Name = "CCB_Natures";
-            this.CCB_Natures.Size = new System.Drawing.Size(123, 22);
-            this.CCB_Natures.TabIndex = 27;
-            this.CCB_Natures.ValueSeparator = ", ";
             // 
             // RAD_GenderAny
             // 
@@ -640,13 +609,13 @@ namespace KeySAV3
             // B_BKP_SAV
             // 
             this.B_BKP_SAV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_BKP_SAV.Enabled = false;
             this.B_BKP_SAV.Location = new System.Drawing.Point(233, 50);
             this.B_BKP_SAV.Name = "B_BKP_SAV";
             this.B_BKP_SAV.Size = new System.Drawing.Size(81, 23);
             this.B_BKP_SAV.TabIndex = 13;
             this.B_BKP_SAV.Text = "Backup Save";
             this.B_BKP_SAV.UseVisualStyleBackColor = true;
-            this.B_BKP_SAV.Visible = false;
             this.B_BKP_SAV.Click += new System.EventHandler(this.B_BKP_SAV_Click);
             // 
             // L_SAVStats
@@ -1137,6 +1106,13 @@ namespace KeySAV3
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Improve Decryption for Encrypted Saves";
             // 
+            // FolderBar
+            // 
+            this.FolderBar.Location = new System.Drawing.Point(7, 70);
+            this.FolderBar.Name = "FolderBar";
+            this.FolderBar.Size = new System.Drawing.Size(303, 16);
+            this.FolderBar.TabIndex = 33;
+            // 
             // L_instrFolder
             // 
             this.L_instrFolder.AutoSize = true;
@@ -1392,12 +1368,35 @@ namespace KeySAV3
             this.label3.TabIndex = 0;
             this.label3.Text = "Game:";
             // 
-            // FolderBar
+            // CCB_HPType
             // 
-            this.FolderBar.Location = new System.Drawing.Point(7, 70);
-            this.FolderBar.Name = "FolderBar";
-            this.FolderBar.Size = new System.Drawing.Size(303, 16);
-            this.FolderBar.TabIndex = 33;
+            this.CCB_HPType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CCB_HPType.CheckOnClick = false;
+            this.CCB_HPType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.CCB_HPType.DropDownHeight = 1;
+            this.CCB_HPType.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.CCB_HPType.FormattingEnabled = true;
+            this.CCB_HPType.IntegralHeight = false;
+            this.CCB_HPType.Location = new System.Drawing.Point(188, 17);
+            this.CCB_HPType.Name = "CCB_HPType";
+            this.CCB_HPType.Size = new System.Drawing.Size(123, 22);
+            this.CCB_HPType.TabIndex = 28;
+            this.CCB_HPType.ValueSeparator = ", ";
+            // 
+            // CCB_Natures
+            // 
+            this.CCB_Natures.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CCB_Natures.BackColor = System.Drawing.Color.White;
+            this.CCB_Natures.CheckOnClick = true;
+            this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.CCB_Natures.DropDownHeight = 1;
+            this.CCB_Natures.FormattingEnabled = true;
+            this.CCB_Natures.IntegralHeight = false;
+            this.CCB_Natures.Location = new System.Drawing.Point(188, 175);
+            this.CCB_Natures.Name = "CCB_Natures";
+            this.CCB_Natures.Size = new System.Drawing.Size(123, 22);
+            this.CCB_Natures.TabIndex = 27;
+            this.CCB_Natures.ValueSeparator = ", ";
             // 
             // Form1
             // 
