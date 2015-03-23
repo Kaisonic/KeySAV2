@@ -468,7 +468,7 @@ namespace KeySAV3
             if (len != 0x100000 && len != 0x10009C && len != 0x10019A)
             { 
                 if (showUI)
-                    MessageBox.Show("Unsupported File", "Error");
+                    MessageBox.Show("Incorrect File Loaded: Not a SAV file (1MB).", "Error");
                 return 0;
             }
             
@@ -554,7 +554,7 @@ namespace KeySAV3
             long len = new FileInfo(path).Length;
             if (len != 28256)
             {
-                MessageBox.Show("Unsupported File", "Error");
+                MessageBox.Show("Incorrect File Loaded: Not a Battle Video (~27.5KB).", "Error");
                 return;
             }
 
