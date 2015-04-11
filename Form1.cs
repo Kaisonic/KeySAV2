@@ -1050,7 +1050,7 @@ namespace KeySAV3
                 
                 // Add the result to the CSV data if needed
                 if (CB_ExportStyle.SelectedIndex == 6 || CB_ExportStyle.SelectedIndex == 7)
-                    csvdata += result + "\r\n";
+                    csvdata += result + "\n";
 
                 if (isSAV && ghost && CHK_MarkFirst.Checked) result = "~" + result;
                 dumpedcounter++;
