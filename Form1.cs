@@ -1199,13 +1199,13 @@ namespace KeySAV2
             GB_Filter.Visible = CHK_Enable_Filtering.Checked;
             if (CHK_Enable_Filtering.Checked)
             {
-                RTB_SAV.Height = this.Height - 208 - 212;
+                RTB_SAV.Height = this.Height - 185 - 233;
                 RTB_SAV.Location = new System.Drawing.Point(0, 334);
             }
             else
             {
-                RTB_SAV.Height = this.Height - 208;
-                RTB_SAV.Location = new System.Drawing.Point(0, 122);
+                RTB_SAV.Height = this.Height - 185;
+                RTB_SAV.Location = new System.Drawing.Point(0, 100);
             }
         }
 
