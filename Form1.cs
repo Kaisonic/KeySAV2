@@ -1196,24 +1196,14 @@ namespace KeySAV2
 
         private void toggleFilter(object sender, EventArgs e)
         {
-            CCB_HPType.Enabled = CB_No_IVs.Enabled = CHK_Trickroom.Enabled =
-            CHK_Special_Attacker.Enabled = CHK_IVsAny.Enabled =
-            CHK_IV_HP.Enabled = CHK_IV_Atk.Enabled = CHK_IV_Def.Enabled =
-            CHK_IV_SpAtk.Enabled = CHK_IV_SpDef.Enabled = CHK_IV_Spe.Enabled =
-            CHK_Is_Shiny.Enabled = CHK_Hatches_Shiny_For_Me.Enabled =
-            CHK_Hatches_Shiny_For.Enabled = TB_SVs.Enabled =
-            CHK_Egg.Enabled = RAD_Male.Enabled = RAD_Female.Enabled =
-            RAD_GenderAny.Enabled  = CCB_Natures.Enabled =
-            CB_Abilities.Enabled = CHK_Enable_Filtering.Checked;
+            GB_Filter.Visible = CHK_Enable_Filtering.Checked;
             if (CHK_Enable_Filtering.Checked)
             {
-                GB_Filter.Height = 251;
                 RTB_SAV.Height = this.Height - 208 - 212;
                 RTB_SAV.Location = new System.Drawing.Point(0, 334);
             }
             else
             {
-                GB_Filter.Height = 39;
                 RTB_SAV.Height = this.Height - 208;
                 RTB_SAV.Location = new System.Drawing.Point(0, 122);
             }

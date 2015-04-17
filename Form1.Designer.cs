@@ -41,6 +41,7 @@ namespace KeySAV2
             this.RTB_VID = new System.Windows.Forms.RichTextBox();
             this.Tab_SAV = new System.Windows.Forms.TabPage();
             this.GB_Filter = new System.Windows.Forms.GroupBox();
+            this.CHK_Has_HA = new System.Windows.Forms.CheckBox();
             this.CB_Abilities = new System.Windows.Forms.ComboBox();
             this.L_Ability = new System.Windows.Forms.Label();
             this.L_Nature = new System.Windows.Forms.Label();
@@ -78,6 +79,7 @@ namespace KeySAV2
             this.B_OpenSAV = new System.Windows.Forms.Button();
             this.TB_SAV = new System.Windows.Forms.TextBox();
             this.Tab_Options = new System.Windows.Forms.TabPage();
+            this.CHK_Header = new System.Windows.Forms.CheckBox();
             this.CHK_Unicode = new System.Windows.Forms.CheckBox();
             this.B_ResetCSV = new System.Windows.Forms.Button();
             this.CHK_NameQuotes = new System.Windows.Forms.CheckBox();
@@ -110,8 +112,6 @@ namespace KeySAV2
             this.RTB_OPTIONS = new System.Windows.Forms.RichTextBox();
             this.CB_MainLanguage = new System.Windows.Forms.ComboBox();
             this.CB_Game = new System.Windows.Forms.ComboBox();
-            this.CHK_Has_HA = new System.Windows.Forms.CheckBox();
-            this.CHK_Header = new System.Windows.Forms.CheckBox();
             this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
             this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.tab_Main.SuspendLayout();
@@ -255,6 +255,7 @@ namespace KeySAV2
             this.Tab_SAV.Controls.Add(this.B_GoSAV);
             this.Tab_SAV.Controls.Add(this.B_OpenSAV);
             this.Tab_SAV.Controls.Add(this.TB_SAV);
+            this.Tab_SAV.Controls.Add(this.CHK_Enable_Filtering);
             this.Tab_SAV.Location = new System.Drawing.Point(4, 22);
             this.Tab_SAV.Name = "Tab_SAV";
             this.Tab_SAV.Padding = new System.Windows.Forms.Padding(3);
@@ -292,21 +293,30 @@ namespace KeySAV2
             this.GB_Filter.Controls.Add(this.CB_No_IVs);
             this.GB_Filter.Controls.Add(this.L_No_IVs);
             this.GB_Filter.Controls.Add(this.L_HP_Type);
-            this.GB_Filter.Controls.Add(this.CHK_Enable_Filtering);
             this.GB_Filter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.GB_Filter.Location = new System.Drawing.Point(3, 77);
+            this.GB_Filter.Location = new System.Drawing.Point(6, 100);
             this.GB_Filter.Name = "GB_Filter";
-            this.GB_Filter.Size = new System.Drawing.Size(316, 39);
+            this.GB_Filter.Size = new System.Drawing.Size(316, 233);
             this.GB_Filter.TabIndex = 31;
             this.GB_Filter.TabStop = false;
             this.GB_Filter.Text = "Filtering";
+            // 
+            // CHK_Has_HA
+            // 
+            this.CHK_Has_HA.AutoSize = true;
+            this.CHK_Has_HA.Location = new System.Drawing.Point(7, 204);
+            this.CHK_Has_HA.Name = "CHK_Has_HA";
+            this.CHK_Has_HA.Size = new System.Drawing.Size(112, 17);
+            this.CHK_Has_HA.TabIndex = 32;
+            this.CHK_Has_HA.Text = "Has Hidden Ability";
+            this.CHK_Has_HA.UseVisualStyleBackColor = true;
             // 
             // CB_Abilities
             // 
             this.CB_Abilities.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CB_Abilities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CB_Abilities.FormattingEnabled = true;
-            this.CB_Abilities.Location = new System.Drawing.Point(187, 225);
+            this.CB_Abilities.Location = new System.Drawing.Point(188, 202);
             this.CB_Abilities.Name = "CB_Abilities";
             this.CB_Abilities.Size = new System.Drawing.Size(123, 21);
             this.CB_Abilities.TabIndex = 31;
@@ -314,7 +324,7 @@ namespace KeySAV2
             // L_Ability
             // 
             this.L_Ability.AutoSize = true;
-            this.L_Ability.Location = new System.Drawing.Point(132, 228);
+            this.L_Ability.Location = new System.Drawing.Point(133, 205);
             this.L_Ability.Name = "L_Ability";
             this.L_Ability.Size = new System.Drawing.Size(34, 13);
             this.L_Ability.TabIndex = 30;
@@ -323,7 +333,7 @@ namespace KeySAV2
             // L_Nature
             // 
             this.L_Nature.AutoSize = true;
-            this.L_Nature.Location = new System.Drawing.Point(132, 201);
+            this.L_Nature.Location = new System.Drawing.Point(133, 178);
             this.L_Nature.Name = "L_Nature";
             this.L_Nature.Size = new System.Drawing.Size(39, 13);
             this.L_Nature.TabIndex = 29;
@@ -333,7 +343,7 @@ namespace KeySAV2
             // 
             this.RAD_GenderAny.AutoSize = true;
             this.RAD_GenderAny.Checked = true;
-            this.RAD_GenderAny.Location = new System.Drawing.Point(82, 199);
+            this.RAD_GenderAny.Location = new System.Drawing.Point(83, 176);
             this.RAD_GenderAny.Name = "RAD_GenderAny";
             this.RAD_GenderAny.Size = new System.Drawing.Size(43, 17);
             this.RAD_GenderAny.TabIndex = 26;
@@ -345,7 +355,7 @@ namespace KeySAV2
             // 
             this.RAD_Female.AutoSize = true;
             this.RAD_Female.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.RAD_Female.Location = new System.Drawing.Point(45, 199);
+            this.RAD_Female.Location = new System.Drawing.Point(46, 176);
             this.RAD_Female.Name = "RAD_Female";
             this.RAD_Female.Size = new System.Drawing.Size(37, 17);
             this.RAD_Female.TabIndex = 25;
@@ -355,7 +365,7 @@ namespace KeySAV2
             // RAD_Male
             // 
             this.RAD_Male.AutoSize = true;
-            this.RAD_Male.Location = new System.Drawing.Point(5, 199);
+            this.RAD_Male.Location = new System.Drawing.Point(6, 176);
             this.RAD_Male.Name = "RAD_Male";
             this.RAD_Male.Size = new System.Drawing.Size(37, 17);
             this.RAD_Male.TabIndex = 24;
@@ -365,7 +375,7 @@ namespace KeySAV2
             // CHK_IVsAny
             // 
             this.CHK_IVsAny.AutoSize = true;
-            this.CHK_IVsAny.Location = new System.Drawing.Point(6, 124);
+            this.CHK_IVsAny.Location = new System.Drawing.Point(7, 101);
             this.CHK_IVsAny.Name = "CHK_IVsAny";
             this.CHK_IVsAny.Size = new System.Drawing.Size(37, 17);
             this.CHK_IVsAny.TabIndex = 23;
@@ -376,7 +386,7 @@ namespace KeySAV2
             // L_IVsMiss
             // 
             this.L_IVsMiss.AutoSize = true;
-            this.L_IVsMiss.Location = new System.Drawing.Point(3, 97);
+            this.L_IVsMiss.Location = new System.Drawing.Point(4, 74);
             this.L_IVsMiss.Name = "L_IVsMiss";
             this.L_IVsMiss.Size = new System.Drawing.Size(94, 13);
             this.L_IVsMiss.TabIndex = 22;
@@ -385,7 +395,7 @@ namespace KeySAV2
             // CHK_Egg
             // 
             this.CHK_Egg.AutoSize = true;
-            this.CHK_Egg.Location = new System.Drawing.Point(5, 42);
+            this.CHK_Egg.Location = new System.Drawing.Point(6, 19);
             this.CHK_Egg.Name = "CHK_Egg";
             this.CHK_Egg.Size = new System.Drawing.Size(72, 17);
             this.CHK_Egg.TabIndex = 21;
@@ -395,7 +405,7 @@ namespace KeySAV2
             // CHK_IV_Spe
             // 
             this.CHK_IV_Spe.AutoSize = true;
-            this.CHK_IV_Spe.Location = new System.Drawing.Point(209, 124);
+            this.CHK_IV_Spe.Location = new System.Drawing.Point(210, 101);
             this.CHK_IV_Spe.Name = "CHK_IV_Spe";
             this.CHK_IV_Spe.Size = new System.Drawing.Size(45, 17);
             this.CHK_IV_Spe.TabIndex = 20;
@@ -406,7 +416,7 @@ namespace KeySAV2
             // CHK_IV_SpDef
             // 
             this.CHK_IV_SpDef.AutoSize = true;
-            this.CHK_IV_SpDef.Location = new System.Drawing.Point(209, 110);
+            this.CHK_IV_SpDef.Location = new System.Drawing.Point(210, 87);
             this.CHK_IV_SpDef.Name = "CHK_IV_SpDef";
             this.CHK_IV_SpDef.Size = new System.Drawing.Size(62, 17);
             this.CHK_IV_SpDef.TabIndex = 19;
@@ -417,7 +427,7 @@ namespace KeySAV2
             // CHK_IV_SpAtk
             // 
             this.CHK_IV_SpAtk.AutoSize = true;
-            this.CHK_IV_SpAtk.Location = new System.Drawing.Point(209, 96);
+            this.CHK_IV_SpAtk.Location = new System.Drawing.Point(210, 73);
             this.CHK_IV_SpAtk.Name = "CHK_IV_SpAtk";
             this.CHK_IV_SpAtk.Size = new System.Drawing.Size(61, 17);
             this.CHK_IV_SpAtk.TabIndex = 18;
@@ -428,7 +438,7 @@ namespace KeySAV2
             // CHK_IV_Def
             // 
             this.CHK_IV_Def.AutoSize = true;
-            this.CHK_IV_Def.Location = new System.Drawing.Point(135, 124);
+            this.CHK_IV_Def.Location = new System.Drawing.Point(136, 101);
             this.CHK_IV_Def.Name = "CHK_IV_Def";
             this.CHK_IV_Def.Size = new System.Drawing.Size(43, 17);
             this.CHK_IV_Def.TabIndex = 17;
@@ -439,7 +449,7 @@ namespace KeySAV2
             // CHK_IV_Atk
             // 
             this.CHK_IV_Atk.AutoSize = true;
-            this.CHK_IV_Atk.Location = new System.Drawing.Point(135, 110);
+            this.CHK_IV_Atk.Location = new System.Drawing.Point(136, 87);
             this.CHK_IV_Atk.Name = "CHK_IV_Atk";
             this.CHK_IV_Atk.Size = new System.Drawing.Size(42, 17);
             this.CHK_IV_Atk.TabIndex = 16;
@@ -450,7 +460,7 @@ namespace KeySAV2
             // CHK_IV_HP
             // 
             this.CHK_IV_HP.AutoSize = true;
-            this.CHK_IV_HP.Location = new System.Drawing.Point(135, 96);
+            this.CHK_IV_HP.Location = new System.Drawing.Point(136, 73);
             this.CHK_IV_HP.Name = "CHK_IV_HP";
             this.CHK_IV_HP.Size = new System.Drawing.Size(41, 17);
             this.CHK_IV_HP.TabIndex = 15;
@@ -460,7 +470,7 @@ namespace KeySAV2
             // 
             // TB_SVs
             // 
-            this.TB_SVs.Location = new System.Drawing.Point(135, 168);
+            this.TB_SVs.Location = new System.Drawing.Point(136, 145);
             this.TB_SVs.Name = "TB_SVs";
             this.TB_SVs.Size = new System.Drawing.Size(175, 20);
             this.TB_SVs.TabIndex = 14;
@@ -468,7 +478,7 @@ namespace KeySAV2
             // CHK_Hatches_Shiny_For
             // 
             this.CHK_Hatches_Shiny_For.AutoSize = true;
-            this.CHK_Hatches_Shiny_For.Location = new System.Drawing.Point(6, 170);
+            this.CHK_Hatches_Shiny_For.Location = new System.Drawing.Point(7, 147);
             this.CHK_Hatches_Shiny_For.Name = "CHK_Hatches_Shiny_For";
             this.CHK_Hatches_Shiny_For.Size = new System.Drawing.Size(128, 17);
             this.CHK_Hatches_Shiny_For.TabIndex = 13;
@@ -478,7 +488,7 @@ namespace KeySAV2
             // CHK_Hatches_Shiny_For_Me
             // 
             this.CHK_Hatches_Shiny_For_Me.AutoSize = true;
-            this.CHK_Hatches_Shiny_For_Me.Location = new System.Drawing.Point(135, 147);
+            this.CHK_Hatches_Shiny_For_Me.Location = new System.Drawing.Point(136, 124);
             this.CHK_Hatches_Shiny_For_Me.Name = "CHK_Hatches_Shiny_For_Me";
             this.CHK_Hatches_Shiny_For_Me.Size = new System.Drawing.Size(78, 17);
             this.CHK_Hatches_Shiny_For_Me.TabIndex = 12;
@@ -488,7 +498,7 @@ namespace KeySAV2
             // CHK_Is_Shiny
             // 
             this.CHK_Is_Shiny.AutoSize = true;
-            this.CHK_Is_Shiny.Location = new System.Drawing.Point(6, 147);
+            this.CHK_Is_Shiny.Location = new System.Drawing.Point(7, 124);
             this.CHK_Is_Shiny.Name = "CHK_Is_Shiny";
             this.CHK_Is_Shiny.Size = new System.Drawing.Size(82, 17);
             this.CHK_Is_Shiny.TabIndex = 11;
@@ -498,7 +508,7 @@ namespace KeySAV2
             // CHK_Special_Attacker
             // 
             this.CHK_Special_Attacker.AutoSize = true;
-            this.CHK_Special_Attacker.Location = new System.Drawing.Point(209, 67);
+            this.CHK_Special_Attacker.Location = new System.Drawing.Point(210, 44);
             this.CHK_Special_Attacker.Name = "CHK_Special_Attacker";
             this.CHK_Special_Attacker.Size = new System.Drawing.Size(104, 17);
             this.CHK_Special_Attacker.TabIndex = 6;
@@ -509,7 +519,7 @@ namespace KeySAV2
             // CHK_Trickroom
             // 
             this.CHK_Trickroom.AutoSize = true;
-            this.CHK_Trickroom.Location = new System.Drawing.Point(135, 67);
+            this.CHK_Trickroom.Location = new System.Drawing.Point(136, 44);
             this.CHK_Trickroom.Name = "CHK_Trickroom";
             this.CHK_Trickroom.Size = new System.Drawing.Size(73, 17);
             this.CHK_Trickroom.TabIndex = 5;
@@ -529,7 +539,7 @@ namespace KeySAV2
             "4",
             "5",
             "6"});
-            this.CB_No_IVs.Location = new System.Drawing.Point(93, 65);
+            this.CB_No_IVs.Location = new System.Drawing.Point(94, 42);
             this.CB_No_IVs.Name = "CB_No_IVs";
             this.CB_No_IVs.Size = new System.Drawing.Size(32, 21);
             this.CB_No_IVs.TabIndex = 4;
@@ -537,7 +547,7 @@ namespace KeySAV2
             // L_No_IVs
             // 
             this.L_No_IVs.AutoSize = true;
-            this.L_No_IVs.Location = new System.Drawing.Point(3, 68);
+            this.L_No_IVs.Location = new System.Drawing.Point(4, 45);
             this.L_No_IVs.Name = "L_No_IVs";
             this.L_No_IVs.Size = new System.Drawing.Size(90, 13);
             this.L_No_IVs.TabIndex = 3;
@@ -546,7 +556,7 @@ namespace KeySAV2
             // L_HP_Type
             // 
             this.L_HP_Type.AutoSize = true;
-            this.L_HP_Type.Location = new System.Drawing.Point(132, 43);
+            this.L_HP_Type.Location = new System.Drawing.Point(133, 20);
             this.L_HP_Type.Name = "L_HP_Type";
             this.L_HP_Type.Size = new System.Drawing.Size(49, 13);
             this.L_HP_Type.TabIndex = 2;
@@ -555,7 +565,7 @@ namespace KeySAV2
             // CHK_Enable_Filtering
             // 
             this.CHK_Enable_Filtering.AutoSize = true;
-            this.CHK_Enable_Filtering.Location = new System.Drawing.Point(5, 15);
+            this.CHK_Enable_Filtering.Location = new System.Drawing.Point(11, 77);
             this.CHK_Enable_Filtering.Name = "CHK_Enable_Filtering";
             this.CHK_Enable_Filtering.Size = new System.Drawing.Size(59, 17);
             this.CHK_Enable_Filtering.TabIndex = 0;
@@ -674,10 +684,10 @@ namespace KeySAV2
             this.RTB_SAV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RTB_SAV.Location = new System.Drawing.Point(0, 122);
+            this.RTB_SAV.Location = new System.Drawing.Point(0, 339);
             this.RTB_SAV.Name = "RTB_SAV";
             this.RTB_SAV.ReadOnly = true;
-            this.RTB_SAV.Size = new System.Drawing.Size(320, 380);
+            this.RTB_SAV.Size = new System.Drawing.Size(320, 160);
             this.RTB_SAV.TabIndex = 30;
             this.RTB_SAV.Text = "";
             this.RTB_SAV.WordWrap = false;
@@ -739,6 +749,18 @@ namespace KeySAV2
             this.Tab_Options.TabIndex = 2;
             this.Tab_Options.Text = "Options";
             this.Tab_Options.UseVisualStyleBackColor = true;
+            // 
+            // CHK_Header
+            // 
+            this.CHK_Header.AutoSize = true;
+            this.CHK_Header.Checked = true;
+            this.CHK_Header.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_Header.Location = new System.Drawing.Point(167, 31);
+            this.CHK_Header.Name = "CHK_Header";
+            this.CHK_Header.Size = new System.Drawing.Size(61, 17);
+            this.CHK_Header.TabIndex = 40;
+            this.CHK_Header.Text = "Header";
+            this.CHK_Header.UseVisualStyleBackColor = true;
             // 
             // CHK_Unicode
             // 
@@ -1120,28 +1142,6 @@ namespace KeySAV2
             this.CB_Game.TabIndex = 2;
             this.CB_Game.SelectedIndexChanged += new System.EventHandler(this.changedetectgame);
             // 
-            // CHK_Has_HA
-            // 
-            this.CHK_Has_HA.AutoSize = true;
-            this.CHK_Has_HA.Location = new System.Drawing.Point(6, 227);
-            this.CHK_Has_HA.Name = "CHK_Has_HA";
-            this.CHK_Has_HA.Size = new System.Drawing.Size(112, 17);
-            this.CHK_Has_HA.TabIndex = 32;
-            this.CHK_Has_HA.Text = "Has Hidden Ability";
-            this.CHK_Has_HA.UseVisualStyleBackColor = true;
-            // 
-            // CHK_Header
-            // 
-            this.CHK_Header.AutoSize = true;
-            this.CHK_Header.Checked = true;
-            this.CHK_Header.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_Header.Location = new System.Drawing.Point(167, 31);
-            this.CHK_Header.Name = "CHK_Header";
-            this.CHK_Header.Size = new System.Drawing.Size(61, 17);
-            this.CHK_Header.TabIndex = 40;
-            this.CHK_Header.Text = "Header";
-            this.CHK_Header.UseVisualStyleBackColor = true;
-            // 
             // CCB_HPType
             // 
             this.CCB_HPType.CheckOnClick = false;
@@ -1151,7 +1151,7 @@ namespace KeySAV2
             this.CCB_HPType.ForeColor = System.Drawing.SystemColors.WindowText;
             this.CCB_HPType.FormattingEnabled = true;
             this.CCB_HPType.IntegralHeight = false;
-            this.CCB_HPType.Location = new System.Drawing.Point(187, 40);
+            this.CCB_HPType.Location = new System.Drawing.Point(188, 17);
             this.CCB_HPType.Name = "CCB_HPType";
             this.CCB_HPType.Size = new System.Drawing.Size(123, 21);
             this.CCB_HPType.TabIndex = 28;
@@ -1166,7 +1166,7 @@ namespace KeySAV2
             this.CCB_Natures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CCB_Natures.FormattingEnabled = true;
             this.CCB_Natures.IntegralHeight = false;
-            this.CCB_Natures.Location = new System.Drawing.Point(187, 198);
+            this.CCB_Natures.Location = new System.Drawing.Point(188, 175);
             this.CCB_Natures.Name = "CCB_Natures";
             this.CCB_Natures.Size = new System.Drawing.Size(123, 21);
             this.CCB_Natures.TabIndex = 27;
