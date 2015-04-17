@@ -66,7 +66,6 @@ namespace KeySAV2
             this.CB_No_IVs = new System.Windows.Forms.ComboBox();
             this.L_No_IVs = new System.Windows.Forms.Label();
             this.L_HP_Type = new System.Windows.Forms.Label();
-            this.CHK_Enable_Filtering = new System.Windows.Forms.CheckBox();
             this.B_BKP_SAV = new System.Windows.Forms.Button();
             this.L_SAVStats = new System.Windows.Forms.Label();
             this.L_BoxThru = new System.Windows.Forms.Label();
@@ -78,6 +77,7 @@ namespace KeySAV2
             this.B_GoSAV = new System.Windows.Forms.Button();
             this.B_OpenSAV = new System.Windows.Forms.Button();
             this.TB_SAV = new System.Windows.Forms.TextBox();
+            this.CHK_Enable_Filtering = new System.Windows.Forms.CheckBox();
             this.Tab_Options = new System.Windows.Forms.TabPage();
             this.CHK_Header = new System.Windows.Forms.CheckBox();
             this.CHK_Unicode = new System.Windows.Forms.CheckBox();
@@ -562,17 +562,6 @@ namespace KeySAV2
             this.L_HP_Type.TabIndex = 2;
             this.L_HP_Type.Text = "HP Type";
             // 
-            // CHK_Enable_Filtering
-            // 
-            this.CHK_Enable_Filtering.AutoSize = true;
-            this.CHK_Enable_Filtering.Location = new System.Drawing.Point(11, 77);
-            this.CHK_Enable_Filtering.Name = "CHK_Enable_Filtering";
-            this.CHK_Enable_Filtering.Size = new System.Drawing.Size(59, 17);
-            this.CHK_Enable_Filtering.TabIndex = 0;
-            this.CHK_Enable_Filtering.Text = "Enable";
-            this.CHK_Enable_Filtering.UseVisualStyleBackColor = true;
-            this.CHK_Enable_Filtering.CheckedChanged += new System.EventHandler(this.toggleFilter);
-            // 
             // B_BKP_SAV
             // 
             this.B_BKP_SAV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -722,6 +711,17 @@ namespace KeySAV2
             this.TB_SAV.ReadOnly = true;
             this.TB_SAV.Size = new System.Drawing.Size(226, 20);
             this.TB_SAV.TabIndex = 7;
+            // 
+            // CHK_Enable_Filtering
+            // 
+            this.CHK_Enable_Filtering.AutoSize = true;
+            this.CHK_Enable_Filtering.Location = new System.Drawing.Point(11, 77);
+            this.CHK_Enable_Filtering.Name = "CHK_Enable_Filtering";
+            this.CHK_Enable_Filtering.Size = new System.Drawing.Size(98, 17);
+            this.CHK_Enable_Filtering.TabIndex = 0;
+            this.CHK_Enable_Filtering.Text = "Enable Filtering";
+            this.CHK_Enable_Filtering.UseVisualStyleBackColor = true;
+            this.CHK_Enable_Filtering.CheckedChanged += new System.EventHandler(this.toggleFilter);
             // 
             // Tab_Options
             // 
