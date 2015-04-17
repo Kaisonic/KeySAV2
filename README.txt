@@ -32,6 +32,9 @@ Kaisonic (http://www.reddit.com/r/SVExchange/comments/2o4qiu/a_newer_keysav2_bui
 ==============================
 Changelog for Kaisonic's Build
 ==============================
+KeySAV2 1.3.8.1 (2015-04-17)
+- Changed how the Filtering box is shown/hidden
+
 KeySAV2 1.3.8 (2015-01-29)
 - Fixed output text box size on filter enable
 - Ensured level calculation is correct
