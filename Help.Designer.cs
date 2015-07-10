@@ -1,4 +1,4 @@
-namespace KeySAV3
+namespace keysav2kai
 {
     partial class Help
     {
@@ -42,7 +42,7 @@ namespace KeySAV3
             this.CB_HelpSelector.FormattingEnabled = true;
             this.CB_HelpSelector.Items.AddRange(new object[] {
             "String Formatting",
-            "How to Use KeySAV3",
+            "How to Use This Program",
             "How to Get Your Saves",
             "How to Break Save Encryption",
             "How to Get Your Battle Videos",
@@ -51,7 +51,7 @@ namespace KeySAV3
             "How to Open Decrypted Saves (YABD, PCEdit, RAM2Sav)",
             "How to Use Battle Videos",
             "Export Options",
-            "About KeySAV3",
+            "About KeySAV2 - Kaisonic Edition",
             "Changelog"});
             this.CB_HelpSelector.Location = new System.Drawing.Point(56, 10);
             this.CB_HelpSelector.Name = "CB_HelpSelector";
@@ -73,6 +73,7 @@ namespace KeySAV3
             this.RTB_Help.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.RTB_Help.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_Help.Location = new System.Drawing.Point(13, 43);
             this.RTB_Help.Name = "RTB_Help";
             this.RTB_Help.ReadOnly = true;
@@ -94,7 +95,7 @@ namespace KeySAV3
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Help";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "KeySAV3 Help";
+            this.Text = "KeySAV2 - Kaisonic Edition Help";
             this.Load += new System.EventHandler(this.Help_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

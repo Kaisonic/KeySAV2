@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace KeySAV3
+namespace keysav2kai
 {
     static class Program
     {

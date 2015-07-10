@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeySAV3", "KeySAV3.csproj", "{B6A59E1E-69D3-4CC8-B53F-B576F098B01C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeySAV2 - Kaisonic Edition", "KeySAV2 - Kaisonic Edition.csproj", "{B6A59E1E-69D3-4CC8-B53F-B576F098B01C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

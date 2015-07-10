@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 using System.Timers;
 using CheckComboBox;
 
-namespace KeySAV3
+namespace keysav2kai
 {
     public partial class Form1 : Form
     {

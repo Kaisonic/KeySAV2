@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace KeySAV3
+namespace keysav2kai
 {
     public partial class Help : Form
     {
