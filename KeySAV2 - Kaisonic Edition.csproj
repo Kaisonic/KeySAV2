@@ -263,6 +263,7 @@
     <None Include="Resources\text\help_en\howto_getvideo.txt" />
     <None Include="Resources\text\help_en\howto_videos.txt" />
     <None Include="Resources\text\help_en\options.txt" />
+    <Content Include="Resources\text\help_en\license.txt" />
     <Content Include="Resources\text\it\text_Countries_it.txt" />
     <Content Include="Resources\text\it\text_Games_it.txt" />
     <Content Include="Resources\text\it\text_Regions_it.txt" />

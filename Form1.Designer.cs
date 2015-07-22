@@ -1414,7 +1414,7 @@ namespace keysav2kai
             this.MinimumSize = new System.Drawing.Size(370, 588);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "KeySAV2 - Kaisonic Edition (BETA - DO NOT DISTRIBUTE)";
+            this.Text = "KeySAV2 - Kaisonic Edition";
             this.tab_Main.ResumeLayout(false);
             this.Tab_BV.ResumeLayout(false);
             this.Tab_BV.PerformLayout();

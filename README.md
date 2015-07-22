@@ -1,30 +1,31 @@
-=======
-KeySAV2
-=======
+=============================================
+KeySAV2 - Kaisonic Edition
+=============================================
 
-KeySAV 2.0
+Nintendo 3DS Pokémon X, Y, Omega Ruby, and Alpha Sapphire Save File and Battle Video Decryption Program
 
-3DS X/Y/OR/AS SaveFile Box / Battle Video PKX cracking program.
+KeySAV2 is a tool that can decrypt portions of encrypted Generation 6 Pokémon saves, including X, Y, Omega Ruby, and Alpha Sapphire. If you follow the setup guide correctly, you'll be able to view IVs, nature, shiny values, and more of all the hatched and unhatched Pokémon in your boxes or battle videos.
 
-KeySAV is a tool that can decrypt portions of encrypted Generation 6 Pokemon saves, including X, Y, Omega Ruby, and Alpha Sapphire.
-
-With this tool you can view IVs/Nature/ESV/TSV and much more of Hatched/Unhatched Pokémon that are in your boxes or battle videos, as long as you follow the setup guide properly.
-
-SUPPORTS BOTH RETAIL CARTRIDGES AND DIGITAL COPIES
+Both retail cartridges and digital copies are supported!
 
 If you have a digital copy, you only need an SD card reader to extract your encrypted save.
 
 If you have a retail copy, you need additional hardware to extract your encrypted save from your cartridge, such as the Datel Action Replay PowerSaves 3DS.
 
-CyberGadget encrypted save backups are also supported.
+Other encrypted and decrypted saves are supported too, including CyberGadget, YABD, PCEdit, and RAM2Sav.
 
-
-Thread:
+Original Thread:
 http://projectpokemon.org/forums/showthread.php?41752
 
+SVExchange Wiki:
+https://www.reddit.com/r/SVExchange/wiki/index
+
 Originally created by Kaphotics
+This version maintained by Kaisonic
 
 Modifications by
 ViolentSpatula
-Cu3PO42 (http://www.reddit.com/r/SVExchange/comments/2nun41/new_keysav2_build_with_more_features_that_does/)
-Kaisonic (http://www.reddit.com/r/SVExchange/comments/2o4qiu/a_newer_keysav2_build_with_even_more_features/)
+Cu3PO42
+Kaisonic
+
+KeySAV2 is FREE SOFTWARE. It is licensed for use under the GNU General Public License version 3. Refer to "Program License" or "LICENSE.md" for more information.
