@@ -235,6 +235,9 @@ namespace keysav2kai
                         this.Height = Convert.ToInt16(tr.ReadLine());
                         this.Width = Convert.ToInt16(tr.ReadLine());
                         CHK_Unicode.Checked = Convert.ToBoolean(Convert.ToInt16(tr.ReadLine()));
+                        vidpath = tr.ReadLine();
+                        savpath = tr.ReadLine();
+                        lastOpenedFilename = tr.ReadLine();
                         tr.Close();
                     }
                     catch
@@ -285,6 +288,9 @@ namespace keysav2kai
                         tr.WriteLine(this.Height.ToString());
                         tr.WriteLine(this.Width.ToString());
                         tr.WriteLine(Convert.ToInt16(CHK_Unicode.Checked).ToString());
+                        tr.WriteLine(vidpath);
+                        tr.WriteLine(savpath);
+                        tr.WriteLine(lastOpenedFilename);
                         tr.Close();
                     }
                     catch
@@ -425,7 +431,7 @@ namespace keysav2kai
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.InitialDirectory = savpath;
             ofd.RestoreDirectory = true;
-            ofd.Filter = "Save|*.sav;*.bin";
+            ofd.Filter = "Save|*.sav;*.bin|All Files|*.*";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 lastOpenedFilename = ofd.SafeFileName;
@@ -837,8 +843,8 @@ namespace keysav2kai
             int boxoffset = BitConverter.ToInt32(keystream, 0x1C);
             for (int i = 0; i < 930; i++)
                 fetchpkx(input, keystream, boxoffset + i * 232, 0x100 + i * 232, 0x40000 + i * 232, blank);
-            if(showUI)
-                L_SAVStats.Text = String.Format("{0}/930", slots);
+            // if (showUI)
+                // L_SAVStats.Text = String.Format("{0}/930", slots);
         }
 
         private void dumpPKX(bool isSAV, byte[] pkx, int dumpnum, int dumpstart)
@@ -2467,18 +2473,18 @@ namespace keysav2kai
             int hour = dt.Hour;
             int minute = dt.Minute;
             int second = dt.Second;
-            string bkpdate = year.ToString("0000") + month.ToString("00") + day.ToString("00") + hour.ToString("00") + minute.ToString("00") + second.ToString("00") + " ";
+            string bkpdate = year.ToString("0000") + "-" + month.ToString("00") + "-" + day.ToString("00") + " " + hour.ToString("00") + "-" + minute.ToString("00") + "-" + second.ToString("00") + " ";
             string newpath = bakpath + Path.DirectorySeparatorChar + bkpdate + fi.Name;
             if (File.Exists(newpath))
             {
-                DialogResult sdr = MessageBox.Show("File already exists!\n\nOverwrite?", "Prompt", MessageBoxButtons.YesNo);
+                DialogResult sdr = MessageBox.Show("Save already exists!\n\nOverwrite?", "Prompt", MessageBoxButtons.YesNo);
                 if (sdr == DialogResult.Yes)
                     File.Delete(newpath);
                 else 
                     return;
             }
             File.Copy(tb.Text, newpath);
-            MessageBox.Show("Copied to Backup Folder.\n\nFile named:\n" + newpath, "Alert");
+            MessageBox.Show("Save backed up to:\n\n" + newpath, "Message");
         }
 
         private void B_BKP_BV_Click(object sender, EventArgs e)
@@ -2492,18 +2498,18 @@ namespace keysav2kai
             int hour = dt.Hour;
             int minute = dt.Minute;
             int second = dt.Second;
-            string bkpdate = year.ToString("0000") + month.ToString("00") + day.ToString("00") + hour.ToString("00") + minute.ToString("00") + second.ToString("00") + " ";
+            string bkpdate = year.ToString("0000") + "-" + month.ToString("00") + "-" + day.ToString("00") + " " + hour.ToString("00") + "-" + minute.ToString("00") + "-" + second.ToString("00") + " ";
             string newpath = bakpath + Path.DirectorySeparatorChar + bkpdate + fi.Name;
             if (File.Exists(newpath))
             {
-                DialogResult sdr = MessageBox.Show("File already exists!\n\nOverwrite?", "Prompt", MessageBoxButtons.YesNo);
+                DialogResult sdr = MessageBox.Show("Video already exists!\n\nOverwrite?", "Prompt", MessageBoxButtons.YesNo);
                 if (sdr == DialogResult.Yes)
                     File.Delete(newpath);
                 else 
                     return;
             }
             File.Copy(tb.Text, newpath);
-            MessageBox.Show("Copied to Backup Folder.\n\nFile named:\n" + newpath, "Alert");
+            MessageBox.Show("Video backed up to:\n\n" + newpath, "Message");
         }
 
         private void B_BreakFolder_Click(object sender, EventArgs e)

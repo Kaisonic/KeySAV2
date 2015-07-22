@@ -64,8 +64,6 @@ namespace keysav2kai
             this.CB_Abilities = new System.Windows.Forms.ComboBox();
             this.L_Ability = new System.Windows.Forms.Label();
             this.L_Nature = new System.Windows.Forms.Label();
-            this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
-            this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.RAD_GenderAny = new System.Windows.Forms.RadioButton();
             this.RAD_Female = new System.Windows.Forms.RadioButton();
             this.RAD_Male = new System.Windows.Forms.RadioButton();
@@ -149,6 +147,8 @@ namespace keysav2kai
             this.B_ShowOptions = new System.Windows.Forms.Button();
             this.CB_Game = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.CCB_HPType = new CheckComboBox.CheckedComboBoxAll();
+            this.CCB_Natures = new CheckComboBox.CheckedComboBoxAll();
             this.tab_Main.SuspendLayout();
             this.Tab_BV.SuspendLayout();
             this.Tab_SAV.SuspendLayout();
@@ -388,36 +388,6 @@ namespace keysav2kai
             this.L_Nature.Size = new System.Drawing.Size(40, 13);
             this.L_Nature.TabIndex = 29;
             this.L_Nature.Text = "Nature";
-            // 
-            // CCB_HPType
-            // 
-            this.CCB_HPType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CCB_HPType.CheckOnClick = false;
-            this.CCB_HPType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.CCB_HPType.DropDownHeight = 1;
-            this.CCB_HPType.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.CCB_HPType.FormattingEnabled = true;
-            this.CCB_HPType.IntegralHeight = false;
-            this.CCB_HPType.Location = new System.Drawing.Point(188, 17);
-            this.CCB_HPType.Name = "CCB_HPType";
-            this.CCB_HPType.Size = new System.Drawing.Size(123, 22);
-            this.CCB_HPType.TabIndex = 28;
-            this.CCB_HPType.ValueSeparator = ", ";
-            // 
-            // CCB_Natures
-            // 
-            this.CCB_Natures.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CCB_Natures.BackColor = System.Drawing.Color.White;
-            this.CCB_Natures.CheckOnClick = true;
-            this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.CCB_Natures.DropDownHeight = 1;
-            this.CCB_Natures.FormattingEnabled = true;
-            this.CCB_Natures.IntegralHeight = false;
-            this.CCB_Natures.Location = new System.Drawing.Point(188, 175);
-            this.CCB_Natures.Name = "CCB_Natures";
-            this.CCB_Natures.Size = new System.Drawing.Size(123, 22);
-            this.CCB_Natures.TabIndex = 27;
-            this.CCB_Natures.ValueSeparator = ", ";
             // 
             // RAD_GenderAny
             // 
@@ -674,7 +644,6 @@ namespace keysav2kai
             this.L_SAVStats.Name = "L_SAVStats";
             this.L_SAVStats.Size = new System.Drawing.Size(0, 13);
             this.L_SAVStats.TabIndex = 25;
-            this.L_SAVStats.Visible = false;
             // 
             // L_BoxThru
             // 
@@ -1416,6 +1385,36 @@ namespace keysav2kai
             this.label3.Size = new System.Drawing.Size(43, 18);
             this.label3.TabIndex = 0;
             this.label3.Text = "Game:";
+            // 
+            // CCB_HPType
+            // 
+            this.CCB_HPType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CCB_HPType.CheckOnClick = false;
+            this.CCB_HPType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.CCB_HPType.DropDownHeight = 1;
+            this.CCB_HPType.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.CCB_HPType.FormattingEnabled = true;
+            this.CCB_HPType.IntegralHeight = false;
+            this.CCB_HPType.Location = new System.Drawing.Point(188, 17);
+            this.CCB_HPType.Name = "CCB_HPType";
+            this.CCB_HPType.Size = new System.Drawing.Size(123, 22);
+            this.CCB_HPType.TabIndex = 28;
+            this.CCB_HPType.ValueSeparator = ", ";
+            // 
+            // CCB_Natures
+            // 
+            this.CCB_Natures.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CCB_Natures.BackColor = System.Drawing.Color.White;
+            this.CCB_Natures.CheckOnClick = true;
+            this.CCB_Natures.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.CCB_Natures.DropDownHeight = 1;
+            this.CCB_Natures.FormattingEnabled = true;
+            this.CCB_Natures.IntegralHeight = false;
+            this.CCB_Natures.Location = new System.Drawing.Point(188, 175);
+            this.CCB_Natures.Name = "CCB_Natures";
+            this.CCB_Natures.Size = new System.Drawing.Size(123, 22);
+            this.CCB_Natures.TabIndex = 27;
+            this.CCB_Natures.ValueSeparator = ", ";
             // 
             // Form1
             // 
