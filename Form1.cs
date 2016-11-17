@@ -479,6 +479,12 @@ namespace keysav2kai
                 binType = "oras";
                 openBIN(path);
             }
+            else if (len == 483328)
+            {
+                // Full decrypted save
+                binType = "dec";
+                openBIN(path);
+            }
             else
             {
                 binType = "sav";
@@ -1180,6 +1186,24 @@ namespace keysav2kai
                 {
                     case "sav":
                         // Offset is already 0
+                        break;
+
+                    case "dec2":
+                        // Find the offset
+                        for (int i = 0; i < 483096; i += 1)
+                        {
+                            byte[] test3 = new byte[232];
+                            Array.Copy(savefile, i, test3, 0, 232);
+                            if (verifyCHK(decryptArray(test3)))
+                            {
+                                RTB_SAV.Text = "Found it! Offset is " + i.ToString() + "\n";
+                                binOffset = i;
+                            }
+                        }
+                        break;
+
+                    case "dec":
+                        binOffset = 0x7F000;
                         break;
                         
                     case "yabd":
@@ -2465,16 +2489,11 @@ namespace keysav2kai
         private void B_BKP_SAV_Click(object sender, EventArgs e)
         {
             TextBox tb = TB_SAV;
+            string bkpdate = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
             FileInfo fi = new FileInfo(tb.Text);
-            DateTime dt = fi.LastWriteTime;
-            int year = dt.Year;
-            int month = dt.Month;
-            int day = dt.Day;
-            int hour = dt.Hour;
-            int minute = dt.Minute;
-            int second = dt.Second;
-            string bkpdate = year.ToString("0000") + "-" + month.ToString("00") + "-" + day.ToString("00") + " " + hour.ToString("00") + "-" + minute.ToString("00") + "-" + second.ToString("00") + " ";
-            string newpath = bakpath + Path.DirectorySeparatorChar + bkpdate + fi.Name;
+            string prefix = L_KeySAV.Text.Replace("SAV Key - ", "").Replace(".bin", "") + " - ";
+            if (prefix == "Decrypted; no key neeeded. - ") prefix = "";
+            string newpath = bakpath + Path.DirectorySeparatorChar + prefix + bkpdate + " " + fi.Name;
             if (File.Exists(newpath))
             {
                 DialogResult sdr = MessageBox.Show("Save already exists!\n\nOverwrite?", "Prompt", MessageBoxButtons.YesNo);
@@ -2490,16 +2509,9 @@ namespace keysav2kai
         private void B_BKP_BV_Click(object sender, EventArgs e)
         {
             TextBox tb = TB_BV;
+            string bkpdate = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
             FileInfo fi = new FileInfo(tb.Text);
-            DateTime dt = fi.LastWriteTime;
-            int year = dt.Year;
-            int month = dt.Month;
-            int day = dt.Day;
-            int hour = dt.Hour;
-            int minute = dt.Minute;
-            int second = dt.Second;
-            string bkpdate = year.ToString("0000") + "-" + month.ToString("00") + "-" + day.ToString("00") + " " + hour.ToString("00") + "-" + minute.ToString("00") + "-" + second.ToString("00") + " ";
-            string newpath = bakpath + Path.DirectorySeparatorChar + bkpdate + fi.Name;
+            string newpath = bakpath + Path.DirectorySeparatorChar + bkpdate + " " + fi.Name;
             if (File.Exists(newpath))
             {
                 DialogResult sdr = MessageBox.Show("Video already exists!\n\nOverwrite?", "Prompt", MessageBoxButtons.YesNo);
