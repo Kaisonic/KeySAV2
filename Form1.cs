@@ -479,10 +479,16 @@ namespace keysav2kai
                 binType = "oras";
                 openBIN(path);
             }
+            else if (len == 415232)
+            {
+                // Full decrypted XY main save
+                binType = "decXY";
+                openBIN(path);
+            }
             else if (len == 483328)
             {
-                // Full decrypted save
-                binType = "dec";
+                // Full decrypted ORAS main save
+                binType = "decORAS";
                 openBIN(path);
             }
             else
@@ -1188,22 +1194,12 @@ namespace keysav2kai
                         // Offset is already 0
                         break;
 
-                    case "dec2":
-                        // Find the offset
-                        for (int i = 0; i < 483096; i += 1)
-                        {
-                            byte[] test3 = new byte[232];
-                            Array.Copy(savefile, i, test3, 0, 232);
-                            if (verifyCHK(decryptArray(test3)))
-                            {
-                                RTB_SAV.Text = "Found it! Offset is " + i.ToString() + "\n";
-                                binOffset = i;
-                            }
-                        }
+                    case "decXY":
+                        binOffset = 0x22600;
                         break;
 
-                    case "dec":
-                        binOffset = 0x7F000;
+                    case "decORAS":
+                        binOffset = 0x33000;
                         break;
                         
                     case "yabd":
